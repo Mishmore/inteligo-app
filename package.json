@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Mishmore/tf-inteligo.git"
+        "url": "git+https://github.com/Mishmore/inteligo-app"
     },
     "keywords": [
         "inteligo"
@@ -17,9 +17,9 @@
     "author": "michelle wendy marilu mariel",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Mishmore/tf-inteligo/issues"
+        "url": "https://github.com/Mishmore/inteligo-app/issues"
     },
-    "homepage": "https://github.com/Mishmore/tf-inteligo#readme",
+    "homepage": "https://github.com/Mishmore/inteligo-app#readme",
     "devDependencies": {
         "browser-sync": "^2.18.12",
         "gulp": "^3.9.1",
