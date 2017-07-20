@@ -18,19 +18,19 @@ pregunta8.on('change', function(e) {
 });
 
 var defensivo = [
-  {
-    max: [7,4],
-    arr: []
-  },
-  {
-    max: [5,12],
-    arr: []
-  },
-  {
-    max: [3,20],
-    arr: []
-  }
-]
+                  {
+                    max: [7,4],
+                    arr: []
+                  },
+                  {
+                    max: [5,12],
+                    arr: []
+                  },
+                  {
+                    max: [3,20],
+                    arr: []
+                  }
+                ];
 
 var createBlock = function(perfil, index) {
    for (var i = 0; i <= perfil[index].max[0]; i++) {
@@ -45,32 +45,23 @@ for (var i = 0; i < defensivo.length; i++) {
 }
 
 console.log(defensivo);
-/*
-var def = [[0,1], [0,3], [8,5]];
-var altconserv = [[0,4], [8,6]];
 
-var x = 8;
-var y = 6;
+var x = 5;
+var y = 10;
 var newCordenada = [];
 newCordenada.push(x,y);
 
 var findProfile = function(newCordenada) {
-  def.forEach(function(e, index) {
-    if (e[0] == newCordenada[0] && e[1] == newCordenada[1]) {
-      console.log('defensivo encontrado');
-      console.log(index);
-      return false;
-    }
-  })
-
-    altconserv.forEach(function(e, index) {
-    if (e[0] == newCordenada[0] && e[1] == newCordenada[1]) {
-      console.log(' alto conservador encontrado');
-      console.log(index);
-      return false;
-    }
-  })
+  defensivo.forEach(function(e) {
+    e.arr.forEach(function(el) {
+      if (el[0] == newCordenada[0] && el[1] == newCordenada[1]) {
+        console.log('defensivo encontrado');
+        return false;
+      }  else {
+        console.log('no encontrado');
+      }
+    });
+  });
 }
 
 findProfile(newCordenada);
-*/
