@@ -8215,7 +8215,7 @@ function Question1(update) {
 	var loading = $('<div class="loading"></div>');
 	var loadingBase = $('<div class="loading-base"></div>');
 
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
 
 	var divA = $('<div class="radio"></div>');
@@ -8283,7 +8283,7 @@ function Question2(update) {
 	var loading = $('<div class="loading"></div>');
 	var loadingBase = $('<div class="loading-base"></div>');
 
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta2.pregunta +'</h3>');
 
 	var divA = $('<div class="radio"></div>');
@@ -8344,7 +8344,7 @@ function Question3(update) {
 	var loading = $('<div class="loading"></div>');
 	var loadingBase = $('<div class="loading-base"></div>');
 
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta3.pregunta +'</h3>');
 
   var divA = $('<div class="radio"></div>');
@@ -8409,7 +8409,7 @@ function Question4(update) {
 	var loadingBase = $('<div class="loading-base"></div>');
 
 	var h3 = $('<h3>' + state.questions.pregunta4.pregunta +'</h3>');
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
   var divA = $('<div class="radio"></div>');
 	var radioA = $('<label><input type="radio" name="option-4" value="'+ state.questions.pregunta4.opciones.a.valor +'">'+ state.questions.pregunta4.opciones.a.texto +'</label>');
 	var divB = $('<div class="radio"></div>');
@@ -8477,7 +8477,7 @@ function Question5(update) {
 	var loadingBase = $('<div class="loading-base"></div>');
 
 	var h3 = $('<h3>'+ '5'+state.questions.pregunta5.pregunta +'</h3>');
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
   var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-5" value="'+ state.questions.pregunta5.opciones.a.valor +'">'+ state.questions.pregunta5.opciones.a.texto +'</label>');
   var divB = $('<div class="radio"></div>');
@@ -8544,7 +8544,7 @@ function Question6(update) {
 	var loadingBase = $('<div class="loading-base"></div>');
 
 	var h3 = $('<h3>'+state.questions.pregunta6.pregunta+'</h3>');
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var divA = $('<div class="radio"></div>');
 	var radioA = $('<label><input type="radio" name="option-6" value="'+ state.questions.pregunta6.opciones.a.valor +'">'+state.questions.pregunta6.opciones.a.texto+'</label>');
 	var divB = $('<div class="radio"></div>');
@@ -8607,7 +8607,7 @@ function Question7(update) {
 	var loadingBase = $('<div class="loading-base"></div>');
 
 	var h3 = $('<h3>'+state.questions.pregunta7.pregunta+'</h3>');
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.a.valor +'">'+state.questions.pregunta7.opciones.a.texto+'</label>');
   var divB = $('<div class="radio"></div>');
@@ -8674,7 +8674,7 @@ function Question8(update) {
 	var loadingBase = $('<div class="loading-base"></div>');
 
 	var h3 = $('<h3>'+state.questions.pregunta8.pregunta+'</h3>');
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-8" value="'+ state.questions.pregunta8.opciones.a.valor +'">'+state.questions.pregunta8.opciones.a.texto+'</label>');
   var divB = $('<div class="radio"></div>');

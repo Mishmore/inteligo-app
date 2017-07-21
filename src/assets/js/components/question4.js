@@ -10,7 +10,7 @@ function Question4(update) {
 	var loadingBase = $('<div class="loading-base"></div>');
 
 	var h3 = $('<h3>' + state.questions.pregunta4.pregunta +'</h3>');
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
   var divA = $('<div class="radio"></div>');
 	var radioA = $('<label><input type="radio" name="option-4" value="'+ state.questions.pregunta4.opciones.a.valor +'">'+ state.questions.pregunta4.opciones.a.texto +'</label>');
 	var divB = $('<div class="radio"></div>');

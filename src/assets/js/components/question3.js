@@ -9,7 +9,7 @@ function Question3(update) {
 	var loading = $('<div class="loading"></div>');
 	var loadingBase = $('<div class="loading-base"></div>');
 
-	var form = $('<form class="col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta3.pregunta +'</h3>');
 
   var divA = $('<div class="radio"></div>');

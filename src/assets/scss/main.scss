@@ -54,9 +54,17 @@ header {
     float: left;
       height: 100%;
       padding: 50px 90px;
+      @media (max-width: 768px) {
+        padding: 0 15px;
+      }
     .btn {
       float: right;
       background-color: $brand-color;
+      @media (max-width: 768px) {
+        float: none;
+        margin: 0 auto;
+        display: block;
+      }
     }
     .btn[disabled]:hover{
       cursor: default;
