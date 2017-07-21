@@ -1,4 +1,4 @@
-function Question2th(update) {
+function Question2(update) {
 	var container = $('<div class="container"></div>');
 	var h3 = $('<h3></h3>');
 	var form = $('<form></form>');
@@ -29,7 +29,7 @@ function Question2th(update) {
 	form.append(btn);
 
 	btn.on('click', function(e) {
-		state.screenView = "Question3th";
+		state.screenView = "Question3";
 		update();
 	});
 	return container;
