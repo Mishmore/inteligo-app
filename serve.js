@@ -8,3 +8,12 @@ app.listen(app.get('port'), function() {
 });
 
 app.use('/', express.static('public'));
+
+var api = require("./api");
+
+app.get('/api/preguntas', function (req, res) {
+    var questions = api.questions();
+    questions.then( (result) => {
+        res.status(200).json(result);
+    });
+});
