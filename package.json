@@ -1,36 +1,39 @@
 {
-    "name": "tf-inteligo",
-    "version": "1.0.0",
-    "description": "Aplicacion de perfil de inversion",
-    "main": "serve.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node serve.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Mishmore/inteligo-app"
-    },
-    "keywords": [
-        "inteligo"
-    ],
-    "author": "michelle wendy marilu mariel",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Mishmore/inteligo-app/issues"
-    },
-    "homepage": "https://github.com/Mishmore/inteligo-app#readme",
-    "devDependencies": {
-        "browser-sync": "^2.18.12",
-        "gulp": "^3.9.1",
-        "gulp-add-src": "^0.2.0",
-        "gulp-browserify": "^0.5.1",
-        "gulp-concat": "^2.6.1",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "^3.1.0",
-        "gulp-uglify": "^3.0.0"
-    },
-    "dependencies": {
-        "express": "^4.15.3"
-    }
+  "name": "tf-inteligo",
+  "version": "1.0.0",
+  "description": "Aplicacion de perfil de inversion",
+  "main": "serve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serve.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mishmore/inteligo-app"
+  },
+  "keywords": [
+    "inteligo"
+  ],
+  "author": "michelle wendy marilu mariel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mishmore/inteligo-app/issues"
+  },
+  "homepage": "https://github.com/Mishmore/inteligo-app#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "firebase-admin": "^5.0.1",
+    "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "firebase": "^4.1.3",
+    "firebase-admin": "^5.0.1"
+  }
 }

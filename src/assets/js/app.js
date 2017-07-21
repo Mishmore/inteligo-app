@@ -10,7 +10,7 @@ var pregunta8 = $('.pregunta8');
 var perfil,sumax,sumay;
 var matrizLength = 4*8;
 
-var matriz=new Array(preguntasx);
+var matriz=new Array(matrizLength);
 
 pregunta4.on('change', function(e) {
   sumax = parseInt(pregunta1.val()) + parseInt(pregunta2.val()) + parseInt(pregunta3.val()) + parseInt(pregunta4.val());
@@ -67,3 +67,6 @@ function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametro
     }
   }
 }
+
+
+// Initialize Firebase
