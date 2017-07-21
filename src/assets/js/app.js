@@ -56,6 +56,7 @@ function prueba() {
   comparar(29,31,22,28, "agresivo");
   comparar(27,31,30,32, "agresivo");
 }
+
 function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametroPerfil) {
   for (i = valorxInicial; i <= valorxFinal; i++) {
     for (e = valoryInicial; e <= valoryFinal; e++) {
@@ -68,5 +69,19 @@ function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametro
   }
 }
 
+var txtEmail = $('#txtEmail');
+var txtPassword = $('#txtPassword');
+var btnLogin = $('#btnLogin');
+var btnSignup = $('#btnSignup');
+var btnLogout = $('#btnLogout');
 
-// Initialize Firebase
+btnLogin.on('click', function(e) {
+  console.log(txtEmail.val());
+});
+
+$( _ => {
+  getJSON('/api/preguntas', (err, json) => {
+  console.log(json);
+  });
+});
+//$.get('/api/preguntas')

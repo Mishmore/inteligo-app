@@ -80,6 +80,11 @@ gulp.task('html-watch', ["html"], function(done) {
 
 gulp.task('start', ['html', 'sass', 'css', 'js']);
 
+gulp.task("watcher", () => {
+  gulp.watch(sources.html, ["html-watch"]);
+  gulp.watch(sources.sass, ["sass-watch"]);
+  gulp.watch(sources.js, ["js-watch"]);
+});
 
 gulp.task('serve', function() {
     browserSync.init({
