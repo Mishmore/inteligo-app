@@ -1,0 +1,66 @@
+@import "colors";
+@import "fonts";
+
+*, body, html, h1,h2, h3, h4,h5, h6 {
+  font-family: $main-font !important;
+}
+
+header {
+      margin-bottom: 50px;
+}
+
+.question {
+  height: 92vh;
+  padding: 0;
+  .helper {
+    float: left;
+    background-color: $brand-color;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #ffffff;
+      height: 100%;
+      .loading-div {
+        position: relative;
+      }
+      .loading {
+        width: 0%;
+        height: 30px;
+        background-color: white;
+        transition: 1s ease-out;
+        z-index: 20;
+        position: absolute;
+        top: 0;
+      }
+      .loading-base {
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        background-color: darken($brand-color, 5%);
+        position: absolute;
+        top: 0;
+      }
+      img {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+      }
+      h5 {
+        text-align: center;
+        margin: 40px 0;
+    font-size: 1.8rem;
+      }
+  }
+  form {
+    float: left;
+      height: 100%;
+      padding: 50px 90px;
+    .btn {
+      float: right;
+      background-color: $brand-color;
+    }
+    .btn[disabled]:hover{
+      cursor: default;
+      background-color: $brand-color;
+    }
+  }
+}

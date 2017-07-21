@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="assets\css\bootstrap.min.css">
     <link rel="stylesheet" href="assets\css\main.css">
     <title>Document</title>
@@ -11,7 +12,7 @@
 
 <body>
   <div class="root"></div>
-    <h5>Bloque X</h5>
+    <!-- <h5>Bloque X</h5>
     <label for="pregunta1">pregunta1</label>
     <p id=pregunta1></p>
     <select class="pregunta1" name="">
@@ -92,29 +93,27 @@
       <option value="8">e</option>
     </select>
 
-    <p id="totaly"></p>
-    <div class="container">
+    <p id="totaly"></p> -->
+
+    <div class="container form-email">
       <input type="email" name="" value="" id="txtEmail" placeholder="email">
-      <input type="password" name="" value="" id="txtPassword">
-      <button type="button" name="button" id="btnLogin">login</button>
-      <button type="button" name="button" id="btnSignup">registrarse</button>
-      <button type="button" name="button" id="btnLogout">logout</button>
+      <button type="button" name="button" id="btnSendEmail">login</button>
     </div>
 
-    <form id="myform" method="post">
-     <label>reply_to</label>
-     <input type="text" name="reply_to" />
-     <label>from_name</label>
-     <input type="text" name="from_name" />
-     <label>to_name</label>
-     <input type="text" name="to_name" />
-     <label>message_html</label>
-     <input type="text" name="message_html" />
-     <br><br>
-     <button>
-     Send
-     </button>
+    <form class="form-register" onsubmit="return false">
+      <input type="text" name="" value="" id="nombre" placeholder="nombre">
+      <input type="text" name="" value="" id="apellidos" placeholder="apellidos">
+      <input type="number" name="" value="" id="dia" placeholder="dd">
+      <input type="number" name="" value="" id="mes" placeholder="mm">
+      <input type="number" name="" value="" id="año" placeholder="aa">
+      <input type="radio" name="gender" value="masculino"> Masculino
+      <input type="radio" name="gender" value="femenino"> Femenino
+      <input type="checkbox" name="" value="" id="terminos"> Acepto los términos y condiciones
+      <button type="button" name="button" id="registrarme">Aceptar</button>
     </form>
+
+    
+
 
     <script src="assets\js\jquery-3.2.1.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>

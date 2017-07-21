@@ -103,10 +103,7 @@ var firebase = fb.initializeApp(config);
 var database = firebase.database();
 
 var txtEmail = $('#txtEmail');
-var txtPassword = $('#txtPassword');
-var btnLogin = $('#btnLogin');
-var btnSignup = $('#btnSignup');
-var btnLogout = $('#btnLogout');
+var btnSendEmail = $('#btnSendEmail');
 
 var fillEmail = function(email) {
   var mail = {
@@ -119,10 +116,48 @@ var fillEmail = function(email) {
   return database.ref().update(updates);
 }
 
-btnLogin.on('click', function(e) {
-    var email = txtEmail.val();
-    fillEmail(email);
-  });
+btnSendEmail.on('click', function(e) {
+  var email = txtEmail.val();
+  fillEmail(email);
+});
+
+// var nombre = $('#nombre');
+// var apellidos = $('#apellidos');
+// var dia = $('#dia');
+// var mes = $('#mes');
+// var año = $('#año');
+// var gender = $('#gender');
+// var terminos = $('#terminos');
+var registrarme = $('#registrarme');
+
+var completeRegister = function(nombre, apellidos, dia, mes, año, gender, terminos) {
+  var user = {
+    nombre: nombre,
+    apellidos: apellidos,
+    dia: dia,
+    mes: mes,
+    año: año,
+    gender: gender,
+    terminos: terminos,
+  };
+  var newPostKey = database.ref().child('users').push().key;
+  var updates = {};
+  updates['/users/' + newPostKey] = user;
+
+  return database.ref().update(updates);
+}
+
+registrarme.on('click', function(e) {
+  var nombre = $('#nombre').val();
+  var apellidos = $('#apellidos').val();
+  var dia = $('#dia').val();
+  var mes = $('#mes').val();
+  var año = $('#año').val();
+  var gender = $('input[name="gender"]:checked').val();
+  var terminos = true;
+
+  completeRegister(nombre, apellidos, dia, mes, año, gender, terminos);
+});
 
 var render = function(root) {
   root.empty();
@@ -154,7 +189,7 @@ var render = function(root) {
 
 var state = {
 	questions: null,
-	screenView: null,
+	screenView: "question-1",
 }
 
 var hola = {
