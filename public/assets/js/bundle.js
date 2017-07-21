@@ -8202,10 +8202,40 @@ btnLogin.on('click', function(e) {
     fillEmail(email);
   });
 
-$( _ => {
+var render = function(root) {
+  root.empty();
+  var wrapper = $('<div class="wrapper"></div>');
+	switch(state.screenView) {
+	case null:
+		wrapper.append(Home(_ => render(root)));
+		break;
+	case "question-1":
+		wrapper.append(Question1(_ => render(root)));
+		break;
+	case "question-2":
+		wrapper.append(Question2(_ => render(root)));
+		break;
+	}
+  root.append(wrapper);
+}
+
+var state = {
+	questions: null,
+	screenView: null
+}
+
+
+$(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
-  // console.log(json);
+    state.questions = json;
+  console.log(state.questions);
+  console.log(state.questions.pregunta1);
+  var root = $('.root');
+  render(root);
   });
+	$('.collapse').collapse({
+  toggle: true
+	})
 });
 
 },{"firebase":9}]},{},[55])
