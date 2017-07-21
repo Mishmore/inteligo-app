@@ -3,7 +3,8 @@
   "id": "1",
   "opciones": {
     "a": {
-			"texto": "Seguridad.- Prefiero la seguridad de mis inversiones, así la rentabilidad en el tiempo se encuentre por debajo de los niveles de inflación (2% anual).",
+			"nombre": "Seguridad",
+			"texto": "Prefiero la seguridad de mis inversiones, así la rentabilidad en el tiempo se encuentre por debajo de los niveles de inflación (2% anual).",
 			"valor": 0
 		},
 		"b": {
@@ -11,15 +12,18 @@
 			"valor": 2
 		},
 		"c": {
-			"texto": "Crecimiento y seguridad.- Quiero un balance entre crecimiento y seguridad, y estoy dispuesto a aceptar un nivel medio de variación en el valor de mi inversión con la finalidad de alcanzar una rentabilidad mayor a la inflación.",
+			"nombre": "Crecimiento y seguridad",
+			"texto": "Quiero un balance entre crecimiento y seguridad, y estoy dispuesto a aceptar un nivel medio de variación en el valor de mi inversión con la finalidad de alcanzar una rentabilidad mayor a la inflación.",
 			"valor": 4
 		},
 		"d": {
-			"texto": "Crecimiento.- Estoy interesado en generar crecimiento en mi inversión en el tiempo, y estoy menos preocupado por las fluctuaciones que éste pueda registrar en la búsqueda del retorno.",
+			"nombre": "Crecimiento",
+			"texto": "Estoy interesado en generar crecimiento en mi inversión en el tiempo, y estoy menos preocupado por las fluctuaciones que éste pueda registrar en la búsqueda del retorno.",
 			"valor": 6
 		},
 		"e": {
-			"texto": "Máximo crecimiento.- Mi único objetivo es el máximo crecimiento de mi inversión en el tiempo y puedo tolerar altos niveles de fluctuación en el valor de mi inversión en la búsqueda del retorno.",
+			"nombre": "Máximo crecimiento",
+			"texto": "Mi único objetivo es el máximo crecimiento de mi inversión en el tiempo y puedo tolerar altos niveles de fluctuación en el valor de mi inversión en la búsqueda del retorno.",
 			"valor": 8
 		}
   }
@@ -41,7 +45,7 @@
 		}
   }
 }, {
-  "pregunta": "¿Cuánto tiempo estima que podrá mantener su portafolio invertido en la estrategia que le sea recomendada sin que requiera realizar un retiro significativo de sus fondos?",
+  "pregunta": "¿Cuánto tiempo podría mantener su portafolio recomendado por Inteligo, sin realizar un retiro significativo de sus fondos?",
   "id": "3",
   "opciones": {
     "a": {
@@ -89,25 +93,66 @@
 }, {
 	"pregunta": "¿Con cuál de las siguientes trayectorias hipotéticas en su inversión se sentiría más cómodo?",
 	"id": "5",
+	"image": "public/assets/img/grafico.png",
 	"opciones": {
 		"a": {
 			"texto": "Portafolio A",
+			"rendimiento-anual": {
+				"anio-0": 100.00,
+				"anio-1": 100.53,
+				"anio-2": 100.95,
+				"anio-3": 101.67,
+				"anio-4": 102.80,
+				"anio-5" : 103.55
+			},
 			"valor": 0
 		},
 		"b": {
 			"texto": "Portafolio B",
+			"rendimiento-anual": {
+				"anio-0": 100.00,
+				"anio-1": 100.13,
+				"anio-2": 98.88,
+				"anio-3": 101.11,
+				"anio-4": 108.27,
+				"anio-5": 111.5
+			},
 			"valor": 2
 		},
 		"c": {
 			"texto": "Portafolio C",
+			"rendimiento-anual": {
+				"anio-0": 100.00,
+				"anio-1": 99.88,
+				"anio-2": 97.47,
+				"anio-3": 100.81,
+				"anio-4": 112.38,
+				"anio-5" : 116.74
+			},
 			"valor": 4
 		},
 		"d": {
 			"texto": "Portafolio D",
+			"rendimiento-anual": {
+				"anio-0": 100.00,
+				"anio-1": 99.10,
+				"anio-2": 95.14,
+				"anio-3": 98.84,
+				"anio-4": 113.43,
+				"anio-5" : 118.53
+			},
 			"valor": 6
 		},
 		"e": {
 			"texto": "Portafolio E",
+			"rendimiento-anual": {
+				"anio-0": 100.00,
+				"anio-1": 98.54,
+				"anio-2": 93.37,
+				"anio-3": 97.47,
+				"anio-4": 114.70,
+				"anio-5": 120.59
+			},
 			"valor": 8
 		}
 	}
@@ -163,22 +208,32 @@
 	"opciones": {
 		"a": {
 			"texto": "Portafolio A",
+			"retorno-anual": "1.0%",
+			"máxima-caida": "0.3%",
 			"valor": 0
 		},
 		"b": {
 			"texto": "Portafolio B",
+			"retorno-anual": "3.0%",
+			"máxima-caida": "-5.0%",
 			"valor": 2
 		},
 		"c": {
 			"texto": "Portafolio C",
+			"retorno-anual": "4.3%",
+			"máxima-caida": "-10.1%",
 			"valor": 4
 		},
 		"d": {
 			"texto": "Portafolio D",
+			"retorno-anual": "5.0%",
+			"máxima-caida": "-15.4%",
 			"valor": 6
 		},
 		"e": {
 			"texto": "Portafolio E",
+			"retorno-anual": "5.8%",
+			"máxima-caida": "-21.0%",
 			"valor": 8
 		}
 	}

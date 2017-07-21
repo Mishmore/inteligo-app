@@ -1,5 +1,6 @@
+
 /*
-var getJSON = (url, cb) {
+var getJSON = ("form.json", cb) {
 	var xhr = new XMLHttpRequest();
 	xhr.addEventListener('load', function() {
 
@@ -14,16 +15,24 @@ var getJSON = (url, cb) {
 	xhr.responseType = 'json';
 	xhr.send();
 }
-
-var state = {
-	data: null
-};
-
-$(document).ready(function() {
-	getJSON("form.json", function(err, json) {
-		if (err) { return alert(err.message);}
-		state.data = json;
-		console.log(state.data);
-	});
-});
 */
+// var state = {
+// 	data: null
+// };
+$( _ => {
+	alert("dg");
+/*
+  getJSON('form.json', (err, json) => {
+    if (err) { return alert(err.message);}
+			console.log(json);
+  });
+*/
+});
+
+// $(document).ready(function() {
+// 	$.getJSON('form.json', function(req, res) {
+// 		state.data = req;
+// 		console.log(req);
+// 	});
+//
+// });

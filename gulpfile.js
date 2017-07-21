@@ -7,20 +7,20 @@ var concat = require('gulp-concat');
 var addsrc = require('gulp-add-src');
 
 var config = {
-    source: './src/',
-    dist: './public/'
+  source: './src/',
+  dist: './public/'
 };
 
 var paths = {
-    assets: "assets/",
-    html: "**/*.html",
-    js: "js/**/*.js",
-    sass: "scss/**/*.scss",
-    jquery: "js/vendor/jquery-3.2.1.min.js",
-    bootstrapJs: "js/vendor/bootstrap.min.js",
-    bootstrapCss: "css/vendor/bootstrap.min.css",
-    mainSass: "scss/main.scss",
-    mainJS: "js/app.js"
+  assets: "assets/",
+  html: "**/*.html",
+  js: "js/**/*.js",
+  sass: "scss/**/*.scss",
+  jquery: "js/vendor/jquery-3.2.1.min.js",
+  bootstrapJs: "js/vendor/bootstrap.min.js",
+  bootstrapCss: "css/vendor/bootstrap.min.css",
+  mainSass: "scss/main.scss",
+  mainJS: "js/app.js"
 };
 
 var sources = {
@@ -38,6 +38,10 @@ var sources = {
 //gulp.task('icons', function() {
 //  gulp.src(sources.assets + 'icons/**/*').pipe(gulp.dest(config.dist + paths.assets + 'icons'));
 //});
+
+gulp.task('img', function() {
+ gulp.src(sources.assets + 'img/**/*').pipe(gulp.dest(config.dist + paths.assets + 'img'));
+});
 
 gulp.task('html', function() {
     gulp.src(sources.html).pipe(gulp.dest(config.dist));
@@ -78,7 +82,7 @@ gulp.task('html-watch', ["html"], function(done) {
 });
 
 
-gulp.task('start', ['html', 'sass', 'css', 'js']);
+gulp.task('start', ['html', 'sass', 'css', 'js', 'img']);
 
 
 gulp.task('serve', function() {
@@ -87,6 +91,7 @@ gulp.task('serve', function() {
             baseDir: config.dist
         }
     });
+
     gulp.watch(sources.html, ["html-watch"]);
     gulp.watch(sources.sass, ["sass-watch"]);
     gulp.watch(sources.js, ["js-watch"]);
