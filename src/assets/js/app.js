@@ -162,7 +162,7 @@ var render = function(root) {
     wrapper.append(Profile(_ => render(root)));
     break;
   case "description":
-    wrapper.append(Description());
+    wrapper.append(Description(_ => render(root)));
     break;
 	}
   root.append(wrapper);
