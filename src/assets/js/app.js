@@ -161,10 +161,12 @@ var hola = {
   nombre : "michelle"
 }
 
+var sumaX = 0;
+var sumaY = 0;
+
 $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
   state.questions = json;
-  //console.log(state.questions);
   var root = $('.root');
   render(root);
   });

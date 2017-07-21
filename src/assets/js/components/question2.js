@@ -1,6 +1,6 @@
 function Question2(update) {
 	var container = $('<div class="container"></div>');
-	var h3 = $('<h3></h3>');
+	var h3 = $('<h3>'+ state.questions.pregunta2.pregunta +'</h3>');
 	var form = $('<form></form>');
 	var divA = $('<div class="radio"></div>');
 	var radioA = $('<label><input type="radio" name="option">Seguridad</label>');
