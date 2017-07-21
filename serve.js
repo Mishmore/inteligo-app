@@ -9,12 +9,8 @@ app.listen(app.get('port'), function() {
 
 app.use('/', express.static('public'));
 
-
-
-
 var api = require("./api");
 if (api) { console.log('api existe');
-
 }
 
 app.get('/api/preguntas', function (req, res) {

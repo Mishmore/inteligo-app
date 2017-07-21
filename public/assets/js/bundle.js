@@ -105,6 +105,5 @@ $( _ => {
   console.log(json);
   });
 });
-//$.get('/api/preguntas')
 
 },{}]},{},[1])

@@ -84,4 +84,3 @@ $( _ => {
   console.log(json);
   });
 });
-//$.get('/api/preguntas')
