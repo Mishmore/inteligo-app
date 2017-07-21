@@ -8076,6 +8076,95 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+function Home(update) {
+	var container = $('<div class="nav text-center"></div>');
+	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
+	var btn = $('<button type="button" class="btn btn-primary">conosca su perfil</button>');
+
+	container.append(h3);
+	container.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "question-1";
+		update();
+	});
+	return container;
+}
+
+function Question1(update) {
+	var container = $('<div class="container"></div>');
+	var h3 = $('<h3>¿Cuál es el objetivo principal de su portafolio?</h3>');
+	var form = $('<form></form>');
+	var divA = $('<div class="radio"></div>');
+	var radioA = $('<label><input type="radio" name="option">Seguridad</label>');
+	var divB = $('<div class="radio"></div>');
+	var radioB = $('<label><input type="radio" name="option">Protección a la inflación</label>');
+	var divC = $('<div class="radio"></div>');
+	var radioC = $('<label><input type="radio" name="option">Crecimiento y seguridad</label>');
+	var divD = $('<div class="radio"></div>');
+	var radioD = $('<label><input type="radio" name="option">Crecimiento</label>');
+	var divE = $('<div class="radio"></div>');
+	var radioE = $('<label><input type="radio" name="option">Máximo Crecimiento</label>');
+	var btn = $('<button type="button" class="btn btn-primary">Continuar</button>');
+
+	container.append(h3);
+	container.append(form);
+	form.append(divA);
+	divA.append(radioA);
+	form.append(divB);
+	divB.append(radioB);
+	form.append(divC);
+	divC.append(radioC)
+	form.append(divD);
+	divD.append(radioD);
+	form.append(divE);
+	divE.append(radioE);
+	form.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "question-2";
+		update();
+	});
+	return container;
+}
+
+function Question2(update) {
+	var container = $('<div class="container"></div>');
+	var h3 = $('<h3></h3>');
+	var form = $('<form></form>');
+	var divA = $('<div class="radio"></div>');
+	var radioA = $('<label><input type="radio" name="option">Seguridad</label>');
+	var divB = $('<div class="radio"></div>');
+	var radioB = $('<label><input type="radio" name="option">Protección a la inflación</label>');
+	var divC = $('<div class="radio"></div>');
+	var radioC = $('<label><input type="radio" name="option">Crecimiento y seguridad</label>');
+	var divD = $('<div class="radio"></div>');
+	var radioD = $('<label><input type="radio" name="option">Crecimiento</label>');
+	var divE = $('<div class="radio"></div>');
+	var radioE = $('<label><input type="radio" name="option">Máximo Crecimiento</label>');
+	var btn = $('<button type="button" class="btn btn-primary">Continuar</button>');
+
+	container.append(h3);
+	container.append(form);
+	form.append(divA);
+	divA.append(radioA);
+	form.append(divB);
+	divB.append(radioB);
+	form.append(divC);
+	divC.append(radioC)
+	form.append(divD);
+	divD.append(radioD);
+	form.append(divE);
+	divE.append(radioE);
+	form.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "Question3";
+		update();
+	});
+	return container;
+}
+
 //send mail
 var myform = $("form#myform");
 myform.submit(function(event){
@@ -8219,7 +8308,7 @@ var render = function(root) {
   root.append(wrapper);
 }
 
-var state = {
+const state = {
 	questions: null,
 	screenView: null
 }
@@ -8229,7 +8318,6 @@ $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
     state.questions = json;
   console.log(state.questions);
-  console.log(state.questions.pregunta1);
   var root = $('.root');
   render(root);
   });

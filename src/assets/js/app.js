@@ -141,7 +141,7 @@ var render = function(root) {
   root.append(wrapper);
 }
 
-var state = {
+const state = {
 	questions: null,
 	screenView: null
 }
@@ -151,7 +151,6 @@ $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
     state.questions = json;
   console.log(state.questions);
-  console.log(state.questions.pregunta1);
   var root = $('.root');
   render(root);
   });
