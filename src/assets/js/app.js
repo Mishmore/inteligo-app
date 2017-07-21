@@ -176,7 +176,7 @@ var render = function(root) {
 
 var state = {
 	questions: null,
-	screenView: "profile",
+	screenView: null,
   perfil: ""
 }
 
