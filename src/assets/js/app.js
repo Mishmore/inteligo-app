@@ -132,7 +132,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Profile(_ => render(root)));
 		break;
 	case "question-1":
 		wrapper.append(Question1(_ => render(root)));

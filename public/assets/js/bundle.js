@@ -8103,25 +8103,21 @@ function Profile() {
   var h1= $('<h1>Genial</h1>')
   var h2= $('<h2>Su perfil es:'+perfil+' </h2>')
   var h3=$('<h3>Te sugerimos este plan de inversión: </h3>')
-  var div2 = $('<div id="donutchart" style="width: 900px; height: 500px;"></div>');
+  var img = $('<img src="assets/assets/img/chartpie.jpg" alt="">');
+  var div2 = $('<div class="informacion"></div>');
   var div3 = $('<div class="informacion"></div>');
-  var span1=$('<span class="texto"><i></i>  Rentabilidad:4.3%  </span>');
-  var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
-  var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
+  var span1=$('<span class="texto">  Rentabilidad:4.3%  </span>');
+  var span2=$('<span class="texto">Mejor Año:27% </span>');
+  var span3=$('<span class="texto">Peor Año:16.09%</span>');
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
   var btn = $('<button type="button" class="btn btn-primary">Conozca más de su perfil</button>');
 
   container.append(div1);
   container.append(div2);
-  container.append(div3);
   div1.append(h1);
   div1.append(h2);
-  div1.append(h3);
-  div3.append(span1);
-  div3.append(span2);
-  div3.append(span3);
-  div3.append(checkbox);
-  div3.append(btn);
+  div1.append(h3,img,span1,span2,span3,checkbox,btn,img);
+  div2.append(btn);
   // var chart = new google.visualization.PieChart(div3.id);
   // chart.draw(data, options);
   // google.charts.load("current", {packages:["corechart"]});
@@ -8754,7 +8750,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Profile(_ => render(root)));
 		break;
 	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
