@@ -127,6 +127,7 @@ btnLogin.on('click', function(e) {
 var render = function(root) {
   root.empty();
   var wrapper = $('<div class="wrapper"></div>');
+  wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
 		wrapper.append(Home(_ => render(root)));
