@@ -137,23 +137,37 @@ var render = function(root) {
 	case "question-2":
 		wrapper.append(Question2(_ => render(root)));
 		break;
+  case "question-3":
+    wrapper.append(Question3(_ => render(root)));
+    break;
+  case "question-4":
+    wrapper.append(Question4(_ => render(root)));
+    break;
+  case "question-5":
+    wrapper.append(Question5(_ => render(root)));
+    break;
+
 	}
   root.append(wrapper);
 }
 
-const state = {
+var state = {
 	questions: null,
-	screenView: null
+	screenView: null,
 }
 
+var hola = {
+  nombre : "michelle"
+}
 
 $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
-    state.questions = json;
-  console.log(state.questions);
+  state.questions = json;
+  //console.log(state.questions);
   var root = $('.root');
   render(root);
   });
+
 	$('.collapse').collapse({
   toggle: true
 	})

@@ -8079,7 +8079,7 @@ var getJSON = (url, cb) => {
 function Home(update) {
 	var container = $('<div class="nav text-center"></div>');
 	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
-	var btn = $('<button type="button" class="btn btn-primary">conosca su perfil</button>');
+	var btn = $('<button type="button" class="btn btn-primary">conozca su perfil</button>');
 
 	container.append(h3);
 	container.append(btn);
@@ -8159,7 +8159,114 @@ function Question2(update) {
 	form.append(btn);
 
 	btn.on('click', function(e) {
-		state.screenView = "Question3";
+		state.screenView = "question-3";
+		update();
+	});
+	return container;
+}
+
+function Question3(update) {
+	var container = $('<div class="container"></div>');
+	var h3 = $('<h3>'+ state.questions.pregunta3.pregunta +'</h3>');
+	var form = $('<form></form>');
+  var divA = $('<div class="radio"></div>');
+  var radioA = $('<label><input type="radio" name="option">'+ state.questions.pregunta3.opciones.a.texto +'</label>');
+  var divB = $('<div class="radio"></div>');
+  var radioB = $('<label><input type="radio" name="option">'+ state.questions.pregunta3.opciones.b.texto +'</label>');
+  var divC = $('<div class="radio"></div>');
+  var radioC = $('<label><input type="radio" name="option">'+ state.questions.pregunta3.opciones.c.texto +'</label>');
+  var divD = $('<div class="radio"></div>');
+  var radioD = $('<label><input type="radio" name="option">'+ state.questions.pregunta3.opciones.d.texto +'</label>');
+	var btn = $('<button type="button" class="btn btn-primary">Continuar</button>');
+
+	container.append(h3);
+	container.append(form);
+	form.append(divA);
+	divA.append(radioA);
+	form.append(divB);
+	divB.append(radioB);
+	form.append(divC);
+	divC.append(radioC)
+	form.append(divD);
+	divD.append(radioD);
+	form.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "question-4";
+		update();
+	});
+	return container;
+}
+
+function Question4(update) {
+	var container = $('<div class="container"></div>');
+	var h3 = $('<h3>'+ state.questions.pregunta4.pregunta +'</h3>');
+	var form = $('<form></form>');
+  var divA = $('<div class="radio"></div>');
+  var radioA = $('<label><input type="radio" name="option">'+ state.questions.pregunta4.opciones.a.texto +'</label>');
+  var divB = $('<div class="radio"></div>');
+  var radioB = $('<label><input type="radio" name="option">'+ state.questions.pregunta4.opciones.b.texto +'</label>');
+  var divC = $('<div class="radio"></div>');
+  var radioC = $('<label><input type="radio" name="option">'+ state.questions.pregunta4.opciones.c.texto +'</label>');
+  var divD = $('<div class="radio"></div>');
+  var radioD = $('<label><input type="radio" name="option">'+ state.questions.pregunta4.opciones.d.texto +'</label>');
+  var divE = $('<div class="radio"></div>');
+	var radioE = $('<label><input type="radio" name="option">'+ state.questions.pregunta4.opciones.e.texto +'</label>');
+	var btn = $('<button type="button" class="btn btn-primary">Continuar</button>');
+
+	container.append(h3);
+	container.append(form);
+	form.append(divA);
+	divA.append(radioA);
+	form.append(divB);
+	divB.append(radioB);
+	form.append(divC);
+	divC.append(radioC)
+	form.append(divD);
+	divD.append(radioD);
+  form.append(divE);
+  divE.append(radioE);
+	form.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "question-5";
+		update();
+	});
+	return container;
+}
+
+function Question5(update) {
+	var container = $('<div class="container"></div>');
+	var h3 = $('<h3>'+ state.questions.pregunta5.pregunta +'</h3>');
+	var form = $('<form></form>');
+  var divA = $('<div class="radio"></div>');
+  var radioA = $('<label><input type="radio" name="option">'+ state.questions.pregunta5.opciones.a.texto +'</label>');
+  var divB = $('<div class="radio"></div>');
+  var radioB = $('<label><input type="radio" name="option">'+ state.questions.pregunta5.opciones.b.texto +'</label>');
+  var divC = $('<div class="radio"></div>');
+  var radioC = $('<label><input type="radio" name="option">'+ state.questions.pregunta5.opciones.c.texto +'</label>');
+  var divD = $('<div class="radio"></div>');
+  var radioD = $('<label><input type="radio" name="option">'+ state.questions.pregunta5.opciones.d.texto +'</label>');
+  var divE = $('<div class="radio"></div>');
+	var radioE = $('<label><input type="radio" name="option">'+ state.questions.pregunta5.opciones.e.texto +'</label>');
+	var btn = $('<button type="button" class="btn btn-primary">Continuar</button>');
+
+	container.append(h3);
+	container.append(form);
+	form.append(divA);
+	divA.append(radioA);
+	form.append(divB);
+	divB.append(radioB);
+	form.append(divC);
+	divC.append(radioC)
+	form.append(divD);
+	divD.append(radioD);
+  form.append(divE);
+  divE.append(radioE);
+	form.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "question-6";
 		update();
 	});
 	return container;
@@ -8304,23 +8411,37 @@ var render = function(root) {
 	case "question-2":
 		wrapper.append(Question2(_ => render(root)));
 		break;
+  case "question-3":
+    wrapper.append(Question3(_ => render(root)));
+    break;
+  case "question-4":
+    wrapper.append(Question4(_ => render(root)));
+    break;
+  case "question-5":
+    wrapper.append(Question5(_ => render(root)));
+    break;
+
 	}
   root.append(wrapper);
 }
 
-const state = {
+var state = {
 	questions: null,
-	screenView: null
+	screenView: null,
 }
 
+var hola = {
+  nombre : "michelle"
+}
 
 $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
-    state.questions = json;
-  console.log(state.questions);
+  state.questions = json;
+  //console.log(state.questions);
   var root = $('.root');
   render(root);
   });
+
 	$('.collapse').collapse({
   toggle: true
 	})

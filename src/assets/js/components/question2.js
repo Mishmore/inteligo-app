@@ -29,7 +29,7 @@ function Question2(update) {
 	form.append(btn);
 
 	btn.on('click', function(e) {
-		state.screenView = "Question3";
+		state.screenView = "question-3";
 		update();
 	});
 	return container;
