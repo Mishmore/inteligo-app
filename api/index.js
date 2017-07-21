@@ -273,11 +273,11 @@ var loadQuestions = () => {
     });
 };
 
-var fillEmail = function(email) {
-  database.ref('/emails').set({
-    email: email
-  });
-}
+// var fillEmail = function(email) {
+//   database.ref('/emails').set({
+//     email: email
+//   });
+// }
 
 
 var loadEmails = () => {
@@ -290,5 +290,5 @@ var loadEmails = () => {
 module.exports = {
     questions : loadQuestions,
     loadEmail: loadEmails,
-    fillEmail: fillEmail(email);
+    // fillEmail: fillEmail(email)
 };

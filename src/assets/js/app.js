@@ -69,19 +69,36 @@ function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametro
   }
 }
 
+var fb = require("firebase");
+var config = {
+  apiKey: "AIzaSyDV8HQ1DkRV1m0TRwJt39lgTB25AekoLyA",
+  authDomain: "inteligo-app.firebaseapp.com",
+  databaseURL: "https://inteligo-app.firebaseio.com",
+  projectId: "inteligo-app",
+  storageBucket: "inteligo-app.appspot.com",
+  messagingSenderId: "849747112038"
+};
+var firebase = fb.initializeApp(config);
+var database = firebase.database();
+
 var txtEmail = $('#txtEmail');
 var txtPassword = $('#txtPassword');
 var btnLogin = $('#btnLogin');
 var btnSignup = $('#btnSignup');
 var btnLogout = $('#btnLogout');
 
-var api = require("../api");
+var fillEmail = function(email) {
+  database.ref('/emails').set({
+    email: email
+  });
+}
 
 btnLogin.on('click', function(e) {
     var email = txtEmail.val();
     fillEmail(email);
     // fillEmai(email);
   });
+
 
 $( _ => {
   getJSON('/api/preguntas', (err, json) => {
