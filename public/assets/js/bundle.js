@@ -8169,32 +8169,17 @@ var fillEmail = function(email) {
   var mail = {
     email: email
   };
-  // Get a key for a new Post.
   var newPostKey = database.ref().child('emails').push().key;
-  // Write the new post's data simultaneously in the posts list and the user's post list.
   var updates = {};
   updates['/emails/' + newPostKey] = mail;
 
   return database.ref().update(updates);
 }
 
-// var loadEmails = () => {
-//   var url = '/emails';
-//   return database.ref(url).on('child_added', snap => console.log(snap.val()) );
-// }
-
-// database.ref('/emails').set({
-//   email: email
-// });
-
-// var dbRefEmails = database.ref().child('emails');
-// dbRefEmails.on('child_added', snap => console.log(snap.val()) );
-
 btnLogin.on('click', function(e) {
     var email = txtEmail.val();
     fillEmail(email);
   });
-
 
 $( _ => {
   getJSON('/api/preguntas', (err, json) => {

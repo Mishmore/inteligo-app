@@ -273,13 +273,6 @@ var loadQuestions = () => {
     });
 };
 
-// var fillEmail = function(email) {
-//   database.ref('/emails').set({
-//     email: email
-//   });
-// }
-
-
 var loadEmails = () => {
   var url = '/emails';
   return database.ref(url).once('value').then(function(snapshot) {
@@ -290,5 +283,4 @@ var loadEmails = () => {
 module.exports = {
     questions : loadQuestions,
     loadEmail: loadEmails,
-    // fillEmail: fillEmail(email)
 };
