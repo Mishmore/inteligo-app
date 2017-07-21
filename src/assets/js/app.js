@@ -126,6 +126,6 @@ btnLogin.on('click', function(e) {
 
 $( _ => {
   getJSON('/api/preguntas', (err, json) => {
-  // console.log(json);
+  console.log(json);
   });
 });
