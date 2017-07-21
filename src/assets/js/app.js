@@ -3,13 +3,13 @@ var render = function(root) {
   var wrapper = $('<div class="wrapper"></div>');
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Home(function(){render(root)}));
 		break;
 	case "question-1":
-		wrapper.append(Question1(_ => render(root)));
+		wrapper.append(Question1(function(){render(root)}));
 		break;
 	case "question-2":
-		wrapper.append(Question2(_ => render(root)));
+		wrapper.append(Question2(function(){render(root)}));
 		break;
 	}
   root.append(wrapper);
