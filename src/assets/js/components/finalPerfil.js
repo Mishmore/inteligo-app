@@ -12,17 +12,36 @@ function Profile(update) {
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
   var btn = $('<button type="button" class="btn btn-primary">Conozca más de su perfil</button>');
 
-perfil.append(h1);
-perfil.append(h2);
-perfil.append(h3);
-informacion.append(span1);
-informacion.append(span2);
-informacion.append(span3);
-informacion.append(checkbox);
-informacion.append(btn);
-container.append(perfil);
-container.append(grafico);
-container.append(informacion);
+div1.append(h1);
+div1.append(h2);
+div1.append(h3);
+div3.append(span1);
+div3.append(span2);
+div3.append(span3);
+div3.append(checkbox);
+div3.append(btn);
+container.append(div1);
+container.append(div2);
+container.append(div3);
+
+// google.charts.load("current", {packages:["corechart"]});
+// google.charts.setOnLoadCallback(drawChart);
+// function drawChart() {
+//   var data = google.visualization.arrayToDataTable([
+//     ['inversion', 'Percent'],
+//     ['Caja',     10],
+//     ['Renta fija', 73],
+//     ['Renta variable',  12],
+//     ['Renta alternativa',      5],
+//   ]);
+//     var options = {
+//       title: 'Plan de Inversion',
+//       pieHole: 0.4,
+//       colors: ['#08165A', '#213F9A', '#2879BD', '#4C4C4E']
+//       };
+//       var chart = new google.visualization.PieChart(div2));
+//       chart.draw(data, options);
+//     }
 
 btn.on('click', function(e) {
   state.screenView = "description";

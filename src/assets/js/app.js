@@ -153,7 +153,7 @@ var render = function(root) {
 
 const state = {
 	questions: null,
-	screenView: null
+	screenView: "description"
 }
 
 
