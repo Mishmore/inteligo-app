@@ -59,6 +59,20 @@ function preguntaUno() {
 }
 preguntaUno();
 
+var pregunta1 = null;
+var refPregunt1 = database.ref('/preguntas').child('pregunta');
+refPregunt1.on('value', snap => pregunta1 = snap.val() );
+console.log(pregunta1);
+
+//var userId = firebase.auth().currentUser.uid;
+// function leerData() {
+//   return database.ref('/preguntas').once('value').then(function(snapshot) {
+//     var pregunta = snapshot.val().pregunta;
+//     console.log(pregunta);
+//   });
+// }
+// leerData();
+
 // Import Admin SDK
 //var admin = require("firebase-admin");
 //if(admin) console.log("admin existe");
