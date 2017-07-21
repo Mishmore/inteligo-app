@@ -25,13 +25,39 @@ var firebase = fb.initializeApp(config);
 if(firebase) console.log("hola");
 var database = firebase.database();
 
-function writeUserData(name, email) {
-  database.ref('/usuarios').set({
-    username: name,
-    email: email
+function preguntaUno() {
+  database.ref('/preguntas').set({
+  pregunta: "¿Cuál es el objetivo primario de su portafolio de inversión?",
+  id: "1",
+  opciones: {
+    a: {
+      "nombre": "Seguridad",
+      "texto": "Prefiero la seguridad de mis inversiones, así la rentabilidad en el tiempo se encuentre por debajo de los niveles de inflación (2% anual).",
+      "valor": 0
+    },
+    b: {
+      "texto": "Protección a la inflación.- Estoy dispuesto a aceptar sólo un nivel bajo de variación en mi inversión a cambio de una rentabilidad que me proteja de la inflación.",
+      "valor": 2
+    },
+    c: {
+      "nombre": "Crecimiento y seguridad",
+      "texto": "Quiero un balance entre crecimiento y seguridad, y estoy dispuesto a aceptar un nivel medio de variación en el valor de mi inversión con la finalidad de alcanzar una rentabilidad mayor a la inflación.",
+      "valor": 4
+    },
+    d: {
+      "nombre": "Crecimiento",
+      "texto": "Estoy interesado en generar crecimiento en mi inversión en el tiempo, y estoy menos preocupado por las fluctuaciones que éste pueda registrar en la búsqueda del retorno.",
+      "valor": 6
+    },
+    e: {
+      "nombre": "Máximo crecimiento",
+      "texto": "Mi único objetivo es el máximo crecimiento de mi inversión en el tiempo y puedo tolerar altos niveles de fluctuación en el valor de mi inversión en la búsqueda del retorno.",
+      "valor": 8
+    }
+  }
   });
 }
-writeUserData('marco', 'fdsfds');
+preguntaUno();
 
 // Import Admin SDK
 //var admin = require("firebase-admin");
