@@ -10,7 +10,22 @@
 </head>
 
 <body>
-    <h5>Bloque X</h5>
+
+  <form id="myform" method="post">
+    <label>reply_to</label>
+    <input type="text" name="reply_to" />
+    <label>from_name</label>
+    <input type="text" name="from_name" />
+    <label>to_name</label>
+    <input type="text" name="to_name" />
+    <label>message_html</label>
+    <input type="text" name="message_html" />
+    <br><br>
+    <button>
+    Send
+    </button>
+  </form>
+
     <label for="pregunta1">pregunta1</label>
     <select class="pregunta1" name="">
       <option value="" disabled selected>-</option>
@@ -93,6 +108,12 @@
     <p id="totaly"></p>
 
     <script src="assets\js\jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_0BXDVzkt0eLfkLfUHKFQo");
+       })();
+    </script>
     <script src="assets\js\bundle.js" charset="utf-8"></script>
 </body>
 </html>
