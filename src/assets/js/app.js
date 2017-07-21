@@ -1,4 +1,3 @@
-//send mail
 var myform = $("form#myform");
 myform.submit(function(event){
     event.preventDefault();
@@ -28,22 +27,21 @@ var pregunta6 = $('.pregunta6');
 var pregunta7 = $('.pregunta7');
 var pregunta8 = $('.pregunta8');
 
-var perfil,sumax,sumay;
+//var perfil,sumax,sumay;
 var matrizLength = 4*8;
 
 var matriz=new Array(matrizLength);
 
-pregunta4.on('change', function(e) {
-  sumax = parseInt(pregunta1.val()) + parseInt(pregunta2.val()) + parseInt(pregunta3.val()) + parseInt(pregunta4.val());
-  console.log(sumax);
-});
-
-pregunta8.on('change', function(e) {
-  sumay = parseInt(pregunta5.val()) + parseInt(pregunta6.val()) + parseInt(pregunta7.val()) + parseInt(pregunta8.val());
-  console.log(sumay);
-  //total.y = sumay;
-  prueba();
-});
+//   sumax = state.pregunta1 + state.pregunta2 +state.pregunta3 + state.pregunta4;
+//   console.log(sumax);
+//
+//
+// pregunta8.on('change', function(e) {
+//   sumay = parseInt(state.pregunta5.val()) + parseInt(state.pregunta6.val()) + parseInt(state.pregunta7.val()) + parseInt(state.pregunta8.val());
+//   console.log(sumay);
+//   //total.y = sumay;
+//   prueba();
+// });
 
 function prueba() {
   for (i = 0; i < matrizLength; i++) {
@@ -127,6 +125,7 @@ btnLogin.on('click', function(e) {
 var render = function(root) {
   root.empty();
   var wrapper = $('<div class="wrapper"></div>');
+  //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
 		wrapper.append(Home(_ => render(root)));
@@ -137,23 +136,53 @@ var render = function(root) {
 	case "question-2":
 		wrapper.append(Question2(_ => render(root)));
 		break;
+  case "question-3":
+    wrapper.append(Question3(_ => render(root)));
+    break;
+  case "question-4":
+    wrapper.append(Question4(_ => render(root)));
+    break;
+  case "question-5":
+    wrapper.append(Question5(_ => render(root)));
+    break;
+  case "question-6":
+    wrapper.append(Question6(_ => render(root)));
+    break;
+  case "question-7":
+    wrapper.append(Question7(_ => render(root)));
+    break;
+  case "question-8":
+    wrapper.append(Question8(_ => render(root)));
+    break;
 	}
   root.append(wrapper);
 }
 
-const state = {
+var state = {
 	questions: null,
-	screenView: null
+	screenView: null,
+  pregunta1: 0,
+  pregunta2: 0,
+  pregunta3: 0,
+  pregunta4: 0,
+  pregunta5: 0,
+  pregunta6: 0,
+  pregunta7: 0,
+  pregunta8: 0,
+  sumax: 0,
+  sumay:0
 }
 
+var sumaX = 0;
+var sumaY = 0;
 
 $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {
-    state.questions = json;
-  console.log(state.questions);
+  state.questions = json;
   var root = $('.root');
   render(root);
   });
+
 	$('.collapse').collapse({
   toggle: true
 	})
