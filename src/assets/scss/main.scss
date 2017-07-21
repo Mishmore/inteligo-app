@@ -72,3 +72,88 @@ header {
     }
   }
 }
+
+$primary: #09175b;
+$second: rgba(34, 30, 31, 0.4);
+$light: #4285F4;
+
+body {
+
+}
+
+.nav-desktop {
+	display: none;
+}
+
+@media only screen and (min-width: 900px) {
+  nav {
+		background-color: #233E99;
+		padding-top: 20px;
+		padding-bottom: 17px;
+		padding-right: 10px;
+		#logo-desktop {
+			width: 200px;
+		}
+		a {
+			color: #ffffff;
+			text-decoration: none;
+		}
+  }
+	.nav.text-center {
+		display: none;
+	}
+
+	.nav-desktop {
+		display: block;
+	}
+
+	.img-cliente {
+		height: 6em;
+		background-image: url(../img/cliente.jpg);
+		background-size: cover;
+	}
+
+	#main {
+		background-image: url(../img/banner.png);
+		background-size: cover;
+		height: 530px;
+		padding-top: 5.5em;
+
+		.col-md-offset-6.text-center {
+			height: 100%;
+		}
+	}
+
+	.item-1 {
+		background-image: url(../img/team.jpg);
+		background-size: cover;
+		height: 300px;
+		margin: 15px auto;
+	}
+
+	.item-2 {
+		background-image: url(../img/25.jpg);
+		background-size: cover;
+		height: 300px;
+		margin: 15px auto;
+	}
+
+	.item-3 {
+		background-image: url(../img/item.jpg);
+		background-size: cover;
+		height: 300px;
+		margin: 15px auto;
+	}
+
+	h2 {
+		font-size: 60px;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.input {
+		height: 50px !important;
+		width: 200px !important;
+		color: #ffffff;
+	}
+}

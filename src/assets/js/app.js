@@ -34,17 +34,6 @@ var matrizLength = 4*8;
 
 var matriz=new Array(matrizLength);
 
-//   sumax = state.pregunta1 + state.pregunta2 +state.pregunta3 + state.pregunta4;
-//   console.log(sumax);
-//
-//
-// pregunta8.on('change', function(e) {
-//   sumay = parseInt(state.pregunta5.val()) + parseInt(state.pregunta6.val()) + parseInt(state.pregunta7.val()) + parseInt(state.pregunta8.val());
-//   console.log(sumay);
-//   //total.y = sumay;
-//   prueba();
-// });
-
 function prueba(id) {
   for (i = 0; i < matrizLength; i++) {
     matriz[i] = new Array(3);
@@ -84,9 +73,6 @@ function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametro
     var valor = sumaX + "," + sumaY
       if(matriz[i][e] == valor){
         perfil = parametroPerfil;
-        //alert(state.perfil);
-      alert(perfil);
-        //$(id).text(perfil);
       }
     }
   }
@@ -161,13 +147,16 @@ var render = function(root) {
   case "profile":
     wrapper.append(Profile(_ => render(root)));
     break;
+  case "description":
+    wrapper.append(Profile(_ => render(root)));
+    break;
 	}
   root.append(wrapper);
 }
 
 var state = {
 	questions: null,
-	screenView: "question-1",
+	screenView: null,
   perfil: ""
 }
 

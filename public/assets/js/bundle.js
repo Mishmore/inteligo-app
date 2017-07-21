@@ -8076,19 +8076,20 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+
 function Profile(update) {
+  prueba();
   var container = $('<div class="container"></div>');
   var div1 = $('<div class="profile"></div>');
   var h1= $('<h1>Genial</h1>')
-  var h2= $('<h2>Su perfil es:'+perfil+' </h2>')
-  var h3=$('<h3>Te sugerimos este plan de inversión: /h3>')
-  var div2 = $('<div id="donutchart" style="width: 900px; height: 500px;"></div>');
+  var h2= $('<h2>Su perfil es: '+ perfil +' </h2>')
+  var h3=$('<h3>Te sugerimos este plan de inversión: </h3>')
   var div3 = $('<div class="informacion"></div>');
   var span1=$('<span class="texto"><i></i>  Rentabilidad:4.3%  </span>');
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
-  var btn = $('<button type="button" class="btn btn-primary">Conozca más de su perfil</button>');
+  var btnRegister = $('<button type="button" class="btn btn-primary">Enviar Email/button>');
 
   div1.append(h1);
   div1.append(h2);
@@ -8099,43 +8100,37 @@ function Profile(update) {
   div3.append(checkbox);
   div3.append(btn);
   container.append(div1);
-  container.append(div2);
   container.append(div3);
-
-
-// google.charts.load("current", {packages:["corechart"]});
-// google.charts.setOnLoadCallback(drawChart);
-// function drawChart() {
-//   var data = google.visualization.arrayToDataTable([
-//     ['inversion', 'Percent'],
-//     ['Caja',     10],
-//     ['Renta fija', 73],
-//     ['Renta variable',  12],
-//     ['Renta alternativa',      5],
-//   ]);
-//     var options = {
-//       title: 'Plan de Inversion',
-//       pieHole: 0.4,
-//       colors: ['#08165A', '#213F9A', '#2879BD', '#4C4C4E']
-//       };
-//       var chart = new google.visualization.PieChart(div2));
-//       chart.draw(data, options);
-//     }
 
   btn.on('click', function(e) {
     state.screenView = "description";
     update();
   });
-  alert('llegue hasta aqui ');
-  // console.log(p.id);
-  prueba();
+
   return container;
 }
 
 function Home(update) {
-	var container = $('<div class="nav text-center"></div>');
+	var container = $('<div class="text-center"></div>');
+	var imgCliente = $('<div class="img-cliente col-xs-12"></div>');
 	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
-	var btn = $('<button type="button" class="btn btn-primary">conozca su perfil</button>');
+	var btn = $('<button type="button" class="btn btn-primary">Conozca su perfil</button>');
+
+	container.append(imgCliente);
+	container.append(h3);
+	container.append(btn);
+
+	btn.on('click', function(e) {
+		state.screenView = "question-1";
+		update();
+	});
+	return container;
+}
+
+function HomeDesktop(update) {
+	var container = $('<div class="nav text-center"></div>');
+	var h3 = $('<h3 class="hidden-md hidden-lg">¿Quieres saber como invertir?</h3>');
+	var btn = $('<button type="button" class="btn btn-primary hidden-md hidden-lg">conozca su perfil</button>');
 
 	container.append(h3);
 	container.append(btn);
@@ -8229,6 +8224,7 @@ function Question1(update) {
 	var divE = $('<div class="radio"></div>');
 	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>Máximo Crecimiento</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -8555,6 +8551,7 @@ function Question6(update) {
 	var radioD = $('<label><input type="radio" name="option-6" value="'+ state.questions.pregunta6.opciones.d.valor +'">'+state.questions.pregunta6.opciones.d.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+	btn.prop('disabled', true);
 
 	container.append(divAzul);
 	divAzul.append(logoDiv);
@@ -8620,6 +8617,7 @@ function Question7(update) {
   var radioE = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.e.valor +'">'+state.questions.pregunta7.opciones.e.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+	btn.prop('disabled', true);
 
 	container.append(divAzul);
 	divAzul.append(logoDiv);
@@ -8687,6 +8685,7 @@ function Question8(update) {
   var radioE = $('<label><input type="radio" name="option-8" value="'+ state.questions.pregunta8.opciones.e.valor +'">'+state.questions.pregunta8.opciones.e.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+	btn.prop('disabled', true);
 
 	container.append(divAzul);
 	divAzul.append(logoDiv);
@@ -8723,6 +8722,45 @@ function Question8(update) {
 					console.log(sumaY);
       }
 		state.screenView = "profile";
+		update();
+	});
+
+	return container;
+}
+
+function Register(update) {
+	var container = $('<div class="container-fluid question"></div>');
+	var divAzul = $('<div class="helper col-sm-4 hidden-xs "></div>');
+	var logoDiv = $('<div class="logo-div"></div>');
+	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var title = $('<h5>Descubriendo tu perfil</h5>');
+
+
+	btn.prop('disabled', true);
+
+	container.append(divAzul);
+	divAzul.append(logoDiv);
+	divAzul.append(title);
+	divAzul.append(divLoad);
+	divLoad.append(loading);
+	divLoad.append(loadingBase);
+	logoDiv.append(img);
+	container.append(form);
+
+
+	$(function(){
+	  	$('form input[type=radio]').change(function() {
+	  			btn.prop('disabled', false);
+	  	});
+	  });
+
+	btn.on('click', function(e) {
+		 var radioValue = $("input[name='option-1']:checked").val();
+			if(radioValue){
+				sumaX += parseInt(radioValue);
+				console.log(sumaX);
+			}
+		state.screenView = "question-2";
 		update();
 	});
 
@@ -8783,17 +8821,6 @@ var matrizLength = 4*8;
 
 var matriz=new Array(matrizLength);
 
-//   sumax = state.pregunta1 + state.pregunta2 +state.pregunta3 + state.pregunta4;
-//   console.log(sumax);
-//
-//
-// pregunta8.on('change', function(e) {
-//   sumay = parseInt(state.pregunta5.val()) + parseInt(state.pregunta6.val()) + parseInt(state.pregunta7.val()) + parseInt(state.pregunta8.val());
-//   console.log(sumay);
-//   //total.y = sumay;
-//   prueba();
-// });
-
 function prueba(id) {
   for (i = 0; i < matrizLength; i++) {
     matriz[i] = new Array(3);
@@ -8833,9 +8860,6 @@ function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametro
     var valor = sumaX + "," + sumaY
       if(matriz[i][e] == valor){
         perfil = parametroPerfil;
-        //alert(state.perfil);
-      alert(perfil);
-        //$(id).text(perfil);
       }
     }
   }
@@ -8910,13 +8934,16 @@ var render = function(root) {
   case "profile":
     wrapper.append(Profile(_ => render(root)));
     break;
+  case "description":
+    wrapper.append(Profile(_ => render(root)));
+    break;
 	}
   root.append(wrapper);
 }
 
 var state = {
 	questions: null,
-	screenView: "question-1",
+	screenView: null,
   perfil: ""
 }
 

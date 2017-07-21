@@ -21,6 +21,7 @@ function Question6(update) {
 	var radioD = $('<label><input type="radio" name="option-6" value="'+ state.questions.pregunta6.opciones.d.valor +'">'+state.questions.pregunta6.opciones.d.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+	btn.prop('disabled', true);
 
 	container.append(divAzul);
 	divAzul.append(logoDiv);

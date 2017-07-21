@@ -23,6 +23,7 @@ function Question1(update) {
 	var divE = $('<div class="radio"></div>');
 	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>Máximo Crecimiento</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
