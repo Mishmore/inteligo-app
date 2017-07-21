@@ -26,7 +26,7 @@ if(firebase) console.log("hola");
 var database = firebase.database();
 
 function writeUserData(name, email) {
-  database.ref('https://inteligo-app.firebaseio.com/users').set({
+  database.ref('/usuarios').set({
     username: name,
     email: email
   });
