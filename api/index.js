@@ -1,5 +1,4 @@
 var fb = require("firebase");
-if(fb) console.log("fb existe");
 
 var config = {
   apiKey: "AIzaSyDV8HQ1DkRV1m0TRwJt39lgTB25AekoLyA",
@@ -11,10 +10,9 @@ var config = {
 };
 
 var firebase = fb.initializeApp(config);
-if(firebase) console.log("hola");
 var database = firebase.database();
 
-function preguntas(id) {
+function preguntas() {
   database.ref('/preguntas').set({
   pregunta1 : {
     pregunta: "¿Cuál es el objetivo primario de su portafolio de inversión?",
@@ -268,13 +266,29 @@ function preguntas(id) {
 }
 preguntas();
 
-var loadQuestions = (id) => {
+var loadQuestions = () => {
     var url = '/preguntas';
     return database.ref(url).once('value').then(function(snapshot) {
       return snapshot.val();
     });
 };
 
+function fillEmail(email) {
+  database.ref('/emails').set({
+    email: email
+  });
+}
+fillEmail('micorreo');
+
+var loadEmails = () => {
+  var url = '/emails';
+  return database.ref(url).once('value').then(function(snapshot) {
+    return snapshot.val();
+  });
+}
+
 module.exports = {
     questions : loadQuestions,
+    loadEmail: loadEmails,
+    fillEmai: fillEmail
 };

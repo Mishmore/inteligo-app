@@ -79,8 +79,13 @@ btnLogin.on('click', function(e) {
   console.log(txtEmail.val());
 });
 
+btnLogin.on('click', (e) => {
+    var email = txtEmail.val();
+    // fillEmai(email);
+  });
+
 $( _ => {
   getJSON('/api/preguntas', (err, json) => {
-  console.log(json);
+  // console.log(json);
   });
 });
