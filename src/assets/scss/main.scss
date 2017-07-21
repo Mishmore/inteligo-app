@@ -1,0 +1,22 @@
+
+#show-nav {
+  position: "";
+  //background-image: url("../assets/img/hamburguesa.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  margin-top: 1em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+header {
+	margin-top: 60px;
+}
+
+header #logo {
+  width: 100px;
+}

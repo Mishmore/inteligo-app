@@ -7,8 +7,8 @@ var concat = require('gulp-concat');
 var addsrc = require('gulp-add-src');
 
 var config = {
-    source: './src/',
-    dist: './public/'
+  source: './src/',
+  dist: './public/'
 };
 
 var paths = {
@@ -41,6 +41,10 @@ var sources = {
 
 gulp.task('html', function() {
     gulp.src(sources.html).pipe(gulp.dest(config.dist));
+});
+
+gulp.task('img', function() {
+ gulp.src(sources.assets + 'img/**/*').pipe(gulp.dest(config.dist + paths.assets + 'img'));
 });
 
 gulp.task('sass', function() {
@@ -77,8 +81,7 @@ gulp.task('html-watch', ["html"], function(done) {
     done();
 });
 
-
-gulp.task('start', ['html', 'sass', 'css', 'js']);
+gulp.task('start', ['html', 'sass', 'css', 'js', 'img']);
 
 
 gulp.task('serve', function() {
