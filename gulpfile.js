@@ -12,27 +12,27 @@ var config = {
 };
 
 var paths = {
-    assets: "assets/",
-    html: "**/*.html",
-    js: "js/**/*.js",
-    sass: "scss/**/*.scss",
-    jquery: "js/vendor/jquery-3.2.1.min.js",
-    bootstrapJs: "js/vendor/bootstrap.min.js",
-    bootstrapCss: "css/vendor/bootstrap.min.css",
-    mainSass: "scss/main.scss",
-    mainJS: "js/app.js"
+  assets: "assets/",
+  html: "**/*.html",
+  js: "js/**/*.js",
+  sass: "scss/**/*.scss",
+  jquery: "js/vendor/jquery-3.2.1.min.js",
+  bootstrapJs: "js/vendor/bootstrap.min.js",
+  bootstrapCss: "css/vendor/bootstrap.min.css",
+  mainSass: "scss/main.scss",
+  mainJS: "js/app.js"
 };
 
 var sources = {
-    assets: config.source + paths.assets,
-    html: config.source + paths.html,
-    sass: config.source + paths.assets + paths.sass,
-    js: config.source + paths.assets + paths.js,
-    jquery: config.source + paths.assets + paths.jquery,
-    bootstrapJs: config.source + paths.assets + paths.bootstrapJs,
-    bootstrapCss: config.source + paths.assets + paths.bootstrapCss,
-    rootSass: config.source + paths.assets + paths.mainSass,
-    rootJS: config.source + paths.assets + paths.mainJS
+  assets: config.source + paths.assets,
+  html: config.source + paths.html,
+  sass: config.source + paths.assets + paths.sass,
+  js: config.source + paths.assets + paths.js,
+  jquery: config.source + paths.assets + paths.jquery,
+  bootstrapJs: config.source + paths.assets + paths.bootstrapJs,
+  bootstrapCss: config.source + paths.assets + paths.bootstrapCss,
+  rootSass: config.source + paths.assets + paths.mainSass,
+  rootJS: config.source + paths.assets + paths.mainJS
 };
 
 //gulp.task('icons', function() {
