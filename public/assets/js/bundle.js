@@ -8076,6 +8076,62 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+function Profile(update) {
+  var container = $('<div class="container"></div>');
+  var div1 = $('<div class="profile"></div>');
+  var h1= $('<h1>Genial</h1>')
+  var h2= $('<h2>Su perfil es:'+perfil+' </h2>')
+  var h3=$('<h3>Te sugerimos este plan de inversión: /h3>')
+  var div2 = $('<div id="donutchart" style="width: 900px; height: 500px;"></div>');
+  var div3 = $('<div class="informacion"></div>');
+  var span1=$('<span class="texto"><i></i>  Rentabilidad:4.3%  </span>');
+  var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
+  var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
+  var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
+  var btn = $('<button type="button" class="btn btn-primary">Conozca más de su perfil</button>');
+
+  div1.append(h1);
+  div1.append(h2);
+  div1.append(h3);
+  div3.append(span1);
+  div3.append(span2);
+  div3.append(span3);
+  div3.append(checkbox);
+  div3.append(btn);
+  container.append(div1);
+  container.append(div2);
+  container.append(div3);
+
+
+// google.charts.load("current", {packages:["corechart"]});
+// google.charts.setOnLoadCallback(drawChart);
+// function drawChart() {
+//   var data = google.visualization.arrayToDataTable([
+//     ['inversion', 'Percent'],
+//     ['Caja',     10],
+//     ['Renta fija', 73],
+//     ['Renta variable',  12],
+//     ['Renta alternativa',      5],
+//   ]);
+//     var options = {
+//       title: 'Plan de Inversion',
+//       pieHole: 0.4,
+//       colors: ['#08165A', '#213F9A', '#2879BD', '#4C4C4E']
+//       };
+//       var chart = new google.visualization.PieChart(div2));
+//       chart.draw(data, options);
+//     }
+
+  btn.on('click', function(e) {
+    state.screenView = "description";
+    update();
+  });
+  alert('llegue hasta aqui ');
+  // console.log(p.id);
+  prueba();
+  return container;
+}
+
 function Home(update) {
 	var container = $('<div class="nav text-center"></div>');
 	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
@@ -8150,7 +8206,7 @@ function Nav(update) {
 
 function Question1(update) {
 	var container = $('<div class="container"></div>');
-	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
+	var h3 = $('<h3>'+ '1'+state.questions.pregunta1.pregunta +'</h3>');
 	var form = $('<form></form>');
 
 	var divA = $('<div class="radio"></div>');
@@ -8198,7 +8254,7 @@ function Question1(update) {
 
 function Question2(update) {
 	var container = $('<div class="container"></div>');
-	var h3 = $('<h3>'+ state.questions.pregunta2.pregunta +'</h3>');
+	var h3 = $('<h3>'+ '2'+state.questions.pregunta2.pregunta +'</h3>');
 	var form = $('<form></form>');
 
 	var divA = $('<div class="radio"></div>');
@@ -8238,7 +8294,7 @@ function Question2(update) {
 
 function Question3(update) {
 	var container = $('<div class="container"></div>');
-	var h3 = $('<h3>'+ state.questions.pregunta3.pregunta +'</h3>');
+	var h3 = $('<h3>'+ '3'+state.questions.pregunta3.pregunta +'</h3>');
 	var form = $('<form></form>');
   var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-3" value="'+ state.questions.pregunta3.opciones.a.valor +'">'+ state.questions.pregunta3.opciones.a.texto +'</label>');
@@ -8332,7 +8388,7 @@ function Question4(update) {
 
 function Question5(update) {
 	var container = $('<div class="container"></div>');
-	var h3 = $('<h3>'+ state.questions.pregunta5.pregunta +'</h3>');
+	var h3 = $('<h3>'+ '5'+state.questions.pregunta5.pregunta +'</h3>');
 	var form = $('<form></form>');
   var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-5" value="'+ state.questions.pregunta5.opciones.a.valor +'">'+ state.questions.pregunta5.opciones.a.texto +'</label>');
@@ -8411,15 +8467,15 @@ function Question6(update) {
 	divD.append(radioD);
 	form.append(btn);
 
-	// btn.on('click', function(e) {
-	// 	var radioValue = $("input[name='option-6']:checked").val();
-	// 		if(radioValue){
-	// 				state.pregunta6 = parseInt(radioValue);
-	// 				console.log;("Your are 3 - " + parseInt(state.pregunta6));
-	// 		}
-	// 	state.screenView = "question-7";
-	// 	update();
-	// });
+	btn.on('click', function(e) {
+		var radioValue = $("input[name='option-6']:checked").val();
+			if(radioValue){
+				sumaY += parseInt(radioValue);
+				console.log(sumaY);
+			}
+		state.screenView = "question-7";
+		update();
+	});
 
 	return container;
 }
@@ -8455,15 +8511,15 @@ function Question7(update) {
   divE.append(radioE);
 	form.append(btn);
 
-	// btn.on('click', function(e) {
-	// 	var radioValue = $("input[name='option-7]:checked").val();
-	// 		if(radioValue){
-	// 				state.pregunta7 = parseInt(radioValue);
-	// 				console.log("Your are 3 - " + parseInt(state.pregunta7));
-	// 		}
-	// 	state.screenView = "question-8";
-	// 	update();
-	// });
+	btn.on('click', function(e) {
+		var radioValue = $("input[name='option-7]:checked").val();
+			if(radioValue){
+				sumaY += parseInt(radioValue);
+				console.log(sumaY);
+			}
+		state.screenView = "question-8";
+		update();
+	});
 
 	return container;
 }
@@ -8499,19 +8555,36 @@ function Question8(update) {
   divE.append(radioE);
 	form.append(btn);
 
+	btn.on('click', function(e) {
+		var radioValue = $("input[name='option-8']:checked").val();
+      if(radioValue){
+          // state.pregunta3 = parseInt(radioValue);
+					// console.log("Your are 3 - " + state.pregunta3);
+					sumaY += parseInt(radioValue);
+					console.log(sumaY);
+      }
+		state.screenView = "profile";
+		update();
+	});
+
+	return container;
+}
+
+function Result(update) {
+	var container = $('<div class="nav text-center"></div>');
+	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
+  var p = $('<p id = "#resultado"></p>');
+	var btn = $('<button type="button" class="btn btn-primary">conozca su perfil</button>');
+
+	container.append(h3);
+	container.append(btn);
+  alert('llegue hasta aqui ');
+  // console.log(p.id);
+  prueba();
 	// btn.on('click', function(e) {
-	// 	var radioValue = $("input[name='option-8]:checked").val();
-	// 		if(radioValue){
-	// 				state.pregunta8 = parseInt(radioValue);
-	// 				console.log("Your are 3 - " + parseInt(state.pregunta8));
-	//
-	// 				parseInt(state.sumay) = state.pregunta5 +  state.pregunta6 +  state.pregunta7 +  state.pregunta8;
-	// 				alert(parseInt(state.sumay));
-	// 		}
-	// 	state.screenView = "perfilFinal";
+	// 	state.screenView = "question-1";
 	// 	update();
 	// });
-
 	return container;
 }
 
@@ -8544,7 +8617,9 @@ var pregunta6 = $('.pregunta6');
 var pregunta7 = $('.pregunta7');
 var pregunta8 = $('.pregunta8');
 
-//var perfil,sumax,sumay;
+var sumaX = 0;
+var sumaY = 0;
+var perfil;
 var matrizLength = 4*8;
 
 var matriz=new Array(matrizLength);
@@ -8560,7 +8635,7 @@ var matriz=new Array(matrizLength);
 //   prueba();
 // });
 
-function prueba() {
+function prueba(id) {
   for (i = 0; i < matrizLength; i++) {
     matriz[i] = new Array(3);
   }
@@ -8569,37 +8644,39 @@ function prueba() {
       matriz[i][e] = i +","+ e;
     }
   }
-  comparar(0,7,0,4, "defensivo");
-  comparar(0,5,5,12, "defensivo");
+  comparar(0,7,0,4, "defensivo",id);
+  comparar(0,5,5,12, "defensivo",id);
   comparar(0,3,13,20, "defensivo");
 
-  comparar(8,17,0,4, "altamente conservador");
-  comparar(6,15,5,12, "altamente conservador");
-  comparar(4,13,14,20, "altamente conservador");
-  comparar(0,11,22,28, "altamente conservador");
-  comparar(0,9,30,32, "altamente conservador");
+  comparar(8,17,0,4, "altamente conservador",id);
+  comparar(6,15,5,12, "altamente conservador",id);
+  comparar(4,13,14,20, "altamente conservador",id);
+  comparar(0,11,22,28, "altamente conservador",id);
+  comparar(0,9,30,32, "altamente conservador",id);
 
-  comparar(19,31,0,4, "conservador");
-  comparar(17,31,6,12, "conservador");
-  comparar(15,25,14,20, "conservador");
-  comparar(13,23,22,28, "conservador");
-  comparar(11,21,30,32, "conservador");
+  comparar(19,31,0,4, "conservador",id);
+  comparar(17,31,6,12, "conservador",id);
+  comparar(15,25,14,20, "conservador",id);
+  comparar(13,23,22,28, "conservador",id);
+  comparar(11,21,30,32, "conservador",id);
 
-  comparar(27,31,14,20, "moderado");
-  comparar(25,27,22,28, "moderado");
-  comparar(23,25,30,32, "moderado");
+  comparar(27,31,14,20, "moderado",id);
+  comparar(25,27,22,28, "moderado",id);
+  comparar(23,25,30,32, "moderado",id);
 
-  comparar(29,31,22,28, "agresivo");
-  comparar(27,31,30,32, "agresivo");
+  comparar(29,31,22,28, "agresivo",id);
+  comparar(27,31,30,32, "agresivo",id);
 }
 
-function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametroPerfil) {
+function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametroPerfil,id) {
   for (i = valorxInicial; i <= valorxFinal; i++) {
     for (e = valoryInicial; e <= valoryFinal; e++) {
-    var valor = sumax + "," + sumay
+    var valor = sumaX + "," + sumaY
       if(matriz[i][e] == valor){
         perfil = parametroPerfil;
-        console.log(perfil);
+        //alert(state.perfil);
+      alert(perfil);
+        //$(id).text(perfil);
       }
     }
   }
@@ -8671,6 +8748,9 @@ var render = function(root) {
   case "question-8":
     wrapper.append(Question8(_ => render(root)));
     break;
+  case "profile":
+    wrapper.append(Profile(_ => render(root)));
+    break;
 	}
   root.append(wrapper);
 }
@@ -8678,20 +8758,9 @@ var render = function(root) {
 var state = {
 	questions: null,
 	screenView: null,
-  pregunta1: 0,
-  pregunta2: 0,
-  pregunta3: 0,
-  pregunta4: 0,
-  pregunta5: 0,
-  pregunta6: 0,
-  pregunta7: 0,
-  pregunta8: 0,
-  sumax: 0,
-  sumay:0
+  perfil: ""
 }
 
-var sumaX = 0;
-var sumaY = 0;
 
 $(document).ready(function() {
   getJSON('/api/preguntas', (err, json) => {

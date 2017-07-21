@@ -37,7 +37,7 @@ function Question8(update) {
 					sumaY += parseInt(radioValue);
 					console.log(sumaY);
       }
-		state.screenView = "question-8";
+		state.screenView = "profile";
 		update();
 	});
 
