@@ -90,12 +90,9 @@ var config = {
 var firebase = fb.initializeApp(config);
 var database = firebase.database();
 
+//Email
 var txtEmail = $('#txtEmail');
-var txtPassword = $('#txtPassword');
-var btnLogin = $('#btnLogin');
-var btnSignup = $('#btnSignup');
-var btnLogout = $('#btnLogout');
-
+var btnEnviar = $('#enviarMail');
 var fillEmail = function(email) {
   var mail = {
     email: email
@@ -107,10 +104,30 @@ var fillEmail = function(email) {
   return database.ref().update(updates);
 }
 
-btnLogin.on('click', function(e) {
+btnEnviar.on('click', function(e) {
     var email = txtEmail.val();
     fillEmail(email);
   });
+
+
+    //Registro
+    var registerUser = function(nombre, apellidos, nac, gender, terminos, email) {
+      var userCreate = {
+        nombre: nombre,
+        apellidos: apellidos,
+        nac: nac,
+        gender: gender,
+        terminos: terminos,
+        email: email
+      };
+      var newPostKey = database.ref().child('users').push().key;
+      var updates = {};
+      updates['/users/' + newPostKey] = userCreate;
+
+      return database.ref().update(updates);
+    }
+
+
 
 var render = function(root) {
   root.empty();
@@ -148,15 +165,18 @@ var render = function(root) {
     wrapper.append(Profile(_ => render(root)));
     break;
   case "description":
-    wrapper.append(Profile(_ => render(root)));
+    wrapper.append(Description(_ => render(root)));
     break;
+    case "register":
+      wrapper.append(Register(_ => render(root)));
+      break;
 	}
   root.append(wrapper);
 }
 
 var state = {
 	questions: null,
-	screenView: null,
+	screenView: "profile",
   perfil: ""
 }
 

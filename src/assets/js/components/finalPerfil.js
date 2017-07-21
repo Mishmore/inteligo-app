@@ -10,8 +10,10 @@ function Profile(update) {
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
-  var btnRegister = $('<button type="button" class="btn btn-primary">Enviar Email/button>');
+  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Enviar Email</button>');
 
+  container.append(div1);
+  container.append(div3);
   div1.append(h1);
   div1.append(h2);
   div1.append(h3);
@@ -19,11 +21,9 @@ function Profile(update) {
   div3.append(span2);
   div3.append(span3);
   div3.append(checkbox);
-  div3.append(btn);
-  container.append(div1);
-  container.append(div3);
+  div3.append(btnRegister);
 
-  btn.on('click', function(e) {
+  btnRegister.on('click', function(e) {
     state.screenView = "description";
     update();
   });

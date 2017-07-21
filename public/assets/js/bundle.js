@@ -8076,6 +8076,25 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+function Description(update) {
+  var container = $('<div class="container"></div>');
+  var h1= $('<h1>'+perfil+'</h1>')
+  var div1 = $('<div class="grafico"><img src="https://d500.epimg.net/cincodias/imagenes/2016/08/19/mercados/1471614030_865280_1471702913_noticia_normal.jpg"></img></div>');
+  var p1=$('<p>Puede tolerar el riesgo, pero valora su dinero, le gusta saber con certeza cuanto genera su inversion.</p>');
+  var btn = $('<button type="button" class="btn btn-primary">Hágase cliente nuestro</button>');
+
+
+div1.append(p1);
+div1.append(btn);
+container.append(h1);
+container.append(div1);
+
+btn.on('click', function(e) {
+  state.screenView = "register";
+  update();
+});
+return container;
+}
 
 function Profile(update) {
   prueba();
@@ -8089,8 +8108,10 @@ function Profile(update) {
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
-  var btnRegister = $('<button type="button" class="btn btn-primary">Enviar Email/button>');
+  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Enviar Email</button>');
 
+  container.append(div1);
+  container.append(div3);
   div1.append(h1);
   div1.append(h2);
   div1.append(h3);
@@ -8098,11 +8119,9 @@ function Profile(update) {
   div3.append(span2);
   div3.append(span3);
   div3.append(checkbox);
-  div3.append(btn);
-  container.append(div1);
-  container.append(div3);
+  div3.append(btnRegister);
 
-  btn.on('click', function(e) {
+  btnRegister.on('click', function(e) {
     state.screenView = "description";
     update();
   });
@@ -8729,42 +8748,35 @@ function Question8(update) {
 }
 
 function Register(update) {
-	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper col-sm-4 hidden-xs "></div>');
-	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
-	var title = $('<h5>Descubriendo tu perfil</h5>');
+  var container = $('<div class="form-group"></div>');
+  var div1 = $('<div class="profile"></div>');
+  var input1=$('<input type="text" name="name" placeholder="Ingrese su nombre" id="nombre">');
+  var input2=$('<input type="text" name="lastname" placeholder="Ingrese sus apellidos" id="apellidos">');
+  var birthday=$('<input type="date" name="birthday" placeholder="Ingrese su fecha de nacimiento" id="nac">')
+  var radioF = $('<label><input type="radio" name="gender">Femenino</label>');
+  var radioM = $('<label><input type="radio" name="gender">Masculino</label>');
+  var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail" id="terminos">Acepto los <a>Terminos y Condiciones</a></label>')
+  var input3=$('<input type="email" name="email" placeholder="Ingrese su email" id="email-reg">');
+  var btn = $('<button type="button" class="btn btn-primary" id="registrarse">ACEPTAR</button>');
+
+  div1.append(input2);
+  div1.append(birthday);
+  div1.append(radioF);
+  div1.append(radioM);
+  div1.append(checkbox);
+  div1.append(input3);
+  div1.append(btn);
+  div1.append(input1);
+  container.append(div1);
 
 
-	btn.prop('disabled', true);
+  btn.on('click', function(e) {
+    alert('Registro exitoso')
+      //state.screenView = null;
+      //update();
+    });
 
-	container.append(divAzul);
-	divAzul.append(logoDiv);
-	divAzul.append(title);
-	divAzul.append(divLoad);
-	divLoad.append(loading);
-	divLoad.append(loadingBase);
-	logoDiv.append(img);
-	container.append(form);
-
-
-	$(function(){
-	  	$('form input[type=radio]').change(function() {
-	  			btn.prop('disabled', false);
-	  	});
-	  });
-
-	btn.on('click', function(e) {
-		 var radioValue = $("input[name='option-1']:checked").val();
-			if(radioValue){
-				sumaX += parseInt(radioValue);
-				console.log(sumaX);
-			}
-		state.screenView = "question-2";
-		update();
-	});
-
-	return container;
+  return container;
 }
 
 function Result(update) {
@@ -8877,12 +8889,9 @@ var config = {
 var firebase = fb.initializeApp(config);
 var database = firebase.database();
 
+//Email
 var txtEmail = $('#txtEmail');
-var txtPassword = $('#txtPassword');
-var btnLogin = $('#btnLogin');
-var btnSignup = $('#btnSignup');
-var btnLogout = $('#btnLogout');
-
+var btnEnviar = $('#enviarMail');
 var fillEmail = function(email) {
   var mail = {
     email: email
@@ -8894,10 +8903,30 @@ var fillEmail = function(email) {
   return database.ref().update(updates);
 }
 
-btnLogin.on('click', function(e) {
+btnEnviar.on('click', function(e) {
     var email = txtEmail.val();
     fillEmail(email);
   });
+
+
+    //Registro
+    var registerUser = function(nombre, apellidos, nac, gender, terminos, email) {
+      var userCreate = {
+        nombre: nombre,
+        apellidos: apellidos,
+        nac: nac,
+        gender: gender,
+        terminos: terminos,
+        email: email
+      };
+      var newPostKey = database.ref().child('users').push().key;
+      var updates = {};
+      updates['/users/' + newPostKey] = userCreate;
+
+      return database.ref().update(updates);
+    }
+
+
 
 var render = function(root) {
   root.empty();
@@ -8935,15 +8964,18 @@ var render = function(root) {
     wrapper.append(Profile(_ => render(root)));
     break;
   case "description":
-    wrapper.append(Profile(_ => render(root)));
+    wrapper.append(Description(_ => render(root)));
     break;
+    case "register":
+      wrapper.append(Register(_ => render(root)));
+      break;
 	}
   root.append(wrapper);
 }
 
 var state = {
 	questions: null,
-	screenView: null,
+	screenView: "profile",
   perfil: ""
 }
 
