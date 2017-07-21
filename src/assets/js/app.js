@@ -85,7 +85,7 @@ function comparar(valorxInicial,valorxFinal,valoryInicial,valoryFinal, parametro
       if(matriz[i][e] == valor){
         perfil = parametroPerfil;
         //alert(state.perfil);
-      alert(perfil);
+
         //$(id).text(perfil);
       }
     }
@@ -161,14 +161,16 @@ var render = function(root) {
   case "profile":
     wrapper.append(Profile(_ => render(root)));
     break;
+  case "description":
+    wrapper.append(Description());
+    break;
 	}
   root.append(wrapper);
 }
 
 var state = {
 	questions: null,
-	screenView: null,
-  perfil: ""
+	screenView: null
 }
 
 
