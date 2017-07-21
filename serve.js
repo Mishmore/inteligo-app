@@ -10,13 +10,10 @@ app.listen(app.get('port'), function() {
 app.use('/', express.static('public'));
 
 var api = require("./api");
-if (api) { console.log('api existe');
-}
 
 app.get('/api/preguntas', function (req, res) {
     var questions = api.questions();
     questions.then( (result) => {
-        console.log(result);
         res.status(200).json(result);
     });
 });

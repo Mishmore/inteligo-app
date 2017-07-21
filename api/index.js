@@ -14,7 +14,7 @@ var firebase = fb.initializeApp(config);
 if(firebase) console.log("hola");
 var database = firebase.database();
 
-function preguntaUno(id) {
+function preguntas(id) {
   database.ref('/preguntas').set({
   pregunta1 : {
     pregunta: "¿Cuál es el objetivo primario de su portafolio de inversión?",
@@ -266,12 +266,11 @@ function preguntaUno(id) {
 
   });
 }
-preguntaUno();
+preguntas();
 
 var loadQuestions = (id) => {
     var url = '/preguntas';
     return database.ref(url).once('value').then(function(snapshot) {
-      console.log(snapshot.val());
       return snapshot.val();
     });
 };
