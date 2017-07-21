@@ -8076,6 +8076,22 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+function PerfilFinal(update) {
+  var container = $('<div class="container"></div>');
+  var div1 = $('<div class="profile"></div>');
+  var h1= $('<h1>Geniak</h1>')
+  var h2= $('<h2>Tu perfil es: data.perfil </h2>')
+  var h3=$('<h3>Te sugerimos este plan</h3>')
+  var div2 = $('<div class="grafico"></div>');
+  var div3 = $('<div class="informacion"></div>');
+  var span1=$('<span class="texto"><i></i></span>');
+  var span2=$('<span class="texto"><i></i></span>');
+  var span3=$('<span class="texto"><i></i></span>');
+  var btn = $('<button type="button" class="btn btn-primary">Conoce más de tu perfil</button>');
+
+
+}
+
 function Home(update) {
 	var container = $('<div class="nav text-center"></div>');
 	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');

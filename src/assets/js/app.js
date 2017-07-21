@@ -137,7 +137,17 @@ var render = function(root) {
 	case "question-2":
 		wrapper.append(Question2(_ => render(root)));
 		break;
+  case "finishProfile":
+    wrapper.append(Profile(_ => render(root)));
+    break;
+  case "description":
+    wrapper.append(Description(_ => render(root)));
+    break;
+  case "register":
+      wrapper.append(Register(_ => render(root)));
+      break;
 	}
+
   root.append(wrapper);
 }
 
