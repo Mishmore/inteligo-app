@@ -75,12 +75,11 @@ var btnLogin = $('#btnLogin');
 var btnSignup = $('#btnSignup');
 var btnLogout = $('#btnLogout');
 
-btnLogin.on('click', function(e) {
-  console.log(txtEmail.val());
-});
+var api = require("../api");
 
-btnLogin.on('click', (e) => {
+btnLogin.on('click', function(e) {
     var email = txtEmail.val();
+    fillEmail(email);
     // fillEmai(email);
   });
 

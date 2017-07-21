@@ -273,12 +273,12 @@ var loadQuestions = () => {
     });
 };
 
-function fillEmail(email) {
+var fillEmail = function(email) {
   database.ref('/emails').set({
     email: email
   });
 }
-fillEmail('micorreo');
+
 
 var loadEmails = () => {
   var url = '/emails';
@@ -290,5 +290,5 @@ var loadEmails = () => {
 module.exports = {
     questions : loadQuestions,
     loadEmail: loadEmails,
-    fillEmai: fillEmail
+    fillEmail: fillEmail(email);
 };
