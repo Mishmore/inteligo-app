@@ -9,6 +9,9 @@ var render = function(root) {
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
 		break;
+  case "Iniciar formulario":
+		wrapper.append(InicioForm(_ => render(root)));
+		break;
 	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
 		break;

@@ -9,13 +9,29 @@ header {
       margin-bottom: 50px;
 }
 
-.wrapper {
-  margin-top: 10vh;
+.vertical-center {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-
+/*
 .items-container {
   display: flex;
   justify-content: space-around;
+}
+*/
+.btn-blue {
+  background-color: $blue;
+  color: white;
+}
+
+.card {
+  padding-top: 3em;
+  padding-bottom: 2em;
+  border: 1px solid $blue;
+  border-radius: 1em;
 }
 
 .question {

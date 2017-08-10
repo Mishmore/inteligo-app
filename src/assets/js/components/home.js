@@ -1,12 +1,14 @@
 
 function Home(update) {
 
-	var container = $('<div class="text-center"></div>');
-	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1" alt="Logo inicio">');
+	var container = $('<div class="text-center vertical-center"></div>');
+	var row = $('<div class="row"></div>');
+	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 
-	container.append(img);
-	container.append(h1);
+	container.append(row);
+	row.append(img);
+	row.append(h1);
 
 	setTimeout(function(){
 		state.screenView = "Seleccionar cliente";
