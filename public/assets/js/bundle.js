@@ -25477,10 +25477,10 @@ function SeleccionarCliente(update) {
   var row = $('<div class="row"></div>');
   var h1 = $('<h1 class="col-xs-12">Vas a empezar a perfilar a:</h1>');
   var containerCards = $('<div class="col-xs-12 items-container"></div>');
-  var cliente = $('<div class="col-xs-2 card col-sm-offset-3"></div>')
+  var cliente = $('<div class="col-xs-3 card col-sm-offset-3"></div>')
   var imgCliente = $('<img class="card-img-top" src="assets/img/Vector.svg">');
   var titleCliente = $('<div class="card-block"><h4 class="card-title">Cliente</h4></div>');
-  var prospecto = $('<div class="col-xs-2 card col-sm-offset-1"></div>');
+  var prospecto = $('<div class="col-xs-3 card col-sm-offset-1"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
   var input = $('<input type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
