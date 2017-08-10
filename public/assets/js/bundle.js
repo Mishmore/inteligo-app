@@ -25471,6 +25471,54 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+function SeleccionarCliente(update) {
+
+  var container = $('<div class="text-center vertical-center"></div>');
+  var row = $('<div class="row"></div>');
+  var h1 = $('<h1 class="col-xs-12">Vas a empezar a perfilar a:</h1>');
+  var containerCards = $('<div class="col-xs-12 items-container"></div>');
+  var cliente = $('<div class="col-xs-3 card col-sm-offset-3"></div>')
+  var imgCliente = $('<img class="card-img-top" src="assets/img/Vector.svg">');
+  var titleCliente = $('<div class="card-block"><h4 class="card-title">Cliente</h4></div>');
+  var prospecto = $('<div class="col-xs-3 card col-sm-offset-1"></div>');
+  var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
+  var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
+  var input = $('<input type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
+  var btn = $('<div class="col-xs-12"><button type="button" class="btn btn-default">Continuar</button></div>');
+
+  container.append(row);
+  row.append(h1);
+  row.append(containerCards);
+  containerCards.append(cliente);
+  containerCards.append(prospecto);
+  cliente.append(imgCliente);
+  cliente.append(titleCliente);
+  prospecto.append(imgProspecto);
+  prospecto.append(titleProspecto);
+  row.append(input);
+  row.append(btn);
+  input.hide();
+
+  cliente.on('click', function(e) {
+    state.cliente = "cliente";
+    console.log(state.cliente);
+    input.show();
+  });
+
+  prospecto.on('click', function(e) {
+    state.cliente = "prospecto";
+    console.log(state.cliente);
+    input.show();
+  });
+
+  btn.on('click', function(e) {
+    state.screenView = "Iniciar formulario";
+    update();
+  });
+
+  return container;
+}
+
 function Description(update) {
   var container = $('<div class="container"></div>');
   var h1= $('<h1>'+perfil+'</h1>')
@@ -25525,23 +25573,27 @@ function Profile(update) {
   return container;
 }
 
+
 function Home(update) {
-	var container = $('<div class="text-center"></div>');
-	var imgCliente = $('<div class="img-cliente col-xs-12"></div>');
-	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
-	var btn = $('<button type="button" class="btn btn-primary">Conozca su perfil</button>');
 
-	container.append(imgCliente);
-	container.append(h3);
-	container.append(btn);
+	var container = $('<div class="text-center vertical-center"></div>');
+	var row = $('<div class="row"></div>');
+	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1" alt="Logo inicio">');
+	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 
-	btn.on('click', function(e) {
-		state.screenView = "question-1";
+	container.append(row);
+	row.append(img);
+	row.append(h1);
+
+	setTimeout(function(){
+		state.screenView = "Seleccionar cliente";
 		update();
-	});
+		console.log(state.screenView);
+	}, 2000);
+
 	return container;
 }
-
+/*
 function HomeDesktop(update) {
 	var container = $('<div class="nav text-center"></div>');
 	var h3 = $('<h3 class="hidden-md hidden-lg">¿Quieres saber como invertir?</h3>');
@@ -25551,6 +25603,26 @@ function HomeDesktop(update) {
 	container.append(btn);
 
 	btn.on('click', function(e) {
+		state.screenView = "question-1";
+		update();
+	});
+	return container;
+}
+*/
+
+function InicioForm(update) {
+	var container = $('<div class="text-center vertical-center"></div>');
+  var row = $('<div class="row"></div>');
+  var img = $('<img src="assets/img/Group.png" class="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1">');
+	var h3 = $('<h3 class="col-xs-12 col-sm-6 col-sm-offset-3">Es momento de compartir el dispositivo con tu cliente</h3>');
+	var btnIniciar = $('<div class="col-xs-12"><button type="button" class="btn col-md-2 col-md-offset-5 btn-lg btn-blue">Iniciar</button></div>');
+
+  container.append(row);
+  row.append(img);
+  row.append(h3);
+	row.append(btnIniciar);
+
+	btnIniciar.on('click', function(e) {
 		state.screenView = "question-1";
 		update();
 	});
@@ -26310,6 +26382,12 @@ var render = function(root) {
 	case null:
 		wrapper.append(Home(_ => render(root)));
 		break;
+  case "Seleccionar cliente":
+		wrapper.append(SeleccionarCliente(_ => render(root)));
+		break;
+  case "Iniciar formulario":
+		wrapper.append(InicioForm(_ => render(root)));
+		break;
 	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
 		break;
@@ -26348,6 +26426,7 @@ var render = function(root) {
 }
 
 var state = {
+  cliente: null,
 	questions: null,
 	screenView: null,
   perfil: ""

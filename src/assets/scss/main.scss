@@ -9,6 +9,31 @@ header {
       margin-bottom: 50px;
 }
 
+.vertical-center {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+/*
+.items-container {
+  display: flex;
+  justify-content: space-around;
+}
+*/
+.btn-blue {
+  background-color: $blue;
+  color: white;
+}
+
+.card {
+  padding-top: 3em;
+  padding-bottom: 2em;
+  border: 1px solid $blue;
+  border-radius: 1em;
+}
+
 .question {
   height: 92vh;
   padding: 0;
@@ -86,6 +111,7 @@ body {
 }
 
 @media only screen and (min-width: 900px) {
+
   nav {
 		background-color: #233E99;
 		padding-top: 20px;
@@ -105,12 +131,6 @@ body {
 
 	.nav-desktop {
 		display: block;
-	}
-
-	.img-cliente {
-		height: 6em;
-		background-image: url(../img/cliente.jpg);
-		background-size: cover;
 	}
 
 	#main {
