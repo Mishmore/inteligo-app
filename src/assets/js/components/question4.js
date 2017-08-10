@@ -54,10 +54,10 @@ function Question4(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-4']:checked").val();
-      if(radioValue){
-					sumaX += parseInt(radioValue);
-					console.log(sumaX);
+		pregunta4 = $("input[name='option-4']:checked").val();
+      if(pregunta4){
+				sumaX += parseInt(pregunta4);
+				console.log(sumaX);
       }
 		state.screenView = "question-5";
 		update();

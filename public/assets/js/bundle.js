@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25503,7 +25503,7 @@ function Profile(update) {
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
-  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Enviar Email</button>');
+  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
 
   container.append(div1);
   container.append(div3);
@@ -25557,8 +25557,18 @@ function HomeDesktop(update) {
 	return container;
 }
 
+var documento = "";
 var sumaX = 0;
 var sumaY = 0;
+var pregunta1 = 0;
+var pregunta2 = 0;
+var pregunta3 = 0;
+var pregunta4 = 0;
+var pregunta5 = 0;
+var pregunta6 = 0;
+var pregunta7 = 0;
+var pregunta8 = 0;
+
 var perfil;
 var matrizLength = 4*8;
 var matriz=new Array(matrizLength);
@@ -25673,7 +25683,7 @@ function Question1(update) {
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="loading"></div>');
-	var loadingBase = $('<div class="loading-base">holaaaaaaaa</div>');
+	var loadingBase = $('<div class="loading-base"></div>');
 
 	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
@@ -25690,6 +25700,7 @@ function Question1(update) {
 	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>Máximo Crecimiento</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -25700,6 +25711,7 @@ function Question1(update) {
 	divLoad.append(loadingBase);
 	logoDiv.append(img);
 	container.append(form);
+
 
 	form.append(h3);
 	form.append(divA);
@@ -25721,13 +25733,13 @@ function Question1(update) {
 	  });
 
 	btn.on('click', function(e) {
-		 var radioValue = $("input[name='option-1']:checked").val();
-			if(radioValue){
-				sumaX += parseInt(radioValue);
+		 pregunta1 = $("input[name='option-1']:checked").val();
+			if(pregunta1){
+				sumaX += parseInt(pregunta1);
 				console.log(sumaX);
 			}
-		state.screenView = "question-2";
-		update();
+			state.screenView = "question-2";
+			update();
 	});
 
 	return container;
@@ -25755,6 +25767,7 @@ function Question2(update) {
 	var radioC = $('<label><input type="radio" name="option-2" value="'+ state.questions.pregunta2.opciones.c.valor +'">'+state.questions.pregunta2.opciones.c.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -25782,15 +25795,15 @@ function Question2(update) {
 		});
 
 	btn.on('click', function(e) {
-		 var radioValue = $("input[name='option-2']:checked").val();
-			if(radioValue){
-				sumaX += parseInt(radioValue);
+		 pregunta2 = $("input[name='option-2']:checked").val();
+			if(pregunta2){
+				sumaX += parseInt(pregunta2);
 				console.log(sumaX);
 			}
-		state.screenView = "question-3";
-
-		update();
+			state.screenView = "question-3";
+			update();
 	});
+
 	return container;
 }
 
@@ -25846,10 +25859,10 @@ function Question3(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-3']:checked").val();
-      if(radioValue){
-					sumaX += parseInt(radioValue);
-					console.log(sumaX);
+		pregunta3 = $("input[name='option-3']:checked").val();
+      if(pregunta3){
+				sumaX += parseInt(pregunta3);
+				console.log(sumaX);
       }
 		state.screenView = "question-4";
 		update();
@@ -25914,10 +25927,10 @@ function Question4(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-4']:checked").val();
-      if(radioValue){
-					sumaX += parseInt(radioValue);
-					console.log(sumaX);
+		pregunta4 = $("input[name='option-4']:checked").val();
+      if(pregunta4){
+				sumaX += parseInt(pregunta4);
+				console.log(sumaX);
       }
 		state.screenView = "question-5";
 		update();
@@ -25950,6 +25963,7 @@ function Question5(update) {
   var divE = $('<div class="radio"></div>');
 	var radioE = $('<label><input type="radio" name="option-5" value="'+ state.questions.pregunta5.opciones.e.valor +'">'+ state.questions.pregunta5.opciones.e.texto +'</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -25981,15 +25995,14 @@ function Question5(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-5']:checked").val();
-      if(radioValue){
-					sumaY += parseInt(radioValue);
+		pregunta5 = $("input[name='option-5']:checked").val();
+      if(pregunta5){
+					sumaY += parseInt(pregunta5);
 					console.log(sumaY);
       }
 		state.screenView = "question-6";
 		update();
 	});
-
 	return container;
 }
 
@@ -26045,9 +26058,9 @@ function Question6(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-6']:checked").val();
-			if(radioValue){
-				sumaY += parseInt(radioValue);
+		pregunta6 = $("input[name='option-6']:checked").val();
+			if(pregunta6){
+				sumaY += parseInt(pregunta6);
 				console.log(sumaY);
 			}
 		state.screenView = "question-7";
@@ -26113,9 +26126,9 @@ function Question7(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-7]:checked").val();
-			if(radioValue){
-				sumaY += parseInt(radioValue);
+		pregunta7 = $("input[name='option-7]:checked").val();
+			if(pregunta7){
+				sumaY += parseInt(pregunta7);
 				console.log(sumaY);
 			}
 		state.screenView = "question-8";
@@ -26181,9 +26194,9 @@ function Question8(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-8']:checked").val();
-      if(radioValue){
-					sumaY += parseInt(radioValue);
+		pregunta8 = $("input[name='option-8']:checked").val();
+      if(pregunta8){
+					sumaY += parseInt(pregunta8);
 					console.log(sumaY);
       }
 		state.screenView = "profile";

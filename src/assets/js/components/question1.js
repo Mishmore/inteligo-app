@@ -7,7 +7,7 @@ function Question1(update) {
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="loading"></div>');
-	var loadingBase = $('<div class="loading-base">holaaaaaaaa</div>');
+	var loadingBase = $('<div class="loading-base"></div>');
 
 	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
@@ -24,6 +24,7 @@ function Question1(update) {
 	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>Máximo Crecimiento</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -34,6 +35,7 @@ function Question1(update) {
 	divLoad.append(loadingBase);
 	logoDiv.append(img);
 	container.append(form);
+
 
 	form.append(h3);
 	form.append(divA);
@@ -55,13 +57,13 @@ function Question1(update) {
 	  });
 
 	btn.on('click', function(e) {
-		 var radioValue = $("input[name='option-1']:checked").val();
-			if(radioValue){
-				sumaX += parseInt(radioValue);
+		 pregunta1 = $("input[name='option-1']:checked").val();
+			if(pregunta1){
+				sumaX += parseInt(pregunta1);
 				console.log(sumaX);
 			}
-		state.screenView = "question-2";
-		update();
+			state.screenView = "question-2";
+			update();
 	});
 
 	return container;

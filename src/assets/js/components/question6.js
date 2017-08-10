@@ -50,9 +50,9 @@ function Question6(update) {
 		});
 
 	btn.on('click', function(e) {
-		var radioValue = $("input[name='option-6']:checked").val();
-			if(radioValue){
-				sumaY += parseInt(radioValue);
+		pregunta6 = $("input[name='option-6']:checked").val();
+			if(pregunta6){
+				sumaY += parseInt(pregunta6);
 				console.log(sumaY);
 			}
 		state.screenView = "question-7";

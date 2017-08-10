@@ -1,5 +1,15 @@
+var documento = "";
 var sumaX = 0;
 var sumaY = 0;
+var pregunta1 = 0;
+var pregunta2 = 0;
+var pregunta3 = 0;
+var pregunta4 = 0;
+var pregunta5 = 0;
+var pregunta6 = 0;
+var pregunta7 = 0;
+var pregunta8 = 0;
+
 var perfil;
 var matrizLength = 4*8;
 var matriz=new Array(matrizLength);

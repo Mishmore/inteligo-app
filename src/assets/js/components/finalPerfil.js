@@ -11,7 +11,7 @@ function Profile(update) {
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
-  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Enviar Email</button>');
+  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
 
   container.append(div1);
   container.append(div3);

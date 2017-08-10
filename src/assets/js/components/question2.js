@@ -20,6 +20,7 @@ function Question2(update) {
 	var radioC = $('<label><input type="radio" name="option-2" value="'+ state.questions.pregunta2.opciones.c.valor +'">'+state.questions.pregunta2.opciones.c.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -47,14 +48,14 @@ function Question2(update) {
 		});
 
 	btn.on('click', function(e) {
-		 var radioValue = $("input[name='option-2']:checked").val();
-			if(radioValue){
-				sumaX += parseInt(radioValue);
+		 pregunta2 = $("input[name='option-2']:checked").val();
+			if(pregunta2){
+				sumaX += parseInt(pregunta2);
 				console.log(sumaX);
 			}
-		state.screenView = "question-3";
-
-		update();
+			state.screenView = "question-3";
+			update();
 	});
+
 	return container;
 }
