@@ -13,15 +13,15 @@ function Question1(update) {
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
 
 	var divA = $('<div class="radio"></div>');
-	var radioA = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'"><label>Seguridad</label>');
+	var radioA = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'"><label>'+state.questions.pregunta1.opciones.a.texto+'</label>');
 	var divB = $('<div class="radio"></div>');
-	var radioB = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'"><label>Protección a la inflación</label>');
+	var radioB = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'"><label>'+state.questions.pregunta1.opciones.b.texto+'</label>');
 	var divC = $('<div class="radio"></div>');
-	var radioC = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'"><label>Crecimiento y seguridad</label>');
+	var radioC = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'"><label>'+state.questions.pregunta1.opciones.c.texto+'</label>');
 	var divD = $('<div class="radio"></div>');
-	var radioD = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'"><label>Crecimiento</label>');
+	var radioD = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'"><label>'+state.questions.pregunta1.opciones.d.texto+'</label>');
 	var divE = $('<div class="radio"></div>');
-	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>Máximo Crecimiento</label>');
+	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>'+state.questions.pregunta1.opciones.e.texto+'</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 
 

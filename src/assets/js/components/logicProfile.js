@@ -1,4 +1,4 @@
-var documento = "";
+var documento ="";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1 = 0;

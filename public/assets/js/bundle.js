@@ -25483,7 +25483,7 @@ function SeleccionarCliente(update) {
   var prospecto = $('<div class="col-xs-3 card col-sm-offset-1"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
-  var input = $('<input type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
+  var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
   var btn = $('<div class="col-xs-12"><button type="button" class="btn btn-default">Continuar</button></div>');
 
   container.append(row);
@@ -25501,7 +25501,6 @@ function SeleccionarCliente(update) {
 
   cliente.on('click', function(e) {
     state.cliente = "cliente";
-    console.log(state.cliente);
     input.show();
   });
 
@@ -25512,6 +25511,8 @@ function SeleccionarCliente(update) {
   });
 
   btn.on('click', function(e) {
+    documento = $('#documento').val();
+    //console.log(documento;);
     state.screenView = "Iniciar formulario";
     update();
   });
@@ -25542,7 +25543,7 @@ function Profile(update) {
   prueba();
   var container = $('<div class="container"></div>');
   var div1 = $('<div class="profile"></div>');
-  var h1= $('<h1>Genial</h1>')
+  var h1= $('<h1>El perfil del cliente: </h1>')
   var h2= $('<h2>Su perfil es: '+ perfil +' </h2>')
   var h3=$('<h3>Te sugerimos este plan de inversión: </h3>')
   var div3 = $('<div class="informacion"></div>');
@@ -25550,7 +25551,7 @@ function Profile(update) {
   var span1=$('<span class="texto"><i></i>  Rentabilidad:4.3%  </span>');
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
-  var checkbox=$('<label><input type="checkbox" name="email" value="enviarEmail">Acepto los <a>Terminos y Condiciones</a></label>')
+  var btnReviewPerfil = $('<button type="button" class="btn btn-primary" id="reviewPerfil">Review perfil</button>');
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
 
   container.append(div1);
@@ -25562,11 +25563,20 @@ function Profile(update) {
   div3.append(span1);
   div3.append(span2);
   div3.append(span3);
-  div3.append(checkbox);
+
+  div3.append(btnReviewPerfil);
   div3.append(btnRegister);
 
   btnRegister.on('click', function(e) {
-    state.screenView = "description";
+        //console.log(state.cliente);
+    var doc = new jsPDF();
+    doc.text(documento, 10, 10);
+    doc.text(perfil, 10, 20);
+    doc.save('perfil-cliente.pdf');
+  });
+
+  btnReviewPerfil.on('click', function(e) {
+    state.screenView = "question-1";
     update();
   });
 
@@ -25629,7 +25639,7 @@ function InicioForm(update) {
 	return container;
 }
 
-var documento = "";
+var documento ="";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1 = 0;
@@ -25761,15 +25771,15 @@ function Question1(update) {
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
 
 	var divA = $('<div class="radio"></div>');
-	var radioA = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'"><label>Seguridad</label>');
+	var radioA = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'"><label>'+state.questions.pregunta1.opciones.a.texto+'</label>');
 	var divB = $('<div class="radio"></div>');
-	var radioB = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'"><label>Protección a la inflación</label>');
+	var radioB = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'"><label>'+state.questions.pregunta1.opciones.b.texto+'</label>');
 	var divC = $('<div class="radio"></div>');
-	var radioC = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'"><label>Crecimiento y seguridad</label>');
+	var radioC = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'"><label>'+state.questions.pregunta1.opciones.c.texto+'</label>');
 	var divD = $('<div class="radio"></div>');
-	var radioD = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'"><label>Crecimiento</label>');
+	var radioD = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'"><label>'+state.questions.pregunta1.opciones.d.texto+'</label>');
 	var divE = $('<div class="radio"></div>');
-	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>Máximo Crecimiento</label>');
+	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>'+state.questions.pregunta1.opciones.e.texto+'</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 
 

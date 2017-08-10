@@ -10,7 +10,7 @@ function SeleccionarCliente(update) {
   var prospecto = $('<div class="col-xs-3 card col-sm-offset-1"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
-  var input = $('<input type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
+  var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
   var btn = $('<div class="col-xs-12"><button type="button" class="btn btn-default">Continuar</button></div>');
 
   container.append(row);
@@ -28,7 +28,6 @@ function SeleccionarCliente(update) {
 
   cliente.on('click', function(e) {
     state.cliente = "cliente";
-    console.log(state.cliente);
     input.show();
   });
 
@@ -39,6 +38,8 @@ function SeleccionarCliente(update) {
   });
 
   btn.on('click', function(e) {
+    documento = $('#documento').val();
+    //console.log(documento;);
     state.screenView = "Iniciar formulario";
     update();
   });
