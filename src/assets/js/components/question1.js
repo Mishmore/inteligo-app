@@ -7,7 +7,7 @@ function Question1(update) {
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="loading"></div>');
-	var loadingBase = $('<div class="loading-base"></div>');
+	var loadingBase = $('<div class="loading-base">holaaaaaaaa</div>');
 
 	var form = $('<form class="col-xs-12 col-sm-8"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');

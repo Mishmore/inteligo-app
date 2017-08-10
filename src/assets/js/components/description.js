@@ -5,15 +5,14 @@ function Description(update) {
   var p1=$('<p>Puede tolerar el riesgo, pero valora su dinero, le gusta saber con certeza cuanto genera su inversion.</p>');
   var btn = $('<button type="button" class="btn btn-primary">Hágase cliente nuestro</button>');
 
+  div1.append(p1);
+  div1.append(btn);
+  container.append(h1);
+  container.append(div1);
 
-div1.append(p1);
-div1.append(btn);
-container.append(h1);
-container.append(div1);
-
-btn.on('click', function(e) {
-  state.screenView = "register";
-  update();
-});
-return container;
+  btn.on('click', function(e) {
+    state.screenView = "register";
+    update();
+  });
+  return container;
 }
