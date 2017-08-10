@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25471,6 +25471,37 @@ var getJSON = (url, cb) => {
   xhr.send();
 };
 
+function SeleccionarCliente(update) {
+
+  var container = $('<div class="text-center"></div>');
+  var h1 = $('<h1 class="col-xs-12">Vas a empezar a perfilar a:</h1>');
+  var containerCards = $('<div class="col-xs-12 items-container"></div>');
+  var cliente = $('<div class="col-xs-3">Cliente</div>');
+  var prospecto = $('<div class="col-xs-3">Prospecto</div>');
+  var input = $('<input type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">');
+
+  container.append(h1);
+  container.append(containerCards);
+  containerCards.append(cliente);
+  containerCards.append(prospecto);
+  container.append(input);
+  input.hide();
+
+  cliente.on('click', function(e) {
+    state.cliente = "cliente";
+    console.log(state.cliente);
+    input.show();
+  });
+
+  prospecto.on('click', function(e) {
+    state.cliente = "prospecto";
+    console.log(state.cliente);
+    input.show();
+  });
+
+  return container;
+}
+
 function Description(update) {
   var container = $('<div class="container"></div>');
   var h1= $('<h1>'+perfil+'</h1>')
@@ -25525,23 +25556,25 @@ function Profile(update) {
   return container;
 }
 
+
 function Home(update) {
+
 	var container = $('<div class="text-center"></div>');
-	var imgCliente = $('<div class="img-cliente col-xs-12"></div>');
-	var h3 = $('<h3>¿Quieres saber como invertir?</h3>');
-	var btn = $('<button type="button" class="btn btn-primary">Conozca su perfil</button>');
+	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1" alt="Logo inicio">');
+	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 
-	container.append(imgCliente);
-	container.append(h3);
-	container.append(btn);
+	container.append(img);
+	container.append(h1);
 
-	btn.on('click', function(e) {
-		state.screenView = "question-1";
+	setTimeout(function(){
+		state.screenView = "Seleccionar cliente";
 		update();
-	});
+		console.log(state.screenView);
+	}, 2000);
+
 	return container;
 }
-
+/*
 function HomeDesktop(update) {
 	var container = $('<div class="nav text-center"></div>');
 	var h3 = $('<h3 class="hidden-md hidden-lg">¿Quieres saber como invertir?</h3>');
@@ -25556,6 +25589,7 @@ function HomeDesktop(update) {
 	});
 	return container;
 }
+*/
 
 var sumaX = 0;
 var sumaY = 0;
@@ -26297,6 +26331,9 @@ var render = function(root) {
 	case null:
 		wrapper.append(Home(_ => render(root)));
 		break;
+  case "Seleccionar cliente":
+		wrapper.append(SeleccionarCliente(_ => render(root)));
+		break;
 	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
 		break;
@@ -26335,6 +26372,7 @@ var render = function(root) {
 }
 
 var state = {
+  cliente: null,
 	questions: null,
 	screenView: null,
   perfil: ""

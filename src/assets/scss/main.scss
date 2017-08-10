@@ -9,6 +9,15 @@ header {
       margin-bottom: 50px;
 }
 
+.wrapper {
+  margin-top: 10vh;
+}
+
+.items-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .question {
   height: 92vh;
   padding: 0;
@@ -86,6 +95,7 @@ body {
 }
 
 @media only screen and (min-width: 900px) {
+
   nav {
 		background-color: #233E99;
 		padding-top: 20px;
@@ -105,12 +115,6 @@ body {
 
 	.nav-desktop {
 		display: block;
-	}
-
-	.img-cliente {
-		height: 6em;
-		background-image: url(../img/cliente.jpg);
-		background-size: cover;
 	}
 
 	#main {

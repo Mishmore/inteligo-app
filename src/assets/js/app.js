@@ -6,6 +6,9 @@ var render = function(root) {
 	case null:
 		wrapper.append(Home(_ => render(root)));
 		break;
+  case "Seleccionar cliente":
+		wrapper.append(SeleccionarCliente(_ => render(root)));
+		break;
 	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
 		break;
@@ -44,6 +47,7 @@ var render = function(root) {
 }
 
 var state = {
+  cliente: null,
 	questions: null,
 	screenView: null,
   perfil: ""
