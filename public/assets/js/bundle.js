@@ -25485,7 +25485,7 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
   var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
-  var linkSubmit = $('<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="col-xs-1" aria-hidden="true">Enviar</i></a>');
+  var linkSubmit = $('<a href="#" class="col-xs-1" data-toggle="modal" data-target=".bs-example-modal-lg"><i aria-hidden="true">Enviar</i></a>');
 
   container.append(row);
   row.append(h1);
@@ -25522,7 +25522,7 @@ function SeleccionarCliente(update) {
   });
 */
 
-  $('.init').on('click', function(e) {
+  $('button.init').on('click', function(e) {
     if (state.cliente == "cliente") {
       codigoCliente = input.val();
     } else if (state.cliente == "prospecto") {
