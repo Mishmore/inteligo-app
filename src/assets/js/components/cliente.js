@@ -41,6 +41,13 @@ function SeleccionarCliente(update) {
     linkSubmit.show();
     input.attr("placeholder", "Ingrese número de documento");
   });
+/*
+  linkSubmit.on('click', function(e) {
+    if (e.val().trim().length == 0) {
+      alert("error");
+    }
+  });
+*/
 
   $('.init').on('click', function(e) {
     if (state.cliente == "cliente") {
@@ -48,6 +55,7 @@ function SeleccionarCliente(update) {
     } else if (state.cliente == "prospecto") {
       documento = input.val();
     }
+
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
     update();
