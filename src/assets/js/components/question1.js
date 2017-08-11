@@ -7,10 +7,10 @@ function Question1(update) {
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0%"><span class="sr-only">80% Complete</span></div>');
+	var loadingBase = $('<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0%"><span class="sr-only">80% Complete</span></div>');
 
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
+	var h3 = $('<h3 class="text-center">'+ state.questions.pregunta1.pregunta +'</h3>');
 
 	var divA = $('<div class=""></div>');
 	var radioA = $('<label class="lbl-question"><input type="radio" class="option-input radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'">'+state.questions.pregunta1.opciones.a.texto+'</label>');

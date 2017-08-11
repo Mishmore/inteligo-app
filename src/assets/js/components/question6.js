@@ -7,18 +7,18 @@ function Question6(update) {
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:71.5%"></div>');
+	var loadingBase = $('<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:71.5%"></div>');
 
-	var h3 = $('<h3>'+state.questions.pregunta6.pregunta+'</h3>');
+	var h3 = $('<h3 class="text-center>'+state.questions.pregunta6.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var divA = $('<div class=""></div>');
 	var radioA = $('<label><input type="radio" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.a.valor +'">'+state.questions.pregunta6.opciones.a.texto+'</label>');
 	var divB = $('<div class=""></div>');
-	var radioB = $('<label><input type="radio" name="option-6"  class="option-input radio"value="'+ state.questions.pregunta6.opciones.b.valor +'">'+state.questions.pregunta6.opciones.b.texto+'</label>');
+	var radioB = $('<label><input type="radio" name="option-6"  class="option-input radio" value="'+ state.questions.pregunta6.opciones.b.valor +'">'+state.questions.pregunta6.opciones.b.texto+'</label>');
 	var divC = $('<div class=""></div>');
 	var radioC = $('<label><input type="radio" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.c.valor +'">'+state.questions.pregunta6.opciones.c.texto+'</label>');
 	var divD = $('<div class=""></div>');
-	var radioD = $('<label><input type="radio" name="option-6" class="option-input ravalue="'+ state.questions.pregunta6.opciones.d.valor +'">'+state.questions.pregunta6.opciones.d.texto+'</label>');
+	var radioD = $('<label><input type="radio" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.d.valor +'">'+state.questions.pregunta6.opciones.d.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 	btn.prop('disabled', true);

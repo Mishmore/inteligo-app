@@ -24,7 +24,7 @@
   top: 13.33333px;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: -60px;
   height: 40px;
   width: 40px;
   transition: all 0.15s ease-out 0s;
@@ -42,7 +42,7 @@
   background: #9faab7;
 }
 .option-input:checked {
-  background: #40e0d0;
+  background: $brand-color;
 }
 .option-input:checked::before {
   height: 40px;
@@ -58,7 +58,7 @@
   -webkit-animation: click-wave 0.65s;
   -moz-animation: click-wave 0.65s;
   animation: click-wave 0.65s;
-  background: #40e0d0;
+  background: $brand-color;
   content: '';
   display: block;
   position: relative;
@@ -66,12 +66,20 @@
 }
 .option-input.radio {
   border-radius: 50%;
+  margin: 0px -50px 0 10px;
 }
 .option-input.radio::after {
   border-radius: 50%;
 }
-
+.progress {
+  height: 15px;
+  margin-top: 3%;
+}
 label {
+  margin-left: 2rem;
   display: block;
-  line-height: 40px;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 1.4em;
 }

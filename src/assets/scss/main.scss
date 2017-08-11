@@ -223,7 +223,7 @@ $light: #4285F4;
 
 .progress-bar {
   border-radius: 10px;
-  color: $brand-color;
+  background-color: $brand-color;
   -webkit-transition: width 5s; /* Safari */
     transition: width 5s;
 }
