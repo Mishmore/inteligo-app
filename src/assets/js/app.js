@@ -3,16 +3,16 @@ var render = function(root) {
   var wrapper = $('<div class="wrapper"></div>');
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
+	// case null:
+	// 	wrapper.append(Home(_ => render(root)));
+	// 	break;
+  // case "Seleccionar cliente":
+	// 	wrapper.append(SeleccionarCliente(_ => render(root)));
+	// 	break;
+  // case "Iniciar formulario":
+	// 	wrapper.append(InicioForm(_ => render(root)));
+	// 	break;
 	case null:
-		wrapper.append(Home(_ => render(root)));
-		break;
-  case "Seleccionar cliente":
-		wrapper.append(SeleccionarCliente(_ => render(root)));
-		break;
-  case "Iniciar formulario":
-		wrapper.append(InicioForm(_ => render(root)));
-		break;
-	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
 		break;
 	case "question-2":

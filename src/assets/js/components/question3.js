@@ -12,14 +12,14 @@ function Question3(update) {
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta3.pregunta +'</h3>');
 
-  var divA = $('<div class="radio"></div>');
-  var radioA = $('<label><input type="radio" name="option-3" value="'+ state.questions.pregunta3.opciones.a.valor +'">'+ state.questions.pregunta3.opciones.a.texto +'</label>');
-  var divB = $('<div class="radio"></div>');
-  var radioB = $('<label><input type="radio" name="option-3" value="'+ state.questions.pregunta3.opciones.b.valor +'">'+ state.questions.pregunta3.opciones.b.texto +'</label>');
-  var divC = $('<div class="radio"></div>');
-  var radioC = $('<label><input type="radio" name="option-3" value="'+ state.questions.pregunta3.opciones.c.valor +'">'+ state.questions.pregunta3.opciones.c.texto +'</label>');
-  var divD = $('<div class="radio"></div>');
-  var radioD = $('<label><input type="radio" name="option-3" value="'+ state.questions.pregunta3.opciones.d.valor +'">'+ state.questions.pregunta3.opciones.d.texto +'</label>');
+  var divA = $('<div class=""></div>');
+  var radioA = $('<label><input type="radio" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.a.valor +'">'+ state.questions.pregunta3.opciones.a.texto +'</label>');
+  var divB = $('<div class=""></div>');
+  var radioB = $('<label><input type="radio" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.b.valor +'">'+ state.questions.pregunta3.opciones.b.texto +'</label>');
+  var divC = $('<div class=""></div>');
+  var radioC = $('<label><input type="radio" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.c.valor +'">'+ state.questions.pregunta3.opciones.c.texto +'</label>');
+  var divD = $('<div class=""></div>');
+  var radioD = $('<label><input type="radio" name="option-3"  class="option-input radio" value="'+ state.questions.pregunta3.opciones.d.valor +'">'+ state.questions.pregunta3.opciones.d.texto +'</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 	btn.prop('disabled', true);
 

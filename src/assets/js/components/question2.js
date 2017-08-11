@@ -12,12 +12,12 @@ function Question2(update) {
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta2.pregunta +'</h3>');
 
-	var divA = $('<div class="radio"></div>');
-	var radioA = $('<label><input type="radio" name="option-2" value="'+ state.questions.pregunta2.opciones.a.valor +'">'+state.questions.pregunta2.opciones.a.texto+'</label>');
-	var divB = $('<div class="radio"></div>');
-	var radioB = $('<label><input type="radio" name="option-2" value="'+ state.questions.pregunta2.opciones.b.valor +'">'+state.questions.pregunta2.opciones.b.texto+'</label>');
-	var divC = $('<div class="radio"></div>');
-	var radioC = $('<label><input type="radio" name="option-2" value="'+ state.questions.pregunta2.opciones.c.valor +'">'+state.questions.pregunta2.opciones.c.texto+'</label>');
+	var divA = $('<div class=""></div>');
+	var radioA = $('<label><input type="radio" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.a.valor +'">'+state.questions.pregunta2.opciones.a.texto+'</label>');
+	var divB = $('<div class=""></div>');
+	var radioB = $('<label><input type="radio" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.b.valor +'">'+state.questions.pregunta2.opciones.b.texto+'</label>');
+	var divC = $('<div class=""></div>');
+	var radioC = $('<label><input type="radio" name="option-2"  class="option-input radio" value="'+ state.questions.pregunta2.opciones.c.valor +'">'+state.questions.pregunta2.opciones.c.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 

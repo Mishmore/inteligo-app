@@ -12,16 +12,16 @@ function Question7(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta7.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-	var divA = $('<div class="radio"></div>');
-  var radioA = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.a.valor +'">'+state.questions.pregunta7.opciones.a.texto+'</label>');
-  var divB = $('<div class="radio"></div>');
-  var radioB = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.b.valor +'">'+state.questions.pregunta7.opciones.b.texto+'</label>');
-  var divC = $('<div class="radio"></div>');
-  var radioC = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.c.valor +'">'+state.questions.pregunta7.opciones.c.texto+'</label>');
-  var divD = $('<div class="radio"></div>');
-  var radioD = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.d.valor +'">'+state.questions.pregunta7.opciones.d.texto+'</label>');
-  var divE = $('<div class="radio"></div>');
-  var radioE = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.e.valor +'">'+state.questions.pregunta7.opciones.e.texto+'</label>');
+	var divA = $('<div class=""></div>');
+  var radioA = $('<label><input type="radio" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.a.valor +'">'+state.questions.pregunta7.opciones.a.texto+'</label>');
+  var divB = $('<div class=""></div>');
+  var radioB = $('<label><input type="radio" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.b.valor +'">'+state.questions.pregunta7.opciones.b.texto+'</label>');
+  var divC = $('<div class=""></div>');
+  var radioC = $('<label><input type="radio" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.c.valor +'">'+state.questions.pregunta7.opciones.c.texto+'</label>');
+  var divD = $('<div class=""></div>');
+  var radioD = $('<label><input type="radio" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.d.valor +'">'+state.questions.pregunta7.opciones.d.texto+'</label>');
+  var divE = $('<div class=""></div>');
+  var radioE = $('<label><input type="radio" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.e.valor +'">'+state.questions.pregunta7.opciones.e.texto+'</label>');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 	btn.prop('disabled', true);
