@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("6r38Q7"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
+}).call(this,require("9FoBSB"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25485,7 +25485,7 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
   var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
-  var linkSubmit = $('<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="col-xs-1" aria-hidden="true">Enviar</i></a>');
+  var linkSubmit = $('<a href="#" class="col-xs-1" data-toggle="modal" data-target=".bs-example-modal-lg"><i aria-hidden="true">Enviar</i></a>');
 
   container.append(row);
   row.append(h1);
@@ -25522,7 +25522,7 @@ function SeleccionarCliente(update) {
   });
 */
 
-  $('.init').on('click', function(e) {
+  $('button.init').on('click', function(e) {
     if (state.cliente == "cliente") {
       codigoCliente = input.val();
     } else if (state.cliente == "prospecto") {
@@ -26425,16 +26425,16 @@ var render = function(root) {
   var wrapper = $('<div class="wrapper"></div>');
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
-	// case null:
-	// 	wrapper.append(Home(_ => render(root)));
-	// 	break;
-  // case "Seleccionar cliente":
-	// 	wrapper.append(SeleccionarCliente(_ => render(root)));
-	// 	break;
-  // case "Iniciar formulario":
-	// 	wrapper.append(InicioForm(_ => render(root)));
-	// 	break;
 	case null:
+		wrapper.append(Home(_ => render(root)));
+		break;
+  case "Seleccionar cliente":
+		wrapper.append(SeleccionarCliente(_ => render(root)));
+		break;
+  case "Iniciar formulario":
+		wrapper.append(InicioForm(_ => render(root)));
+		break;
+	case "question-1":
 		wrapper.append(Question1(_ => render(root)));
 		break;
 	case "question-2":

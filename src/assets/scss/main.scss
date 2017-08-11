@@ -13,6 +13,7 @@ h3{
   font-size: 2.5em !important;
   margin-bottom: 2rem;
 }
+
 .vertical-center {
   height: 100vh;
   display: flex;
@@ -52,21 +53,53 @@ input#documento {
   height: 4em;
   border-radius: 1em;
 }
+/*
+.modal {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
+.modal-dialog {
+  height: 50vh;
+}
+*/
 .modal-content {
   background-color: white;
+  border: none;
 }
 
 .modal-content div.col-xs-12 {
+  margin-top: 5em;
   background-color: white;
   padding: 0;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  h3 {
+    margin: 0;
+    margin-bottom: 1.5em;
+    &.blue {
+      color: $brand-color;
+    }
+  }
+
   div {
     button {
       font-size: 2em;
-      margin: 1.5em;
+      margin-left: 1.5em;
+      margin-right: 1.5em;
       height: 2.5em;
       width: 40%;
       border-radius: 0.5em;
+      color: white;
+      &.init {
+        background-color: $brand-color;
+      }
+      &.editar {
+        background-color: $third-color;
+      }
     }
   }
 }
