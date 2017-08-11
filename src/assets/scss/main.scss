@@ -1,5 +1,6 @@
 @import "colors";
 @import "fonts";
+@import "radioBtn";
 
 *, body, html, h1,h2, h3, h4,h5, h6 {
   font-family: $main-font !important;
@@ -146,10 +147,6 @@ input#documento {
 $primary: #09175b;
 $second: rgba(34, 30, 31, 0.4);
 $light: #4285F4;
-
-body {
-
-}
 
 .nav-desktop {
 	display: none;
