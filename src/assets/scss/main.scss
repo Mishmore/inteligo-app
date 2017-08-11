@@ -8,7 +8,10 @@
 header {
       margin-bottom: 50px;
 }
-
+h3{
+  font-size: 2.5em !important;
+  margin-bottom: 2rem;
+}
 .vertical-center {
   height: 100vh;
   display: flex;
@@ -87,14 +90,27 @@ input.documento {
       }
       img {
         width: 340px;
-        margin: 0 auto;
-        display: block;
+        margin: 0 2%;
+        /* display: block; */
+      }
+      h2{
+        display: inline;
+        float: right;
+        font-size: 2.1em;
+        margin-right: 10%;
       }
       h5 {
         text-align: center;
         margin: 40px 0;
-    font-size: 1.8rem;
+        font-size: 1.8rem;
       }
+  }
+  .checkbox, .radio {
+    position: relative;
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
   }
   form {
     float: left;
@@ -203,4 +219,6 @@ body {
 .progress-bar {
   border-radius: 10px;
   color: $brand-color;
+  -webkit-transition: width 5s; /* Safari */
+    transition: width 5s;
 }

@@ -25758,26 +25758,26 @@ function Question1(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
-
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
 	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0%"><span class="sr-only">80% Complete</span></div>');
 
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
 
 	var divA = $('<div class="radio"></div>');
-	var radioA = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'"><label>'+state.questions.pregunta1.opciones.a.texto+'</label>');
+	var radioA = $('<label><input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'">'+state.questions.pregunta1.opciones.a.texto+'</label>');
 	var divB = $('<div class="radio"></div>');
-	var radioB = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'"><label>'+state.questions.pregunta1.opciones.b.texto+'</label>');
+	var radioB = $('<label><input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'">'+state.questions.pregunta1.opciones.b.texto+'</label>');
 	var divC = $('<div class="radio"></div>');
-	var radioC = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'"><label>'+state.questions.pregunta1.opciones.c.texto+'</label>');
+	var radioC = $('<label><input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'">'+state.questions.pregunta1.opciones.c.texto+'</label>');
 	var divD = $('<div class="radio"></div>');
-	var radioD = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'"><label>'+state.questions.pregunta1.opciones.d.texto+'</label>');
+	var radioD = $('<label><input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'">'+state.questions.pregunta1.opciones.d.texto+'</label>');
 	var divE = $('<div class="radio"></div>');
-	var radioE = $('<input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'"><label>'+state.questions.pregunta1.opciones.e.texto+'</label>');
+	var radioE = $('<label><input type="radio" class="radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'">'+state.questions.pregunta1.opciones.e.texto+'</label>');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Continuar</button>');
 
 
@@ -25789,7 +25789,7 @@ function Question1(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 
@@ -25814,6 +25814,7 @@ function Question1(update) {
 
 	btn.on('click', function(e) {
 		 pregunta1 = $("input[name='option-1']:checked").val();
+
 			if(pregunta1){
 				sumaX += parseInt(pregunta1);
 				console.log(sumaX);
@@ -25829,13 +25830,14 @@ function Question2(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:12.5%"></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:14.3%"></div>');
 
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta2.pregunta +'</h3>');
 
 	var divA = $('<div class="radio"></div>');
@@ -25855,7 +25857,7 @@ function Question2(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
@@ -25890,13 +25892,14 @@ function Question3(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:24%"></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:28.6%"></div>');
 
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta3.pregunta +'</h3>');
 
   var divA = $('<div class="radio"></div>');
@@ -25916,7 +25919,7 @@ function Question3(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
@@ -25953,14 +25956,15 @@ function Question4(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:37.5%"></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:42.9%"></div>');
 
 	var h3 = $('<h3>' + state.questions.pregunta4.pregunta +'</h3>');
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
   var divA = $('<div class="radio"></div>');
 	var radioA = $('<label><input type="radio" name="option-4" value="'+ state.questions.pregunta4.opciones.a.valor +'">'+ state.questions.pregunta4.opciones.a.texto +'</label>');
 	var divB = $('<div class="radio"></div>');
@@ -25980,7 +25984,7 @@ function Question4(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
@@ -26020,14 +26024,15 @@ function Question5(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:57.2%"></div>');
 
-	var h3 = $('<h3>'+ '5'+state.questions.pregunta5.pregunta +'</h3>');
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var h3 = $('<h3>'+state.questions.pregunta5.pregunta +'</h3>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
   var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-5" value="'+ state.questions.pregunta5.opciones.a.valor +'">'+ state.questions.pregunta5.opciones.a.texto +'</label>');
   var divB = $('<div class="radio"></div>');
@@ -26048,7 +26053,7 @@ function Question5(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
@@ -26086,14 +26091,15 @@ function Question6(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:62.5%"></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:71.5%"></div>');
 
 	var h3 = $('<h3>'+state.questions.pregunta6.pregunta+'</h3>');
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var divA = $('<div class="radio"></div>');
 	var radioA = $('<label><input type="radio" name="option-6" value="'+ state.questions.pregunta6.opciones.a.valor +'">'+state.questions.pregunta6.opciones.a.texto+'</label>');
 	var divB = $('<div class="radio"></div>');
@@ -26112,7 +26118,7 @@ function Question6(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
@@ -26149,15 +26155,16 @@ function Question7(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:75%"></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:86%"></div>');
 
 
 	var h3 = $('<h3>'+state.questions.pregunta7.pregunta+'</h3>');
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-7" value="'+ state.questions.pregunta7.opciones.a.valor +'">'+state.questions.pregunta7.opciones.a.texto+'</label>');
   var divB = $('<div class="radio"></div>');
@@ -26178,7 +26185,7 @@ function Question7(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
@@ -26217,14 +26224,16 @@ function Question8(update) {
 	var container = $('<div class="container-fluid question"></div>');
 	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
-	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
+	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
 
 	var divLoad = $('<div class="loading-div"></div>');
-	var loading = $('<div class="loading"></div>');
-	var loadingBase = $('<div class="loading-base"></div>');
+	var loading = $('<div class="progress "></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%"><span class="sr-only">100% Complete</span></div>');
+
 
 	var h3 = $('<h3>'+state.questions.pregunta8.pregunta+'</h3>');
-	var form = $('<form class="col-xs-12 col-sm-8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var divA = $('<div class="radio"></div>');
   var radioA = $('<label><input type="radio" name="option-8" value="'+ state.questions.pregunta8.opciones.a.valor +'">'+state.questions.pregunta8.opciones.a.texto+'</label>');
   var divB = $('<div class="radio"></div>');
@@ -26245,7 +26254,7 @@ function Question8(update) {
 	divAzul.append(divLoad);
 	divLoad.append(loading);
 	loading.append(loadingBase);
-	logoDiv.append(img);
+	logoDiv.append(img,h2);
 	container.append(form);
 
 	form.append(h3);
