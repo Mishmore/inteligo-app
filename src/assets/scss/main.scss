@@ -57,14 +57,16 @@ input.documento {
   height: 92vh;
   padding: 0;
   .helper {
-    float: left;
-    background-color: $brand-color;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    color: #ffffff;
-      height: 100%;
+    /* float: left; */
+  background-color: #233e99;
+  /* padding-top: 50px; */
+  padding-bottom: 50px;
+  color: #ffffff;
+  height: 86px;
       .loading-div {
-        position: relative;
+        width: 80%;
+        height: 87px;
+        margin: 10px auto;
       }
       .loading {
         width: 0%;
@@ -84,7 +86,7 @@ input.documento {
         top: 0;
       }
       img {
-        width: 80%;
+        width: 340px;
         margin: 0 auto;
         display: block;
       }

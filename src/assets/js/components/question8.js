@@ -1,9 +1,8 @@
 function Question8(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper col-sm-4 hidden-xs "></div>');
+	var divAzul = $('<div class="helper hidden-xs "></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">')
-	var title = $('<h5>Descubriendo tu perfil</h5>');
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="loading"></div>');
@@ -27,10 +26,10 @@ function Question8(update) {
 
 	container.append(divAzul);
 	divAzul.append(logoDiv);
-	divAzul.append(title);
+
 	divAzul.append(divLoad);
 	divLoad.append(loading);
-	divLoad.append(loadingBase);
+	loading.append(loadingBase);
 	logoDiv.append(img);
 	container.append(form);
 
