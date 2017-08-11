@@ -15,23 +15,42 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  .row {
+    margin: 0;
+  }
 }
-/*
+
 .items-container {
+  margin-top: 5em;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  .card {
+    padding-top: 2em;
+    padding-bottom: 1em;
+    border: 2px solid $blue;
+    border-radius: 1em;
+    .card-img-top {
+      width: 100%;
+    }
+  }
 }
-*/
+
 .btn-blue {
   background-color: $blue;
   color: white;
 }
 
-.card {
-  padding-top: 3em;
-  padding-bottom: 2em;
-  border: 1px solid $blue;
+input.documento {
+  margin-top: 5em;
+  border: 0;
+  outline: none;
+  border: 2px solid $blue;
+  height: 4em;
   border-radius: 1em;
+}
+
+.modal-dialog, .modal-content {
+  background-color: white;
 }
 
 .question {
