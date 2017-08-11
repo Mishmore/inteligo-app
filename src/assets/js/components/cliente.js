@@ -11,7 +11,7 @@ function SeleccionarCliente(update) {
   var prospecto = $('<div class="col-xs-4 card"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
-  var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="12">');
+  var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
   var linkSubmit = $('<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="col-xs-1" aria-hidden="true">Enviar</i></a>');
 
   container.append(row);
@@ -28,12 +28,6 @@ function SeleccionarCliente(update) {
   input.hide();
   linkSubmit.hide();
 
-  $('.init').on('click', function(e) {
-    state.screenView = "Iniciar formulario";
-    documento = $('#documento').val();
-    update();
-  });
-
   cliente.on('click', function(e) {
     state.cliente = "cliente";
     input.show();
@@ -43,11 +37,44 @@ function SeleccionarCliente(update) {
 
   prospecto.on('click', function(e) {
     state.cliente = "prospecto";
-    console.log(state.cliente);
     input.show();
     linkSubmit.show();
-    input.attr("placeholder", "Ingrese DNI o CEX");
+    input.attr("placeholder", "Ingrese número de documento");
   });
+/*
+  linkSubmit.on('click', function(e) {
+    if (e.val().trim().length == 0) {
+      alert("error");
+    }
+  });
+*/
+
+  $('.init').on('click', function(e) {
+    if (state.cliente == "cliente") {
+      codigoCliente = input.val();
+    } else if (state.cliente == "prospecto") {
+      documento = input.val();
+    }
+
+    tipoUsuario = state.cliente;
+    state.screenView = "Iniciar formulario";
+    update();
+  });
+
+  jQuery.fn.NumberOnly = function() {
+    return this.each(function() {
+        $(this).keydown(function(e) {
+            const key = e.charCode || e.keyCode || 0;
+            return (
+                key == 8 || key == 9 ||
+                key == 110 || key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+        });
+    });
+  };
+  input.NumberOnly();
 
   return container;
 }

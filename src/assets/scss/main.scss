@@ -52,8 +52,22 @@ input#documento {
   border-radius: 1em;
 }
 
-.modal-dialog, .modal-content {
+.modal-content {
   background-color: white;
+}
+
+.modal-content div.col-xs-12 {
+  background-color: white;
+  padding: 0;
+  div {
+    button {
+      font-size: 2em;
+      margin: 1.5em;
+      height: 2.5em;
+      width: 40%;
+      border-radius: 0.5em;
+    }
+  }
 }
 
 .question {
