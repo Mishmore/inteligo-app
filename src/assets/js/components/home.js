@@ -13,7 +13,6 @@ function Home(update) {
 	setTimeout(function(){
 		state.screenView = "Seleccionar cliente";
 		update();
-		console.log(state.screenView);
 	}, 2000);
 
 	return container;
