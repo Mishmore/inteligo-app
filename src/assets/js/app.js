@@ -57,7 +57,6 @@ var state = {
 }
 
 $(document).ready(function() {
-  console.log("ff");
   getJSON('/api/preguntas', (err, json) => {
   state.questions = json;
   var root = $('.root');
