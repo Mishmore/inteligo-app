@@ -4,7 +4,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Question1(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -57,7 +57,6 @@ var state = {
 }
 
 $(document).ready(function() {
-  console.log("ff");
   getJSON('/api/preguntas', (err, json) => {
   state.questions = json;
   var root = $('.root');

@@ -3,14 +3,9 @@ var codigoCliente =  "";
 var tipoUsuario = "";
 var sumaX = 0;
 var sumaY = 0;
-var pregunta1 = 0;
-var pregunta2 = 0;
-var pregunta3 = 0;
-var pregunta4 = 0;
-var pregunta5 = 0;
-var pregunta6 = 0;
-var pregunta7 = 0;
-var pregunta8 = 0;
+var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
+var option1,option2,option3,option4,option5,option6,option7,option8 = "";
+var idChecked1, idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
 
 var perfil;
 var matrizLength = 4*8;

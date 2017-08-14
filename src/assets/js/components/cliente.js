@@ -1,7 +1,7 @@
 
 function SeleccionarCliente(update) {
 
-  var container = $('<div class="text-center vertical-center"></div>');
+  var container = $('<div class="text-center vertical-center" id="form"></div>');
   var row = $('<div class="row"></div>');
   var h1 = $('<h1 class="col-xs-12">Vas a empezar a perfilar a:</h1>');
   var containerCards = $('<div class="col-xs-8 col-xs-offset-2 items-container"></div>');
@@ -11,8 +11,10 @@ function SeleccionarCliente(update) {
   var prospecto = $('<div class="col-xs-4 card"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
+  var inputGroup = $('<div class="col-xs-12 hidden-on"></div>');
   var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
-  var linkSubmit = $('<a href="#" class="col-xs-1" data-toggle="modal" data-target=".bs-example-modal-lg"><i aria-hidden="true">Enviar</i></a>');
+  var linkSubmit = $('<a href="#" class="col-xs-1"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>');
+  var spanError = $('<span class="col-xs-12 hidden-on">Este campo es obligatorio</span>');
 
   container.append(row);
   row.append(h1);
@@ -23,31 +25,42 @@ function SeleccionarCliente(update) {
   cliente.append(titleCliente);
   prospecto.append(imgProspecto);
   prospecto.append(titleProspecto);
-  row.append(input);
-  row.append(linkSubmit);
-  input.hide();
-  linkSubmit.hide();
+
+  row.append(inputGroup);
+  inputGroup.append(input);
+  inputGroup.append(linkSubmit);
+  inputGroup.append(spanError);
 
   cliente.on('click', function(e) {
     state.cliente = "cliente";
-    input.show();
-    linkSubmit.show();
+    inputGroup.removeClass("hidden-on");
+    inputGroup.addClass("hidden-off");
     input.attr("placeholder", "Ingrese código de cliente");
   });
 
   prospecto.on('click', function(e) {
     state.cliente = "prospecto";
-    input.show();
-    linkSubmit.show();
+    inputGroup.removeClass("hidden-on");
+    inputGroup.addClass("hidden-off");
     input.attr("placeholder", "Ingrese número de documento");
   });
-/*
+
   linkSubmit.on('click', function(e) {
-    if (e.val().trim().length == 0) {
-      alert("error");
+
+    if (input.val().length != 0) {
+      $('#id-cliente').text(input.val());
+      linkSubmit.attr("data-toggle", "modal");
+      linkSubmit.attr("data-target", ".bs-example-modal-lg");
+      spanError.removeClass("hidden-off");
+      spanError.addClass("hidden-on");
+    } else if (input.val().length == 0) {
+      linkSubmit.removeAttr("data-toggle");
+      linkSubmit.removeAttr("data-target");
+      spanError.removeClass("hidden-on");
+      spanError.addClass("hidden-off");
     }
+
   });
-*/
 
   $('button.init').on('click', function(e) {
     if (state.cliente == "cliente") {
