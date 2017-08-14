@@ -25472,23 +25472,43 @@ function getJSON(url, cb) {
   xhr.send();
 };
 
+/*
+function Modal() {
+  var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
+  var modalDialog = $('<div class="modal-dialog modal-lg" role="document"></div>');
+  var modalContent = $('<div class="modal-content col-xs-12 center-block text-center"></div>');
+  var title = $('<h3 class="">Has digitado el número</h3>');
+  var number = $('<h3 class="blue" id="id-cliente"></h3>');
+  var div = $('<div></div>');
+  var btnIniciar = $('<button type="button" class="btn btn-lg init" data-toggle="modal" data-target=".bs-example-modal-lg">Es Correcto</button>');
+  var btnEditar = $('<button type="button" class="btn btn-lg editar" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>');
 
+  modal.append(modalDialog);
+  modalDialog.append(modalContent);
+  modalContent.append(title);
+  modalContent.append(number);
+  modalContent.append(div);
+  div.append(btnIniciar);
+  div.append(btnEditar);
+  return modal;
+}
+*/
 function SeleccionarCliente(update) {
 
-  var container = $('<div class="text-center vertical-center" id="form"></div>');
+  var container = $('<div class="vertical-center" id="form"></div>');
   var row = $('<div class="row"></div>');
-  var h1 = $('<h1 class="col-xs-12">Vas a empezar a perfilar a:</h1>');
-  var containerCards = $('<div class="col-xs-8 col-xs-offset-2 items-container"></div>');
-  var cliente = $('<div class="col-xs-4 card"></div>')
+  var h1 = $('<h1 class="col-xs-12 text-center">Vas a empezar a perfilar a:</h1>');
+  var containerCards = $('<div class="col-xs-6 col-xs-offset-3 items-container text-center"></div>');
+  var cliente = $('<div class="col-xs-3 card"></div>')
   var imgCliente = $('<img class="card-img-top" src="assets/img/Vector.svg">');
   var titleCliente = $('<div class="card-block"><h4 class="card-title">Cliente</h4></div>');
-  var prospecto = $('<div class="col-xs-4 card"></div>');
+  var prospecto = $('<div class="col-xs-3 card"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
-  var inputGroup = $('<div class="col-xs-12 hidden-on"></div>');
-  var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
-  var linkSubmit = $('<a href="#" class="col-xs-1"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>');
-  var spanError = $('<span class="col-xs-12 hidden-on">Este campo es obligatorio</span>');
+  var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
+  var input = $('<input id="documento" type="text" class="text-center" maxlength="8">');
+  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
+  var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
   container.append(row);
   row.append(h1);
@@ -25542,11 +25562,13 @@ function SeleccionarCliente(update) {
     } else if (state.cliente == "prospecto") {
       documento = input.val();
     }
-
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
+    console.log(state.screenView);
+
     update();
   });
+
 
   jQuery.fn.NumberOnly = function() {
     return this.each(function() {
@@ -25632,38 +25654,59 @@ function Profile(update) {
 
 function Home(update) {
 
-	var container = $('<div class="text-center vertical-center"></div>');
+	var container = $('<div class="text-center vertical-center" id="home"></div>');
 	var row = $('<div class="row"></div>');
 	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
+	var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
+  var input = $('<input id="sector" type="text" class="text-center">');
+  var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg"></a>');
+	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
 	container.append(row);
 	row.append(img);
 	row.append(h1);
+	row.append(inputGroup);
+	inputGroup.append(input);
+	inputGroup.append(linkSubmit);
+	inputGroup.append(spanError);
 
 	setTimeout(function(){
-		state.screenView = "Seleccionar cliente";
-		update();
+		inputGroup.removeClass("hidden-on");
+    inputGroup.addClass("hidden-off");
 	}, 2000);
 
+	linkSubmit.on('click', function(e) {
+		if (input.val().length != 0) {
+			spanError.removeClass("hidden-off");
+			spanError.addClass("hidden-on");
+			sector = input.val();
+			state.screenView = "Seleccionar cliente";
+			update();
+		} else if (input.val().length == 0) {
+			spanError.removeClass("hidden-on");
+			spanError.addClass("hidden-off");
+		}
+
+  });
+
+	jQuery.fn.NumberOnly = function() {
+		return this.each(function() {
+				$(this).keydown(function(e) {
+						const key = e.charCode || e.keyCode || 0;
+						return (
+								key == 8 || key == 9 ||
+								key == 110 || key == 190 ||
+								(key >= 35 && key <= 40) ||
+								(key >= 48 && key <= 57) ||
+								(key >= 96 && key <= 105));
+				});
+		});
+	};
+	input.NumberOnly();
+
 	return container;
 }
-/*
-function HomeDesktop(update) {
-	var container = $('<div class="nav text-center"></div>');
-	var h3 = $('<h3 class="hidden-md hidden-lg">¿Quieres saber como invertir?</h3>');
-	var btn = $('<button type="button" class="btn btn-primary hidden-md hidden-lg">conozca su perfil</button>');
-
-	container.append(h3);
-	container.append(btn);
-
-	btn.on('click', function(e) {
-		state.screenView = "question-1";
-		update();
-	});
-	return container;
-}
-*/
 
 function InicioForm(update) {
 	var container = $('<div class="text-center vertical-center"></div>');
@@ -25687,6 +25730,7 @@ function InicioForm(update) {
 var documento = "";
 var codigoCliente =  "";
 var tipoUsuario = "";
+var sector = "";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1 = 0;

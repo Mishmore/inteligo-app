@@ -1,6 +1,7 @@
 var documento = "";
 var codigoCliente =  "";
 var tipoUsuario = "";
+var sector = "";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1 = 0;
