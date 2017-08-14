@@ -25499,12 +25499,12 @@ function SeleccionarCliente(update) {
   var row = $('<div class="row"></div>');
   var h1 = $('<h1 class="col-xs-12 text-center">Vas a empezar a perfilar a:</h1>');
   var containerCards = $('<div class="col-xs-6 col-xs-offset-3 items-container text-center"></div>');
-  var cliente = $('<div class="col-xs-3 card"></div>')
+  var cliente = $('<div class="card"></div>')
   var imgCliente = $('<img class="card-img-top" src="assets/img/Vector.svg">');
-  var titleCliente = $('<div class="card-block"><h4 class="card-title">Cliente</h4></div>');
-  var prospecto = $('<div class="col-xs-3 card"></div>');
+  var titleCliente = $('<div class="card-block"><h3 class="card-title">Cliente</h3></div>');
+  var prospecto = $('<div class="card"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
-  var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
+  var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
   var input = $('<input id="documento" type="text" class="text-center" maxlength="8">');
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
@@ -25659,7 +25659,7 @@ function Home(update) {
 	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
-  var input = $('<input id="sector" type="text" class="text-center">');
+  var input = $('<input id="sector" type="text" class="text-center" placeholder="Ingresa tu sector">');
   var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
