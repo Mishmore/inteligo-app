@@ -1,20 +1,40 @@
+/*
+function Modal() {
+  var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
+  var modalDialog = $('<div class="modal-dialog modal-lg" role="document"></div>');
+  var modalContent = $('<div class="modal-content col-xs-12 center-block text-center"></div>');
+  var title = $('<h3 class="">Has digitado el número</h3>');
+  var number = $('<h3 class="blue" id="id-cliente"></h3>');
+  var div = $('<div></div>');
+  var btnIniciar = $('<button type="button" class="btn btn-lg init" data-toggle="modal" data-target=".bs-example-modal-lg">Es Correcto</button>');
+  var btnEditar = $('<button type="button" class="btn btn-lg editar" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>');
 
+  modal.append(modalDialog);
+  modalDialog.append(modalContent);
+  modalContent.append(title);
+  modalContent.append(number);
+  modalContent.append(div);
+  div.append(btnIniciar);
+  div.append(btnEditar);
+  return modal;
+}
+*/
 function SeleccionarCliente(update) {
 
-  var container = $('<div class="text-center vertical-center" id="form"></div>');
+  var container = $('<div class="vertical-center" id="form"></div>');
   var row = $('<div class="row"></div>');
-  var h1 = $('<h1 class="col-xs-12">Vas a empezar a perfilar a:</h1>');
-  var containerCards = $('<div class="col-xs-8 col-xs-offset-2 items-container"></div>');
-  var cliente = $('<div class="col-xs-4 card"></div>')
+  var h1 = $('<h1 class="col-xs-12 text-center">Vas a empezar a perfilar a:</h1>');
+  var containerCards = $('<div class="col-xs-6 col-xs-offset-3 items-container text-center"></div>');
+  var cliente = $('<div class="card"></div>')
   var imgCliente = $('<img class="card-img-top" src="assets/img/Vector.svg">');
-  var titleCliente = $('<div class="card-block"><h4 class="card-title">Cliente</h4></div>');
-  var prospecto = $('<div class="col-xs-4 card"></div>');
+  var titleCliente = $('<div class="card-block"><h3 class="card-title">Cliente</h3></div>');
+  var prospecto = $('<div class="card"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
-  var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
-  var inputGroup = $('<div class="col-xs-12 hidden-on"></div>');
-  var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
-  var linkSubmit = $('<a href="#" class="col-xs-1"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>');
-  var spanError = $('<span class="col-xs-12 hidden-on">Este campo es obligatorio</span>');
+  var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
+  var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
+  var input = $('<input id="documento" type="text" class="text-center" maxlength="8">');
+  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
+  var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
   container.append(row);
   row.append(h1);
@@ -68,11 +88,13 @@ function SeleccionarCliente(update) {
     } else if (state.cliente == "prospecto") {
       documento = input.val();
     }
-
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
+    console.log(state.screenView);
+
     update();
   });
+
 
   jQuery.fn.NumberOnly = function() {
     return this.each(function() {
