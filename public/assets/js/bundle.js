@@ -25486,7 +25486,7 @@ function SeleccionarCliente(update) {
   var titleProspecto = $('<div class="card-block"><h4 class="card-title">Prospecto</h4></div>');
   var inputGroup = $('<div class="col-xs-12 hidden-on"></div>');
   var input = $('<input id="documento" type="text" class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3 text-center" maxlength="8">');
-  var linkSubmit = $('<a href="#" class="col-xs-1"<i aria-hidden="true">Enviar</i></a>');
+  var linkSubmit = $('<a href="#" class="col-xs-1"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>');
   var spanError = $('<span class="col-xs-12 hidden-on">Este campo es obligatorio</span>');
 
   container.append(row);
