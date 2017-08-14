@@ -47,15 +47,15 @@ function Question1(update) {
 
 	form.append(h3);
 	form.append(divA);
-	divA.append(labelA,inputA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(labelB,inputB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(labelC,inputC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(labelD,inputD);
+	divD.append(inputD,labelD);
 	form.append(divE);
-	divE.append(labelE,inputE);
+	divE.append(inputE,labelE);
 
 	form.append(btn);
 

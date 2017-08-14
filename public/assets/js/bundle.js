@@ -25891,15 +25891,15 @@ function Question1(update) {
 
 	form.append(h3);
 	form.append(divA);
-	divA.append(labelA,inputA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(labelB,inputB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(labelC,inputC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(labelD,inputD);
+	divD.append(inputD,labelD);
 	form.append(divE);
-	divE.append(labelE,inputE);
+	divE.append(inputE,labelE);
 
 	form.append(btn);
 
@@ -26507,7 +26507,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Question1(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
