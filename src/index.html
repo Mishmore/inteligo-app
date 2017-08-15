@@ -11,6 +11,7 @@
 
 <body>
   <div class="root"></div>
+  <button onclick="soapRequest()"></button>
 
   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -58,7 +59,7 @@
           xhr = null; 
         } return xhr; 
       } 
-      var xhr = createCORSRequest("POST", "http://localhost:8080"); 
+      var xhr = createCORSRequest("POST", "http://172.17.6.230:8080/ITLGClienteWSHibernate/ClienteWS?wsdl"); 
       if(!xhr){ console.log("XHR issue"); 
       return; 
       } 
