@@ -65,7 +65,6 @@ $(document).ready(function() {
   var root = $('.root');
   render(root);
   });
-  logicProfile();
 
 	$('.collapse').collapse({
   toggle: true
