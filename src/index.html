@@ -35,7 +35,7 @@
         font-family:Arial, Helvetica, sans-serif">Reporte del Perfil Inversor</h5>
     </header>
     <hr>
-    <p style="font-family:Arial, Helvetica, sans-serif; text-align: end;">Cliente: <span id="pdf-cliente"style="font-family:Arial, Helvetica, sans-serif"></span></p>
+    <p style="font-family:Arial, Helvetica, sans-serif; text-align: end;">Cliente: <span id="pdf-cliente" style="font-family:Arial, Helvetica, sans-serif"></span></p>
     <h6 style="font-family:Arial, Helvetica, sans-serif;font-size: 14px; color: rgb(35,62,153);
     font-weight: 600;
     color: $brand-color;">Perfil del Inversor</h6>
@@ -62,8 +62,8 @@
     font-weight: 600;
     color: $brand-color;">Retorno esperado</h6>
     <span id="pdf-retorno" style="font-family:Arial, Helvetica, sans-serif"></span>
-    <table id="basic-table" style="">
-        <thead>
+    <table id="basic-table">
+        <thead style="height: 90px">
           <tr>
             <th>Clase de Activo</th>
             <th>Límite Táctico</th>
@@ -105,11 +105,11 @@
         </div>
         <div>
             <span style="font-family:Arial, Helvetica, sans-serif;">Asesor Financiero</span>
-            <span style="font-family:Arial, Helvetica, sans-serif;" class="line"></span>
+            <span style="font-family:Arial, Helvetica, sans-serif;" class="line" id="pdf-codigo-asesor"></span>
         </div>
         <div>
             <span style="font-family:Arial, Helvetica, sans-serif;">Fecha</span>
-            <span style="font-family:Arial, Helvetica, sans-serif;" class="line"></span>
+            <span style="font-family:Arial, Helvetica, sans-serif;" class="line" id="pdf-fecha"></span>
         </div>
     </div>
 </div>
