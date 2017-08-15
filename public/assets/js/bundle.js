@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("6r38Q7"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
+}).call(this,require("9FoBSB"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25472,6 +25472,46 @@ function getJSON(url, cb) {
   xhr.send();
 };
 
+function json2xml(json) {
+    var a = JSON.parse(json)
+    var c = document.createElement("root");
+    var t = function (v) {
+        return {}.toString.call(v).split(' ')[1].slice(0, -1).toLowerCase();
+    };
+    var f = function (f, c, a, s) {
+        c.setAttribute("type", t(a));
+        if (t(a) != "array" && t(a) != "object") {
+            if (t(a) != "null") {
+                c.appendChild(document.createTextNode(a));
+            }
+        } else {
+            for (var k in a) {
+                var v = a[k];
+                if (k == "__type" && t(a) == "object") {
+                    c.setAttribute("__type", v);
+                } else {
+                    if (t(v) == "object") {
+                        var ch = c.appendChild(document.createElementNS(null, s ? "item" : k));
+                        f(f, ch, v);
+                    } else if (t(v) == "array") {
+                        var ch = c.appendChild(document.createElementNS(null, s ? "item" : k));
+                        f(f, ch, v, true);
+                    } else {
+                        var va = document.createElementNS(null, s ? "item" : k);
+                        if (t(v) != "null") {
+                            va.appendChild(document.createTextNode(v));
+                        }
+                        var ch = c.appendChild(va);
+                        ch.setAttribute("type", t(v));
+                    }
+                }
+            }
+        }
+    };
+    f(f, c, a, t(a) == "array");
+    return c.outerHTML;
+}
+
 /*
 function Modal() {
   var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
@@ -25641,23 +25681,34 @@ function Profile(update) {
     doc.text(documento, 10, 10);
     doc.text(perfil, 10, 20);
     doc.save('perfil-cliente.pdf');
-    $.post( state.url,{
-                vchCodCliente:codigoCliente,
-                vchrTipoDoc:userValue,
-                vchDocIdentidad:documento,
-                vchSector:sector,
-                intResultadoPerfil:0,
-                vchrPortafolio:"",
-                chrResp01:option1,
-                chrResp02:option2,
-                chrResp03:option3,
-                chrResp04:option4,
-                chrResp05:option5,
-                chrResp06:option6,
-                chrResp07:option7,
-                chrResp08:option8,
-                vchNomPDF: "perfil-cliente"
-               });
+    /*$.post( state.url,{vchCodCliente:codigoCliente,vchrTipoDoc:userValue,vchDocIdentidad:documento,
+                vchSector:sector,intResultadoPerfil:0,vchrPortafolio:"",chrResp01:option1,
+                chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
+                chrResp07:option7,chrResp08:option8,vchNomPDF: "perfil-cliente"
+               });*/
+    /*var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("POST", state.url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("vchCodCliente="+codigoCliente+"&vchrTipoDoc="+userValue+
+                "vchDocIdentidad="+documento+"vchSector="+sector+
+                "intResultadoPerfil=0"+"vchrPortafolio=hola"+"chrResp01="+option1+
+                "chrResp02="+option2+"chrResp03="+option3+"chrResp04="+option4+
+                "chrResp05="+option5+"chrResp06="+option6+"chrResp07="+option7+
+                "chrResp08="+option8+"vchNomPDF="+option7+"perfil-cliente="+option8);*/
+                
+    /*var dataJson = {vchCodCliente:codigoCliente,vchrTipoDoc:userValue,vchDocIdentidad:documento,
+                vchSector:sector,intResultadoPerfil:0,vchrPortafolio:"",chrResp01:option1,
+                chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
+                chrResp07:option7,chrResp08:option8,vchNomPDF: "perfil-cliente"
+               }
+    $.post( state.url, function(data){
+      json2xml(data);
+    });*/
 
 });
   btnReviewPerfil.on('click', function(e) {
@@ -26813,7 +26864,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Question1(_ => render(root)));
+		wrapper.append(Home(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
