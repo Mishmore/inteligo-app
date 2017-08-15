@@ -97,7 +97,6 @@ function Question1(update) {
 		 option1 = $("input[name='option-1']:checked").attr('data-option');
 		 idChecked1 = $("input[name='option-1']:checked").attr("id");
 
-		 //option1 = option.slice(-1);
 			if(pregunta1){
 				sumaX += parseInt(pregunta1);
 				console.log(sumaX);
