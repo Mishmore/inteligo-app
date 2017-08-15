@@ -55,11 +55,13 @@ gulp.task('sass', function() {
 });
 
 gulp.task('js', function() {
-    return gulp.src([sources.assets + "js/vendor/bootstrap.min.js", sources.assets + "js/utils/*.js", sources.assets + "js/components/*.js", sources.rootJS])
+    return gulp.src([sources.assets + "js/vendor/bootstrap.min.js",
+             sources.assets + "js/vendor/html2canvas.js", sources.assets + "js/utils/*.js", sources.assets + "js/components/*.js", sources.rootJS])
         .pipe(concat('app.js'))
         //.pipe(browserify())
         .pipe(rename("bundle.js"))
         .pipe(addsrc(sources.jquery))
+        .pipe(addsrc(sources.assets + "js/vendor/html2canvas.js"))
         .pipe(gulp.dest(config.dist + paths.assets + "js"))
 });
 gulp.task('css', function() {
@@ -67,17 +69,17 @@ gulp.task('css', function() {
 });
 
 gulp.task('sass-watch', ["sass"], function(done) {
-    browserSync.reload();
+    //browserSync.reload();
     done();
 });
 
 gulp.task('js-watch', ["js"], function(done) {
-    browserSync.reload();
+    //browserSync.reload();
     done();
 });
 
 gulp.task('html-watch', ["html"], function(done) {
-    browserSync.reload();
+    //browserSync.reload();
     done();
 });
 

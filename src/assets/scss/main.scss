@@ -340,6 +340,66 @@ $light: #4285F4;
   transition: width 5s;
 }
 
+%center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.main-grey-text {
+  color: $main-grey !important;
+}
+
+.line {
+  width: 57%;
+  height: 18px;
+  border-bottom: 1px solid $main-grey;
+  float: right;
+  text-align: center;
+}
+
 .pdf-container {
-    display: none;
+    display: block;
+
+    header {
+      position: relative;
+      height: 80px;
+      margin: 0;
+    }
+    img {
+      width: 250px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    h5 {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-100%);  
+      font-weight: 600;
+      font-size: 1.7rem;
+      color: $brand-color;    
+    }
+    .cliente {
+      text-align: end;
+    }
+    h6 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $brand-color;
+    }
+}
+
+.datos-legales {
+  div {
+    margin: 15px 0;
+  }
 }
