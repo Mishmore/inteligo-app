@@ -25686,7 +25686,7 @@ function Profile(update) {
                 chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
                 chrResp07:option7,chrResp08:option8,vchNomPDF: "perfil-cliente"
                });*/
-    /*var xhttp = new XMLHttpRequest();
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("demo").innerHTML = this.responseText;
@@ -25694,26 +25694,21 @@ function Profile(update) {
     };
     xhttp.open("POST", state.url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("vchCodCliente="+codigoCliente+"&vchrTipoDoc="+userValue+
-                "vchDocIdentidad="+documento+"vchSector="+sector+
-                "intResultadoPerfil=0"+"vchrPortafolio=hola"+"chrResp01="+option1+
-                "chrResp02="+option2+"chrResp03="+option3+"chrResp04="+option4+
-                "chrResp05="+option5+"chrResp06="+option6+"chrResp07="+option7+
-                "chrResp08="+option8+"vchNomPDF="+option7+"perfil-cliente="+option8);*/
+    xhttp.send("vchCodCliente=hola&vchrTipoDoc=hola&vchDocIdentidad=hola&vchSector=hola&intResultadoPerfil=0&vchrPortafolio=hola&chrResp01=hola&chrResp02=hola&chrResp03=hola&chrResp04=h&chrResp05=h&chrResp06=h&chrResp07=h&chrResp08=6&vchNomPDF=h");
 
     /*var dataJson = {vchCodCliente:"hola",vchrTipoDoc:userValue,vchDocIdentidad:documento,
                 vchSector:sector,intResultadoPerfil:0,vchrPortafolio:"",chrResp01:option1,
                 chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
                 chrResp07:option7,chrResp08:option8,vchNomPDF: "perfil-cliente"
                }*/
-    var dataJson = {vchCodCliente:"hola",vchrTipoDoc:"hola",vchDocIdentidad:"hola",
+    /*var dataJson = {vchCodCliente:"hola",vchrTipoDoc:"hola",vchDocIdentidad:"hola",
                 vchSector:"hola",intResultadoPerfil:0,vchrPortafolio:"",chrResp01:"hola",
                 chrResp02:"hola",chrResp03:"hola",chrResp04:"hola",chrResp05:"hola",                chrResp06:option6,
                 chrResp07:"hola",chrResp08:"hola",vchNomPDF: "perfil-cliente"
                }
-    $.post( state.url, function(data){
-      json2xml(data);
-    });
+    $.post( state.url, function(dataJson){
+      json2xml(dataJson);
+    });*/
 
 });
   btnReviewPerfil.on('click', function(e) {
