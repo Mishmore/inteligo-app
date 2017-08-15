@@ -11,6 +11,7 @@
 
 <body>
   <div class="root"></div>
+  <button onclick="soapRequest()"></button>
 
   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -33,7 +34,41 @@
           emailjs.init("user_0BXDVzkt0eLfkLfUHKFQo");
        })();
     </script>
-    <script src="assets\js\bundle.js" charset="utf-8"></script>
+    <!-- <script src="assets\js\bundle.js" charset="utf-8"></script> -->
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <script type="text/javascript">
+      function soapRequest() {
+        var str = '<?xml version="1.0" encoding="UTF-8"?>'+
+        '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"' +
+          'xmlns:web="http://webservices.services.d/">'+
+          '<soapenv:Header/>'+
+          '<soapenv:Body>'+
+          '<web:ConsultarClientes/>'+
+          '</soapenv:Body>'+
+        '</soapenv:Envelope>';
+      }
+      function createCORSRequest(method, url) { 
+        var xhr = new XMLHttpRequest(); 
+        if ("withCredentials" in xhr) { xhr.open(method, url, false); 
+        } else if (typeof XDomainRequest != "undefined") { 
+          alert xhr = new XDomainRequest(); 
+          xhr.open(method, url); 
+        } else { 
+          console.log("CORS not supported"); 
+          
+          xhr = null; 
+        } return xhr; 
+      } 
+      var xhr = createCORSRequest("POST", "http://172.17.6.230:8080/ITLGClienteWSHibernate/ClienteWS?wsdl"); 
+      if(!xhr){ console.log("XHR issue"); 
+      return; 
+      } 
+      xhr.onload = function (){ 
+        var results = xhr.responseText; 
+        console.log(results); 
+      } 
+      xhr.setRequestHeader('Content-Type', 'text/xml'); 
+      xhr.send(str);
+    </script>
 </body>
 </html>
