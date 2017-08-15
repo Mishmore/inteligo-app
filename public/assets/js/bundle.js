@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25706,7 +25706,7 @@ function Profile(update) {
       console.log(dataJson)
       //json2xml(dataJson);
     });*/
-     $.get(state.url, function(data, status){
+     $.get("http://172.18.11.11:8081/ITLGClienteWSHibernate/ClienteWS?wsdl", function(data, status){
         console.log("Data: " + data + "\nStatus: " + status);
     });
 
