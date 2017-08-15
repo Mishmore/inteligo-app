@@ -11,7 +11,7 @@
 
 <body>
   <div class="root"></div>
-  <button onclick="soapRequest()"></button>
+  <button onclick="soapRequest()">sopar request</button>
 
   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -46,7 +46,7 @@
           '<web:ConsultarClientes/>'+
           '</soapenv:Body>'+
         '</soapenv:Envelope>';
-      }
+      
       function createCORSRequest(method, url) { 
         var xhr = new XMLHttpRequest(); 
         if ("withCredentials" in xhr) { xhr.open(method, url, false); 
@@ -61,7 +61,7 @@
       } 
       var xhr = createCORSRequest("POST", "http://172.17.6.230:8080/ITLGClienteWSHibernate/ClienteWS?wsdl"); 
       if(!xhr){ console.log("XHR issue"); 
-      return; 
+       return xhr; 
       } 
       xhr.onload = function (){ 
         var results = xhr.responseText; 
@@ -69,6 +69,7 @@
       } 
       xhr.setRequestHeader('Content-Type', 'text/xml'); 
       xhr.send(str);
+    }
     </script>
 </body>
 </html>
