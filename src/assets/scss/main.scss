@@ -227,7 +227,8 @@ h3{
       height: 94%;
       padding: 50px 40px;
       div{
-        height: 40px;
+        position:relative;
+        margin-bottom: 2%;
       }
       .container_questions{
         height: 40vh;
@@ -237,6 +238,7 @@ h3{
         bottom: 8%;
         right: 30px;
       }
+
       @media (max-width: 768px) {
         padding: 0 15px;
       }

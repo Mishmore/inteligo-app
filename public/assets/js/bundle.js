@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25735,7 +25735,8 @@ var sumaX = 0;
 var sumaY = 0;
 var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
 var option1,option2,option3,option4,option5,option6,option7,option8 = "";
-var idChecked1, idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
+var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
+//var idChecked1 = "question1-b";
 
 var perfil;
 var matrizLength = 4*8;
@@ -25857,24 +25858,24 @@ function Question1(update) {
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
 
 	var anchorA = $('<a href="#collapse" data-toggle="collapse"></a>');
-	var divA = $('<div class=""></div>');
+	var divA = $('<div class="content_txt_radio"></div>');
 	var labelA = $('<label class="lbl-question">'+state.questions.pregunta1.opciones.a.texto+'</label>');
 	var inputA = $('<input type="radio" id="question1-a" data-option="a" class="option-input radio" name="option-1" value="'+ state.questions.pregunta1.opciones.a.valor +'">');
 	var collapseA = $('<div id="collapse" class="collapse">Seguridad </div>');
 
-	var divB = $('<div class=""></div>');
+	var divB = $('<div class="content_txt_radio"></div>');
 	var labelB = $('<label class="lbl-question">'+state.questions.pregunta1.opciones.b.texto+'</label>');
 	var inputB = $('<input type="radio" id="question1-a" data-option="b" class="option-input radio" name="option-1" value="'+ state.questions.pregunta1.opciones.b.valor +'">');
 
-	var divC = $('<div class=""></div>');
+	var divC = $('<div class="content_txt_radio"></div>');
 	var labelC = $('<label class="lbl-question">'+state.questions.pregunta1.opciones.c.texto+'</label>');
 	var inputC = $('<input type="radio" id="question1-b" data-option="c" class="option-input radio" name="option-1" value="'+ state.questions.pregunta1.opciones.c.valor +'">');
 
-	var divD = $('<div class=""></div>');
+	var divD = $('<div class="content_txt_radio"></div>');
 	var labelD = $('<label class="lbl-question">'+state.questions.pregunta1.opciones.d.texto+'</label>');
 	var inputD = $('<input type="radio" id="question1-c" data-option="d" class="option-input radio" name="option-1" value="'+ state.questions.pregunta1.opciones.d.valor +'">');
 
-	var divE = $('<div class=""></div>');
+	var divE = $('<div class="content_txt_radio"></div>');
 	var labelE = $('<label class="lbl-question">'+state.questions.pregunta1.opciones.e.texto+'</label>');
 	var inputE = $('<input type="radio" id="question1-d" data-option="e" class="option-input radio" name="option-1" value="'+ state.questions.pregunta1.opciones.e.valor +'">');
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
@@ -25890,16 +25891,43 @@ function Question1(update) {
 	container.append(form);
 
 	form.append(h3);
+	
 	form.append(divA);
-	divA.append(inputA,labelA);
+	
+	console.log(inputA[0].id);
+
+	divA.append(inputA);
+	divA.append(labelA);
 	form.append(divB);
-	divB.append(inputB,labelB);
+	divB.append(inputB);
+	divB.append(labelB);
 	form.append(divC);
-	divC.append(inputC,labelC)
+	divC.append(inputC);
+	divC.append(labelC);
 	form.append(divD);
-	divD.append(inputD,labelD);
+	divD.append(inputD);
+	divD.append(labelD);
 	form.append(divE);
-	divE.append(inputE,labelE);
+	divE.append(inputE);
+	divE.append(labelE);
+
+	
+	if (inputA[0].id == idChecked1) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked1) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked1) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked1) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputE[0].id == idChecked1) {
+		inputE[0].checked = true;
+		btn.prop('disabled', false);
+	} 
 
 	form.append(btn);
 
@@ -25922,6 +25950,7 @@ function Question1(update) {
 			state.screenView = "question-2";
 			update();
 	});
+
 	return container;
 }
 
@@ -25939,12 +25968,17 @@ function Question2(update) {
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta2.pregunta +'</h3>');
 
-	var divA = $('<div class=""></div>');
-	var radioA = $('<label><input type="radio" data-option="a" id="question2-a" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.a.valor +'">'+state.questions.pregunta2.opciones.a.texto+'</label>');
-	var divB = $('<div class=""></div>');
-	var radioB = $('<label><input type="radio" data-option="b" id="question2-b" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.b.valor +'">'+state.questions.pregunta2.opciones.b.texto+'</label>');
-	var divC = $('<div class=""></div>');
-	var radioC = $('<label><input type="radio" data-option="c" id="question2-c" name="option-2"  class="option-input radio" value="'+ state.questions.pregunta2.opciones.c.valor +'">'+state.questions.pregunta2.opciones.c.texto+'</label>');
+	var divA = $('<div class="content_txt_radio"></div>');
+	var labelA = $('<label>'+state.questions.pregunta2.opciones.a.texto+'</label>');
+	var inputA = $('<input type="radio" data-option="a" id="question2-a" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.a.valor +'">');
+	
+	var divB = $('<div class="content_txt_radio"></div>');
+	var labelB = $('<label>'+state.questions.pregunta2.opciones.b.texto+'</label>');
+	var inputB = $('<input type="radio" data-option="b" id="question2-b" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.b.valor +'">');
+	
+	var divC = $('<div class="content_txt_radio"></div>');
+	var labelC = $('<label>'+state.questions.pregunta2.opciones.c.texto+'</label>');
+	var inputC = $('<input type="radio" data-option="c" id="question2-c" name="option-2"  class="option-input radio" value="'+ state.questions.pregunta2.opciones.c.valor +'">');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 
@@ -25961,12 +25995,27 @@ function Question2(update) {
 	container.append(form);
 
 	form.append(h3);
+
+	form.append(h3);
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
+
+	if (inputA[0].id == idChecked2) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked2) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked2) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	}
+
+
 	form.append(btn);
 
 	$(function(){
@@ -25978,6 +26027,7 @@ function Question2(update) {
 	btn.on('click', function(e) {
 		 pregunta2 = $("input[name='option-2']:checked").val();
 		 option2 = $("input[name='option-2']:checked").attr('data-option');
+		 idChecked2 = $("input[name='option-2']:checked").attr("id");
 		 //option2 = option.slice(-1);
 			if(pregunta2){
 				sumaX += parseInt(pregunta2);
@@ -26004,16 +26054,26 @@ function Question3(update) {
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+state.questions.pregunta3.pregunta +'</h3>');
 
-  var divA = $('<div class=""></div>');
-  var radioA = $('<label><input type="radio" data-option="a" id="question3-a" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.a.valor +'">'+ state.questions.pregunta3.opciones.a.texto +'</label>');
-  var divB = $('<div class=""></div>');
-  var radioB = $('<label><input type="radio" data-option="b" id="question3-b" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.b.valor +'">'+ state.questions.pregunta3.opciones.b.texto +'</label>');
-  var divC = $('<div class=""></div>');
-  var radioC = $('<label><input type="radio"  data-option="c" id="question3-c" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.c.valor +'">'+ state.questions.pregunta3.opciones.c.texto +'</label>');
-  var divD = $('<div class=""></div>');
-  var radioD = $('<label><input type="radio"  data-option="d" id="question3-d" name="option-3"  class="option-input radio" value="'+ state.questions.pregunta3.opciones.d.valor +'">'+ state.questions.pregunta3.opciones.d.texto +'</label>');
+	var divA = $('<div class="lbl-question"></div>');
+	var labelA = $('<label>'+ state.questions.pregunta3.opciones.a.texto +'</label>');
+	var inputA = $('<input type="radio" data-option="a" id="question3-a" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.a.valor +'">');
+	
+	var divB = $('<div class="lbl-question"></div>');
+	var labelB = $('<label>'+ state.questions.pregunta3.opciones.b.texto +'</label>');
+	var inputB = $('<input type="radio" data-option="b" id="question3-b" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.b.valor +'">');
+	
+	var divC = $('<div class="lbl-question"></div>');
+	var labelC = $('<label>'+ state.questions.pregunta3.opciones.c.texto +'</label>');
+	var inputC = $('<input type="radio"  data-option="c" id="question3-c" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.c.valor +'">');
+	
+	var divD = $('<div class="lbl-question"></div>');
+	var labelD = $('<label>'+ state.questions.pregunta3.opciones.d.texto +'</label>');
+	var inputD = $('<input type="radio"  data-option="d" id="question3-d" name="option-3"  class="option-input radio" value="'+ state.questions.pregunta3.opciones.d.valor +'">');
+	
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
+	
 	btn.prop('disabled', true);
+
 
 	container.append(divAzul);
 	divAzul.append(logoDiv);
@@ -26025,14 +26085,31 @@ function Question3(update) {
 	container.append(form);
 
 	form.append(h3);
+
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(radioD);
+	divD.append(inputD,labelD);
+
+	if (inputA[0].id == idChecked3) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked3) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked3) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked3) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	}  
+
+	
 	form.append(btn);
 
 	$(function(){
@@ -26044,6 +26121,7 @@ function Question3(update) {
 	btn.on('click', function(e) {
 		pregunta3 = $("input[name='option-3']:checked").val();
 		option3 = $("input[name='option-3']:checked").attr('data-option');
+		idChecked3 = $("input[name='option-3']:checked").attr("id");
 		// option3 = option.slice(-1);
       if(pregunta3){
 				sumaX += parseInt(pregunta3);
@@ -26069,17 +26147,29 @@ function Question4(update) {
 
 	var h3 = $('<h3>' + state.questions.pregunta4.pregunta +'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-  var divA = $('<div class=""></div>');
-	var radioA = $('<label><input type="radio" id="question4-a" data-option="a" name="option-4" class="option-input radio" value="'+ state.questions.pregunta4.opciones.a.valor +'">'+ state.questions.pregunta4.opciones.a.texto +'</label>');
-	var divB = $('<div class=""></div>');
-	var radioB = $('<label><input type="radio" id="question4-b" data-option="b" name="option-4" class="option-input radio" value="'+ state.questions.pregunta4.opciones.b.valor +'">'+ state.questions.pregunta4.opciones.b.texto +'</label>');
-	var divC = $('<div class=""></div>');
-	var radioC = $('<label><input type="radio" id="question4-c" data-option="c" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.c.valor +'">'+ state.questions.pregunta4.opciones.c.texto +'</label>');
-	var divD = $('<div class=""></div>');
-	var radioD = $('<label><input type="radio" id="question4-d" data-option="d" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.d.valor +'">'+ state.questions.pregunta4.opciones.d.texto +'</label>');
-	var divE = $('<div class=""></div>');
-	var radioE = $('<label><input type="radio"  data-option="e" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.e.valor +'">'+ state.questions.pregunta4.opciones.e.texto +'</label>');
+
+  	var divA = $('<div class="lbl-question"></div>');
+  	var labelA = $('<label>'+ state.questions.pregunta4.opciones.a.texto +'</label>');
+	var inputA = $('<input type="radio" id="question4-a" data-option="a" name="option-4" class="option-input radio" value="'+ state.questions.pregunta4.opciones.a.valor +'">');
+	
+	var divB = $('<div class="lbl-question"></div>');
+	var labelB = $('<label>'+ state.questions.pregunta4.opciones.b.texto +'</label>');
+	var inputB = $('<input type="radio" id="question4-b" data-option="b" name="option-4" class="option-input radio" value="'+ state.questions.pregunta4.opciones.b.valor +'">');
+	
+	var divC = $('<div class="lbl-question"></div>');
+	var labelC = $('<label>'+ state.questions.pregunta4.opciones.c.texto +'</label>');
+	var inputC = $('<input type="radio" id="question4-c" data-option="c" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.c.valor +'">');
+	
+	var divD = $('<div class="lbl-question"></div>');
+	var labelD = $('<label>'+ state.questions.pregunta4.opciones.d.texto +'</label>');
+	var inputD = $('<input type="radio" id="question4-d" data-option="d" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.d.valor +'">');
+	
+	var divE = $('<div class="lbl-question"></div>');
+	var labelE = $('<label>'+ state.questions.pregunta4.opciones.e.texto +'</label>');
+	var inputE = $('<input type="radio"   id="question4-e" data-option="e" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.e.valor +'">');
+	
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
+
 	btn.prop('disabled', true);
 
 	container.append(divAzul);
@@ -26093,16 +26183,36 @@ function Question4(update) {
 
 	form.append(h3);
 	container.append(form);
+
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(radioD);
-  form.append(divE);
-  divE.append(radioE);
+	divD.append(inputD,labelD);
+	form.append(divE);
+	divE.append(inputE,labelE);
+
+	if (inputA[0].id == idChecked4) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked4) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked4) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked4) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputE[0].id == idChecked4) {
+		inputE[0].checked = true;
+		btn.prop('disabled', false);
+	} 
+
+	
 	form.append(btn);
 
 	$(function(){
@@ -26114,6 +26224,7 @@ function Question4(update) {
 	btn.on('click', function(e) {
 		pregunta4 = $("input[name='option-4']:checked").val();
 		option4 = $("input[name='option-4']:checked").attr('data-option');
+		idChecked4 = $("input[name='option-4']:checked").attr("id");
 		// option4 = option.slice(-1);
       if(pregunta4){
 				sumaX += parseInt(pregunta4);
@@ -26139,16 +26250,27 @@ function Question5(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta5.pregunta +'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-  var divA = $('<div class=""></div>');
-  var radioA = $('<label><input type="radio" id="question5-a" data-option="a" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.a.valor +'">'+ state.questions.pregunta5.opciones.a.texto +'</label>');
-  var divB = $('<div class=""></div>');
-  var radioB = $('<label><input type="radio" id="question5-b" data-option="b" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.b.valor +'">'+ state.questions.pregunta5.opciones.b.texto +'</label>');
-  var divC = $('<div class=""></div>');
-  var radioC = $('<label><input type="radio" id="question5-c" data-option="c" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.c.valor +'">'+ state.questions.pregunta5.opciones.c.texto +'</label>');
-  var divD = $('<div class=""></div>');
-  var radioD = $('<label><input type="radio" id="question5-d" data-option="d" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.d.valor +'">'+ state.questions.pregunta5.opciones.d.texto +'</label>');
-  var divE = $('<div class=""></div>');
-	var radioE = $('<label><input type="radio" id="question5-e" data-option="e" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.e.valor +'">'+ state.questions.pregunta5.opciones.e.texto +'</label>');
+	
+	var divA = $('<div class="lbl-question"></div>');
+	var labelA = $('<label>'+ state.questions.pregunta5.opciones.a.texto +'</label>');
+	var inputA = $('<input type="radio" id="question5-a" data-option="a" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.a.valor +'">');
+	
+	var divB = $('<div class="lbl-question"></div>');
+	var labelB = $('<label>'+ state.questions.pregunta5.opciones.b.texto +'</label>');
+	var inputB = $('<input type="radio" id="question5-b" data-option="b" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.b.valor +'">');
+	
+	var divC = $('<div class="lbl-question"></div>');
+	var labelC = $('<label>'+ state.questions.pregunta5.opciones.c.texto +'</label>');
+	var inputC = $('<input type="radio" id="question5-c" data-option="c" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.c.valor +'">');
+	
+	var divD = $('<div class="lbl-question"></div>');
+	var labelD = $('<label>'+ state.questions.pregunta5.opciones.d.texto +'</label>');
+	var inputD = $('<input type="radio" id="question5-d" data-option="d" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.d.valor +'">');
+	
+	var divE = $('<div class="lbl-question"></div>');
+	var labelE = $('<label>'+ state.questions.pregunta5.opciones.e.texto +'</label>');
+	var inputE = $('<input type="radio" id="question5-e" data-option="e" name="option-5" class="option-input radio" value="'+ state.questions.pregunta5.opciones.e.valor +'">');
+	
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 
 	btn.prop('disabled', true);
@@ -26163,16 +26285,36 @@ function Question5(update) {
 	container.append(form);
 
 	form.append(h3);
+
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(radioD);
-  form.append(divE);
-  divE.append(radioE);
+	divD.append(inputD,labelD);
+	form.append(divE);
+	divE.append(inputE,labelE);
+
+	if (inputA[0].id == idChecked5) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked5) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked5) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked5) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputE[0].id == idChecked5) {
+		inputE[0].checked = true;
+		btn.prop('disabled', false);
+	} 
+
+
 	form.append(btn);
 
 	$(function(){
@@ -26184,6 +26326,7 @@ function Question5(update) {
 	btn.on('click', function(e) {
 		pregunta5 = $("input[name='option-5']:checked").val();
 		option5 = $("input[name='option-5']:checked").attr('data-option');
+		idChecked5 = $("input[name='option-5']:checked").attr("id");
 		// option5 = option.slice(-1);
       if(pregunta5){
 					sumaY += parseInt(pregunta5);
@@ -26208,14 +26351,22 @@ function Question6(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta6.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-	var divA = $('<div class=""></div>');
-	var radioA = $('<label><input type="radio" id="question6-a" data-option="a" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.a.valor +'">'+state.questions.pregunta6.opciones.a.texto+'</label>');
-	var divB = $('<div class=""></div>');
-	var radioB = $('<label><input type="radio" id="question6-b" data-option="b" name="option-6"  class="option-input radio" value="'+ state.questions.pregunta6.opciones.b.valor +'">'+state.questions.pregunta6.opciones.b.texto+'</label>');
-	var divC = $('<div class=""></div>');
-	var radioC = $('<label><input type="radio" id="question6-c" data-option="c" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.c.valor +'">'+state.questions.pregunta6.opciones.c.texto+'</label>');
-	var divD = $('<div class=""></div>');
-	var radioD = $('<label><input type="radio" id="question6-d" data-option="d" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.d.valor +'">'+state.questions.pregunta6.opciones.d.texto+'</label>');
+
+	var divA = $('<div class="lbl-question"></div>');
+	var labelA = $('<label>'+state.questions.pregunta6.opciones.a.texto+'</label>');
+	var inputA = $('<input type="radio" id="question6-a" data-option="a" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.a.valor +'">');
+	
+	var divB = $('<div class="lbl-question"></div>');
+	var labelB = $('<label>'+state.questions.pregunta6.opciones.b.texto+'</label>');
+	var inputB = $('<input type="radio" id="question6-b" data-option="b" name="option-6"  class="option-input radio" value="'+ state.questions.pregunta6.opciones.b.valor +'">');
+	
+	var divC = $('<div class="lbl-question"></div>');
+	var labelC = $('<label>'+state.questions.pregunta6.opciones.c.texto+'</label>');
+	var inputC = $('<input type="radio" id="question6-c" data-option="c" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.c.valor +'">');
+	
+	var divD = $('<div class="lbl-question"></div>');
+	var labelD = $('<label>'+state.questions.pregunta6.opciones.d.texto+'</label>');
+	var inputD = $('<input type="radio" id="question6-d" data-option="d" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.d.valor +'">');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 	btn.prop('disabled', true);
@@ -26230,14 +26381,31 @@ function Question6(update) {
 	container.append(form);
 
 	form.append(h3);
+
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(radioD);
+	divD.append(inputD,labelD);
+
+	if (inputA[0].id == idChecked6) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked6) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked6) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked6) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	} 
+
+
 	form.append(btn);
 
 	$(function(){
@@ -26249,6 +26417,7 @@ function Question6(update) {
 	btn.on('click', function(e) {
 		pregunta6 = $("input[name='option-6']:checked").val();
 		option6 = $("input[name='option-6']:checked").attr('data-option');
+		idChecked6 = $("input[name='option-6']:checked").attr("id");
 		// option6 = option.slice(-1);
 
 			if(pregunta6){
@@ -26276,16 +26445,26 @@ function Question7(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta7.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
+	
 	var divA = $('<div class=""></div>');
-  var radioA = $('<label><input type="radio" id="question7-a" data-option="a" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.a.valor +'">'+state.questions.pregunta7.opciones.a.texto+'</label>');
-  var divB = $('<div class=""></div>');
-  var radioB = $('<label><input type="radio" id="question7-b" data-option="b" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.b.valor +'">'+state.questions.pregunta7.opciones.b.texto+'</label>');
-  var divC = $('<div class=""></div>');
-  var radioC = $('<label><input type="radio" id="question7-c" data-option="c" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.c.valor +'">'+state.questions.pregunta7.opciones.c.texto+'</label>');
-  var divD = $('<div class=""></div>');
-  var radioD = $('<label><input type="radio" id="question7-d" data-option="d" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.d.valor +'">'+state.questions.pregunta7.opciones.d.texto+'</label>');
-  var divE = $('<div class=""></div>');
-  var radioE = $('<label><input type="radio" id="question7-e" data-option="e" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.e.valor +'">'+state.questions.pregunta7.opciones.e.texto+'</label>');
+	var labelA = $('<label>'+state.questions.pregunta7.opciones.a.texto+'</label>');
+  	var inputA = $('<input type="radio" id="question7-a" data-option="a" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.a.valor +'">');
+  	
+  	var divB = $('<div class=""></div>');
+  	var labelB = $('<label>'+state.questions.pregunta7.opciones.b.texto+'</label>');
+  	var inputB = $('<input type="radio" id="question7-b" data-option="b" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.b.valor +'">');
+  	
+  	var divC = $('<div class=""></div>');
+  	var labelC = $('<label>'+state.questions.pregunta7.opciones.c.texto+'</label>');
+  	var inputC = $('<input type="radio" id="question7-c" data-option="c" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.c.valor +'">');
+  	
+  	var divD = $('<div class=""></div>');
+  	var labelD = $('<label>'+state.questions.pregunta7.opciones.d.texto+'</label>');
+  	var inputD = $('<input type="radio" id="question7-d" data-option="d" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.d.valor +'">');
+  	
+  	var divE = $('<div class=""></div>');
+  	var labelE = $('<label>'+state.questions.pregunta7.opciones.e.texto+'</label>');
+  	var inputE = $('<input type="radio" id="question7-e" data-option="e" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.e.valor +'">');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 	btn.prop('disabled', true);
@@ -26300,16 +26479,36 @@ function Question7(update) {
 	container.append(form);
 
 	form.append(h3);
+	
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(radioD);
-  form.append(divE);
-  divE.append(radioE);
+	divD.append(inputD,labelD);
+	form.append(divE);
+	divE.append(inputE,labelE);
+	
+	if (inputA[0].id == idChecked7) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked7) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked7) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked7) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputE[0].id == idChecked7) {
+		inputE[0].checked = true;
+		btn.prop('disabled', false);
+	} 
+
+
 	form.append(btn);
 
 	$(function(){
@@ -26321,6 +26520,7 @@ function Question7(update) {
 	btn.on('click', function(e) {
 		pregunta7 = $("input[name='option-7]:checked").val();
 		option7 = $("input[name='option-7']:checked").attr('data-option');
+		idChecked7 = $("input[name='option-7']:checked").attr("id");
 		// option7 = option.slice(-1);
 			if(pregunta7){
 				sumaY += parseInt(pregunta7);
@@ -26346,16 +26546,26 @@ function Question8(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta8.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
+	
 	var divA = $('<div class=""></div>');
-  var radioA = $('<label><input type="radio" id="question8-a" data-option="a" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.a.valor +'">'+state.questions.pregunta8.opciones.a.texto+'</label>');
-  var divB = $('<div class=""></div>');
-  var radioB = $('<label><input type="radio" id="question8-b" data-option="b" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.b.valor +'">'+state.questions.pregunta8.opciones.b.texto+'</label>');
-  var divC = $('<div class=""></div>');
-  var radioC = $('<label><input type="radio" id="question8-c" data-option="c" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.c.valor +'">'+state.questions.pregunta8.opciones.c.texto+'</label>');
-  var divD = $('<div class=""></div>');
-  var radioD = $('<label><input type="radio" id="question8-d" data-option="d" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.d.valor +'">'+state.questions.pregunta8.opciones.d.texto+'</label>');
-  var divE = $('<div class=""></div>');
-  var radioE = $('<label><input type="radio" id="question8-e" data-option="e" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.e.valor +'">'+state.questions.pregunta8.opciones.e.texto+'</label>');
+  	var labelA = $('<label>'+state.questions.pregunta8.opciones.a.texto+'</label>');
+  	var inputA = $('<input type="radio" id="question8-a" data-option="a" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.a.valor +'">');
+  	
+  	var divB = $('<div class=""></div>');
+  	var labelB = $('<label>'+state.questions.pregunta8.opciones.b.texto+'</label>');
+  	var inputB = $('<input type="radio" id="question8-b" data-option="b" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.b.valor +'">');
+  	
+  	var divC = $('<div class=""></div>');
+  	var labelC = $('<label>'+state.questions.pregunta8.opciones.c.texto+'</label>');
+  	var inputC = $('<input type="radio" id="question8-c" data-option="c" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.c.valor +'">');
+  	
+  	var divD = $('<div class=""></div>');
+  	var labelD = $('<label>'+state.questions.pregunta8.opciones.d.texto+'</label>');
+  	var inputD = $('<input type="radio" id="question8-d" data-option="d" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.d.valor +'">');
+  	
+  	var divE = $('<div class=""></div>');
+  	var labelE = $('<label>'+state.questions.pregunta8.opciones.e.texto+'</label>');
+  	var inputE = $('<input type="radio" id="question8-e" data-option="e" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.e.valor +'">');
 
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 	btn.prop('disabled', true);
@@ -26370,16 +26580,36 @@ function Question8(update) {
 	container.append(form);
 
 	form.append(h3);
+
 	form.append(divA);
-	divA.append(radioA);
+	divA.append(inputA,labelA);
 	form.append(divB);
-	divB.append(radioB);
+	divB.append(inputB,labelB);
 	form.append(divC);
-	divC.append(radioC)
+	divC.append(inputC,labelC)
 	form.append(divD);
-	divD.append(radioD);
-  form.append(divE);
-  divE.append(radioE);
+	divD.append(inputD,labelD);
+	form.append(divE);
+	divE.append(inputE,labelE);
+
+	if (inputA[0].id == idChecked8) {
+		inputA[0].checked = true;
+		btn.prop('disabled', false);
+	}else if (inputB[0].id == idChecked8) {
+		inputB[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputC[0].id == idChecked8) {
+		inputC[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputD[0].id == idChecked8) {
+		inputD[0].checked = true;
+		btn.prop('disabled', false);
+	} else if (inputE[0].id == idChecked8) {
+		inputE[0].checked = true;
+		btn.prop('disabled', false);
+	} 
+
+
 	form.append(btn);
 
 	$(function(){
@@ -26391,7 +26621,7 @@ function Question8(update) {
 	btn.on('click', function(e) {
 		pregunta8 = $("input[name='option-8']:checked").val();
 		option8 = $("input[name='option-8']:checked").attr('data-option');
-		
+		idChecked8 = $("input[name='option-8']:checked").attr("id");
 
 		// option8 = option.slice(-1);
       if(pregunta8){

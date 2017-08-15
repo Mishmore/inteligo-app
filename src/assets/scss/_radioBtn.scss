@@ -20,11 +20,11 @@
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  position: relative;
-  top: -42.66667px;
-  right: 0;
-  bottom: 0;
-  left: 12px;
+  position: absolute;
+  top: -8px;
+  /* right: 0; */
+  /* bottom: 0; */
+  /* left: 12px; */
   height: 40px;
   width: 40px;
   transition: all 0.15s ease-out 0s;
@@ -32,7 +32,7 @@
   border: none;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
+  /* display: inline-block; */
   margin-right: 0.5rem;
   outline: none;
   z-index: 1000;
@@ -76,6 +76,7 @@
 }
 label {
   margin-left: 7rem;
+  display: block;
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: 400;
