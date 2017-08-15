@@ -4,7 +4,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Question1(_ => render(root)));
+		wrapper.append(Home(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -62,7 +62,6 @@ $(document).ready(function() {
   var root = $('.root');
   render(root);
   });
-  logicProfile();
 
 	$('.collapse').collapse({
   toggle: true

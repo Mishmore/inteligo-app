@@ -25,6 +25,45 @@
     </div>
   </div>
 
+  <div class="container pdf-container">
+    <header>
+        <img src="" alt="logo">
+        <h5>Reporte del Perfil Inversor</h5>
+    </header>
+    <hr>
+    <p>Cliente: <span id="pdf-cliente"></span></p>
+    <h6>Perfil del Inversor</h6>
+    <p>
+        Basándonos en los objetivos de riesgo y rentabilidad que usted nos ha especificado, hemos
+        determinado que su perfil es:
+    </p>
+    <h6>Perfil del Inversionista</h6>
+    <span id="pdf-perfil"></span>
+    <h6>Descripción del perfil</h6>
+    <p id="pdf-descripcion"></p>
+    <h6>Distribución estratégica de objetivos</h6>
+    <p>Tomando en cuenta su perfil de activos de inversiónn, le sugerimos la siguiente distribución
+        estratégica por cada clase de activos:
+    </p>
+    <h6>Retorno esperado</h6>
+    <span id="pdf-retorno"></span>
+    <div class="datos-legales">
+        <div>
+            <span>Firma del cliente</span>
+            <span class="line"></span>
+        </div>
+        <div>
+            <span>Asesor Financiero</span>
+            <span class="line"></span>
+        </div>
+        <div>
+            <span>Fecha</span>
+            <span class="line"></span>
+        </div>
+    </div>
+</div>
+<button id="cmd">generate PDF</button>
+
     <script src="assets\js\jquery-3.2.1.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>

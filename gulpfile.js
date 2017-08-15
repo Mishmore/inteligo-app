@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var browserify = require('gulp-browserify');
+//var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
-var browserSync = require('browser-sync').create();
+//var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var addsrc = require('gulp-add-src');
 
@@ -57,7 +57,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
     return gulp.src([sources.assets + "js/vendor/bootstrap.min.js", sources.assets + "js/utils/*.js", sources.assets + "js/components/*.js", sources.rootJS])
         .pipe(concat('app.js'))
-        .pipe(browserify())
+        //.pipe(browserify())
         .pipe(rename("bundle.js"))
         .pipe(addsrc(sources.jquery))
         .pipe(gulp.dest(config.dist + paths.assets + "js"))
