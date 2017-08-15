@@ -57,7 +57,7 @@ function Profile(update) {
       console.log(dataJson)
       //json2xml(dataJson);
     });*/
-     $.get("http://172.17.6.230:8080/ITLGClienteWSHibernate/ClienteWS?wsdl", function(data, status){
+     $.get("http://172.18.11.11:8081/ITLGClienteWSHibernate/ClienteWS?wsdl", function(data, status){
         console.log("Data: " + data + "\nStatus: " + status);
     });
 
