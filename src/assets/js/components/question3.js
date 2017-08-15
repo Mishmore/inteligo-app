@@ -56,15 +56,19 @@ function Question3(update) {
 	if (inputA[0].id == idChecked3) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked3) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked3) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked3) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}  
 
 	

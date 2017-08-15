@@ -70,18 +70,23 @@ function Question1(update) {
 	if (inputA[0].id == idChecked1) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked1) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked1) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked1) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputE[0].id == idChecked1) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 	form.append(btn);

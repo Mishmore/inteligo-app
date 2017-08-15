@@ -280,7 +280,15 @@ var loadEmails = () => {
   });
 }
 
+var loadUrl = function (){
+  var url = '/settings';
+  return database.ref(url).once('value').then(function(snapshot) {
+    return snapshot.val();
+  });
+}
+
 module.exports = {
     questions : loadQuestions,
     loadEmail: loadEmails,
+    loadUrl: loadUrl
 };

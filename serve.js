@@ -17,3 +17,10 @@ app.get('/api/preguntas', function (req, res) {
         res.status(200).json(result);
     });
 });
+app.get('/api/settings', function (req, res) {
+    var settings = api.loadUrl();
+    settings.then( (result) => {
+        res.status(200).json(result);
+    });
+});
+

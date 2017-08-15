@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25641,9 +25641,27 @@ function Profile(update) {
     doc.text(documento, 10, 10);
     doc.text(perfil, 10, 20);
     doc.save('perfil-cliente.pdf');
-  });
+    $.post( state.url,{
+                vchCodCliente:codigoCliente,
+                vchrTipoDoc:userValue,
+                vchDocIdentidad:documento,
+                vchSector:sector,
+                intResultadoPerfil:0,
+                vchrPortafolio:"",
+                chrResp01:option1,
+                chrResp02:option2,
+                chrResp03:option3,
+                chrResp04:option4,
+                chrResp05:option5,
+                chrResp06:option6,
+                chrResp07:option7,
+                chrResp08:option8,
+                vchNomPDF: "perfil-cliente"
+               });
 
+});
   btnReviewPerfil.on('click', function(e) {
+    pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
     state.screenView = "question-1";
     update();
   });
@@ -25757,12 +25775,8 @@ function Loading(update) {
   return container;
 }
 
-var documento = "";
-var codigoCliente =  "";
-var tipoUsuario = "";
-var sector = "";
-var sumaX = 0;
-var sumaY = 0;
+var documento,codigoCliente,tipoUsuario,sector,tipoDoc = "";
+var sumaX, sumaY = 0;
 var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
 var option1,option2,option3,option4,option5,option6,option7,option8 = "";
 var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
@@ -25944,18 +25958,23 @@ function Question1(update) {
 	if (inputA[0].id == idChecked1) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked1) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked1) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked1) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputE[0].id == idChecked1) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 	form.append(btn);
@@ -25970,7 +25989,6 @@ function Question1(update) {
 		 pregunta1 = $("input[name='option-1']:checked").val();
 		 option1 = $("input[name='option-1']:checked").attr('data-option');
 		 idChecked1 = $("input[name='option-1']:checked").attr("id");
-
 			if(pregunta1){
 				sumaX += parseInt(pregunta1);
 				console.log(sumaX);
@@ -26035,12 +26053,15 @@ function Question2(update) {
 	if (inputA[0].id == idChecked2) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked2) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked2) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}
 
 
@@ -26126,15 +26147,19 @@ function Question3(update) {
 	if (inputA[0].id == idChecked3) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked3) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked3) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked3) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}  
 
 	
@@ -26226,18 +26251,23 @@ function Question4(update) {
 	if (inputA[0].id == idChecked4) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked4) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked4) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked4) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputE[0].id == idChecked4) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 	
@@ -26328,18 +26358,23 @@ function Question5(update) {
 	if (inputA[0].id == idChecked5) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked5) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked5) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked5) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputE[0].id == idChecked5) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 
@@ -26422,15 +26457,19 @@ function Question6(update) {
 	if (inputA[0].id == idChecked6) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked6) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked6) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked6) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 
@@ -26522,18 +26561,23 @@ function Question7(update) {
 	if (inputA[0].id == idChecked7) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked7) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked7) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked7) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputE[0].id == idChecked7) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 
@@ -26623,18 +26667,23 @@ function Question8(update) {
 	if (inputA[0].id == idChecked8) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
+		
 	}else if (inputB[0].id == idChecked8) {
 		inputB[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputC[0].id == idChecked8) {
 		inputC[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputD[0].id == idChecked8) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} else if (inputE[0].id == idChecked8) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
+		
 	} 
 
 
@@ -26764,7 +26813,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Question1(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -26816,17 +26865,20 @@ var state = {
   cliente: null,
 	questions: null,
 	screenView: null,
-  perfil: ""
+  perfil: "",
+  url:null
 }
 
 $(document).ready(function() {
-  getJSON('/api/preguntas', (err, json) => {
-  state.questions = json;
-  var root = $('.root');
-  render(root);
+  getJSON('/api/settings', (err, json) => {
+    state.url = json.url;
+    console.log(state.url);
   });
-  logicProfile();
-
+  getJSON('/api/preguntas', (err, json) => {
+    state.questions = json;
+    var root = $('.root');
+    render(root);
+  });
 	$('.collapse').collapse({
   toggle: true
 	})

@@ -4,7 +4,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Question1(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -56,17 +56,20 @@ var state = {
   cliente: null,
 	questions: null,
 	screenView: null,
-  perfil: ""
+  perfil: "",
+  url:null
 }
 
 $(document).ready(function() {
-  getJSON('/api/preguntas', (err, json) => {
-  state.questions = json;
-  var root = $('.root');
-  render(root);
+  getJSON('/api/settings', (err, json) => {
+    state.url = json.url;
+    console.log(state.url);
   });
-  logicProfile();
-
+  getJSON('/api/preguntas', (err, json) => {
+    state.questions = json;
+    var root = $('.root');
+    render(root);
+  });
 	$('.collapse').collapse({
   toggle: true
 	})

@@ -32,9 +32,27 @@ function Profile(update) {
     doc.text(documento, 10, 10);
     doc.text(perfil, 10, 20);
     doc.save('perfil-cliente.pdf');
-  });
+    $.post( state.url,{
+                vchCodCliente:codigoCliente,
+                vchrTipoDoc:userValue,
+                vchDocIdentidad:documento,
+                vchSector:sector,
+                intResultadoPerfil:0,
+                vchrPortafolio:"",
+                chrResp01:option1,
+                chrResp02:option2,
+                chrResp03:option3,
+                chrResp04:option4,
+                chrResp05:option5,
+                chrResp06:option6,
+                chrResp07:option7,
+                chrResp08:option8,
+                vchNomPDF: "perfil-cliente"
+               });
 
+});
   btnReviewPerfil.on('click', function(e) {
+    pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
     state.screenView = "question-1";
     update();
   });
