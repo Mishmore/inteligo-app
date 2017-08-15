@@ -264,6 +264,19 @@ $light: #4285F4;
 	display: none;
 }
 
+#loading {
+  .container-gif {
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    #gif {
+      width: 8%;
+    }
+  }
+}
+
 @media only screen and (min-width: 900px) {
 
   nav {
