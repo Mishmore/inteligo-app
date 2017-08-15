@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25656,7 +25656,7 @@ function Home(update) {
 
 	var container = $('<div class="text-center vertical-center" id="home"></div>');
 	var row = $('<div class="row"></div>');
-	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1" alt="Logo inicio">');
+	var img = $('<img src="assets/img/logo-inteligo-h.svg" class="img-inicio col-xs-10 col-sm-8 col-sm-offset-2 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
   var input = $('<input id="sector" type="text" class="text-center" placeholder="Ingresa tu sector">');
@@ -26825,7 +26825,6 @@ $(document).ready(function() {
   var root = $('.root');
   render(root);
   });
-  logicProfile();
 
 	$('.collapse').collapse({
   toggle: true
