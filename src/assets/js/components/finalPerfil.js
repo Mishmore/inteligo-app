@@ -48,7 +48,7 @@ function Profile(update) {
     xhttp.send("vchCodCliente=hola&vchrTipoDoc=hola&vchDocIdentidad=hola&vchSector=hola&intResultadoPerfil=0&vchrPortafolio=hola&chrResp01=hola&chrResp02=hola&chrResp03=hola&chrResp04=h&chrResp05=h&chrResp06=h&chrResp07=h&chrResp08=6&vchNomPDF=h");
 */
    
-    var dataJson = {vchCodCliente:"hola",vchrTipoDoc:"hola",vchDocIdentidad:"hola",
+    /*var dataJson = {vchCodCliente:"hola",vchrTipoDoc:"hola",vchDocIdentidad:"hola",
                 vchSector:"hola",intResultadoPerfil:0,vchrPortafolio:"",chrResp01:"hola",
                 chrResp02:"hola",chrResp03:"hola",chrResp04:"hola",chrResp05:"hola",                chrResp06:option6,
                 chrResp07:"hola",chrResp08:"hola",vchNomPDF: "perfil-cliente"
@@ -56,6 +56,9 @@ function Profile(update) {
     $.post( state.url, function(dataJson){
       console.log(dataJson)
       //json2xml(dataJson);
+    });*/
+     $.get(state.url, function(data, status){
+        console.log("Data: " + data + "\nStatus: " + status);
     });
 
 });
