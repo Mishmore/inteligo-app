@@ -4,7 +4,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Question1(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -59,6 +59,14 @@ var state = {
   perfil: "",
   url:null
 }
+var documento,codigoCliente,tipoUsuario,sector,tipoDoc = "";
+var sumaX, sumaY = 0;
+var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
+var option1,option2,option3,option4,option5,option6,option7,option8 = "";
+var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
+var perfil;
+
+
 
 $(document).ready(function() {
   getJSON('/api/settings', (err, json) => {

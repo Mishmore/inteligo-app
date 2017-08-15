@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25700,15 +25700,20 @@ function Profile(update) {
                 "chrResp02="+option2+"chrResp03="+option3+"chrResp04="+option4+
                 "chrResp05="+option5+"chrResp06="+option6+"chrResp07="+option7+
                 "chrResp08="+option8+"vchNomPDF="+option7+"perfil-cliente="+option8);*/
-                
-    /*var dataJson = {vchCodCliente:codigoCliente,vchrTipoDoc:userValue,vchDocIdentidad:documento,
+
+    /*var dataJson = {vchCodCliente:"hola",vchrTipoDoc:userValue,vchDocIdentidad:documento,
                 vchSector:sector,intResultadoPerfil:0,vchrPortafolio:"",chrResp01:option1,
                 chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
                 chrResp07:option7,chrResp08:option8,vchNomPDF: "perfil-cliente"
+               }*/
+    var dataJson = {vchCodCliente:"hola",vchrTipoDoc:"hola",vchDocIdentidad:"hola",
+                vchSector:"hola",intResultadoPerfil:0,vchrPortafolio:"",chrResp01:"hola",
+                chrResp02:"hola",chrResp03:"hola",chrResp04:"hola",chrResp05:"hola",                chrResp06:option6,
+                chrResp07:"hola",chrResp08:"hola",vchNomPDF: "perfil-cliente"
                }
     $.post( state.url, function(data){
       json2xml(data);
-    });*/
+    });
 
 });
   btnReviewPerfil.on('click', function(e) {
@@ -25826,13 +25831,7 @@ function Loading(update) {
   return container;
 }
 
-var documento,codigoCliente,tipoUsuario,sector,tipoDoc = "";
-var sumaX, sumaY = 0;
-var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
-var option1,option2,option3,option4,option5,option6,option7,option8 = "";
-var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
 
-var perfil;
 var matrizLength = 4*8;
 var matriz=new Array(matrizLength);
 
@@ -25950,6 +25949,7 @@ function Question1(update) {
 
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
+	console.log(state.questions.pregunta1.opciones.a.valor);
 
 	var anchorA = $('<a href="#collapse" data-toggle="collapse"></a>');
 	var divA = $('<div class="content_txt_radio"></div>');
@@ -26038,11 +26038,14 @@ function Question1(update) {
 
 	btn.on('click', function(e) {
 		 pregunta1 = $("input[name='option-1']:checked").val();
+		 console.log(pregunta1);
 		 option1 = $("input[name='option-1']:checked").attr('data-option');
 		 idChecked1 = $("input[name='option-1']:checked").attr("id");
 			if(pregunta1){
-				sumaX += parseInt(pregunta1);
+				console.log(documento);
 				console.log(sumaX);
+				sumaX += parseInt(pregunta1);
+				
 			}
 			state.screenView = "question-2";
 			update();
@@ -26864,7 +26867,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
+		wrapper.append(Question1(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -26919,6 +26922,14 @@ var state = {
   perfil: "",
   url:null
 }
+var documento,codigoCliente,tipoUsuario,sector,tipoDoc = "";
+var sumaX, sumaY = 0;
+var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
+var option1,option2,option3,option4,option5,option6,option7,option8 = "";
+var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
+var perfil;
+
+
 
 $(document).ready(function() {
   getJSON('/api/settings', (err, json) => {

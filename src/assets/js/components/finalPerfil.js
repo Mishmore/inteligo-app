@@ -51,15 +51,20 @@ function Profile(update) {
                 "chrResp02="+option2+"chrResp03="+option3+"chrResp04="+option4+
                 "chrResp05="+option5+"chrResp06="+option6+"chrResp07="+option7+
                 "chrResp08="+option8+"vchNomPDF="+option7+"perfil-cliente="+option8);*/
-                
-    /*var dataJson = {vchCodCliente:codigoCliente,vchrTipoDoc:userValue,vchDocIdentidad:documento,
+
+    /*var dataJson = {vchCodCliente:"hola",vchrTipoDoc:userValue,vchDocIdentidad:documento,
                 vchSector:sector,intResultadoPerfil:0,vchrPortafolio:"",chrResp01:option1,
                 chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
                 chrResp07:option7,chrResp08:option8,vchNomPDF: "perfil-cliente"
+               }*/
+    var dataJson = {vchCodCliente:"hola",vchrTipoDoc:"hola",vchDocIdentidad:"hola",
+                vchSector:"hola",intResultadoPerfil:0,vchrPortafolio:"",chrResp01:"hola",
+                chrResp02:"hola",chrResp03:"hola",chrResp04:"hola",chrResp05:"hola",                chrResp06:option6,
+                chrResp07:"hola",chrResp08:"hola",vchNomPDF: "perfil-cliente"
                }
     $.post( state.url, function(data){
       json2xml(data);
-    });*/
+    });
 
 });
   btnReviewPerfil.on('click', function(e) {

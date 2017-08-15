@@ -11,6 +11,7 @@ function Question1(update) {
 
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	var h3 = $('<h3>'+ state.questions.pregunta1.pregunta +'</h3>');
+	console.log(state.questions.pregunta1.opciones.a.valor);
 
 	var anchorA = $('<a href="#collapse" data-toggle="collapse"></a>');
 	var divA = $('<div class="content_txt_radio"></div>');
@@ -99,11 +100,14 @@ function Question1(update) {
 
 	btn.on('click', function(e) {
 		 pregunta1 = $("input[name='option-1']:checked").val();
+		 console.log(pregunta1);
 		 option1 = $("input[name='option-1']:checked").attr('data-option');
 		 idChecked1 = $("input[name='option-1']:checked").attr("id");
 			if(pregunta1){
-				sumaX += parseInt(pregunta1);
+				console.log(documento);
 				console.log(sumaX);
+				sumaX += parseInt(pregunta1);
+				
 			}
 			state.screenView = "question-2";
 			update();
