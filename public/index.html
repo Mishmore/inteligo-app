@@ -51,7 +51,7 @@
         var xhr = new XMLHttpRequest(); 
         if ("withCredentials" in xhr) { xhr.open(method, url, false); 
         } else if (typeof XDomainRequest != "undefined") { 
-          alert xhr = new XDomainRequest(); 
+           xhr = new XDomainRequest(); 
           xhr.open(method, url); 
         } else { 
           console.log("CORS not supported"); 
