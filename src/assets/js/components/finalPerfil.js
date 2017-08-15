@@ -28,10 +28,10 @@ function Profile(update) {
 
   btnRegister.on('click', function(e) {
         //console.log(state.cliente);
-    var doc = new jsPDF();
-    doc.text(documento, 10, 10);
-    doc.text(perfil, 10, 20);
-    doc.save('perfil-cliente.pdf');
+    //var doc = new jsPDF();
+    //doc.text(documento, 10, 10);
+    //doc.text(perfil, 10, 20);
+    //doc.save('perfil-cliente.pdf');
     /*$.post( state.url,{vchCodCliente:codigoCliente,vchrTipoDoc:userValue,vchDocIdentidad:documento,
                 vchSector:sector,intResultadoPerfil:0,vchrPortafolio:"",chrResp01:option1,
                 chrResp02:option2,chrResp03:option3,chrResp04:option4,chrResp05:option5,                chrResp06:option6,
