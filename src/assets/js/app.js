@@ -36,6 +36,9 @@ var render = function(root) {
   case "question-8":
     wrapper.append(Question8(_ => render(root)));
     break;
+  case "Loading":
+    wrapper.append(Loading(_ => render(root)));
+    break;
   case "profile":
     wrapper.append(Profile(_ => render(root)));
     break;

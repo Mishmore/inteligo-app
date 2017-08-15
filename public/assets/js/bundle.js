@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25727,6 +25727,30 @@ function InicioForm(update) {
 	return container;
 }
 
+function Loading() {
+  var container = $('<div class="container-fluid question"></div>');
+  var divAzul = $('<div class="helper hidden-xs"></div>');
+  var logoDiv = $('<div class="logo-div"></div>');
+  var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
+  var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
+
+  var divLoad = $('<div class="loading-div"></div>');
+  var loading = $('<div class="progress "></div>');
+  var loadingBase = $('<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%"><span class="sr-only">100% Complete</span></div>');
+  var containerGif = $('<div class="center-block"></div>');
+  var loadingGif = $('<img src="assets/img/loading.gif">');
+
+  container.append(divAzul);
+  divAzul.append(logoDiv);
+  divAzul.append(divLoad);
+  divAzul.append(containerGif);
+  divLoad.append(loading);
+  loading.append(loadingBase);
+  logoDiv.append(img,h2);
+  containerGif.append(loadingGif);
+  return container;
+}
+
 var documento = "";
 var codigoCliente =  "";
 var tipoUsuario = "";
@@ -26391,14 +26415,12 @@ function Question8(update) {
 	btn.on('click', function(e) {
 		pregunta8 = $("input[name='option-8']:checked").val();
 		option8 = $("input[name='option-8']:checked").attr('data-option');
-		
-
 		// option8 = option.slice(-1);
       if(pregunta8){
 					sumaY += parseInt(pregunta8);
 					console.log(sumaY);
       }
-		state.screenView = "profile";
+		state.screenView = "Loading";
 		update();
 	});
 
@@ -26538,6 +26560,9 @@ var render = function(root) {
     break;
   case "question-8":
     wrapper.append(Question8(_ => render(root)));
+    break;
+  case "Loading":
+    wrapper.append(Loading(_ => render(root)));
     break;
   case "profile":
     wrapper.append(Profile(_ => render(root)));

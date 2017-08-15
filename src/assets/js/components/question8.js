@@ -56,14 +56,12 @@ function Question8(update) {
 	btn.on('click', function(e) {
 		pregunta8 = $("input[name='option-8']:checked").val();
 		option8 = $("input[name='option-8']:checked").attr('data-option');
-		
-
 		// option8 = option.slice(-1);
       if(pregunta8){
 					sumaY += parseInt(pregunta8);
 					console.log(sumaY);
       }
-		state.screenView = "profile";
+		state.screenView = "Loading";
 		update();
 	});
 
