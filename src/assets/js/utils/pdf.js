@@ -7,12 +7,9 @@ $(function() {
          //Todos los campos se identifican con 'pdf-[nombre-de-id]'
          //Llenar con text los campos vacíos antes de generar PDF
          
-         $('#pdf-cliente').text(nombre);
-         $('#pdf-perfil').text(nombre);
-         $('#pdf-descripcion').text(nombre);
-         $('#pdf-result-retorno').text(nombre);
-         $('#pdf-codigo-asesor').text(nombre);
-         $('#pdf-fecha').text(nombre);
+         $('#pdf-cliente').text(identificadorCliente);
+         $('#pdf-codigo-asesor').text(sector);
+         $('#pdf-fecha').text(fechaEvaluacion);
 
 
          //Código para incluir imagen (no es necesario tag de img en el html)
