@@ -58,7 +58,7 @@ function Profile(update) {
       //json2xml(dataJson);
     });*/
      
-    getJSON('http://172.17.6.230:8080/ITLGRestCliente/webresources/entidades.cliente/count', (err, json) => {
+    getJSON('http://172.17.6.230:8080/ITLGRestCliente/webresources/entidades.cliente/id=1', (err, json) => {
       console.log(json);
     });
 
