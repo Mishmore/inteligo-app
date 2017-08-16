@@ -2895,6 +2895,7 @@ $(function() {
      $('#cmd').click(function() {
          //Todos los campos se identifican con 'pdf-[nombre-de-id]'
          //Llenar con text los campos vacíos antes de generar PDF
+         
          $('#pdf-cliente').text(nombre);
          $('#pdf-perfil').text(nombre);
          $('#pdf-descripcion').text(nombre);
@@ -2916,8 +2917,7 @@ $(function() {
                  return true;
                }
          });
-           //doc.setFont("helvetica");
-           //doc.setFontType("bold");
+
            doc.save('sample-file.pdf');
 
         });
