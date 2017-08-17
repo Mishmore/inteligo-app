@@ -1,1 +1,5 @@
-$main-font: 'Arial', sans-serif;
+@font-face {
+	font-family: 'Arial';
+	src: url('./Arial.eot');
+}
+$main-font: 'Arial';

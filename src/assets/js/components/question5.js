@@ -10,6 +10,8 @@ function Question5(update) {
 	var loadingBase = $('<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:48.2%"></div>');
 
 	var h3 = $('<h3>'+state.questions.pregunta5.pregunta +'</h3>');
+	var divChart = $(' <div id="chartQuestion5" style="width:200; height:300"></div>');
+
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
 	
 	var divA = $('<div class="lbl-question"></div>');
@@ -46,6 +48,7 @@ function Question5(update) {
 	container.append(form);
 
 	form.append(h3);
+	form.append(divChart);
 
 	form.append(divA);
 	divA.append(inputA,labelA);
@@ -96,5 +99,6 @@ function Question5(update) {
 		state.screenView = "question-6";
 		update();
 	});
+
 	return container;
 }

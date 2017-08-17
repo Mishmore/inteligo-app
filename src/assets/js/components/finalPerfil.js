@@ -31,6 +31,7 @@ function Profile(update) {
     var doc = new jsPDF();
     doc.text(documento, 10, 10);
     doc.text(perfil, 10, 20);
+    doc.
     doc.save('perfil-cliente.pdf');
   });
 

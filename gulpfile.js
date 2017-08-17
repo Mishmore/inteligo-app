@@ -19,6 +19,7 @@ var paths = {
     jquery: "js/vendor/jquery-3.2.1.min.js",
     bootstrapJs: "js/vendor/bootstrap.min.js",
     bootstrapCss: "css/vendor/bootstrap.min.css",
+    font: "css/vendor/Arial.eot",
     mainSass: "scss/main.scss",
     mainJS: "js/app.js"
 };
@@ -31,6 +32,7 @@ var sources = {
     jquery: config.source + paths.assets + paths.jquery,
     bootstrapJs: config.source + paths.assets + paths.bootstrapJs,
     bootstrapCss: config.source + paths.assets + paths.bootstrapCss,
+    font: config.source + paths.assets + paths.font,
     rootSass: config.source + paths.assets + paths.mainSass,
     rootJS: config.source + paths.assets + paths.mainJS
 };
@@ -64,6 +66,9 @@ gulp.task('js', function() {
 });
 gulp.task('css', function() {
     gulp.src(sources.bootstrapCss).pipe(gulp.dest(config.dist + paths.assets + "css"));
+});
+gulp.task('font', function() {
+    gulp.src(sources.font).pipe(gulp.dest(config.dist + paths.assets + "css"));
 });
 
 gulp.task('sass-watch', ["sass"], function(done) {
