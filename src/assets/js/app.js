@@ -66,6 +66,8 @@ $(document).ready(function() {
   render(root);
   });
 
+
+
 	$('.collapse').collapse({
   toggle: true
 	})
