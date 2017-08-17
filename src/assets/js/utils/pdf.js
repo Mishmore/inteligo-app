@@ -1,17 +1,111 @@
 //variable a reemplazar por objeto local que almacene toda la data del cliente
 var nombre = 'Ingrid';
+var indexPerfil = null;
+
+var switchPerfil = function() {
+    switch (perfil) {
+        case 'defensivo':
+        indexPerfil = 0;
+            break;
+        case 'altamente conservador':
+        indexPerfil = 1;
+            break;
+        case 'conservador':
+        indexPerfil = 2;
+            break;
+        case 'moderado':
+        indexPerfil = 3;
+            break;
+        case 'agresivo':
+        indexPerfil = 4;
+            break;
+    }   
+}
+
+
+var perfilesData = [
+    {
+        perfil: 'Defensivo',
+        descripcion: "",
+        retorno_result: "",
+        retorno_texto: "Para inversionistas que buscan la seguridad en sus inversiones.",
+        retorno_anual: "1,5%",
+        retorno_mejor: "5,4%",
+        retorno_peor: "0,2%"
+    },
+    {
+        perfil: 'Altamente conservador',
+        descripcion: "El inversionista con este perfil tiene alta aversión al riesgo. Su objetivo " +
+        "principal es la preservación de capital acompañada de la generación de ingresos corrientes. La " +
+        "rentabilidad de las inversiones pueden ser muy bajas, a cambio de un alto grado de liquidez en el " +
+        "corto plazo y un riesgo mínimo de perdida de capital en términos reales.",
+        retorno_result: "2,76386174410896 %",
+        retorno_texto: "Para inversionistas que buscan la seguridad en sus inversiones y en menor medida, la generación de ingresos corrientes.",
+        retorno_anual: "3,0%",
+        retorno_mejor: "17,5%",
+        retorno_peor: "-6,5%"
+    },
+    {
+        perfil: 'Conservador',
+        descripcion: "El inversionista con este perfil está dispuesto a asumir cierto riesgo de " +
+        "pérdida de capital a cambio de generar ingresos corrientes. Este objetivo es más importante que " +
+        "la generación de ganancia de capital. Los inversionistas con este perfil buscan complementar " +
+        "sus ganancias con ingresos corrientes generados por su portafolio para cubrir sus gastos. ",
+        retorno_result: "4,24%",
+        retorno_texto: "Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrían requerir generación de ingresos corrientes.",
+        retorno_anual: "4,3%",
+        retorno_mejor: "27,6%",
+        retorno_peor: "-16,6%"
+    },
+    {
+        perfil: 'Moderado',
+        descripcion: "El inversionista con este perfil está dispuesto a asumir riesgo de perdida " +
+        "del capital a cambio de la generación de ingresos corrientes y la apreciación de capital mediante " +
+        "la reinversión de las ganancias de su portafolio.Esta estrategia es para inversionistas que tienen " +
+        "un horizonte de inversión largo y buscan hacer crecer su portafolio mediante las ganancias de" +
+        "capital y la reinversión de ingresos, para satisfacer necesidades futuras. ",
+        retorno_result:"7,63738624480951 %",
+        retorno_texto: "Para inversionistas de largo plazo que buscan crecimiento moderado en su inversión a un nivel medio - alto de riesgo, y que no requieren ingresos corrientes.",
+        retorno_anual: "5,0%",
+        retorno_mejor: "36,0%",
+        retorno_peor: "-27,5%"
+    },
+    {
+        perfil: 'Agresivo',
+        descripcion: "El inversionista con este perfil está dispuesto a asumir un riesgo alto en " +
+        "su portafolio a cambio de una rentablidad superior al promedio. Tiene como objetivo la " +
+        "apreciación de capital en el largo plazo a través de las ganancias de capital. ",
+        retorno_result: "6,54 %",
+        retorno_texto: "Para inversionistas de largo plazo que buscan un significativo crecimiento en su inversión a un nivel alto de riesgo, y que no requieren ingresos corrientes.",
+        retorno_anual: "5,8%",
+        retorno_mejor: "41,9%",
+        retorno_peor: "-35,4%"
+    }
+]
+
+var llenarDatos = function() {
+    $('#pdf-cliente').text(identificadorCliente);
+    $('#pdf-perfil').text(perfilesData[indexPerfil].perfil);
+    $('#pdf-descripcion').text(perfilesData[indexPerfil].descripcion);
+    $('#pdf-result-retorno').text(perfilesData[indexPerfil].retorno_result);
+    $('#pdf-texto-retorno').text(perfilesData[indexPerfil].retorno_texto);
+    $('#pdf-retorno-anual').text(perfilesData[indexPerfil].retorno_anual);
+    $('#pdf-retorno-mejor').text(perfilesData[indexPerfil].retorno_mejor);
+    $('#pdf-retorno-peor').text(perfilesData[indexPerfil].retorno_peor);    
+    $('#pdf-codigo-asesor').text(sector);
+    $('#pdf-fecha').text("");
+    console.log(perfilesData[indexPerfil]);
+}
 
 $(function() {
 
      $('#cmd').click(function() {
          //Todos los campos se identifican con 'pdf-[nombre-de-id]'
          //Llenar con text los campos vacíos antes de generar PDF
-         
-         $('#pdf-cliente').text(identificadorCliente);
-         $('#pdf-codigo-asesor').text(sector);
-         $('#pdf-fecha').text(fechaEvaluacion);
 
-
+         llenarDatos(indexPerfil);
+        
+        
          //Código para incluir imagen (no es necesario tag de img en el html)
          var imgData = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAAyCAMAAABCiTbWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAwBQTFRFaoHFen6GQl2t0tnsfZHKxsjPwcPKRVmS9vf4gYKFsrrR4eXu0tbkbnympK7JXWqNqrbd6ertTGWtaHKKZnGLJUSc3d7iq7PLjJ7Td3yHc3mIK0ieHj6bq7jfJUKZmajWkKHU2NzoNU6V5ujtQ1eT3+HnOVGVRmCtOVeqhpnOP1qp1dnml6fWJEaooa7XsLzgo7HZ+Pn6usHWhIWEW3S7ZHzD1NXbTV6RYXm8v8TRYnOkRGG2ME6lVmWPU2uxdovFdovKYGyMz9bp9PT2IkCajJzN7/D0jqDTLkiXJEWnxc7o7u/xtbvOb3aJkqHNW3K1V3G8g4SE8vT38PL2foGFUGCQUWGQOVizXnW2UmqwusXlK0eYUGu7eY7Me3+GWGeO0NfuzdLhKEWYKEad5ObttcDhSl2RanOKOlWlPVqwnavTM0yWW2iN4eLlTWavw8znfoCGU2y0P1WTXXfA5ufqZW+LYm2MLU2lHDybPlSUYnrCVW63MEuXNFKpIkOhTl+QSWOvR1qSJkSZkJ/Mx8/mWXCzSWSx5ejwIkKfSV2WO1q0zM7TID+aIECagYmjfIWhgYOFqrDAMFCu9fb3NVKnrbbPdoCfJEOcIkGaxs7lGzyblqHCxs7mKUmjgI60+vr7doWwgJPJf4KF6+3zjZm7bHWJ8fHz8/T4eIWtLUugjJzLnafD4+fyVWidL1Cv7OzvX2+e+/z9y83UMlGo8vP3fYCGJUaiLk6ugJPOytLq+fn7cHeJbnWJKkaYmKC3UGiv297obXaJKUebnKvYVGOP2uDwN1ayI0KZkqPSk6TVlKTRcYW+x9DqxsvbcYbCcIbIkZy84ePo4+ToP12zaX/A/P39N0+W+/v8z9HWTGazQ1+vycvSzM/WboO99/j5PVin1tjd2tvf6+zvTGi5JEKa5+nwgJTOX2uN2dzizdXseY3Gg5XKn6nEhJbMsLbI7e/0uL3LK0qlgpPGME2hv8nm8PH18PH28vP1HT2bh5O1iZnJZ3/ETmiygIKFIUCa////+Om3OwAAAQB0Uk5T////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AFP3ByUAAAfFSURBVHja5Jl5QJRFFMABD1gx8QByacWidUElNVHRFJS8qESkFrRILUzQ1jJQNJJCUDnq29pS8xM8SiW7TZOyiLKszC47LTusbAvtLjvsmNne++5j15a++KPd9wfMvDffN/PbN/PmzXwhD648tXTVaR70BIaETI05lTzXekinmxoo6Cuob3G6G1Mn6LQrggDdmdncuJ8GJXpBnMtGgxDdQtlosoQNQvSTVkuG3avTAx3dkpdQaSdxbPChW6yVmaGEPE+DDf2kxVa6P8pFTI5gQ78+3GZ2lDcR0sQGGXp9ha1ogSXKREgWDS70+lxrmr2gBZxO0tqIvrWmpuZJoQzFGo1ZUGErvcBzT3pRcw+iYau2s92g3K3RXdll26ZN3brUeB/eWV1Qanyi16emHQptZXJdgJ7bRvSx1dXVHYQyFKunqM2oElrpBZ7r4EXNPYiGsdrOhoByiIr73uKwpKUbN65Jqn7kAd3YvnhjWWISimzUoJ8s7JVfmpPAZAE5yWsjejoY1wtlbJi0V2VGldBKL/Dcei9q7kE0pGs7ux+U98vVvad98Jj01E2PLjtd3fr3w0t1RjW6xWG2lW0xs/n2f4O+CowrFZx02SVtQV/pCx0Nq7SdrVCNZO3hm9QPJt29XW67/Z0fNUYdOlMel8tmmdKcVtN/gk6/8oIeMl2QGKifECvHecKY6WrxE71bEtfd6OFnghx8HMvrRkaK1tUjOevlM8E4nDd+rUWfEG12FxJSQvOQvM1rXY8e85IefUQnQXpCfZBYuYcn7NlJLf6hT+HIb+izK3Y1yFudh7yI9SsE6853sDZt8IgeYIzt3PsMHFh/NXp9WkoJE0dcBXQJh55mGJ2eMUWHLkk21M9X1JEw29t7/wm9Zj72dCBWNnYKobTvJKEyGTve86k0By77HNlHKdEtZfasCTZCQhlaxKEvMYiOP+/8Yz7Rlc19EvqD3h+K7Nz3lNZrDiZvFmP7fWD+8iKF8aNPcHEckdGdLXEpZZZSQhop7cWhmy3G0Lvjn0UR7Y1+1Qko9tWYzxbJuR8me4fK+DOGmcEyOhOVk8UWQGgvEtFd+cbQuV5px/ZG3welxM2+BjX+hGLZizITdMUSOmMjrkrGCqnMAhGdhBtE/20RVTjEH/QZ/wL9UnShz3T1Qm8PvwmnkzkSOvuUq6mFRgFwqoSewRhD9xwbjRHlB//R592qkH7+oc+BzWq8T/SrceV5zb5EdMaaQqItFjMAz6ZCmCOhVQbRPaNwVb3dz290eo5CFvqFfhTnu6QedbssnOIVML+gG+ofCnQ2jpBKmp8DwNGUcz4udqvTILpnELfjbvYbXSkr/UJ/QrVOht8hi+Tf1bqhTpXRGWsORjUr4dELeXSMeAbRPR2x1L8dvf6EKh1I12bBqDhyKnS2mdvLKpA3jqE2l8DucBpFP3cYFvv4u9ZvU4h/a72HasJ/fgEvUmcfQ6GDbqg/yei2FEKiKJ2NuDnxNL6JJze1MkbRPXsx15qzsP0iPIY5aUo/fScv88TOMMxdrXtlTwmdwcy1kNJoDjiBMkKcI00JhtE932FWl9iv3fb1Z7xtbjPEzhZ6O/EudsPGw6NzXi4RI3slpXnCjHeVMobRPX2x8uf49kJPxmOPdnfLFjvbDnks+6rGOg7jA49egqQ2cT/PcNJyu+B2l40xjO4Zi7XJ7ZbIYpI+ebN+RvOlb6G0vIcuzaFzOXQnd1JzSLk7Sy1CUkNMT8UbRx8/TRV02+P4QvepdrDjkE+wQjaP622ckn3XANAcXs2hu2chJSvl7rDArWKMT6lgDKN7uib5ie7z0Jp9CvRfPsBXnzlCskV8iE4foGhJZ74vGo9ehinmuqH8odXBcTJimCOzGVplFtCJPYExjO5Ze59/6Nfeohbvhs80VxWv3cjdwnTvdM2OiIjFsZ0PTMf6IPHF3CXNaLDeE7EjtjOXaKy7W7iqCOcY3VIWZ3ZTJlV0u6uogDGM7nk5xi/0mJvV4t0Qor2g+obzO304ZE9y8rhF53CVYdKLLx4mWHsn7+GNj3UUL6jSOMZyyqc0QFsGQT9UdHtKGmsc3fM6bXMiq7yWVEm67lryyuKN6iZLRyou6XePXKq+lrxXupYs5RAhwlcKtL1gq68Q0SGVZ/xCL66trd0glKFYqzJ+/5dWpWyOsqFWL94NxaCcCP8nKp7elDimVhxh7Zjl29RD2yZba8cc7iJfRjdyhOBqh0lwdCalVXEiuqlJtdx9ot9VV1fXVShDsU5tHahVKZtzsbBOL94Nd+ElLPzvpnxdZMNDiQPWgIQtP6/hV+3YIhvqwtCYFPZQw7uKTxB82vo8pRYhgcWklrFukdxuzmf+D9/cJg1cCxK507s1Eo1DI9UfnnhfwzldPKgTO7j9ZJFLYo9uYQLzcyPP9yyUcsU5njGB0nIp0pGc6AJnAKO7YHfLFBPYnASMdHaZPSPeGbjoGOeYZpG1GX4INprI7BVuZwCiC85dAMU8aXnD+Y1mmmX2lNSqAEQXnAvHFtoizXFzPkyCkusUfl8SH7DoJljfzlJpN18AvwQzW17uxJXhDjh0Ma7j9nbILidxeH9TukXB3uoONPRwAW0W+Nkph7ZZBXiB00gU7M0FAYaeKaLhlyabTNoL57cjVMFOshwBg/63AAMA4i2Hicz8f7IAAAAASUVORK5CYII='
          var grafico1 ='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAE8CAYAAADt+is0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAFLjSURBVHgB7b0HYBzlmf//tXrvvVvFsmTLveIONmB6bwkQIBC4FHL3P5LcXZIrIY387y7JkVBCaAnYVFNNM2Dcu2WrWJLVe28raSWtJP/e5xVjxstKWkmzq92d55Ms1s7Ozs7OznzneZ/neZ9nFlyMcwIwDKNLZgngQriBYRiGcUhYoBmGYRwUFmiGYRgHhQWaYRjGQfEAwzgYIyMjGB4epoAP3Nzc5HOTyQSDwYDe3j709BjkMqPRiLa2NgwOmhASEoL4hBSUVXWirLwRAf4+CAjwQVCAL4KD/RAo/vUXz/39vOHv6w1PT3fxGefk53h6esDDww0uFl9iXAAWaGbGIJElSGhbW1tRU1ODqqpqNDY2orS0FF1dBvT19UoRnYj58+djzdrNePujEvz9lT0Tru8lRDk8LACxMaFIiA9DVmYicuYlY15mHGKjw+Dv733+BsG6zcwULNCMzaHMR7KABwYG0NTUhLKycpSUlKC8vFxYwO3o6OiAvRk0DaGhqVM+TpyqwDs7j1/wur+wwFNTorFyWTpWL5+DhfOTkZIcBXe3WdLidndn7yBje1igGZtAVm9/fz9Onz6N3bv3CkEullays9Db24+8gir5eOaFT88vT50djRVL0nD5lsXYuCYbYaEBwj3izu4RxiawQDOaQO6K9vZ2nDlThP3798t/6bmrUV7RJB/b3zggn8dEh2Lzxhxcf/UKrFyaISxvL3h7ebJgM5rAAs1MCbKQ6UG+4t27d+PUqTzU19dDbzQ2dUift+L3zsyIww1Xr8TVW5cia048hoaGpbuEBZuZCizQjNUY+ofg7+2B2nYjBrpa8PN/+xf09PSA+Yris/X49f/skA9yf2zeuAB33rYeF6+fL/3ePt6eYBhrYYFmxmVwaDTToqK1D68frcc7uY1wE9bgjvszZeCPGZv2jh68uuOAfIQE++Obt67DfXddgjQRfKQ0P4aZCBZoxiI9wlruF+L8Xm4TXjpUK61mNdVdI7juumvxyiuvgpmYzq5ePP70h/IxOzkK//yDa3D9VStkOh+l/DGMJThXiDmPoX8YQ8PnsL+'+
@@ -48,7 +142,7 @@ $(function() {
               }
         });
         
-        doc.fromHTML($('#identificador').html(), 155, 38, { //Identificador
+        doc.fromHTML($('#identificador').html(), 155, 38, { //Identificador de cliente
             /*'width': 170,
             'elementHandlers': function() {
                 return true;

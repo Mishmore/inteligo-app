@@ -1,5 +1,6 @@
 function Profile(update) {
   prueba();
+  switchPerfil();
   var container = $('<div class="container"></div>');
   var div1 = $('<div class="profile"></div>');
   var h1= $('<h1>El perfil del cliente: </h1>')
