@@ -122,7 +122,7 @@ $(function() {
         doc.text(20, 107, 'Tomando en cuenta su perfil de inversión, le sugerimos la siguiente distribución estratégica \npor cada clase de activos:');
 
         //Grafico
-        doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 70, 111, 70, 60);
+        doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 70, 113, 70, 60);
 
         //Retorno
         doc.setFont('Arial');
@@ -134,7 +134,7 @@ $(function() {
         doc.setFont('Arial');
         doc.setFontType('normal');
         doc.setFontSize(11.5);
-        doc.setTextColor(0, 0, 0);
+        doc.setTextColor(35, 62, 153);
         doc.text(100, 182, perfilesData[indexPerfil].retorno_result);
 
         //Retorno anual
@@ -179,16 +179,16 @@ $(function() {
         //(1)
         doc.setFont('Arial');
         doc.setFontType('normal');
-        doc.setFontSize(10);
+        doc.setFontSize(9);
         doc.setTextColor(0, 0, 0);
         doc.text(20, 202, '(1) Sobre la base de rentabilidades de largo plazo para las categorías de activo que componen los portafolios \nde cada perfil.');
 
         //(2)
         doc.setFont('Arial');
         doc.setFontType('normal');
-        doc.setFontSize(10);
+        doc.setFontSize(9);
         doc.setTextColor(0, 0, 0);
-        doc.text(20, 212, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
+        doc.text(20, 210, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
 
         //Texto retorno
         doc.setFont('Arial');

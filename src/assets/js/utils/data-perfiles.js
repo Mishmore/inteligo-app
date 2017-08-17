@@ -127,8 +127,8 @@ var perfilesData = [{
     {
         perfil: 'Agresivo',
         descripcion: "El inversionista con este perfil está dispuesto a asumir un riesgo alto en su portafolio" +
-            "\n a cambio de una rentablidad superior al promedio. Tiene como objetivo la apreciación de capital" +
-            "\n en el largo plazo a través de las ganancias de capital. ",
+            "\na cambio de una rentablidad superior al promedio. Tiene como objetivo la apreciación de" +
+            "\ncapital en el largo plazo a través de las ganancias de capital. ",
         retorno_result: "6,54 %",
         retorno_texto: "Para inversionistas de largo plazo que buscan un significativo crecimiento en su \ninversión a un nivel alto de riesgo, y que no requieren ingresos corrientes.",
         retorno_anual: "5,8%",
