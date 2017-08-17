@@ -191,6 +191,10 @@ function Profile(update) {
   });
 
   btnReviewPerfil.on('click', function(e) {
+    sumaX = 0;
+    sumaY = 0;
+    pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
+    option1,option2,option3,option4,option5,option6,option7,option8 = "";
     state.screenView = "question-1";
     update();
   });
