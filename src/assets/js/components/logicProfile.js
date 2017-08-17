@@ -1,6 +1,6 @@
 var documento = "";
 var codigoCliente =  "";
-var identificadorCliente = 99999;
+var identificadorCliente = 6565;
 var tipoUsuario = "";
 var sector = null;
 var fechaEvaluacion = "fecha";
