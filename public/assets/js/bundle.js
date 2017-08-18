@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25621,6 +25621,7 @@ function Profile(update) {
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-primary" id="reviewPerfil">Review perfil</button>');
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
+  var btnSave= $('<button type="button" class="btn btn-primary" id="enviarMail">Guardar Datos</button>');
 
   container.append(div1);
   container.append(div3);
@@ -25634,6 +25635,7 @@ function Profile(update) {
 
   div3.append(btnReviewPerfil);
   div3.append(btnRegister);
+  div3.append(btnSave);
 
   btnRegister.on('click', function(e) {
         //console.log(state.cliente);

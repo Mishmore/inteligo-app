@@ -12,6 +12,7 @@ function Profile(update) {
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-primary" id="reviewPerfil">Review perfil</button>');
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
+  var btnSave= $('<button type="button" class="btn btn-primary" id="enviarMail">Guardar Datos</button>');
 
   container.append(div1);
   container.append(div3);
@@ -25,6 +26,7 @@ function Profile(update) {
 
   div3.append(btnReviewPerfil);
   div3.append(btnRegister);
+  div3.append(btnSave);
 
   btnRegister.on('click', function(e) {
         //console.log(state.cliente);
