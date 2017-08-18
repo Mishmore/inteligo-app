@@ -5,6 +5,7 @@ const morganjson= require('morgan-json');
 const bodyParser= require('body-parser');
 const mysql 	= require('mysql');
 
+
 var connection  = mysql.createConnection({
   host     : 'localhost',
   user     : 'itlgclie',
@@ -20,45 +21,14 @@ connection.connect(function (error) {
 	}
 });
 
-app.get('/',function (req,resp) {
+app.get('/api/json',function (req,resp) {
 	connection.query("SELECT * FROM cliente",function (error,rows,fields) {
 		if (!!error) {
 			console.log('error en el query');
 		} else {
-			console.log('succes\n');
-			console.log(rows);
+			 resp.json(rows);
 		}
 	});
-});
-app.post('/',function (req,resp) {
-	let client=
-      {
-          vchCodCliente: "vchCodCliente",
-          vchrTipoDoc: "vchrTipoDoc",
-          vchDocIdentidad: "vchDocIdentidad",
-          dtmFecha:"dtmFecha",
-          vchSector: "vchSector",
-          intResultadoPerfil: "intResultadoPerfil",
-          vchrPortafolio: "vchrPortafolio",
-          chrResp01: "chrResp01",
-          chrResp02: "chrResp02",
-          chrResp03: "chrResp03",
-          chrResp04: "chrResp04",
-          chrResp05: "chrResp05",
-          chrResp06: "chrResp06",
-          chrResp07: "chrResp07",
-          chrResp08: "chrResp08",
-          vchNomPDF: "vchNomPDF"
-        }
-	connection.query("INSERT INTO cliente SET ?",client,function (err) {
-		if (err) {
-			console.log("error en el INSERT");
-		} else {
-			console.log("valores agregados");
-		}
-		
-	})
-
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -70,6 +40,16 @@ const format = morganjson({
   'response-time': ':response-time ms'
 });
 
+module.exports = app.post('/registrarCliente',function (req,resp) {
+	
+	connection.query("INSERT INTO cliente SET ?",req.body,function (err) {
+		if (err) {
+			console.log(req.body);
+		} else {
+			console.log("datos agregados");
+		}
+	});
+});
 
 app.set('port', (process.env.PORT || 6351));
 

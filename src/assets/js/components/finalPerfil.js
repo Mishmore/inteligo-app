@@ -12,6 +12,7 @@ function Profile(update) {
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-primary" id="reviewPerfil">Review perfil</button>');
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
+  var btnEnviarDatos = $('<button type="button" class="btn btn-primary" id="enviarMail">Guardar Datos</button>');
 
   container.append(div1);
   container.append(div3);
@@ -25,6 +26,7 @@ function Profile(update) {
 
   div3.append(btnReviewPerfil);
   div3.append(btnRegister);
+  div3.append(btnEnviarDatos);
 
   btnRegister.on('click', function(e) {
         //console.log(state.cliente);
@@ -44,5 +46,43 @@ function Profile(update) {
     update();
   });
 
+  btnEnviarDatos.on('click',function (e) {
+    var client = {
+          vchCodCliente: codigoCliente,
+          vchrTipoDoc: tipoUsuario,
+          vchDocIdentidad: documento,
+          dtmFecha:"hoy",
+          vchSector: "opcional",
+          intResultadoPerfil: 5,
+          vchrPortafolio: "opcional",
+          chrResp01: option1,
+          chrResp02: option2,
+          chrResp03: option3,
+          chrResp04: option4,
+          chrResp05: option5,
+          chrResp06: option6,
+          chrResp07: option7,
+          chrResp08: option8,
+          vchNomPDF: "perfil"
+        }
+
+    $.ajax({
+          type: "POST",
+           url: "/registrarCliente",
+           dataType: "json",
+           success: function (msg) {
+               if (msg) {
+                   console.log("Somebody" + name + " was added in list !");
+                   location.reload(true);
+               } else {
+                   console.log("Cannot add to list !");
+               }
+           },
+
+           data: client
+        });
+  });
+
   return container;
 }
+ 
