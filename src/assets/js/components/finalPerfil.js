@@ -2,7 +2,7 @@ function Profile(update) {
   prueba();
   var container = $('<div class="container"></div>');
   var div1 = $('<div class="profile"></div>');
-  var h1= $('<h1>El perfil del cliente: </h1>')
+  var h1= $('<h1>Basandonos en la respuesta que usted nos ha especificado, hemos determinado que su perfil es: </h1>')
   var h2= $('<h2>Su perfil es: '+ perfil +' </h2>')
   var h3=$('<h3>Te sugerimos este plan de inversión: </h3>')
   var div3 = $('<div class="informacion"></div>');
@@ -12,7 +12,7 @@ function Profile(update) {
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-primary" id="reviewPerfil">Review perfil</button>');
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
-  var btnEnviarDatos = $('<button type="button" class="btn btn-primary" id="enviarMail">Guardar Datos</button>');
+  var btnEnviarDatos = $('<button type="button" class="btn btn-primary" id="saveData">Guardar Datos</button>');
 
   container.append(div1);
   container.append(div3);
@@ -27,24 +27,6 @@ function Profile(update) {
   div3.append(btnReviewPerfil);
   div3.append(btnRegister);
   div3.append(btnEnviarDatos);
-
-  btnRegister.on('click', function(e) {
-        //console.log(state.cliente);
-    var doc = new jsPDF();
-    doc.text(documento, 10, 10);
-    doc.text(perfil, 10, 20);
-    doc.
-    doc.save('perfil-cliente.pdf');
-  });
-
-  btnReviewPerfil.on('click', function(e) {
-    sumaX = 0;
-    sumaY = 0;
-    pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
-    option1,option2,option3,option4,option5,option6,option7,option8 = "";
-    state.screenView = "question-1";
-    update();
-  });
 
   btnEnviarDatos.on('click',function (e) {
     var client = {
@@ -82,6 +64,26 @@ function Profile(update) {
            data: client
         });
   });
+
+  btnRegister.on('click', function(e) {
+        //console.log(state.cliente);
+    var doc = new jsPDF();
+    doc.text(documento, 10, 10);
+    doc.text(perfil, 10, 20);
+    doc.
+    doc.save('perfil-cliente.pdf');
+  });
+
+  btnReviewPerfil.on('click', function(e) {
+    sumaX = 0;
+    sumaY = 0;
+    pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
+    option1,option2,option3,option4,option5,option6,option7,option8 = "";
+    state.screenView = "question-1";
+    update();
+  });
+
+  
 
   return container;
 }
