@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25506,10 +25506,15 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
-  var input = $('<input id="documento" type="text" class="text-center" maxlength="8">');
+  var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
-  var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
-
+  var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
+  var divOptions =$('<div class="text-center"></div>');
+  var opDni = $('<label><input type="radio" name="opt-radio">DNI</label>');
+  var opCe = $('<label><input type="radio" name="opt-radio">CE</label>');
+  var opPasaporte = $('<label><input type="radio" name="opt-radio">Pasaporte</label>');
+  var opRuc = $('<label><input type="radio" name="opt-radio">RUC</label>');
+//input debe aceptar letras
   container.append(row);
   row.append(h1);
   row.append(containerCards);
@@ -25524,6 +25529,12 @@ function SeleccionarCliente(update) {
   inputGroup.append(input);
   inputGroup.append(linkSubmit);
   inputGroup.append(spanError);
+  inputGroup.append(divOptions);
+
+  divOptions.append(opDni);
+  divOptions.append(opCe);
+  divOptions.append(opPasaporte);
+  divOptions.append(opRuc);
 
   cliente.on('click', function(e) {
     state.cliente = "cliente";
@@ -25540,20 +25551,47 @@ function SeleccionarCliente(update) {
   });
 
   linkSubmit.on('click', function(e) {
-
+    var validarIdentificador = "";
+    var validarTipoId = "";
     if (input.val().length != 0) {
+      validarIdentificador = "validado";
+  /*    $('#id-cliente').text(input.val());
+      linkSubmit.attr("data-toggle", "modal");
+      linkSubmit.attr("data-target", ".bs-example-modal-lg");
+      spanError.removeClass("hidden-off");
+      spanError.addClass("hidden-on");*/
+    } else if (input.val().length == 0) {
+      validarIdentificador = "Completar todos los campos";
+  /*    linkSubmit.removeAttr("data-toggle");
+      linkSubmit.removeAttr("data-target");
+      spanError.removeClass("hidden-on");
+      spanError.addClass("hidden-off");*/
+    }
+/*
+    if (opDni.last().checked == false || opCe.last().checked != false || opPasaporte.last().checked != false || opRuc.last().checked != false) {
+      validarIdentificador = "Completar todos los campos";
+    } else {
+      console.log(validarIdentificador);
+      validarIdentificador = "validado";
+    }
+*/
+    $('input[type=radio]').change(function() {
+        validarTipoId = "validado";
+    });
+
+    if (validarIdentificador == "validado") {
       $('#id-cliente').text(input.val());
       linkSubmit.attr("data-toggle", "modal");
       linkSubmit.attr("data-target", ".bs-example-modal-lg");
       spanError.removeClass("hidden-off");
       spanError.addClass("hidden-on");
-    } else if (input.val().length == 0) {
+    } else if (validarIdentificador == "Completar todos los campos") {
       linkSubmit.removeAttr("data-toggle");
       linkSubmit.removeAttr("data-target");
       spanError.removeClass("hidden-on");
       spanError.addClass("hidden-off");
     }
-
+    console.log(validarIdentificador);
   });
 
   $('button.init').on('click', function(e) {
@@ -25568,22 +25606,6 @@ function SeleccionarCliente(update) {
 
     update();
   });
-
-
-  jQuery.fn.NumberOnly = function() {
-    return this.each(function() {
-        $(this).keydown(function(e) {
-            const key = e.charCode || e.keyCode || 0;
-            return (
-                key == 8 || key == 9 ||
-                key == 110 || key == 190 ||
-                (key >= 35 && key <= 40) ||
-                (key >= 48 && key <= 57) ||
-                (key >= 96 && key <= 105));
-        });
-    });
-  };
-  input.NumberOnly();
 
   return container;
 }
