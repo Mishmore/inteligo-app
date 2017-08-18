@@ -25655,9 +25655,9 @@ var switchPerfil = function() {
     }
 }
 
-$(function() {
+//$(function() {
+function impPDF() {
 
-    $('#cmd').click(function() {
         sector = sector.toString();
         identificadorCliente = identificadorCliente.toString();
         //Todos los campos se identifican con 'pdf-[nombre-de-id]'
@@ -25837,8 +25837,10 @@ $(function() {
 
         doc.save('sample-file.pdf');
 
-    });
-});
+
+//});
+}
+
 /*
 function Modal() {
   var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
@@ -26027,11 +26029,7 @@ function Profile(update) {
   div3.append(btnRegister);
 
   btnRegister.on('click', function(e) {
-        //console.log(state.cliente);
-    /*var doc = new jsPDF();
-    doc.text(documento, 10, 10);
-    doc.text(perfil, 10, 20);
-    doc.save('perfil-cliente.pdf');*/
+    impPDF();
   });
 
   btnReviewPerfil.on('click', function(e) {
