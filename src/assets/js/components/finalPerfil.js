@@ -1,5 +1,6 @@
 function Profile(update) {
   prueba();
+  switchPerfil();
   var container = $('<div class="container"></div>');
   var div1 = $('<div class="profile"></div>');
   var h1= $('<h1>Basandonos en la respuesta que usted nos ha especificado, hemos determinado que su perfil es: </h1>')
@@ -11,15 +12,17 @@ function Profile(update) {
   var span2=$('<span class="texto"><i></i> Mejor Año:27% </span>');
   var span3=$('<span class="texto"><i></i>Peor Año:16.09%</span>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-primary" id="reviewPerfil">Review perfil</button>');
+
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
   var btnEnviarDatos = $('<button type="button" class="btn btn-primary" id="saveData">Guardar Datos</button>');
+  var btnReviewPerfil = $('<button type="button" class="btn btn-primary">Revisar Perfil</button>');
 
   container.append(div1);
   container.append(div3);
   div1.append(h1);
   div1.append(h2);
   div1.append(h3);
-  div1.append(img);
+  //div1.append(img);
   div3.append(span1);
   div3.append(span2);
   div3.append(span3);
@@ -66,12 +69,7 @@ function Profile(update) {
   });
 
   btnRegister.on('click', function(e) {
-        //console.log(state.cliente);
-    var doc = new jsPDF();
-    doc.text(documento, 10, 10);
-    doc.text(perfil, 10, 20);
-    doc.
-    doc.save('perfil-cliente.pdf');
+    impPDF();
   });
 
   btnReviewPerfil.on('click', function(e) {
