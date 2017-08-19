@@ -25875,7 +25875,7 @@ function SeleccionarCliente(update) {
   var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
-  var divOptions =$('<form class="text-center"></form>');
+  var divOptions =$('<form class="text-center hidden-on"></form>');
   var opDni = $('<label><input type="radio" name="opt-radio">DNI</label>');
   var opCe = $('<label><input type="radio" name="opt-radio">CE</label>');
   var opPasaporte = $('<label><input type="radio" name="opt-radio">Pasaporte</label>');
@@ -25906,6 +25906,8 @@ function SeleccionarCliente(update) {
     state.cliente = "cliente";
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
+    divOptions.removeClass("hidden-off");
+    divOptions.addClass("hidden-on");
     input.attr("placeholder", "Ingrese código de cliente");
   });
 
@@ -25913,66 +25915,77 @@ function SeleccionarCliente(update) {
     state.cliente = "prospecto";
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
+    divOptions.removeClass("hidden-on");
+    divOptions.addClass("hidden-off");
     input.attr("placeholder", "Ingrese número de documento");
   });
-  var validarIdentificador = "";
+
+  var validarIdentificador = "vacio";
   var validarTipoId = "";
   linkSubmit.on('click', function(e) {
 
-    console.log(opDni.children());
     if (input.val().length != 0) {
       validarIdentificador = "validado";
-  /*    $('#id-cliente').text(input.val());
-      linkSubmit.attr("data-toggle", "modal");
-      linkSubmit.attr("data-target", ".bs-example-modal-lg");
-      spanError.removeClass("hidden-off");
-      spanError.addClass("hidden-on");*/
     } else if (input.val().length == 0) {
       validarIdentificador = "Completar todos los campos";
-  /*    linkSubmit.removeAttr("data-toggle");
-      linkSubmit.removeAttr("data-target");
-      spanError.removeClass("hidden-on");
-      spanError.addClass("hidden-off");*/
     }
-/*
-    if (opDni.last().checked == false || opCe.last().checked != false || opPasaporte.last().checked != false || opRuc.last().checked != false) {
-      validarIdentificador = "Completar todos los campos";
-    } else {
-      console.log(validarIdentificador);
-      validarIdentificador = "validado";
-    }
-*/
-    divOptions.on('change', function(e) {
+
+    $('input[type=radio]').on('change', function(e) {
         validarTipoId = "validado";
     });
 
-    if (validarIdentificador == "validado" && validarTipoId == "validado") {
-      $('#id-cliente').text(input.val());
-      linkSubmit.attr("data-toggle", "modal");
-      linkSubmit.attr("data-target", ".bs-example-modal-lg");
-      spanError.removeClass("hidden-off");
-      spanError.addClass("hidden-on");
-    } else if (validarIdentificador == "Completar todos los campos" || validarTipoId == "") {
-      linkSubmit.removeAttr("data-toggle");
-      linkSubmit.removeAttr("data-target");
-      spanError.removeClass("hidden-on");
-      spanError.addClass("hidden-off");
+    if (state.cliente == "cliente") {
+
+      if (input.val().length != 0) {
+        $('#id-cliente').text(input.val());
+        linkSubmit.attr("data-toggle", "modal");
+        linkSubmit.attr("data-target", ".bs-example-modal-lg");
+        spanError.removeClass("hidden-off");
+        spanError.addClass("hidden-on");
+      } else {
+        linkSubmit.removeAttr("data-toggle");
+        linkSubmit.removeAttr("data-target");
+        spanError.removeClass("hidden-on");
+        spanError.addClass("hidden-off");
+      }
+
+    } else if (state.cliente = "prospecto") {
+      if (validarIdentificador == "validado" && validarTipoId == "validado") {
+        $('#id-cliente').text(input.val());
+        linkSubmit.attr("data-toggle", "modal");
+        linkSubmit.attr("data-target", ".bs-example-modal-lg");
+        spanError.removeClass("hidden-off");
+        spanError.addClass("hidden-on");
+      } else if (validarIdentificador != validarTipoId ) {
+        linkSubmit.removeAttr("data-toggle");
+        linkSubmit.removeAttr("data-target");
+        spanError.removeClass("hidden-on");
+        spanError.addClass("hidden-off");
+      }
     }
-    console.log(validarTipoId);
+
   });
 
   $('button.init').on('click', function(e) {
+    identificadorCliente = input.val();
     if (state.cliente == "cliente") {
       codigoCliente = input.val();
     } else if (state.cliente == "prospecto") {
       documento = input.val();
+      tipoDoc();
     }
+
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-    console.log(state.screenView);
+
+    console.log(tipoDocumento);
 
     update();
   });
+
+  function tipoDoc() {
+    console.log(tipoDocumento);
+  }
 
   return container;
 }
@@ -26191,8 +26204,9 @@ function Loading(update) {
 }
 
 var documento = "";
+var tipoDocumento = "";
 var codigoCliente =  "";
-var identificadorCliente = 6565;
+var identificadorCliente = "";
 var tipoUsuario = "";
 var sector = null;
 var fechaEvaluacion = "fecha";
