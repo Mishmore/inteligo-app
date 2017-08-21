@@ -25461,162 +25461,6 @@ this.activeTarget=b,this.clear();var c=this.selector+'[data-target="'+b+'"],'+th
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
-var status=Math.floor(Math.random() * 5) + 1  ;
-
-//first pie agresivo
-google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-	var data = google.visualization.arrayToDataTable([
-		["Issues", "Amount given"],
-		["Caja y Equivalentes",2],
-		["Renta Fija", 28],
-		["Renta Variable", 50],
-		["Renta Alternativa ", 20]
-
-	]);
-
-	var options = {
-		 legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
-		fontSize:16,
-    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
-		pieHole: 0.3,
-		pieSliceTextStyle: {
-		color: "white",
-
-		},
-	};
-
-	var chart = new google.visualization.PieChart(
-		document.getElementById("donut_single0")
-	);
-	chart.draw(data, options);
-}
-
-//second pie Defensivo//
-
-google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart1);
-
-function drawChart1() {
-	var data1 = google.visualization.arrayToDataTable([
-		["Issues", "Amount given"],
-		["Caja y Equivalentes",100],
-		["Renta Fija", 0],
-		["Renta Variable", 0],
-		["Renta Alternativa ", 0]
-
-	]);
-
-	var options1 = {
-		legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
-		fontSize:16,
-    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
-		pieHole: 0.3,
-		pieSliceTextStyle: {
-		color: "black",
-
-		},
-	};
-
-	var chart1 = new google.visualization.PieChart(
-		document.getElementById("donut_single1")
-	);
-	chart1.draw(data1, options1);
-}
-//third pie moderado //
-google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart2);
-
-function drawChart2() {
-	var data2 = google.visualization.arrayToDataTable([
-		["Issues", "Amount given"],
-		["Caja y Equivalentes",5],
-		["Renta Fija", 48],
-		["Renta Variable", 35],
-		["Renta Alternativa ", 12]
-
-	]);
-
-	var options2 = {
-		legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
-		fontSize:16,
-    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
-		pieHole: 0.3,
-		pieSliceTextStyle: {
-		color: "white",
-
-		},
-	};
-
-	var chart2 = new google.visualization.PieChart(
-		document.getElementById("donut_single2")
-	);
-	chart2.draw(data2, options2);
-}
-//four pie conservador//
-
-google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart3);
-
-function drawChart3() {
-	var data3 = google.visualization.arrayToDataTable([
-		["Issues", "Amount given"],
-		["Caja y Equivalentes",10],
-		["Renta Fija", 73],
-		["Renta Variable", 12],
-		["Renta Alternativa ", 5]
-	]);
-
-	var options3 = {
-		legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
-		fontSize:16,
-    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
-		pieHole: 0.3,
-		pieSliceTextStyle: {
-		color: "white",
-
-		},
-	};
-
-	var chart3 = new google.visualization.PieChart(
-		document.getElementById("donut_single3")
-	);
-	chart3.draw(data3, options3);
-}
-//five pie altamente conservador//
-
-
-google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart4);
-
-function drawChart4() {
-	var data4 = google.visualization.arrayToDataTable([
-		["Issues", "Amount given"],
-		["Caja y Equivalentes",40],
-		["Renta Fija", 60],
-		["Renta Variable", 0],
-		["Renta Alternativa ", 0]
-
-	]);
-
-	var options4 = {
-		legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
-		fontSize:16,
-    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
-		pieHole: 0.3,
-		pieSliceTextStyle: {
-		color: "white",
-
-		},
-	};
-
-	var chart4 = new google.visualization.PieChart(
-		document.getElementById("donut_single4")
-	);
-	chart4.draw(data4, options4);
-}
 var perfilesData = [{
         perfil: 'Defensivo',
         descripcion: "",
@@ -26216,6 +26060,226 @@ function Profile(update) {
   div3.append(btnRegister);
   div3.append(btnEnviarDatos);
 
+  
+  var status=Math.floor(Math.random() * 5) + 1  ;
+
+//first pie agresivo
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ["Issues", "Amount given"],
+    ["Caja y Equivalentes",2],
+    ["Renta Fija", 28],
+    ["Renta Variable", 50],
+    ["Renta Alternativa ", 20]
+
+  ]);
+
+  var options = {
+     legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
+    fontSize:16,
+    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
+    pieHole: 0.3,
+    pieSliceTextStyle: {
+    color: "white",
+
+    },
+  };
+
+  var chart = new google.visualization.PieChart(
+    document.getElementById("donut_single0")
+  );
+  chart.draw(data, options);
+}
+
+//second pie Defensivo//
+
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart1);
+
+function drawChart1() {
+  var data1 = google.visualization.arrayToDataTable([
+    ["Issues", "Amount given"],
+    ["Caja y Equivalentes",100],
+    ["Renta Fija", 0],
+    ["Renta Variable", 0],
+    ["Renta Alternativa ", 0]
+
+  ]);
+
+  var options1 = {
+    legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
+    fontSize:16,
+    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
+    pieHole: 0.3,
+    pieSliceTextStyle: {
+    color: "black",
+
+    },
+  };
+
+  var chart1 = new google.visualization.PieChart(
+    document.getElementById("donut_single1")
+  );
+  chart1.draw(data1, options1);
+}
+//third pie moderado //
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart2);
+
+function drawChart2() {
+  var data2 = google.visualization.arrayToDataTable([
+    ["Issues", "Amount given"],
+    ["Caja y Equivalentes",5],
+    ["Renta Fija", 48],
+    ["Renta Variable", 35],
+    ["Renta Alternativa ", 12]
+
+  ]);
+
+  var options2 = {
+    legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
+    fontSize:16,
+    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
+    pieHole: 0.3,
+    pieSliceTextStyle: {
+    color: "white",
+
+    },
+  };
+
+  var chart2 = new google.visualization.PieChart(
+    document.getElementById("donut_single2")
+  );
+  chart2.draw(data2, options2);
+}
+//four pie conservador//
+
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart3);
+
+function drawChart3() {
+  var data3 = google.visualization.arrayToDataTable([
+    ["Issues", "Amount given"],
+    ["Caja y Equivalentes",10],
+    ["Renta Fija", 73],
+    ["Renta Variable", 12],
+    ["Renta Alternativa ", 5]
+  ]);
+
+  var options3 = {
+    legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
+    fontSize:16,
+    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
+    pieHole: 0.3,
+    pieSliceTextStyle: {
+    color: "white",
+
+    },
+  };
+
+  var chart3 = new google.visualization.PieChart(
+    document.getElementById("donut_single3")
+  );
+  chart3.draw(data3, options3);
+}
+//five pie altamente conservador//
+
+
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart4);
+
+function drawChart4() {
+  var data4 = google.visualization.arrayToDataTable([
+    ["Issues", "Amount given"],
+    ["Caja y Equivalentes",40],
+    ["Renta Fija", 60],
+    ["Renta Variable", 0],
+    ["Renta Alternativa ", 0]
+
+  ]);
+
+  var options4 = {
+    legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 14}},
+    fontSize:16,
+    colors: [ '#08165A', '#213F9A', '#2879BD', '#4C4C4E'],
+    pieHole: 0.3,
+    pieSliceTextStyle: {
+    color: "white",
+
+    },
+  };
+
+  var chart4 = new google.visualization.PieChart(
+    document.getElementById("donut_single4")
+  );
+  chart4.draw(data4, options4);
+}
+
+if(status==1){
+$("#donut_single0").removeClass("none");
+$("#text").addClass("left");
+$(".titulo").addClass("left");
+$(".titulo").text("Agresivo");
+$("#text").text("Para inversionistas de largo plazo que buscan un significativo crecimiento en su inversión a un nivel alto de riesgo, y que no requieren ingresos corrientes");
+$("#donut_single0").addClass("aparece");
+$("#donut_single1").addClass("none");
+$("#donut_single2").addClass("none");
+$("#donut_single3").addClass("none");
+$("#donut_single4").addClass("none");
+
+}
+ else if (status==2) {
+   $("#donut_single1").removeClass("none");
+   $("#donut_single1").addClass("aparece");
+   $("#text").addClass("left");
+   $(".titulo").addClass("left");
+   $(".titulo").text("Defensivo");
+   $("#text").text("Para inversionistas que buscan principalmente la seguridad en sus inversiones");
+   $("#donut_single0").addClass("none");
+   $("#donut_single2").addClass("none");
+   $("#donut_single3").addClass("none");
+   $("#donut_single4").addClass("none");
+}
+else if (status==3) {
+  $("#donut_single2").removeClass("none");
+  $("#donut_single2").addClass("aparece");
+  $("#text").addClass("left");
+  $(".titulo").addClass("left");
+  $(".titulo").text("Moderado");
+  $("#text").text("Para inversionistas de largo plazo que buscan crecimiento moderado en su inversión a un nivel medio  - alto de riesgo, y que no requieren ingresos corrientes");
+  $("#donut_single1").addClass("none");
+  $("#donut_single0").addClass("none");
+  $("#donut_single3").addClass("none");
+  $("#donut_single4").addClass("none");
+}
+else if (status==4) {
+  $("#donut_single3").removeClass("none");
+  $("#donut_single3").addClass("aparece");
+  $("#text").addClass("left");
+  $(".titulo").addClass("left");
+  $(".titulo").text("Conservador");
+  $("#text").text("Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrían requerir generación de ingresos corrientes");
+  $("#donut_single1").addClass("none");
+  $("#donut_single2").addClass("none");
+  $("#donut_single0").addClass("none");
+  $("#donut_single4").addClass("none");
+}
+else {
+  $("#donut_single4").removeClass("none");
+  $("#donut_single4").addClass("aparece");
+  $("#text").addClass("left");
+  $(".titulo").addClass("left");
+  $(".titulo").text("Altamente Conservador");
+  $("#text").text("Para inversionistas que buscan la seguridad en sus inversiones y en menor medida, la generación de ingresos corrientes");
+  $("#donut_single1").addClass("none");
+  $("#donut_single2").addClass("none");
+  $("#donut_single3").addClass("none");
+  $("#donut_single0").addClass("none");
+}
+
   btnEnviarDatos.on('click',function (e) {
     setDate();
     nombrePerfilPdf = ''+codigoCliente+' '+fecha; 
@@ -26285,9 +26349,8 @@ function Profile(update) {
     update();
   });
 
-  
-
   return container;
+
 }
  
 
@@ -26406,7 +26469,7 @@ var sumaY = 0;
 var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
 var option1,option2,option3,option4,option5,option6,option7,option8 = "";
 var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
-var nombrePerfilPdf;
+var nombrePdf;
 var perfil;
 var matrizLength = 4*8;
 var matriz=new Array(matrizLength);

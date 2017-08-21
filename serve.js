@@ -15,9 +15,9 @@ var connection  = mysql.createConnection({
 
 connection.connect(function (error) {
 	if (!!error) {
-		console.log('error');
+		console.log('Erroe en la conexción a la BD');
 	} else {
-		console.log('Connected');
+		console.log('Connectado a la BD');
 	}
 });
 
@@ -46,7 +46,7 @@ module.exports = app.post('/registrarCliente',function (req,resp) {
 		if (err) {
 			console.log(req.body);
 		} else {
-			console.log("datos agregados");
+			console.log("Datos agregados a la BD");
 		}
 	});
 });
