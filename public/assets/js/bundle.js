@@ -25876,10 +25876,10 @@ function SeleccionarCliente(update) {
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on"></form>');
-  var opDni = $('<label><input type="radio" name="opt-radio">DNI</label>');
-  var opCe = $('<label><input type="radio" name="opt-radio">CE</label>');
-  var opPasaporte = $('<label><input type="radio" name="opt-radio">Pasaporte</label>');
-  var opRuc = $('<label><input type="radio" name="opt-radio">RUC</label>');
+  var opDni = $('<label><input type="radio" name="opt-radio" value="DNI">DNI</label>');
+  var opCe = $('<label><input type="radio" name="opt-radio" value="CE">CE</label>');
+  var opPasaporte = $('<label><input type="radio" name="opt-radio" value="Pasaporte">Pasaporte</label>');
+  var opRuc = $('<label><input type="radio" name="opt-radio" value="RUC">RUC</label>');
 //input debe aceptar letras
   container.append(row);
   row.append(h1);
@@ -25930,10 +25930,6 @@ function SeleccionarCliente(update) {
       validarIdentificador = "Completar todos los campos";
     }
 
-    $('input[type=radio]').on('change', function(e) {
-        validarTipoId = "validado";
-    });
-
     if (state.cliente == "cliente") {
 
       if (input.val().length != 0) {
@@ -25950,13 +25946,13 @@ function SeleccionarCliente(update) {
       }
 
     } else if (state.cliente = "prospecto") {
-      if (validarIdentificador == "validado" && validarTipoId == "validado") {
+      if (validarIdentificador == "validado" && tipoDocumento != "") {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
         linkSubmit.attr("data-target", ".bs-example-modal-lg");
         spanError.removeClass("hidden-off");
         spanError.addClass("hidden-on");
-      } else if (validarIdentificador != validarTipoId ) {
+      } else if (validarIdentificador != tipoDocumento == "" ) {
         linkSubmit.removeAttr("data-toggle");
         linkSubmit.removeAttr("data-target");
         spanError.removeClass("hidden-on");
@@ -25984,7 +25980,20 @@ function SeleccionarCliente(update) {
   });
 
   function tipoDoc() {
-    console.log(tipoDocumento);
+    switch ($('input:radio[name=opt-radio]:checked').val()) {
+        case 'DNI':
+            tipoDocumento = "01";
+            break;
+        case 'CE':
+            tipoDocumento = "02";
+            break;
+        case 'Pasaporte':
+            tipoDocumento = "03";
+            break;
+        case 'RUC':
+            tipoDocumento = "04";
+            break;
+    }
   }
 
   return container;
@@ -26209,7 +26218,7 @@ var codigoCliente =  "";
 var identificadorCliente = "";
 var tipoUsuario = "";
 var sector = null;
-var fechaEvaluacion = "fecha";
+var fechaEvaluacion = "";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;

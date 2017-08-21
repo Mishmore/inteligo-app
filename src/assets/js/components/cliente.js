@@ -36,10 +36,10 @@ function SeleccionarCliente(update) {
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on"></form>');
-  var opDni = $('<label><input type="radio" name="opt-radio">DNI</label>');
-  var opCe = $('<label><input type="radio" name="opt-radio">CE</label>');
-  var opPasaporte = $('<label><input type="radio" name="opt-radio">Pasaporte</label>');
-  var opRuc = $('<label><input type="radio" name="opt-radio">RUC</label>');
+  var opDni = $('<label><input type="radio" name="opt-radio" value="DNI">DNI</label>');
+  var opCe = $('<label><input type="radio" name="opt-radio" value="CE">CE</label>');
+  var opPasaporte = $('<label><input type="radio" name="opt-radio" value="Pasaporte">Pasaporte</label>');
+  var opRuc = $('<label><input type="radio" name="opt-radio" value="RUC">RUC</label>');
 //input debe aceptar letras
   container.append(row);
   row.append(h1);
@@ -137,14 +137,25 @@ function SeleccionarCliente(update) {
 
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-
     console.log(tipoDocumento);
-
     update();
   });
 
   function tipoDoc() {
-    console.log(tipoDocumento);
+    switch ($('input:radio[name=opt-radio]:checked').val()) {
+        case 'DNI':
+            tipoDocumento = "01";
+            break;
+        case 'CE':
+            tipoDocumento = "02";
+            break;
+        case 'Pasaporte':
+            tipoDocumento = "03";
+            break;
+        case 'RUC':
+            tipoDocumento = "04";
+            break;
+    }
   }
 
   return container;
