@@ -1,6 +1,6 @@
 const express 	= require('express');
 const app 		= express();
-const morgan    = require('morgan'); // Sistema de logging (muestra en la cosa los request)
+/*const morgan    = require('morgan'); // Sistema de logging (muestra en la cosa los request)
 const morganjson= require('morgan-json');
 const bodyParser= require('body-parser');
 const mysql 	= require('mysql');
@@ -13,7 +13,7 @@ var connection  = mysql.createConnection({
   database : 'clientesws'
 });
 
-/*connection.connect(function (error) {
+connection.connect(function (error) {
 	if (!!error) {
 		console.log('error');
 	} else {
