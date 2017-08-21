@@ -181,12 +181,10 @@ h3{
   height: 92vh;
   padding: 0;
   .helper {
-    /* float: left; */
-  background-color: #233e99;
-  /* padding-top: 50px; */
-  padding-bottom: 50px;
-  color: #ffffff;
-  height: 86px;
+    background-color: #233e99;
+    padding-bottom: 50px;
+    color: #ffffff;
+    height: 86px;
       .loading-div {
         width: 94%;
         height: 87px;
@@ -378,4 +376,20 @@ $light: #4285F4;
   background-color: $brand-color;
   -webkit-transition: width 5s; /* Safari */
   transition: width 5s;
+}
+//resultado perfil
+.profile{
+    width: 93%;
+    margin: 6% auto;
+    h1{
+      font-size: 2.5em;
+    }
+    h2{
+      font-weight:400;
+      color: $brand-color;
+    }
+    .editar{
+      background-color: $third-color;
+      color: white;
+    }
 }
