@@ -42,7 +42,7 @@ function Profile(update) {
   div3.append(btnRegister);
   div3.append(btnEnviarDatos);
 
-  btnEnviarDatos.on('click',function (e) {
+  /* btnEnviarDatos.on('click',function (e) {
     setDate();
     console.log(fecha);
     var client = {
@@ -80,7 +80,7 @@ function Profile(update) {
            data: client
         });
   });
-
+*/
   btnRegister.on('click', function(e) {
     impPDF();
   });

@@ -13,7 +13,7 @@ var connection  = mysql.createConnection({
   database : 'clientesws'
 });
 
-connection.connect(function (error) {
+/*connection.connect(function (error) {
 	if (!!error) {
 		console.log('error');
 	} else {
@@ -50,7 +50,7 @@ module.exports = app.post('/registrarCliente',function (req,resp) {
 		}
 	});
 });
-
+*/
 app.set('port', (process.env.PORT || 6351));
 
 app.listen(app.get('port'), function() {
