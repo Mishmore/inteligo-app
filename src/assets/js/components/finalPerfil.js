@@ -44,14 +44,31 @@ function Profile(update) {
 
   btnEnviarDatos.on('click',function (e) {
     setDate();
-    console.log(fecha);
+    nombrePerfilPdf = ''+codigoCliente+' '+fecha; 
+    switch (perfil) {
+        case 'defensivo':
+            indexPerfil = 0;
+            break;
+        case 'altamente conservador':
+            indexPerfil = 1;
+            break;
+        case 'conservador':
+            indexPerfil = 2;
+            break;
+        case 'moderado':
+            indexPerfil = 3;
+            break;
+        case 'agresivo':
+            indexPerfil = 4;
+            break;
+    }
     var client = {
           vchCodCliente: codigoCliente,
           vchrTipoDoc: tipoUsuario,
           vchDocIdentidad: documento,
           dtmFecha: fecha,
           vchSector: "opcional",
-          intResultadoPerfil: 5,
+          intResultadoPerfil: indexPerfil,
           vchrPortafolio: "opcional",
           chrResp01: option1,
           chrResp02: option2,
@@ -61,7 +78,7 @@ function Profile(update) {
           chrResp06: option6,
           chrResp07: option7,
           chrResp08: option8,
-          vchNomPDF: "perfil"
+          vchNomPDF: nombrePerfilPdf
         }
 
     $.ajax({

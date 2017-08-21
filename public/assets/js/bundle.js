@@ -26213,14 +26213,31 @@ function Profile(update) {
 
   btnEnviarDatos.on('click',function (e) {
     setDate();
-    console.log(fecha);
+    nombrePerfilPdf = ''+codigoCliente+' '+fecha; 
+    switch (perfil) {
+        case 'defensivo':
+            indexPerfil = 0;
+            break;
+        case 'altamente conservador':
+            indexPerfil = 1;
+            break;
+        case 'conservador':
+            indexPerfil = 2;
+            break;
+        case 'moderado':
+            indexPerfil = 3;
+            break;
+        case 'agresivo':
+            indexPerfil = 4;
+            break;
+    }
     var client = {
           vchCodCliente: codigoCliente,
           vchrTipoDoc: tipoUsuario,
           vchDocIdentidad: documento,
           dtmFecha: fecha,
           vchSector: "opcional",
-          intResultadoPerfil: 5,
+          intResultadoPerfil: indexPerfil,
           vchrPortafolio: "opcional",
           chrResp01: option1,
           chrResp02: option2,
@@ -26230,7 +26247,7 @@ function Profile(update) {
           chrResp06: option6,
           chrResp07: option7,
           chrResp08: option8,
-          vchNomPDF: "perfil"
+          vchNomPDF: nombrePerfilPdf
         }
 
     $.ajax({
@@ -26379,13 +26396,12 @@ var codigoCliente =  "";
 var identificadorCliente = 6565;
 var tipoUsuario = "";
 var sector = null;
-var fechaEvaluacion = "fecha";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
 var option1,option2,option3,option4,option5,option6,option7,option8 = "";
 var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
-
+var nombrePerfilPdf;
 var perfil;
 var matrizLength = 4*8;
 var matriz=new Array(matrizLength);
