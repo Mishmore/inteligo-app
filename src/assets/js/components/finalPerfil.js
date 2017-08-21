@@ -43,11 +43,13 @@ function Profile(update) {
   div3.append(btnEnviarDatos);
 
   btnEnviarDatos.on('click',function (e) {
+    setDate();
+    console.log(fecha);
     var client = {
           vchCodCliente: codigoCliente,
           vchrTipoDoc: tipoUsuario,
           vchDocIdentidad: documento,
-          dtmFecha:"hoy",
+          dtmFecha: fecha,
           vchSector: "opcional",
           intResultadoPerfil: 5,
           vchrPortafolio: "opcional",

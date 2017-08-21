@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25994,6 +25994,21 @@ function impPDF() {
 
 }
 
+var fecha;
+function setDate() {
+	Number.prototype.padLeft = function(base,chr){
+    var  len = (String(base || 10).length - String(this).length)+1;
+    return len > 0? new Array(len).join(chr || '0')+this : this;
+}
+
+  var d = new Date;
+      fecha = [d.getFullYear(),
+            (d.getMonth()+1).padLeft(),
+               d.getDate().padLeft()].join('-') +' ' +
+              [d.getHours().padLeft(),
+               d.getMinutes().padLeft(),
+               d.getSeconds().padLeft()].join(':');
+}
 /*
 function Modal() {
   var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
@@ -26197,11 +26212,13 @@ function Profile(update) {
   div3.append(btnEnviarDatos);
 
   btnEnviarDatos.on('click',function (e) {
+    setDate();
+    console.log(fecha);
     var client = {
           vchCodCliente: codigoCliente,
           vchrTipoDoc: tipoUsuario,
           vchDocIdentidad: documento,
-          dtmFecha:"hoy",
+          dtmFecha: fecha,
           vchSector: "opcional",
           intResultadoPerfil: 5,
           vchrPortafolio: "opcional",
