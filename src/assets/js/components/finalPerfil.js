@@ -15,8 +15,26 @@ function Profile(update) {
   var h1= $('<h1>Basándonos en la respuesta que usted nos ha especificado, hemos determinado que su perfil es: </h1>')
   var row = $('<div class="row"></div>');
   var col7 = $('<div class="col-xs-12 col-md-7 content-description"></div>');
-
   var col5 = $('<div class="col-xs-12 col-md-5 content-chart"></div>');
+  switch (perfil) {
+        case 'defensivo':
+             var imgChart = $('<img class="img-responsive" src="assets/img/piedefensivofinal.png" alt="logo Inteligo">');
+            break;
+        case 'altamente conservador':
+            var imgChart = $('<img class="img-responsive" src="assets/img/altamente_conservador_pie.png" alt="logo Inteligo">');
+            break;
+        case 'conservador':
+            var imgChart = $('<img class="img-responsive" src="assets/img/conservadorpie.png" alt="logo Inteligo">');
+            break;
+        case 'moderado':
+            var imgChart = $('<img class="img-responsive" src="assets/img/moderadopie.png" alt="logo Inteligo">');
+            break;
+        case 'agresivo':
+            indexPerfil = 4;
+            break;
+    }
+  
+
   var h2= $('<h2>'+ perfil.capitalize() +' </h2>')
   var h3=$('<h3 class="description-profile">Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrian'+
            ' requerir generación de ingresos corrientes: </h3>')
@@ -39,6 +57,8 @@ function Profile(update) {
   div1.append(h1);
   div1.append(col7,col5);
   col7.append(h2,h3,div3);
+
+  col5.append(imgChart);
   
   div3.append(btnReviewPerfil);
   div3.append(btnRegister);

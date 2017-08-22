@@ -396,6 +396,10 @@ $light: #4285F4;
   -webkit-transition: width 5s; /* Safari */
   transition: width 5s;
 }
+.progress {
+  height: 15px;
+  margin-top: 2.5%;
+}
 //resultado perfil
 .profile{
     width: 93%;
@@ -420,10 +424,13 @@ $light: #4285F4;
     }
 }
 #btn-confirm{
-    font-size: 1.9em;
-    margin-left: 30%;
-    margin-right: 4%;
-    width: 40%;
+    background-color: #F6931C;
+    font-size: 1.8em;
+    margin-left: 33%;
+    margin-right: 0px;
+    height: 52px;
+    width: 32%;
+    border-radius: 0.5em;
     color: white;
     text-align: center;
     padding-left: 0;

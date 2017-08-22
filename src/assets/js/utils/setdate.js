@@ -23,8 +23,8 @@ function setNamePdf(){
   var d = new Date;
       fechaPdf = [d.getFullYear(),
             (d.getMonth()+1).padLeft(),
-               d.getDate().padLeft()] +'-' +
+               d.getDate().padLeft()].join('')  +'-' +
               [d.getHours().padLeft(),
                d.getMinutes().padLeft(),
-               d.getSeconds().padLeft()];
+               d.getSeconds().padLeft()].join('');
 }
