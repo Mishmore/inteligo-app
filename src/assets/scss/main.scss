@@ -187,7 +187,6 @@ h3{
     height: 86px;
       .loading-div {
         width: 94%;
-        height: 87px;
         margin: 10px auto;
       }
       .loading {
@@ -208,7 +207,7 @@ h3{
         top: 0;
       }
       img {
-        width: 250px;
+        width: 225px;
         margin: 1%;
         /* display: block; */
       }
@@ -223,17 +222,37 @@ h3{
         margin: 40px 0;
         font-size: 1.8rem;
       }
+
   }
-  #chart{
-        display:none;
+  .title-question{
+    margin-bottom: 0rem;
+    margin-top: 5%;
+    margin-left: 3%;
+  }
+  .form-question5,{
+    height:70vh;
+  }
+  .form-question8{
+    height: 63vh;
+    padding: 40px 40px;
+  }
+  #imgPie{
+    margin-top: 7%;
+    margin-left: 4%;
   }
   form {
       float: left;
-      height: 87vh;
+      height: 85vh;
       padding: 50px 40px;
       div{
         position:relative;
         margin-bottom: 2%;
+      }
+      .lbl-question5{
+        margin-bottom: 4%;
+      }
+      .lbl-question8{
+        margin-bottom: 4%;
       }
       a {
         color: #000;
@@ -387,9 +406,16 @@ $light: #4285F4;
     h2{
       font-weight:400;
       color: $brand-color;
+      font-size: 3.8em;
     }
     .editar{
       background-color: $third-color;
       color: white;
+    }
+    .content-description{
+      padding-left: 0px;
+    }
+    .description-profile{
+      text-align: justify;
     }
 }

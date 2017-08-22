@@ -15,7 +15,7 @@ var connection  = mysql.createConnection({
 
 connection.connect(function (error) {
 	if (!!error) {
-		console.log('Erroe en la conexción a la BD');
+		console.log('Error en la conexion a la BD');
 	} else {
 		console.log('Connectado a la BD');
 	}
