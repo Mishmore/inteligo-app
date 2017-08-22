@@ -25876,10 +25876,10 @@ function SeleccionarCliente(update) {
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on"></form>');
-  var opDni = $('<label><input type="radio" name="opt-radio" value="DNI">DNI</label>');
-  var opCe = $('<label><input type="radio" name="opt-radio" value="CE">CE</label>');
-  var opPasaporte = $('<label><input type="radio" name="opt-radio" value="Pasaporte">Pasaporte</label>');
-  var opRuc = $('<label><input type="radio" name="opt-radio" value="RUC">RUC</label>');
+  var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
+  var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
+  var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
+  var opRuc = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="RUC">RUC</label>');
 //input debe aceptar letras
   container.append(row);
   row.append(h1);
@@ -27221,9 +27221,9 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(_ => render(root)));
-		break;
-  case "Seleccionar cliente":
+		//wrapper.append(Home(_ => render(root)));
+		//break;
+  //case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
 		break;
   case "Iniciar formulario":

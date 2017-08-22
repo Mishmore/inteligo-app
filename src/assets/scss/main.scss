@@ -139,7 +139,20 @@ h3{
   }
 
   label {
+    margin: auto 5rem;
     display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 1.4em;
+    position: relative;
+
+    .doc-radio-scss {
+      @extend .option-input;
+      @extend .radio;
+      left: -6rem;
+      margin: 0;
+    }
   }
 }
 
@@ -247,6 +260,15 @@ h3{
       div{
         position:relative;
         margin-bottom: 2%;
+
+        label {
+          margin-left: 7rem;
+          display: block;
+          max-width: 100%;
+          margin-bottom: 5px;
+          font-weight: 400;
+          font-size: 1.4em;
+        }
       }
       a {
         color: #000;
