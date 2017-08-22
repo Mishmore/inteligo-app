@@ -5,7 +5,7 @@ function Home(update) {
 	var img = $('<img src="assets/img/logo-inteligo-h.svg" class="img-inicio col-xs-10 col-sm-8 col-sm-offset-2 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-8 col-xs-offset-2 hidden-on input-group"></div>');
-  var input = $('<input id="sector" type="text" class="text-center" placeholder="Ingresa tu sector">');
+  var input = $('<input id="sector" type="text" class="" placeholder="Ingresa tu sector">');
   var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
