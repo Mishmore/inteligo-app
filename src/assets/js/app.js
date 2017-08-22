@@ -4,9 +4,9 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		//wrapper.append(Home(_ => render(root)));
-		//break;
-  //case "Seleccionar cliente":
+		wrapper.append(Home(_ => render(root)));
+		break;
+  case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
 		break;
   case "Iniciar formulario":
