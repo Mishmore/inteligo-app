@@ -17548,8 +17548,8 @@ var WebSocketConnection = function () {
 exports.WebSocketConnection = WebSocketConnection;
 //# sourceMappingURL=WebSocketConnection.js.map
 
-}).call(this,require("9FoBSB"))
-},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"9FoBSB":150}],87:[function(require,module,exports){
+}).call(this,require("6r38Q7"))
+},{"../../app":1,"../../utils/assert":135,"../../utils/constants":136,"../../utils/environment":139,"../../utils/json":142,"../core/stats/StatsManager":49,"../core/storage/storage":53,"../core/util/util":65,"./Constants":84,"6r38Q7":150}],87:[function(require,module,exports){
 /*! @license Firebase v4.2.0
 Build: rev-d6b2db4
 Terms: https://firebase.google.com/terms/ */
@@ -25872,8 +25872,9 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
+  var divInput =$('<div class="col-xs-12 text-center"></div>');
   var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
-  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
+  var linkSubmit = $('<a href="#" class="text-center"><img src="assets/img/circle-arrow.svg" class="text-center"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on"></form>');
   var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
@@ -25892,7 +25893,8 @@ function SeleccionarCliente(update) {
   prospecto.append(titleProspecto);
 
   row.append(inputGroup);
-  inputGroup.append(input);
+  inputGroup.append(divInput);
+  divInput.append(input);
   inputGroup.append(linkSubmit);
   inputGroup.append(spanError);
   inputGroup.append(divOptions);
@@ -26105,15 +26107,17 @@ function Home(update) {
 	var img = $('<img src="assets/img/logo-inteligo-h.svg" class="img-inicio col-xs-10 col-sm-8 col-sm-offset-2 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-8 col-xs-offset-2 hidden-on input-group"></div>');
-  var input = $('<input id="sector" type="text" class="" placeholder="Ingresa tu sector">');
-  var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg"></a>');
+	var divInput =$('<div class="div-input col-xs-12"></div>');
+  var input = $('<input id="sector" type="text" class="text-center" placeholder="Ingresa tu sector">');
+  var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg text-center"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
 	container.append(row);
 	row.append(img);
 	row.append(h1);
 	row.append(inputGroup);
-	inputGroup.append(input);
+	inputGroup.append(divInput);
+	divInput.append(input);
 	inputGroup.append(linkSubmit);
 	inputGroup.append(spanError);
 

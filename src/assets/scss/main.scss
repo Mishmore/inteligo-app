@@ -49,10 +49,11 @@ h3{
 
   img.img-inicio {
     padding: 70px;
+    padding-top: 0;
   }
 
-  .input-group {
-    position: relative;
+  .div-input {
+    display: inline-block;
   }
 
   input {
@@ -64,14 +65,11 @@ h3{
     padding: 0.3em;
     padding-left: 0.5em;
     width: 15.6em;
+    margin-bottom: 1em;
   }
 
   a {
     outline: none;
-    position: absolute;
-    right: 22.8em;
-    bottom: 3em;
-    z-index: 10;
   }
 
   span {
@@ -101,7 +99,7 @@ h3{
       padding-left: 2em;
       padding-right: 2em;
       margin: 0 10%;
-      border: 2px solid $blue;
+      border: 2px solid $brand-color;
       border-radius: 1em;
       min-width: 30%;
       .card-img-top {
@@ -118,20 +116,28 @@ h3{
   input#documento {
     border: 0;
     outline: none;
-    border: 2px solid $blue;
+    border: 2px solid $brand-color;
     border-radius: 0.7em;
     font-size: 2em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    margin-left: 12%;
-    width: 67%;
+    width: 78%;
+    margin-bottom: 1em;
+    text-align: center;
   }
 
   a {
+    padding-left: 45%;
     outline: none;
+    margin: auto;
+    text-align: center;
+    img {
+      margin: auto;
+      text-align: center;
+    }
   }
 
-  img {
+  img.card-img-top {
     margin-bottom: 0.5em;
     margin-left: 0.2em;
   }
