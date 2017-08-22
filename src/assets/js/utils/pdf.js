@@ -106,99 +106,99 @@ function impPDF() {
     doc.text(20, 100, 'Tomando en cuenta su perfil de inversión, le sugerimos la siguiente distribución estratégica \npor cada clase de activos:');
 
     //Grafico
-    doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 70, 120, 70, 60);
+    doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 70, 120, 100, 0);
 
     //Retorno anual
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 200, 'Retorno promedio anual esperado: (1)');
+    doc.text(20, 205, 'Retorno promedio anual esperado: (1)');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(150, 200, perfilesData[indexPerfil].retorno_anual);
+    doc.text(153, 205, perfilesData[indexPerfil].retorno_anual);
 
     //Mejor año
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 205, 'Mejor año: (2)');
+    doc.text(20, 210, 'Mejor año: (2)');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(150, 205, perfilesData[indexPerfil].retorno_mejor);
+    doc.text(151, 210, perfilesData[indexPerfil].retorno_mejor);
 
     //Peor año
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 210, 'Peor año: (2)');
+    doc.text(20, 215, 'Peor año: (2)');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(150, 210, perfilesData[indexPerfil].retorno_peor);
+    doc.text(150, 215, perfilesData[indexPerfil].retorno_peor);
 
     //Firma
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 220, 'Firma:');
+    doc.text(20, 230, 'Firma:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 220, "____________________________________");
+    doc.text(100, 230, "_____________________________________");
 
     //Código de asesor
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 230, 'Código de asesor:');
+    doc.text(20, 240, 'Código de asesor:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 230, sector);
+    doc.text(100, 240, sector);
 
     //Fecha
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 240, 'Fecha:');
+    doc.text(20, 250, 'Fecha:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 240, "____________________________________");
+    doc.text(100, 250, "_____________________________________");
 
     //(1)
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(9);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 275, '(1) Sobre la base de rentabilidades de largo plazo para las categorías de activo que componen los portafolios \nde cada perfil.');
+    doc.text(20, 265, '(1) Sobre la base de rentabilidades de largo plazo para las categorías de activo que componen los portafolios \nde cada perfil.');
 
     //(2)
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(9);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 285, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
+    doc.text(20, 275, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
 
     doc.save('sample-file.pdf');
 
