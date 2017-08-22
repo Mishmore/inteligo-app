@@ -80,20 +80,8 @@ function SeleccionarCliente(update) {
     input.attr("placeholder", "Ingrese número de documento");
   });
 
-  var validarIdentificador = "vacio";
-  var validarTipoId = "";
   linkSubmit.on('click', function(e) {
 
-    if (input.val().length != 0) {
-      validarIdentificador = "validado";
-    } else if (input.val().length == 0) {
-      validarIdentificador = "Completar todos los campos";
-    }
-/*
-    $('input[type=radio]').on('change', function(e) {
-        validarTipoId = "validado";
-    });
-*/
     if (state.cliente == "cliente") {
 
       if (input.val().length != 0) {
@@ -110,13 +98,15 @@ function SeleccionarCliente(update) {
       }
 
     } else if (state.cliente = "prospecto") {
-      if (validarIdentificador == "validado" || validarTipoId == "validado") {
+      if (input.val().length != 0 && $('input[name=opt-radio]').is(':checked')) {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
         linkSubmit.attr("data-target", ".bs-example-modal-lg");
         spanError.removeClass("hidden-off");
         spanError.addClass("hidden-on");
-      } else if (validarIdentificador != validarTipoId ) {
+      }
+
+      if (input.val().length == 0 || !$('input[name=opt-radio]').is(':checked')) {
         linkSubmit.removeAttr("data-toggle");
         linkSubmit.removeAttr("data-target");
         spanError.removeClass("hidden-on");
