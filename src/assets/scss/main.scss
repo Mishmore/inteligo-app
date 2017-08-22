@@ -42,24 +42,34 @@ h3{
 //Home
 #home {
   h1 {
-    margin-top: 4em;
+    margin-top: 0.5em;
     margin-bottom: 1em;
+    font-size: 4em;
+  }
+
+  img.img-inicio {
+    padding: 70px;
+    padding-top: 0;
+  }
+
+  .div-input {
+    display: inline-block;
   }
 
   input {
     border: 0;
     outline: none;
-    border: 2px solid $blue;
-    border-radius: 0.7em;
+    border: 2px solid $brand-color;
+    border-radius: 1em;
     font-size: 2em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    width: 50%;
+    padding: 0.3em;
+    padding-left: 0.5em;
+    width: 15.6em;
+    margin-bottom: 1em;
   }
 
-  .icon-svg {
-    margin-bottom: 0.5em;
-    margin-left: 0.2em;
+  a {
+    outline: none;
   }
 
   span {
@@ -89,7 +99,7 @@ h3{
       padding-left: 2em;
       padding-right: 2em;
       margin: 0 10%;
-      border: 2px solid $blue;
+      border: 2px solid $brand-color;
       border-radius: 1em;
       min-width: 30%;
       .card-img-top {
@@ -106,16 +116,28 @@ h3{
   input#documento {
     border: 0;
     outline: none;
-    border: 2px solid $blue;
+    border: 2px solid $brand-color;
     border-radius: 0.7em;
     font-size: 2em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    margin-left: 12%;
-    width: 67%;
+    width: 78%;
+    margin-bottom: 1em;
+    text-align: center;
   }
 
-  img {
+  a {
+    padding-left: 45%;
+    outline: none;
+    margin: auto;
+    text-align: center;
+    img {
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  img.card-img-top {
     margin-bottom: 0.5em;
     margin-left: 0.2em;
   }
@@ -128,10 +150,23 @@ h3{
   }
 
   label {
+    margin: auto 5rem;
     display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 1.4em;
+    position: relative;
+
+    .doc-radio-scss {
+      @extend .option-input;
+      @extend .radio;
+      left: -6rem;
+      margin: 0;
+    }
   }
 }
-
+//Pantalla 2
 .modal-dialog {
   height: 100vh;
   display: flex;
@@ -147,6 +182,7 @@ h3{
     padding-bottom: 5em;
     width: 55%;
     h3 {
+      font-size: 4rem !important;
       margin: 0;
       margin-bottom: 1.5em;
       &.blue {
@@ -247,6 +283,15 @@ h3{
       div{
         position:relative;
         margin-bottom: 2%;
+
+        label {
+          margin-left: 7rem;
+          display: block;
+          max-width: 100%;
+          margin-bottom: 5px;
+          font-weight: 400;
+          font-size: 1.4em;
+        }
       }
       .lbl-question5{
         margin-bottom: 4%;

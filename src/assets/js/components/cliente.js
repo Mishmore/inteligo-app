@@ -32,14 +32,15 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
+  var divInput =$('<div class="col-xs-12 text-center"></div>');
   var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
-  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
+  var linkSubmit = $('<a href="#" class="text-center"><img src="assets/img/circle-arrow.svg" class="text-center"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
-  var divOptions =$('<form class="text-center"></form>');
-  var opDni = $('<label><input type="radio" name="opt-radio">DNI</label>');
-  var opCe = $('<label><input type="radio" name="opt-radio">CE</label>');
-  var opPasaporte = $('<label><input type="radio" name="opt-radio">Pasaporte</label>');
-  var opRuc = $('<label><input type="radio" name="opt-radio">RUC</label>');
+  var divOptions =$('<form class="text-center hidden-on"></form>');
+  var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
+  var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
+  var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
+  var opRuc = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="RUC">RUC</label>');
 //input debe aceptar letras
   container.append(row);
   row.append(h1);
@@ -52,7 +53,8 @@ function SeleccionarCliente(update) {
   prospecto.append(titleProspecto);
 
   row.append(inputGroup);
-  inputGroup.append(input);
+  inputGroup.append(divInput);
+  divInput.append(input);
   inputGroup.append(linkSubmit);
   inputGroup.append(spanError);
   inputGroup.append(divOptions);
@@ -66,6 +68,8 @@ function SeleccionarCliente(update) {
     state.cliente = "cliente";
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
+    divOptions.removeClass("hidden-off");
+    divOptions.addClass("hidden-on");
     input.attr("placeholder", "Ingrese código de cliente");
   });
 
@@ -73,66 +77,78 @@ function SeleccionarCliente(update) {
     state.cliente = "prospecto";
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
+    divOptions.removeClass("hidden-on");
+    divOptions.addClass("hidden-off");
     input.attr("placeholder", "Ingrese número de documento");
   });
-  var validarIdentificador = "";
-  var validarTipoId = "";
+
   linkSubmit.on('click', function(e) {
 
-    console.log(opDni.children());
-    if (input.val().length != 0) {
-      validarIdentificador = "validado";
-  /*    $('#id-cliente').text(input.val());
-      linkSubmit.attr("data-toggle", "modal");
-      linkSubmit.attr("data-target", ".bs-example-modal-lg");
-      spanError.removeClass("hidden-off");
-      spanError.addClass("hidden-on");*/
-    } else if (input.val().length == 0) {
-      validarIdentificador = "Completar todos los campos";
-  /*    linkSubmit.removeAttr("data-toggle");
-      linkSubmit.removeAttr("data-target");
-      spanError.removeClass("hidden-on");
-      spanError.addClass("hidden-off");*/
-    }
-/*
-    if (opDni.last().checked == false || opCe.last().checked != false || opPasaporte.last().checked != false || opRuc.last().checked != false) {
-      validarIdentificador = "Completar todos los campos";
-    } else {
-      console.log(validarIdentificador);
-      validarIdentificador = "validado";
-    }
-*/
-    divOptions.on('change', function(e) {
-        validarTipoId = "validado";
-    });
+    if (state.cliente == "cliente") {
 
-    if (validarIdentificador == "validado" && validarTipoId == "validado") {
-      $('#id-cliente').text(input.val());
-      linkSubmit.attr("data-toggle", "modal");
-      linkSubmit.attr("data-target", ".bs-example-modal-lg");
-      spanError.removeClass("hidden-off");
-      spanError.addClass("hidden-on");
-    } else if (validarIdentificador == "Completar todos los campos" || validarTipoId == "") {
-      linkSubmit.removeAttr("data-toggle");
-      linkSubmit.removeAttr("data-target");
-      spanError.removeClass("hidden-on");
-      spanError.addClass("hidden-off");
+      if (input.val().length != 0) {
+        $('#id-cliente').text(input.val());
+        linkSubmit.attr("data-toggle", "modal");
+        linkSubmit.attr("data-target", ".bs-example-modal-lg");
+        spanError.removeClass("hidden-off");
+        spanError.addClass("hidden-on");
+      } else {
+        linkSubmit.removeAttr("data-toggle");
+        linkSubmit.removeAttr("data-target");
+        spanError.removeClass("hidden-on");
+        spanError.addClass("hidden-off");
+      }
+
+    } else if (state.cliente = "prospecto") {
+      if (input.val().length != 0 && $('input[name=opt-radio]').is(':checked')) {
+        $('#id-cliente').text(input.val());
+        linkSubmit.attr("data-toggle", "modal");
+        linkSubmit.attr("data-target", ".bs-example-modal-lg");
+        spanError.removeClass("hidden-off");
+        spanError.addClass("hidden-on");
+      }
+
+      if (input.val().length == 0 || !$('input[name=opt-radio]').is(':checked')) {
+        linkSubmit.removeAttr("data-toggle");
+        linkSubmit.removeAttr("data-target");
+        spanError.removeClass("hidden-on");
+        spanError.addClass("hidden-off");
+      }
     }
-    console.log(validarTipoId);
+
   });
 
   $('button.init').on('click', function(e) {
+    identificadorCliente = input.val();
     if (state.cliente == "cliente") {
       codigoCliente = input.val();
     } else if (state.cliente == "prospecto") {
       documento = input.val();
+      tipoDoc();
     }
+
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-    console.log(state.screenView);
-
+    console.log(tipoDocumento);
     update();
   });
+
+  function tipoDoc() {
+    switch ($('input:radio[name=opt-radio]:checked').val()) {
+        case 'DNI':
+            tipoDocumento = "01";
+            break;
+        case 'CE':
+            tipoDocumento = "02";
+            break;
+        case 'Pasaporte':
+            tipoDocumento = "03";
+            break;
+        case 'RUC':
+            tipoDocumento = "04";
+            break;
+    }
+  }
 
   return container;
 }

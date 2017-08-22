@@ -1,4 +1,4 @@
-var fecha, fechaPdf;
+var fecha;
 function setDate() {
 	Number.prototype.padLeft = function(base,chr){
     var  len = (String(base || 10).length - String(this).length)+1;
@@ -21,7 +21,7 @@ function setNamePdf(){
 }
 
   var d = new Date;
-      fechaPdf = [d.getFullYear(),
+      fechaEvaluacion = [d.getFullYear(),
             (d.getMonth()+1).padLeft(),
                d.getDate().padLeft()].join('')  +'-' +
               [d.getHours().padLeft(),
