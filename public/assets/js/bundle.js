@@ -25929,7 +25929,11 @@ function SeleccionarCliente(update) {
     } else if (input.val().length == 0) {
       validarIdentificador = "Completar todos los campos";
     }
-
+/*
+    $('input[type=radio]').on('change', function(e) {
+        validarTipoId = "validado";
+    });
+*/
     if (state.cliente == "cliente") {
 
       if (input.val().length != 0) {
@@ -25946,13 +25950,13 @@ function SeleccionarCliente(update) {
       }
 
     } else if (state.cliente = "prospecto") {
-      if (validarIdentificador == "validado" && tipoDocumento != "") {
+      if (validarIdentificador == "validado" || validarTipoId == "validado") {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
         linkSubmit.attr("data-target", ".bs-example-modal-lg");
         spanError.removeClass("hidden-off");
         spanError.addClass("hidden-on");
-      } else if (validarIdentificador != tipoDocumento == "" ) {
+      } else if (validarIdentificador != validarTipoId ) {
         linkSubmit.removeAttr("data-toggle");
         linkSubmit.removeAttr("data-target");
         spanError.removeClass("hidden-on");
@@ -25973,9 +25977,7 @@ function SeleccionarCliente(update) {
 
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-
     console.log(tipoDocumento);
-
     update();
   });
 

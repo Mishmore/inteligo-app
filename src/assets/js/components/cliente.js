@@ -89,11 +89,11 @@ function SeleccionarCliente(update) {
     } else if (input.val().length == 0) {
       validarIdentificador = "Completar todos los campos";
     }
-
+/*
     $('input[type=radio]').on('change', function(e) {
         validarTipoId = "validado";
     });
-
+*/
     if (state.cliente == "cliente") {
 
       if (input.val().length != 0) {
@@ -110,7 +110,7 @@ function SeleccionarCliente(update) {
       }
 
     } else if (state.cliente = "prospecto") {
-      if (validarIdentificador == "validado" && validarTipoId == "validado") {
+      if (validarIdentificador == "validado" || validarTipoId == "validado") {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
         linkSubmit.attr("data-target", ".bs-example-modal-lg");
