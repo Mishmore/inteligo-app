@@ -4,7 +4,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Question8(_ => render(root)));
+		wrapper.append(Home(_ => render(root)));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(_ => render(root)));
@@ -41,12 +41,6 @@ var render = function(root) {
     break;
   case "profile":
     wrapper.append(Profile(_ => render(root)));
-    break;
-  case "description":
-    wrapper.append(Description(_ => render(root)));
-    break;
-  case "register":
-    wrapper.append(Register(_ => render(root)));
     break;
 	}
   root.append(wrapper);

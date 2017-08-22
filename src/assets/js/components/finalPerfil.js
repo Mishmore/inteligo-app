@@ -9,7 +9,7 @@ function Profile(update) {
 
   var divLoad = $('<div class="loading-div"></div>');
   var loading = $('<div class="progress "></div>');
-  var loadingBase = $('<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%"><span class="sr-only">80% Complete</span></div>');
+  var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%"><span class="sr-only">80% Complete</span></div>');
 
   var div1 = $('<div class="profile"></div>');
   var h1= $('<h1>Basándonos en la respuesta que usted nos ha especificado, hemos determinado que su perfil es: </h1>')
@@ -23,7 +23,7 @@ function Profile(update) {
   var div3 = $('<div class="informacion"></div>');
 
   var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
-  var btnEnviarDatos = $('<button type="button" class="btn btn-lg init btn-blue" id="saveData">Guardar Datos</button>');
+  var btnEnviarDatos = $('<button type="button" class="btn btn-lg init btn-blue" id="saveData" data-toggle="modal" data-target="#confirmData">Guardar Datos</button>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-lg editar">Revisar datos</button>');
 
   container.append(divAzul);
@@ -46,7 +46,9 @@ function Profile(update) {
 
   btnEnviarDatos.on('click',function (e) {
     setDate();
-    nombrePerfilPdf = ''+codigoCliente+' '+fecha; 
+    setNamePdf();
+  
+    nombrePdf = ''+codigoCliente+' '+fechaPdf; 
     switch (perfil) {
         case 'defensivo':
             indexPerfil = 0;
@@ -80,7 +82,7 @@ function Profile(update) {
           chrResp06: option6,
           chrResp07: option7,
           chrResp08: option8,
-          vchNomPDF: nombrePerfilPdf
+          vchNomPDF: nombrePdf
         }
 
     $.ajax({
