@@ -1,13 +1,16 @@
 var documento = "";
+var tipoDocumento = "";
 var codigoCliente =  "";
+var identificadorCliente = "";
 var tipoUsuario = "";
-var sector = "";
+var sector = null;
+var fechaEvaluacion = "";
 var sumaX = 0;
 var sumaY = 0;
 var pregunta1,pregunta2,pregunta3,pregunta4,pregunta5,pregunta6,pregunta7,pregunta8 = 0;
 var option1,option2,option3,option4,option5,option6,option7,option8 = "";
 var idChecked1,idChecked2,idChecked3,idChecked4,idChecked5,idChecked6,idChecked7,idChecked8 ="";
-
+var nombrePdf;
 var perfil;
 var matrizLength = 4*8;
 var matriz=new Array(matrizLength);

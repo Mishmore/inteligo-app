@@ -266,14 +266,14 @@ function preguntas() {
 }
 preguntas();
 
-var loadQuestions = () => {
+var loadQuestions = function () {
     var url = '/preguntas';
     return database.ref(url).once('value').then(function(snapshot) {
       return snapshot.val();
     });
 };
 
-var loadEmails = () => {
+var loadEmails = function () {
   var url = '/emails';
   return database.ref(url).once('value').then(function(snapshot) {
     return snapshot.val();

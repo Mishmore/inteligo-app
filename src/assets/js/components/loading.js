@@ -23,7 +23,7 @@ function Loading(update) {
   setTimeout(function(){
     state.screenView = "profile";
     update();
-  }, 2000);
+  }, 1000);
 
   return container;
 }

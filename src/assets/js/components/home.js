@@ -1,21 +1,22 @@
-
 function Home(update) {
 
 	var container = $('<div class="text-center vertical-center" id="home"></div>');
 	var row = $('<div class="row"></div>');
-	var img = $('<img src="assets/img/secundaria-vertical.jpg" class="img-inicio col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1" alt="Logo inicio">');
+	var img = $('<img src="assets/img/logo-inteligo-h.svg" class="img-inicio col-xs-10 col-sm-8 col-sm-offset-2 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
-	var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
-  var input = $('<input id="sector" type="text" class="text-center" placeholder="Ingresa tu sector">');
-  var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg"></a>');
+	var inputGroup = $('<div class="col-xs-8 col-xs-offset-2 hidden-on input-group"></div>');
+	var divInput =$('<div class="div-input"></div>');
+  var input = $('<input id="sector" type="text" class="" placeholder="Ingresa tu sector">');
+  var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg text-center"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
 	container.append(row);
 	row.append(img);
 	row.append(h1);
 	row.append(inputGroup);
-	inputGroup.append(input);
-	inputGroup.append(linkSubmit);
+	inputGroup.append(divInput);
+	divInput.append(input);
+	divInput.append(linkSubmit);
 	inputGroup.append(spanError);
 
 	setTimeout(function(){
@@ -40,7 +41,7 @@ function Home(update) {
 	jQuery.fn.NumberOnly = function() {
 		return this.each(function() {
 				$(this).keydown(function(e) {
-						const key = e.charCode || e.keyCode || 0;
+						var key = e.charCode || e.keyCode || 0;
 						return (
 								key == 8 || key == 9 ||
 								key == 110 || key == 190 ||

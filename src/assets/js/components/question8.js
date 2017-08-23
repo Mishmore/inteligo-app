@@ -7,28 +7,32 @@ function Question8(update) {
 
 	var divLoad = $('<div class="loading-div"></div>');
 	var loading = $('<div class="progress "></div>');
-	var loadingBase = $('<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:86.2%"><span class="sr-only">100% Complete</span></div>');
+	var loadingBase = $('<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:86.2%"><span class="sr-only">100% Complete</span></div>');
 
-	var h3 = $('<h3>'+state.questions.pregunta8.pregunta+'</h3>');
-	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
+	var h3 = $('<h3 class="title-question">'+state.questions.pregunta8.pregunta+'</h3>');
+
+	var pie = $(' <div  class ="col-sm-5 col-md-5 hidden-xs" id="pieQuestion5"></div>');
+	var imgPie = $('<img id="imgPie" class="img-responsive" src="assets/img/Pregunta8.png" alt="PAI pregunta 8">');
+
+	var form = $('<form class="col-xs-7 col-sm-7 col-md-7 form-question8"></form>');
 	
-	var divA = $('<div class=""></div>');
+	var divA = $('<div class="lbl-question8"></div>');
   	var labelA = $('<label>'+state.questions.pregunta8.opciones.a.texto+'</label>');
   	var inputA = $('<input type="radio" id="question8-a" data-option="a" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.a.valor +'">');
   	
-  	var divB = $('<div class=""></div>');
+  	var divB = $('<div class="lbl-question8"></div>');
   	var labelB = $('<label>'+state.questions.pregunta8.opciones.b.texto+'</label>');
   	var inputB = $('<input type="radio" id="question8-b" data-option="b" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.b.valor +'">');
   	
-  	var divC = $('<div class=""></div>');
+  	var divC = $('<div class="lbl-question8"></div>');
   	var labelC = $('<label>'+state.questions.pregunta8.opciones.c.texto+'</label>');
   	var inputC = $('<input type="radio" id="question8-c" data-option="c" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.c.valor +'">');
   	
-  	var divD = $('<div class=""></div>');
+  	var divD = $('<div class="lbl-question8"></div>');
   	var labelD = $('<label>'+state.questions.pregunta8.opciones.d.texto+'</label>');
   	var inputD = $('<input type="radio" id="question8-d" data-option="d" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.d.valor +'">');
   	
-  	var divE = $('<div class=""></div>');
+  	var divE = $('<div class="lbl-question8"></div>');
   	var labelE = $('<label>'+state.questions.pregunta8.opciones.e.texto+'</label>');
   	var inputE = $('<input type="radio" id="question8-e" data-option="e" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.e.valor +'">');
 
@@ -42,9 +46,10 @@ function Question8(update) {
 	divLoad.append(loading);
 	loading.append(loadingBase);
 	logoDiv.append(img,h2);
-	container.append(form);
+	container.append(h3,pie,form);
+	pie.append(imgPie);
 
-	form.append(h3);
+	//form.append(h3);
 
 	form.append(divA);
 	divA.append(inputA,labelA);
