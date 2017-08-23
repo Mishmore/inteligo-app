@@ -32,11 +32,11 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
-  var divInput =$('<div class="col-xs-12 text-center"></div>');
-  var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
-  var linkSubmit = $('<a href="#" class="text-center"><img src="assets/img/circle-arrow.svg" class="text-center"></a>');
+  var divInput =$('<div class="div-input"></div>');
+  var input = $('<input id="documento" type="text" class="" maxlength="11">');
+  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
-  var divOptions =$('<form class="text-center hidden-on"></form>');
+  var divOptions =$('<form class="text-center hidden-on div-radio"></form>');
   var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
   var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
   var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
@@ -55,7 +55,7 @@ function SeleccionarCliente(update) {
   row.append(inputGroup);
   inputGroup.append(divInput);
   divInput.append(input);
-  inputGroup.append(linkSubmit);
+  divInput.append(linkSubmit);
   inputGroup.append(spanError);
   inputGroup.append(divOptions);
 

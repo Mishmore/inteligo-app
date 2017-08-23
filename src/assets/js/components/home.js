@@ -17,7 +17,6 @@ function Home(update) {
 	inputGroup.append(divInput);
 	divInput.append(input);
 	divInput.append(linkSubmit);
-	//inputGroup.append(linkSubmit);
 	inputGroup.append(spanError);
 
 	setTimeout(function(){
