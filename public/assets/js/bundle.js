@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -452,11 +453,11 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
-  var divInput =$('<div class="col-xs-12 text-center"></div>');
-  var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
-  var linkSubmit = $('<a href="#" class="text-center"><img src="assets/img/circle-arrow.svg" class="text-center"></a>');
+  var divInput =$('<div class="div-input"></div>');
+  var input = $('<input id="documento" type="text" class="" maxlength="11">');
+  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
-  var divOptions =$('<form class="text-center hidden-on"></form>');
+  var divOptions =$('<form class="text-center hidden-on div-radio"></form>');
   var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
   var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
   var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
@@ -475,7 +476,7 @@ function SeleccionarCliente(update) {
   row.append(inputGroup);
   inputGroup.append(divInput);
   divInput.append(input);
-  inputGroup.append(linkSubmit);
+  divInput.append(linkSubmit);
   inputGroup.append(spanError);
   inputGroup.append(divOptions);
 
@@ -740,8 +741,8 @@ function Home(update) {
 	var img = $('<img src="assets/img/logo-inteligo-h.svg" class="img-inicio col-xs-10 col-sm-8 col-sm-offset-2 col-xs-offset-1" alt="Logo inicio">');
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-8 col-xs-offset-2 hidden-on input-group"></div>');
-	var divInput =$('<div class="div-input col-xs-12"></div>');
-  var input = $('<input id="sector" type="text" class="text-center" placeholder="Ingresa tu sector">');
+	var divInput =$('<div class="div-input"></div>');
+  var input = $('<input id="sector" type="text" class="" placeholder="Ingresa tu sector">');
   var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg text-center"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
@@ -751,7 +752,7 @@ function Home(update) {
 	row.append(inputGroup);
 	inputGroup.append(divInput);
 	divInput.append(input);
-	inputGroup.append(linkSubmit);
+	divInput.append(linkSubmit);
 	inputGroup.append(spanError);
 
 	setTimeout(function(){
@@ -1766,3 +1767,5 @@ $(document).ready(function() {
   render(root);
   });
 });
+
+},{}]},{},[1])
