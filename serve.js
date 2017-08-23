@@ -1,57 +1,7 @@
 const express 	= require('express');
 const app 		= express();
-const morgan    = require('morgan'); // Sistema de logging (muestra en la cosa los request)
-const morganjson= require('morgan-json');
-const bodyParser= require('body-parser');
-const mysql 	= require('mysql');
 
-
-var connection  = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'itlgclie',
-  password : 'itlg@2017_',
-  database : 'clientesws'
-});
-
-connection.connect(function (error) {
-	if (!!error) {
-		console.log('error');
-	} else {
-		console.log('Connected');
-	}
-});
-
-app.get('/api/json',function (req,resp) {
-	connection.query("SELECT * FROM cliente",function (error,rows,fields) {
-		if (!!error) {
-			console.log('error en el query');
-		} else {
-			 resp.json(rows);
-		}
-	});
-});
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-const format = morganjson({
-  short: ':method :url :status',
-  length: ':res[content-length]',
-  'response-time': ':response-time ms'
-});
-
-module.exports = app.post('/registrarCliente',function (req,resp) {
-	
-	connection.query("INSERT INTO cliente SET ?",req.body,function (err) {
-		if (err) {
-			console.log(req.body);
-		} else {
-			console.log("datos agregados");
-		}
-	});
-});
-
-app.set('port', (process.env.PORT || 6351));
+app.set('port', (process.env.PORT || 3001));
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
@@ -60,6 +10,11 @@ app.listen(app.get('port'), function() {
 app.use('/', express.static('public'));
 
 var api = require("./api");
+
+module.exports = {
+  confUrl: "http://172.17.6.235:3001/api/client"
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmljdG9yIHJvamFzIiwiZW1haWwiOiJ2cm9qYXNAaW50ZWxpZ29ncm91cC5jb20iLCJpYXQiOjE1MDM0NDE3OTUsImV4cCI6MjEzNDU5Mzc5NX0.vp0xzuyacIqZbOKj6EISvnuNFtC5O0eMmv5A-ZtU3hE'
+}
 
 app.get('/api/preguntas', function (req, res) {
     var questions = api.questions();

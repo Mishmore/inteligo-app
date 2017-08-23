@@ -19274,7 +19274,7 @@ module.exports = exports['default'];
   var setTimeoutFunc = setTimeout;
 
   function noop() {}
-  
+
   // Polyfill for Function.prototype.bind
   function bind(fn, thisArg) {
     return function () {
@@ -19492,7 +19492,7 @@ module.exports = exports['default'];
   Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
     Promise._unhandledRejectionFn = fn;
   };
-  
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = Promise;
   } else if (!root.Promise) {
@@ -26048,12 +26048,12 @@ function Profile(update) {
   btnEnviarDatos.on('click',function (e) {
     var client = {
           vchCodCliente: codigoCliente,
-          vchrTipoDoc: tipoUsuario,
-          vchDocIdentidad: documento,
-          dtmFecha:"hoy",
-          vchSector: "opcional",
+          vchrTipoDoc: "01",
+          vchDocIdentidad: "123456",
+          dtmFecha: "2017-08-22",
+          vchSector: "1234",
           intResultadoPerfil: 5,
-          vchrPortafolio: "opcional",
+          vchrPortafolio: "12345",
           chrResp01: option1,
           chrResp02: option2,
           chrResp03: option3,
@@ -26064,20 +26064,22 @@ function Profile(update) {
           chrResp08: option8,
           vchNomPDF: "perfil"
         }
-
+        console.log(client);
+        var apiUrl = require('/serve');
     $.ajax({
-          type: "POST",
-           url: "/registrarCliente",
+           method: "POST",
+           url: apiUrl,
+           headers:{
+             'authorization':'Bearer '
+           },
            dataType: "json",
-           success: function (msg) {
+            success: function (msg) {
                if (msg) {
                    console.log("Somebody" + name + " was added in list !");
-                   location.reload(true);
                } else {
                    console.log("Cannot add to list !");
                }
            },
-
            data: client
         });
   });
@@ -26095,11 +26097,11 @@ function Profile(update) {
     update();
   });
 
-  
+
 
   return container;
 }
- 
+
 function Home(update) {
 
 	var container = $('<div class="text-center vertical-center" id="home"></div>');
@@ -26377,9 +26379,9 @@ function Question1(update) {
 	container.append(form);
 
 	form.append(h3);
-	
+
 	form.append(divA);
-	
+
 	console.log(inputA[0].id);
 
 	divA.append(inputA);
@@ -26397,7 +26399,7 @@ function Question1(update) {
 	divE.append(inputE);
 	divE.append(labelE,collapseE);
 
-	
+
 	if (inputA[0].id == idChecked1) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
@@ -26413,7 +26415,7 @@ function Question1(update) {
 	} else if (inputE[0].id == idChecked1) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
-	} 
+	}
 
 	form.append(btn);
 
@@ -26456,11 +26458,11 @@ function Question2(update) {
 	var divA = $('<div class="content_txt_radio"></div>');
 	var labelA = $('<label>'+state.questions.pregunta2.opciones.a.texto+'</label>');
 	var inputA = $('<input type="radio" data-option="a" id="question2-a" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.a.valor +'">');
-	
+
 	var divB = $('<div class="content_txt_radio"></div>');
 	var labelB = $('<label>'+state.questions.pregunta2.opciones.b.texto+'</label>');
 	var inputB = $('<input type="radio" data-option="b" id="question2-b" name="option-2" class="option-input radio" value="'+ state.questions.pregunta2.opciones.b.valor +'">');
-	
+
 	var divC = $('<div class="content_txt_radio"></div>');
 	var labelC = $('<label>'+state.questions.pregunta2.opciones.c.texto+'</label>');
 	var inputC = $('<input type="radio" data-option="c" id="question2-c" name="option-2"  class="option-input radio" value="'+ state.questions.pregunta2.opciones.c.valor +'">');
@@ -26542,21 +26544,21 @@ function Question3(update) {
 	var divA = $('<div class="lbl-question"></div>');
 	var labelA = $('<label>'+ state.questions.pregunta3.opciones.a.texto +'</label>');
 	var inputA = $('<input type="radio" data-option="a" id="question3-a" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.a.valor +'">');
-	
+
 	var divB = $('<div class="lbl-question"></div>');
 	var labelB = $('<label>'+ state.questions.pregunta3.opciones.b.texto +'</label>');
 	var inputB = $('<input type="radio" data-option="b" id="question3-b" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.b.valor +'">');
-	
+
 	var divC = $('<div class="lbl-question"></div>');
 	var labelC = $('<label>'+ state.questions.pregunta3.opciones.c.texto +'</label>');
 	var inputC = $('<input type="radio"  data-option="c" id="question3-c" name="option-3" class="option-input radio" value="'+ state.questions.pregunta3.opciones.c.valor +'">');
-	
+
 	var divD = $('<div class="lbl-question"></div>');
 	var labelD = $('<label>'+ state.questions.pregunta3.opciones.d.texto +'</label>');
 	var inputD = $('<input type="radio"  data-option="d" id="question3-d" name="option-3"  class="option-input radio" value="'+ state.questions.pregunta3.opciones.d.valor +'">');
-	
+
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
-	
+
 	btn.prop('disabled', true);
 
 
@@ -26592,9 +26594,9 @@ function Question3(update) {
 	} else if (inputD[0].id == idChecked3) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
-	}  
+	}
 
-	
+
 	form.append(btn);
 
 	$(function(){
@@ -26636,23 +26638,23 @@ function Question4(update) {
   	var divA = $('<div class="lbl-question"></div>');
   	var labelA = $('<label>'+ state.questions.pregunta4.opciones.a.texto +'</label>');
 	var inputA = $('<input type="radio" id="question4-a" data-option="a" name="option-4" class="option-input radio" value="'+ state.questions.pregunta4.opciones.a.valor +'">');
-	
+
 	var divB = $('<div class="lbl-question"></div>');
 	var labelB = $('<label>'+ state.questions.pregunta4.opciones.b.texto +'</label>');
 	var inputB = $('<input type="radio" id="question4-b" data-option="b" name="option-4" class="option-input radio" value="'+ state.questions.pregunta4.opciones.b.valor +'">');
-	
+
 	var divC = $('<div class="lbl-question"></div>');
 	var labelC = $('<label>'+ state.questions.pregunta4.opciones.c.texto +'</label>');
 	var inputC = $('<input type="radio" id="question4-c" data-option="c" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.c.valor +'">');
-	
+
 	var divD = $('<div class="lbl-question"></div>');
 	var labelD = $('<label>'+ state.questions.pregunta4.opciones.d.texto +'</label>');
 	var inputD = $('<input type="radio" id="question4-d" data-option="d" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.d.valor +'">');
-	
+
 	var divE = $('<div class="lbl-question"></div>');
 	var labelE = $('<label>'+ state.questions.pregunta4.opciones.e.texto +'</label>');
 	var inputE = $('<input type="radio"   id="question4-e" data-option="e" name="option-4"  class="option-input radio"value="'+ state.questions.pregunta4.opciones.e.valor +'">');
-	
+
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 
 	btn.prop('disabled', true);
@@ -26695,9 +26697,9 @@ function Question4(update) {
 	} else if (inputE[0].id == idChecked4) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
-	} 
+	}
 
-	
+
 	form.append(btn);
 
 	$(function(){
@@ -26844,15 +26846,15 @@ function Question6(update) {
 	var divA = $('<div class="lbl-question"></div>');
 	var labelA = $('<label>'+state.questions.pregunta6.opciones.a.texto+'</label>');
 	var inputA = $('<input type="radio" id="question6-a" data-option="a" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.a.valor +'">');
-	
+
 	var divB = $('<div class="lbl-question"></div>');
 	var labelB = $('<label>'+state.questions.pregunta6.opciones.b.texto+'</label>');
 	var inputB = $('<input type="radio" id="question6-b" data-option="b" name="option-6"  class="option-input radio" value="'+ state.questions.pregunta6.opciones.b.valor +'">');
-	
+
 	var divC = $('<div class="lbl-question"></div>');
 	var labelC = $('<label>'+state.questions.pregunta6.opciones.c.texto+'</label>');
 	var inputC = $('<input type="radio" id="question6-c" data-option="c" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.c.valor +'">');
-	
+
 	var divD = $('<div class="lbl-question"></div>');
 	var labelD = $('<label>'+state.questions.pregunta6.opciones.d.texto+'</label>');
 	var inputD = $('<input type="radio" id="question6-d" data-option="d" name="option-6" class="option-input radio" value="'+ state.questions.pregunta6.opciones.d.valor +'">');
@@ -26892,7 +26894,7 @@ function Question6(update) {
 	} else if (inputD[0].id == idChecked6) {
 		inputD[0].checked = true;
 		btn.prop('disabled', false);
-	} 
+	}
 
 
 	form.append(btn);
@@ -26934,23 +26936,23 @@ function Question7(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta7.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-	
+
 	var divA = $('<div class=""></div>');
 	var labelA = $('<label>'+state.questions.pregunta7.opciones.a.texto+'</label>');
   	var inputA = $('<input type="radio" id="question7-a" data-option="a" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.a.valor +'">');
-  	
+
   	var divB = $('<div class=""></div>');
   	var labelB = $('<label>'+state.questions.pregunta7.opciones.b.texto+'</label>');
   	var inputB = $('<input type="radio" id="question7-b" data-option="b" name="option-7" class="option-input radio" value="'+ state.questions.pregunta7.opciones.b.valor +'">');
-  	
+
   	var divC = $('<div class=""></div>');
   	var labelC = $('<label>'+state.questions.pregunta7.opciones.c.texto+'</label>');
   	var inputC = $('<input type="radio" id="question7-c" data-option="c" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.c.valor +'">');
-  	
+
   	var divD = $('<div class=""></div>');
   	var labelD = $('<label>'+state.questions.pregunta7.opciones.d.texto+'</label>');
   	var inputD = $('<input type="radio" id="question7-d" data-option="d" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.d.valor +'">');
-  	
+
   	var divE = $('<div class=""></div>');
   	var labelE = $('<label>'+state.questions.pregunta7.opciones.e.texto+'</label>');
   	var inputE = $('<input type="radio" id="question7-e" data-option="e" name="option-7"  class="option-input radio" value="'+ state.questions.pregunta7.opciones.e.valor +'">');
@@ -26968,7 +26970,7 @@ function Question7(update) {
 	container.append(form);
 
 	form.append(h3);
-	
+
 	form.append(divA);
 	divA.append(inputA,labelA);
 	form.append(divB);
@@ -26979,7 +26981,7 @@ function Question7(update) {
 	divD.append(inputD,labelD);
 	form.append(divE);
 	divE.append(inputE,labelE);
-	
+
 	if (inputA[0].id == idChecked7) {
 		inputA[0].checked = true;
 		btn.prop('disabled', false);
@@ -26995,7 +26997,7 @@ function Question7(update) {
 	} else if (inputE[0].id == idChecked7) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
-	} 
+	}
 
 
 	form.append(btn);
@@ -27035,23 +27037,23 @@ function Question8(update) {
 
 	var h3 = $('<h3>'+state.questions.pregunta8.pregunta+'</h3>');
 	var form = $('<form class="col-xs-12 col-sm-12 col-md-12"></form>');
-	
+
 	var divA = $('<div class=""></div>');
   	var labelA = $('<label>'+state.questions.pregunta8.opciones.a.texto+'</label>');
   	var inputA = $('<input type="radio" id="question8-a" data-option="a" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.a.valor +'">');
-  	
+
   	var divB = $('<div class=""></div>');
   	var labelB = $('<label>'+state.questions.pregunta8.opciones.b.texto+'</label>');
   	var inputB = $('<input type="radio" id="question8-b" data-option="b" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.b.valor +'">');
-  	
+
   	var divC = $('<div class=""></div>');
   	var labelC = $('<label>'+state.questions.pregunta8.opciones.c.texto+'</label>');
   	var inputC = $('<input type="radio" id="question8-c" data-option="c" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.c.valor +'">');
-  	
+
   	var divD = $('<div class=""></div>');
   	var labelD = $('<label>'+state.questions.pregunta8.opciones.d.texto+'</label>');
   	var inputD = $('<input type="radio" id="question8-d" data-option="d" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.d.valor +'">');
-  	
+
   	var divE = $('<div class=""></div>');
   	var labelE = $('<label>'+state.questions.pregunta8.opciones.e.texto+'</label>');
   	var inputE = $('<input type="radio" id="question8-e" data-option="e" name="option-8" class="option-input radio" value="'+ state.questions.pregunta8.opciones.e.valor +'">');
@@ -27096,7 +27098,7 @@ function Question8(update) {
 	} else if (inputE[0].id == idChecked8) {
 		inputE[0].checked = true;
 		btn.prop('disabled', false);
-	} 
+	}
 
 
 	form.append(btn);
