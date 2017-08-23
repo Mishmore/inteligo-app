@@ -33,14 +33,14 @@ function Profile(update) {
             var imgChart = $('<img class="img-responsive" src="assets/img/agresivo.jpg" alt="agresivo">');
             break;
     }
-  
+  var downloadPdf = $('<div class="downloadPdf"><img class="img-responsive" src="assets/img/pdf-Inteligo.svg" alt="pdf">Descargar PDF</div>');  
 
   var h2= $('<h2>'+ perfil.capitalize() +' </h2>')
   var h3=$('<h3 class="description-profile">Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrian'+
            ' requerir generación de ingresos corrientes: </h3>')
   var div3 = $('<div class="informacion"></div>');
 
-  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
+  //var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
   var btnEnviarDatos = $('<button type="button" class="btn btn-lg init btn-blue" id="saveData" data-toggle="modal" data-target="#confirmData">Guardar Datos</button>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-lg editar">Revisar datos</button>');
 
@@ -58,10 +58,10 @@ function Profile(update) {
   div1.append(col7,col5);
   col7.append(h2,h3,div3);
 
-  col5.append(imgChart);
+  col5.append(imgChart,downloadPdf);
   
   div3.append(btnReviewPerfil);
-  div3.append(btnRegister);
+  //div3.append(btnRegister);
   div3.append(btnEnviarDatos);
 
   btnEnviarDatos.on('click',function (e) {
@@ -117,12 +117,11 @@ function Profile(update) {
                    console.log("Cannot add to list !");
                }
            },
-
            data: client
         });
   });
 
-  btnRegister.on('click', function(e) {
+  downloadPdf.on('click', function(e) {
     impPDF();
   });
 

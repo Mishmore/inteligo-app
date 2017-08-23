@@ -1,4 +1,3 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -628,14 +627,14 @@ function Profile(update) {
             var imgChart = $('<img class="img-responsive" src="assets/img/agresivo.jpg" alt="agresivo">');
             break;
     }
-  
+  var downloadPdf = $('<div class="downloadPdf"><img class="img-responsive" src="assets/img/pdf-Inteligo.svg" alt="pdf">Descargar PDF</div>');  
 
   var h2= $('<h2>'+ perfil.capitalize() +' </h2>')
   var h3=$('<h3 class="description-profile">Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrian'+
            ' requerir generación de ingresos corrientes: </h3>')
   var div3 = $('<div class="informacion"></div>');
 
-  var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
+  //var btnRegister = $('<button type="button" class="btn btn-primary" id="enviarMail">Generar pdf</button>');
   var btnEnviarDatos = $('<button type="button" class="btn btn-lg init btn-blue" id="saveData" data-toggle="modal" data-target="#confirmData">Guardar Datos</button>');
   var btnReviewPerfil = $('<button type="button" class="btn btn-lg editar">Revisar datos</button>');
 
@@ -653,10 +652,10 @@ function Profile(update) {
   div1.append(col7,col5);
   col7.append(h2,h3,div3);
 
-  col5.append(imgChart);
+  col5.append(imgChart,downloadPdf);
   
   div3.append(btnReviewPerfil);
-  div3.append(btnRegister);
+  //div3.append(btnRegister);
   div3.append(btnEnviarDatos);
 
   btnEnviarDatos.on('click',function (e) {
@@ -712,12 +711,11 @@ function Profile(update) {
                    console.log("Cannot add to list !");
                }
            },
-
            data: client
         });
   });
 
-  btnRegister.on('click', function(e) {
+  downloadPdf.on('click', function(e) {
     impPDF();
   });
 
@@ -1711,7 +1709,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Home(function () { render(root)}));
+		wrapper.append(Question8(function () { render(root)}));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(function () {render(root)}));
@@ -1767,5 +1765,3 @@ $(document).ready(function() {
   render(root);
   });
 });
-
-},{}]},{},[1])
