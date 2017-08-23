@@ -66,6 +66,10 @@ function SeleccionarCliente(update) {
 
   cliente.on('click', function(e) {
     state.cliente = "cliente";
+
+    cliente.addClass("shadow");
+    prospecto.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-off");
@@ -75,6 +79,10 @@ function SeleccionarCliente(update) {
 
   prospecto.on('click', function(e) {
     state.cliente = "prospecto";
+
+    prospecto.addClass("shadow");
+    cliente.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-on");

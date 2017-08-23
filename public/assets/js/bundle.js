@@ -487,6 +487,10 @@ function SeleccionarCliente(update) {
 
   cliente.on('click', function(e) {
     state.cliente = "cliente";
+
+    cliente.addClass("shadow");
+    prospecto.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-off");
@@ -496,6 +500,10 @@ function SeleccionarCliente(update) {
 
   prospecto.on('click', function(e) {
     state.cliente = "prospecto";
+
+    prospecto.addClass("shadow");
+    cliente.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-on");
@@ -793,7 +801,7 @@ function Home(update) {
 }
 
 function InicioForm(update) {
-	var container = $('<div class="text-center vertical-center"></div>');
+	var container = $('<div class="text-center vertical-center" id="inicio-form"></div>');
   var row = $('<div class="row"></div>');
   var img = $('<img src="assets/img/Group.png" class="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1">');
 	var h3 = $('<h3 class="col-xs-12 col-sm-6 col-sm-offset-3">Es momento de compartir el dispositivo con tu cliente</h3>');
