@@ -1,4 +1,3 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -486,7 +485,7 @@ function SeleccionarCliente(update) {
   divOptions.append(opRuc);
 
   cliente.on('click', function(e) {
-    state.cliente = "cliente";
+    state.cliente = "PC";
 
     cliente.addClass("shadow");
     prospecto.removeClass("shadow");
@@ -499,7 +498,7 @@ function SeleccionarCliente(update) {
   });
 
   prospecto.on('click', function(e) {
-    state.cliente = "prospecto";
+    state.cliente = "PP";
 
     prospecto.addClass("shadow");
     cliente.removeClass("shadow");
@@ -513,7 +512,7 @@ function SeleccionarCliente(update) {
 
   linkSubmit.on('click', function(e) {
 
-    if (state.cliente == "cliente") {
+    if (state.cliente == "PC") {
 
       if (input.val().length != 0) {
         $('#id-cliente').text(input.val());
@@ -528,7 +527,7 @@ function SeleccionarCliente(update) {
         spanError.addClass("hidden-off");
       }
 
-    } else if (state.cliente = "prospecto") {
+    } else if (state.cliente = "PP") {
       if (input.val().length != 0 && $('input[name=opt-radio]').is(':checked')) {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
@@ -549,9 +548,9 @@ function SeleccionarCliente(update) {
 
   $('button.init').on('click', function(e) {
     identificadorCliente = input.val();
-    if (state.cliente == "cliente") {
+    if (state.cliente == "PC") {
       codigoCliente = input.val();
-    } else if (state.cliente == "prospecto") {
+    } else if (state.cliente == "PP") {
       documento = input.val();
       tipoDoc();
     }
@@ -1775,5 +1774,3 @@ $(document).ready(function() {
   render(root);
   });
 });
-
-},{}]},{},[1])
