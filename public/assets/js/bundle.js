@@ -666,7 +666,7 @@ function Profile(update) {
   //div3.append(btnRegister);
   div3.append(btnEnviarDatos);
 
-  btnEnviarDatos.on('click',function (e) {
+  /* btnEnviarDatos.on('click',function (e) {
     setDate();
     setNamePdf();
   
@@ -722,8 +722,13 @@ function Profile(update) {
            data: client
         });
   });
+<<<<<<< HEAD
 
   downloadPdf.on('click', function(e) {
+=======
+*/
+  btnRegister.on('click', function(e) {
+>>>>>>> 8967175079c05f4e8dfaa9b3e84ab41d462ba825
     impPDF();
   });
 

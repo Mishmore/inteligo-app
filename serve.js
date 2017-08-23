@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 const express = require('express');
 const app = express();
 //const morgan    = require('morgan'); // Sistema de logging (muestra en la cosa los request)
 //const morganjson= require('morgan-json');
 /*
+=======
+const express 	= require('express');
+const app 		= express();
+/*const morgan    = require('morgan'); // Sistema de logging (muestra en la cosa los request)
+const morganjson= require('morgan-json');
+>>>>>>> 8967175079c05f4e8dfaa9b3e84ab41d462ba825
 const bodyParser= require('body-parser');
 const mysql 	= require('mysql');
 
