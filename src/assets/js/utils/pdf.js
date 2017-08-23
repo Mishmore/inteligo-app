@@ -1,5 +1,4 @@
 //variable a reemplazar por objeto local que almacene toda la data del cliente
-var nombre = 'Ingrid';
 var indexPerfil = null;
 
 var switchPerfil = function() {
@@ -58,8 +57,8 @@ function impPDF() {
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(12);
-    doc.setTextColor(35, 62, 153);
-    doc.text(20, 45, 'Estimado cliente');
+    doc.setTextColor(0, 0, 0);
+    doc.text(20, 45, 'Estimado cliente:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
@@ -72,134 +71,134 @@ function impPDF() {
     doc.setFontType('normal');
     doc.setFontSize(12);
     doc.setTextColor(35, 62, 153);
-    doc.text(20, 63, 'Perfil del inversionista:');
+    doc.text(20, 65, 'Perfil del inversionista:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(70, 63, perfilesData[indexPerfil].perfil);
+    doc.text(70, 65, perfilesData[indexPerfil].perfil);
 
     //Descripción del perfil
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(12);
     doc.setTextColor(35, 62, 153);
-    doc.text(20, 71, 'Descripción del perfil');
+    doc.text(20, 75, 'Descripción del perfil');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 76, perfilesData[indexPerfil].retorno_texto);
+    doc.text(20, 80, perfilesData[indexPerfil].retorno_texto);
 
     //Descripción estratégica de activos
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(12);
     doc.setTextColor(35, 62, 153);
-    doc.text(20, 102, 'Distribución Estratégica de Activos');
+    doc.text(20, 95, 'Distribución Estratégica de Activos');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 107, 'Tomando en cuenta su perfil de inversión, le sugerimos la siguiente distribución estratégica \npor cada clase de activos:');
+    doc.text(20, 100, 'Tomando en cuenta su perfil de inversión, le sugerimos la siguiente distribución estratégica \npor cada clase de activos:');
 
     //Grafico
-    doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 70, 113, 70, 60);
+    doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 50, 115, 120, 0);
 
     //Retorno anual
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 187, 'Retorno promedio anual esperado: (1)');
+    doc.text(20, 205, 'Retorno promedio anual esperado: (1)');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 187, perfilesData[indexPerfil].retorno_anual);
+    doc.text(153, 205, perfilesData[indexPerfil].retorno_anual);
 
     //Mejor año
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 192, 'Mejor año: (2)');
+    doc.text(20, 210, 'Mejor año: (2)');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 192, perfilesData[indexPerfil].retorno_mejor);
+    doc.text(151, 210, perfilesData[indexPerfil].retorno_mejor);
 
     //Peor año
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 197, 'Peor año: (2)');
+    doc.text(20, 215, 'Peor año: (2)');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 197, perfilesData[indexPerfil].retorno_peor);
-
-    //(1)
-    doc.setFont('Arial');
-    doc.setFontType('normal');
-    doc.setFontSize(9);
-    doc.setTextColor(0, 0, 0);
-    doc.text(20, 202, '(1) Sobre la base de rentabilidades de largo plazo para las categorías de activo que componen los portafolios \nde cada perfil.');
-
-    //(2)
-    doc.setFont('Arial');
-    doc.setFontType('normal');
-    doc.setFontSize(9);
-    doc.setTextColor(0, 0, 0);
-    doc.text(20, 210, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
+    doc.text(150, 215, perfilesData[indexPerfil].retorno_peor);
 
     //Firma
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 265, 'Firma:');
+    doc.text(20, 230, 'Firma:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 265, "____________________________________");
+    doc.text(100, 230, "_____________________________________");
 
     //Código de asesor
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 273, 'Código de asesor:');
+    doc.text(20, 240, 'Código de asesor:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 273, sector);
+    doc.text(100, 240, sector);
 
     //Fecha
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(20, 281, 'Fecha:');
+    doc.text(20, 250, 'Fecha:');
 
     doc.setFont('Arial');
     doc.setFontType('normal');
     doc.setFontSize(11.5);
     doc.setTextColor(0, 0, 0);
-    doc.text(100, 281, "____________________________________");
+    doc.text(100, 250, "_____________________________________");
+
+    //(1)
+    doc.setFont('Arial');
+    doc.setFontType('normal');
+    doc.setFontSize(9);
+    doc.setTextColor(0, 0, 0);
+    doc.text(20, 265, '(1) Sobre la base de rentabilidades de largo plazo para las categorías de activo que componen los portafolios \nde cada perfil.');
+
+    //(2)
+    doc.setFont('Arial');
+    doc.setFontType('normal');
+    doc.setFontSize(9);
+    doc.setTextColor(0, 0, 0);
+    doc.text(20, 275, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
 
     doc.save('sample-file.pdf');
 

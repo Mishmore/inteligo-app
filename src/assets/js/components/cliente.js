@@ -32,11 +32,11 @@ function SeleccionarCliente(update) {
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
   var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
-  var divInput =$('<div class="col-xs-12 text-center"></div>');
-  var input = $('<input id="documento" type="text" class="text-center" maxlength="11">');
-  var linkSubmit = $('<a href="#" class="text-center"><img src="assets/img/circle-arrow.svg" class="text-center"></a>');
+  var divInput =$('<div class="div-input"></div>');
+  var input = $('<input id="documento" type="text" class="" maxlength="11">');
+  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
-  var divOptions =$('<form class="text-center hidden-on"></form>');
+  var divOptions =$('<form class="text-center hidden-on div-radio"></form>');
   var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
   var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
   var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
@@ -55,7 +55,7 @@ function SeleccionarCliente(update) {
   row.append(inputGroup);
   inputGroup.append(divInput);
   divInput.append(input);
-  inputGroup.append(linkSubmit);
+  divInput.append(linkSubmit);
   inputGroup.append(spanError);
   inputGroup.append(divOptions);
 
@@ -65,7 +65,11 @@ function SeleccionarCliente(update) {
   divOptions.append(opRuc);
 
   cliente.on('click', function(e) {
-    state.cliente = "cliente";
+    state.cliente = "PC";
+
+    cliente.addClass("shadow");
+    prospecto.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-off");
@@ -74,7 +78,11 @@ function SeleccionarCliente(update) {
   });
 
   prospecto.on('click', function(e) {
-    state.cliente = "prospecto";
+    state.cliente = "PP";
+
+    prospecto.addClass("shadow");
+    cliente.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-on");
@@ -84,7 +92,7 @@ function SeleccionarCliente(update) {
 
   linkSubmit.on('click', function(e) {
 
-    if (state.cliente == "cliente") {
+    if (state.cliente == "PC") {
 
       if (input.val().length != 0) {
         $('#id-cliente').text(input.val());
@@ -99,7 +107,7 @@ function SeleccionarCliente(update) {
         spanError.addClass("hidden-off");
       }
 
-    } else if (state.cliente = "prospecto") {
+    } else if (state.cliente = "PP") {
       if (input.val().length != 0 && $('input[name=opt-radio]').is(':checked')) {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
@@ -120,9 +128,9 @@ function SeleccionarCliente(update) {
 
   $('button.init').on('click', function(e) {
     identificadorCliente = input.val();
-    if (state.cliente == "cliente") {
+    if (state.cliente == "PC") {
       codigoCliente = input.val();
-    } else if (state.cliente == "prospecto") {
+    } else if (state.cliente == "PP") {
       documento = input.val();
       tipoDoc();
     }

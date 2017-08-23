@@ -23,6 +23,10 @@ h3{
   visibility: visible;
 }
 
+.shadow {
+  background-color: rgba(35,62,153,0.5);
+}
+
 .vertical-center {
   height: 100vh;
   display: flex;
@@ -53,29 +57,39 @@ h3{
   }
 
   .div-input {
-    display: inline-block;
+    border: 2px solid $brand-color;
+    border-radius: 3em;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 0.8em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    position: relative;
   }
 
   input {
     border: 0;
     outline: none;
-    border: 2px solid $brand-color;
     border-radius: 1em;
-    font-size: 2em;
-    padding: 0.3em;
-    padding-left: 0.5em;
-    width: 15.6em;
-    margin-bottom: 1em;
+    font-size: 2.18em;
+    padding: 0.2em 0;
+    padding-left: 0;
+    width: 63%;
+    position: relative;
+    left: 0;
   }
 
   a {
     outline: none;
+    position: absolute;
+    right: -1px;
+    top: 0px;
   }
 
   span {
     height: 2em;
     font-size: 1.5em;
-    padding: 0.5em;
+    padding: 0.3em;
     color: $third-color;
   }
 }
@@ -113,28 +127,39 @@ h3{
     }
   }
 
+  .div-input {
+    border: 2px solid $brand-color;
+    border-radius: 3em;
+    width: 77%;
+    margin: auto;
+    margin-bottom: 0.8em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    position: relative;
+  }
+
   input#documento {
     border: 0;
     outline: none;
-    border: 2px solid $brand-color;
-    border-radius: 0.7em;
-    font-size: 2em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    width: 78%;
-    margin-bottom: 1em;
-    text-align: center;
+    border-radius: 1em;
+    font-size: 2.18em;
+    padding: 0.2em 0;
+    padding-left: 1.5em;
+    width: 85%;
+    position: relative;
+    left: 0;
   }
 
   a {
-    padding-left: 45%;
     outline: none;
-    margin: auto;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+  }
+
+  .div-radio {
     text-align: center;
-    img {
-      margin: auto;
-      text-align: center;
-    }
+    padding-left: 5rem;
   }
 
   img.card-img-top {
@@ -145,7 +170,7 @@ h3{
   span {
     height: 3em;
     font-size: 1.5em;
-    padding: 0.5em;
+    padding: 0.3em;
     color: $third-color;
   }
 
@@ -209,6 +234,20 @@ h3{
           background-color: $third-color;
         }
       }
+    }
+  }
+}
+//Pantalla 3
+#inicio-form {
+  h3 {
+    font-size: 3rem !important;
+  }
+
+  button {
+    font-size: 3rem;
+    &:hover {
+      color: #ffffff;
+      background-color: rgb(35,62,153);
     }
   }
 }
@@ -460,12 +499,25 @@ $light: #4285F4;
     .editar{
       background-color: $third-color;
       color: white;
+      margin-right: 5%;
+      margin-left: 15%;
     }
     .content-description{
       padding-left: 0px;
     }
     .description-profile{
       text-align: justify;
+    }
+    .downloadPdf{
+      margin-top: 2%;
+      cursor: pointer;
+      font-size: 1.8em;
+      text-decoration: underline;
+      color: $brand-color;
+      img{
+        width:50px;
+        display: inline-block;
+      }
     }
 }
 #btn-confirm{
