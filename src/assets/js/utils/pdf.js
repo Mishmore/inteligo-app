@@ -106,7 +106,7 @@ function impPDF() {
     doc.text(20, 100, 'Tomando en cuenta su perfil de inversión, le sugerimos la siguiente distribución estratégica \npor cada clase de activos:');
 
     //Grafico
-    doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 70, 120, 100, 0);
+    doc.addImage(perfilesData[indexPerfil].grafico, 'PNG', 50, 115, 120, 0);
 
     //Retorno anual
     doc.setFont('Arial');
