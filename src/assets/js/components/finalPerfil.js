@@ -33,7 +33,7 @@ function Profile(update) {
             var imgChart = $('<img class="img-responsive" src="assets/img/agresivo.jpg" alt="agresivo">');
             break;
     }
-  var downloadPdf = $('<div class="downloadPdf"><img class="img-responsive" src="assets/img/pdf-Inteligo.svg" alt="pdf">Descargar PDF</div>');  
+  var downloadPdf = $('<div class="downloadPdf"><img class="img-responsive" src="assets/img/pdf-Inteligo.svg" alt="pdf">Descargar PDF</div>');
 
   var h2= $('<h2>'+ perfil.capitalize() +' </h2>')
   var h3=$('<h3 class="description-profile">Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrian'+
@@ -51,7 +51,7 @@ function Profile(update) {
   divLoad.append(loading);
   loading.append(loadingBase);
   logoDiv.append(img,h21);
-  
+
   container.append(div1);
   container.append(div3);
   div1.append(h1);
@@ -59,16 +59,16 @@ function Profile(update) {
   col7.append(h2,h3,div3);
 
   col5.append(imgChart,downloadPdf);
-  
+
   div3.append(btnReviewPerfil);
   //div3.append(btnRegister);
   div3.append(btnEnviarDatos);
 
-  /* btnEnviarDatos.on('click',function (e) {
+   btnEnviarDatos.on('click',function (e) {
     setDate();
     setNamePdf();
-  
-    nombrePdf = ''+codigoCliente+' '+fechaPdf; 
+
+    nombrePdf = ''+codigoCliente+' '+fechaPdf;
     switch (perfil) {
         case 'defensivo':
             indexPerfil = 0;
@@ -120,13 +120,8 @@ function Profile(update) {
            data: client
         });
   });
-<<<<<<< HEAD
 
-  downloadPdf.on('click', function(e) {
-=======
-*/
-  btnRegister.on('click', function(e) {
->>>>>>> 8967175079c05f4e8dfaa9b3e84ab41d462ba825
+downloadPdf.on('click', function(e) {
     impPDF();
   });
 
@@ -142,4 +137,3 @@ function Profile(update) {
   return container;
 
 }
- 
