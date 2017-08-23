@@ -4,7 +4,7 @@ var render = function(root) {
   //wrapper.append(Nav(_ => render(root)));
 	switch(state.screenView) {
 	case null:
-		wrapper.append(Question8(function () { render(root)}));
+		wrapper.append(Home(function () { render(root)}));
 		break;
   case "Seleccionar cliente":
 		wrapper.append(SeleccionarCliente(function () {render(root)}));
