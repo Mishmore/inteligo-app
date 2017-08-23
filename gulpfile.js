@@ -2,13 +2,13 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
-var browserSync = require('browser-sync').create();
+//var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var addsrc = require('gulp-add-src');
 
 var config = {
-  source: './src/',
-  dist: './public/'
+    source: './src/',
+    dist: './public/'
 };
 
 var paths = {
@@ -46,7 +46,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('img', function() {
- gulp.src(sources.assets + 'img/**/*').pipe(gulp.dest(config.dist + paths.assets + 'img'));
+    gulp.src(sources.assets + 'img/**/*').pipe(gulp.dest(config.dist + paths.assets + 'img'));
 });
 
 gulp.task('sass', function() {
@@ -59,7 +59,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
     return gulp.src([sources.assets + "js/vendor/bootstrap.min.js", sources.assets + "js/utils/*.js", sources.assets + "js/components/*.js", sources.rootJS])
         .pipe(concat('app.js'))
-        .pipe(browserify())
+        //.pipe(browserify())
         .pipe(rename("bundle.js"))
         .pipe(addsrc(sources.jquery))
         .pipe(gulp.dest(config.dist + paths.assets + "js"))
@@ -72,23 +72,23 @@ gulp.task('font', function() {
 });
 
 gulp.task('sass-watch', ["sass"], function(done) {
-    browserSync.reload();
+    //browserSync.reload();
     done();
 });
 
 gulp.task('js-watch', ["js"], function(done) {
-    browserSync.reload();
+    //browserSync.reload();
     done();
 });
 
 gulp.task('html-watch', ["html"], function(done) {
-    browserSync.reload();
+    //browserSync.reload();
     done();
 });
 
 gulp.task('start', ['html', 'sass', 'css', 'js', 'img']);
 
-
+/*
 gulp.task('serve', function() {
     browserSync.init({
         server: {
@@ -99,9 +99,9 @@ gulp.task('serve', function() {
     gulp.watch(sources.sass, ["sass-watch"]);
     gulp.watch(sources.js, ["js-watch"]);
 });
-
+*/
 gulp.task("watcher", () => {
-  gulp.watch(sources.html, ["html-watch"]);
-  gulp.watch(sources.sass, ["sass-watch"]);
-  gulp.watch(sources.js, ["js-watch"]);
+    gulp.watch(sources.html, ["html-watch"]);
+    gulp.watch(sources.sass, ["sass-watch"]);
+    gulp.watch(sources.js, ["js-watch"]);
 });

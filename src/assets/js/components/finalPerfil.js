@@ -18,19 +18,19 @@ function Profile(update) {
   var col5 = $('<div class="col-xs-12 col-md-5 content-chart"></div>');
   switch (perfil) {
         case 'defensivo':
-             var imgChart = $('<img class="img-responsive" src="assets/img/piedefensivofinal.png" alt="logo Inteligo">');
+             var imgChart = $('<img class="img-responsive" src="assets/img/defensivo.jpg" alt="defensivo">');
             break;
         case 'altamente conservador':
-            var imgChart = $('<img class="img-responsive" src="assets/img/altamente_conservador_pie.png" alt="logo Inteligo">');
+            var imgChart = $('<img class="img-responsive" src="assets/img/altamente_conservador.jpg" alt="altamente conservador">');
             break;
         case 'conservador':
-            var imgChart = $('<img class="img-responsive" src="assets/img/conservadorpie.png" alt="logo Inteligo">');
+            var imgChart = $('<img class="img-responsive" src="assets/img/conservador.jpg" alt="conservador">');
             break;
         case 'moderado':
-            var imgChart = $('<img class="img-responsive" src="assets/img/moderadopie.png" alt="logo Inteligo">');
+            var imgChart = $('<img class="img-responsive" src="assets/img/moderado.jpg" alt="moderado">');
             break;
         case 'agresivo':
-            indexPerfil = 4;
+            var imgChart = $('<img class="img-responsive" src="assets/img/agresivo.jpg" alt="agresivo">');
             break;
     }
   
