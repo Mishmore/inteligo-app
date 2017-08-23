@@ -237,6 +237,20 @@ h3{
     }
   }
 }
+//Pantalla 3
+#inicio-form {
+  h3 {
+    font-size: 3rem !important;
+  }
+
+  button {
+    font-size: 3rem;
+    &:hover {
+      color: #ffffff;
+      background-color: rgb(35,62,153);
+    }
+  }
+}
 
 .question {
   height: 92vh;

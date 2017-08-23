@@ -485,7 +485,11 @@ function SeleccionarCliente(update) {
   divOptions.append(opRuc);
 
   cliente.on('click', function(e) {
-    state.cliente = "cliente";
+    state.cliente = "PC";
+
+    cliente.addClass("shadow");
+    prospecto.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-off");
@@ -494,7 +498,11 @@ function SeleccionarCliente(update) {
   });
 
   prospecto.on('click', function(e) {
-    state.cliente = "prospecto";
+    state.cliente = "PP";
+
+    prospecto.addClass("shadow");
+    cliente.removeClass("shadow");
+
     inputGroup.removeClass("hidden-on");
     inputGroup.addClass("hidden-off");
     divOptions.removeClass("hidden-on");
@@ -504,7 +512,7 @@ function SeleccionarCliente(update) {
 
   linkSubmit.on('click', function(e) {
 
-    if (state.cliente == "cliente") {
+    if (state.cliente == "PC") {
 
       if (input.val().length != 0) {
         $('#id-cliente').text(input.val());
@@ -519,7 +527,7 @@ function SeleccionarCliente(update) {
         spanError.addClass("hidden-off");
       }
 
-    } else if (state.cliente = "prospecto") {
+    } else if (state.cliente = "PP") {
       if (input.val().length != 0 && $('input[name=opt-radio]').is(':checked')) {
         $('#id-cliente').text(input.val());
         linkSubmit.attr("data-toggle", "modal");
@@ -540,9 +548,9 @@ function SeleccionarCliente(update) {
 
   $('button.init').on('click', function(e) {
     identificadorCliente = input.val();
-    if (state.cliente == "cliente") {
+    if (state.cliente == "PC") {
       codigoCliente = input.val();
-    } else if (state.cliente == "prospecto") {
+    } else if (state.cliente == "PP") {
       documento = input.val();
       tipoDoc();
     }
@@ -791,7 +799,7 @@ function Home(update) {
 }
 
 function InicioForm(update) {
-	var container = $('<div class="text-center vertical-center"></div>');
+	var container = $('<div class="text-center vertical-center" id="inicio-form"></div>');
   var row = $('<div class="row"></div>');
   var img = $('<img src="assets/img/Group.png" class="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1">');
 	var h3 = $('<h3 class="col-xs-12 col-sm-6 col-sm-offset-3">Es momento de compartir el dispositivo con tu cliente</h3>');
