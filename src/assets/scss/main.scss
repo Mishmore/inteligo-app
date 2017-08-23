@@ -53,23 +53,32 @@ h3{
   }
 
   .div-input {
-    display: inline-block;
+    border: 2px solid $brand-color;
+    border-radius: 3em;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 2px 0;
+    position: relative;
   }
 
   input {
     border: 0;
     outline: none;
-    border: 2px solid $brand-color;
     border-radius: 1em;
-    font-size: 2em;
-    padding: 0.3em;
-    padding-left: 0.5em;
-    width: 15.6em;
-    margin-bottom: 1em;
+    font-size: 2.2em;
+    padding: 0.2em 0;
+    padding-left: 0;
+    width: 63%;
+    position: relative;
+    left: 0;
   }
 
   a {
     outline: none;
+    position: absolute;
+    right: -1px;
+    top: 0;
   }
 
   span {
