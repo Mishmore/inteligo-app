@@ -1,24 +1,3 @@
-/*
-function Modal() {
-  var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
-  var modalDialog = $('<div class="modal-dialog modal-lg" role="document"></div>');
-  var modalContent = $('<div class="modal-content col-xs-12 center-block text-center"></div>');
-  var title = $('<h3 class="">Has digitado el número</h3>');
-  var number = $('<h3 class="blue" id="id-cliente"></h3>');
-  var div = $('<div></div>');
-  var btnIniciar = $('<button type="button" class="btn btn-lg init" data-toggle="modal" data-target=".bs-example-modal-lg">Es Correcto</button>');
-  var btnEditar = $('<button type="button" class="btn btn-lg editar" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>');
-
-  modal.append(modalDialog);
-  modalDialog.append(modalContent);
-  modalContent.append(title);
-  modalContent.append(number);
-  modalContent.append(div);
-  div.append(btnIniciar);
-  div.append(btnEditar);
-  return modal;
-}
-*/
 function SeleccionarCliente(update) {
 
   var container = $('<div class="vertical-center" id="form"></div>');
@@ -37,7 +16,7 @@ function SeleccionarCliente(update) {
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on div-radio"></form>');
-  var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
+  var opDni = $('<label><input type="radio" id = "optDni" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
   var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
   var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
   var opRuc = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="RUC">RUC</label>');
@@ -79,7 +58,7 @@ function SeleccionarCliente(update) {
 
   prospecto.on('click', function(e) {
     state.cliente = "PP";
-
+    $('#optDni').attr('checked','checked');
     prospecto.addClass("shadow");
     cliente.removeClass("shadow");
 

@@ -418,27 +418,6 @@ function setNamePdf(){
                d.getMinutes().padLeft(),
                d.getSeconds().padLeft()].join('');
 }
-/*
-function Modal() {
-  var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
-  var modalDialog = $('<div class="modal-dialog modal-lg" role="document"></div>');
-  var modalContent = $('<div class="modal-content col-xs-12 center-block text-center"></div>');
-  var title = $('<h3 class="">Has digitado el número</h3>');
-  var number = $('<h3 class="blue" id="id-cliente"></h3>');
-  var div = $('<div></div>');
-  var btnIniciar = $('<button type="button" class="btn btn-lg init" data-toggle="modal" data-target=".bs-example-modal-lg">Es Correcto</button>');
-  var btnEditar = $('<button type="button" class="btn btn-lg editar" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>');
-
-  modal.append(modalDialog);
-  modalDialog.append(modalContent);
-  modalContent.append(title);
-  modalContent.append(number);
-  modalContent.append(div);
-  div.append(btnIniciar);
-  div.append(btnEditar);
-  return modal;
-}
-*/
 function SeleccionarCliente(update) {
 
   var container = $('<div class="vertical-center" id="form"></div>');
@@ -457,7 +436,7 @@ function SeleccionarCliente(update) {
   var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on div-radio"></form>');
-  var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
+  var opDni = $('<label><input type="radio" id = "optDni" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
   var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
   var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
   var opRuc = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="RUC">RUC</label>');
@@ -499,7 +478,7 @@ function SeleccionarCliente(update) {
 
   prospecto.on('click', function(e) {
     state.cliente = "PP";
-
+    $('#optDni').attr('checked','checked');
     prospecto.addClass("shadow");
     cliente.removeClass("shadow");
 
@@ -581,25 +560,6 @@ function SeleccionarCliente(update) {
   return container;
 }
 
-function Description(update) {
-  var container = $('<div class="container"></div>');
-  var h1= $('<h1>'+perfil+'</h1>')
-  var div1 = $('<div class="grafico"><img src="https://d500.epimg.net/cincodias/imagenes/2016/08/19/mercados/1471614030_865280_1471702913_noticia_normal.jpg"></img></div>');
-  var p1=$('<p>Puede tolerar el riesgo, pero valora su dinero, le gusta saber con certeza cuanto genera su inversion.</p>');
-  var btn = $('<button type="button" class="btn btn-primary">Hágase cliente nuestro</button>');
-
-  div1.append(p1);
-  div1.append(btn);
-  container.append(h1);
-  container.append(div1);
-
-  btn.on('click', function(e) {
-    state.screenView = "register";
-    update();
-  });
-  return container;
-}
-
 function Profile(update) {
   prueba();
   switchPerfil();
@@ -635,7 +595,7 @@ function Profile(update) {
             var imgChart = $('<img class="img-responsive" src="assets/img/agresivo.jpg" alt="agresivo">');
             break;
     }
-  
+
 
   var h2= $('<h2>'+ perfil.capitalize() +' </h2>')
   var h3=$('<h3 class="description-profile">Para inversionistas de largo plazo que buscan crecimiento en su inversión a un nivel medio de riesgo y que podrian'+
@@ -653,7 +613,7 @@ function Profile(update) {
   divLoad.append(loading);
   loading.append(loadingBase);
   logoDiv.append(img,h21);
-  
+
   container.append(div1);
   container.append(div3);
   div1.append(h1);
@@ -661,7 +621,7 @@ function Profile(update) {
   col7.append(h2,h3,div3);
 
   col5.append(imgChart);
-  
+
   div3.append(btnReviewPerfil);
   div3.append(btnRegister);
   div3.append(btnEnviarDatos);
@@ -669,8 +629,7 @@ function Profile(update) {
   btnEnviarDatos.on('click',function (e) {
     setDate();
     setNamePdf();
-  
-    nombrePdf = ''+codigoCliente+' '+fechaPdf; 
+    nombrePdf = ''+codigoCliente+' '+fechaPdf;
     switch (perfil) {
         case 'defensivo':
             indexPerfil = 0;
@@ -707,21 +666,24 @@ function Profile(update) {
           vchNomPDF: nombrePdf
         }
 
-    $.ajax({
-          type: "POST",
-           url: "/registrarCliente",
-           dataType: "json",
-           success: function (msg) {
-               if (msg) {
-                   console.log("Somebody" + name + " was added in list !");
-                   location.reload(true);
-               } else {
-                   console.log("Cannot add to list !");
-               }
-           },
+        $.ajax({
+                   method: "POST",
+                   url: state.config.url,
+                   headers:{
+                     'authorization':'Bearer '+ state.config.token
+                   },
+                   dataType: "json",
+                    success: function (msg) {
+                       if (msg) {
+                           console.log("Registro exitoso");
+                           console.log(msg.status);
+                       } else {
+                           console.log("No se ha agregado los datos");
+                       }
+                   },
+                   data: client
+                });
 
-           data: client
-        });
   });
 
   btnRegister.on('click', function(e) {
@@ -740,7 +702,7 @@ function Profile(update) {
   return container;
 
 }
- 
+
 function Home(update) {
 
 	var container = $('<div class="text-center vertical-center" id="home"></div>');
@@ -1768,6 +1730,10 @@ var state = {
 }
 
 $(document).ready(function() {
+  getJSON('/api/settings', function (err,json) {
+    state.config = json;
+    console.log(state.config);
+  });
   getJSON('/api/preguntas', function (err,json){
   state.questions = json;
   var root = $('.root');

@@ -54,6 +54,10 @@ var state = {
 }
 
 $(document).ready(function() {
+  getJSON('/api/settings', function (err,json) {
+    state.config = json;
+    console.log(state.config);
+  });
   getJSON('/api/preguntas', function (err,json){
   state.questions = json;
   var root = $('.root');
