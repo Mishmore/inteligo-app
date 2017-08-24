@@ -68,7 +68,8 @@ function Profile(update) {
     setDate();
     setNamePdf();
 
-    nombrePdf = ''+codigoCliente+' '+fechaPdf;
+    nombrePdf =  state.cliente+'_'+codigoCliente+' '+fechaEvaluacion+'.pdf';
+
     switch (perfil) {
         case 'defensivo':
             indexPerfil = 0;
@@ -88,10 +89,10 @@ function Profile(update) {
     }
     var client = {
           vchCodCliente: codigoCliente,
-          vchrTipoDoc: tipoUsuario,
+          vchrTipoDoc: state.cliente,
           vchDocIdentidad: documento,
           dtmFecha: fecha,
-          vchSector: "opcional",
+          vchSector: sector,
           intResultadoPerfil: indexPerfil,
           vchrPortafolio: "opcional",
           chrResp01: option1,

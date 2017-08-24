@@ -200,6 +200,9 @@ function impPDF() {
     doc.setTextColor(0, 0, 0);
     doc.text(20, 275, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
 
-    doc.save('sample-file.pdf');
+    setNamePdf();
+    var namePdf = state.cliente+'_'+identificadorCliente+'_'+fechaEvaluacion+'.pdf'
+    
+    doc.save(namePdf);
 
 }

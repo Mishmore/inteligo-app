@@ -385,7 +385,10 @@ function impPDF() {
     doc.setTextColor(0, 0, 0);
     doc.text(20, 275, '(2) Sobre la base de un back test aplicado a los perfiles para los últimos años.');
 
-    doc.save('sample-file.pdf');
+    setNamePdf();
+    var namePdf = state.cliente+'_'+identificadorCliente+'_'+fechaEvaluacion+'.pdf'
+    
+    doc.save(namePdf);
 
 }
 var fecha;
@@ -418,27 +421,6 @@ function setNamePdf(){
                d.getMinutes().padLeft(),
                d.getSeconds().padLeft()].join('');
 }
-/*
-function Modal() {
-  var modal = $('<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"></div>');
-  var modalDialog = $('<div class="modal-dialog modal-lg" role="document"></div>');
-  var modalContent = $('<div class="modal-content col-xs-12 center-block text-center"></div>');
-  var title = $('<h3 class="">Has digitado el número</h3>');
-  var number = $('<h3 class="blue" id="id-cliente"></h3>');
-  var div = $('<div></div>');
-  var btnIniciar = $('<button type="button" class="btn btn-lg init" data-toggle="modal" data-target=".bs-example-modal-lg">Es Correcto</button>');
-  var btnEditar = $('<button type="button" class="btn btn-lg editar" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>');
-
-  modal.append(modalDialog);
-  modalDialog.append(modalContent);
-  modalContent.append(title);
-  modalContent.append(number);
-  modalContent.append(div);
-  div.append(btnIniciar);
-  div.append(btnEditar);
-  return modal;
-}
-*/
 function SeleccionarCliente(update) {
 
   var container = $('<div class="vertical-center" id="form"></div>');
@@ -670,7 +652,8 @@ function Profile(update) {
     setDate();
     setNamePdf();
 
-    nombrePdf = ''+codigoCliente+' '+fechaPdf;
+    nombrePdf =  state.cliente+'_'+codigoCliente+' '+fechaEvaluacion+'.pdf';
+
     switch (perfil) {
         case 'defensivo':
             indexPerfil = 0;
@@ -690,10 +673,10 @@ function Profile(update) {
     }
     var client = {
           vchCodCliente: codigoCliente,
-          vchrTipoDoc: tipoUsuario,
+          vchrTipoDoc: state.cliente,
           vchDocIdentidad: documento,
           dtmFecha: fecha,
-          vchSector: "opcional",
+          vchSector: sector,
           intResultadoPerfil: indexPerfil,
           vchrPortafolio: "opcional",
           chrResp01: option1,
