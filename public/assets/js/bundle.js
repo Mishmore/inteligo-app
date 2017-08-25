@@ -567,7 +567,7 @@ function Profile(update) {
   prueba();
   switchPerfil();
   var container = $('<div class="container-fluid question"></div>');
-  var divAzul = $('<div class="helper hidden-xs "></div>');
+  var divAzul = $('<div class="helper"></div>');
   var logoDiv = $('<div class="logo-div"></div>');
   var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
   var h21 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -985,7 +985,7 @@ function Question1(update) {
 
 function Question2(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1069,7 +1069,7 @@ function Question2(update) {
 
 function Question3(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1163,7 +1163,7 @@ function Question3(update) {
 
 function Question4(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1266,7 +1266,7 @@ function Question4(update) {
 
 function Question5(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1371,7 +1371,7 @@ function Question5(update) {
 
 function Question6(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1464,7 +1464,7 @@ function Question6(update) {
 
 function Question7(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1566,7 +1566,7 @@ function Question7(update) {
 
 function Question8(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -1580,7 +1580,7 @@ function Question8(update) {
 	var pie = $(' <div  class ="col-sm-5 col-md-5 hidden-xs" id="pieQuestion5"></div>');
 	var imgPie = $('<img id="imgPie" class="img-responsive" src="assets/img/Pregunta8.png" alt="PAI pregunta 8">');
 
-	var form = $('<form class="col-xs-7 col-sm-7 col-md-7 form-question8"></form>');
+	var form = $('<form class="col-xs-12 col-sm-7 col-md-7 form-question8"></form>');
 	
 	var divA = $('<div class="lbl-question8"></div>');
   	var labelA = $('<label>'+state.questions.pregunta8.opciones.a.texto+'</label>');

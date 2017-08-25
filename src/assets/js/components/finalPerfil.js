@@ -2,7 +2,7 @@ function Profile(update) {
   prueba();
   switchPerfil();
   var container = $('<div class="container-fluid question"></div>');
-  var divAzul = $('<div class="helper hidden-xs "></div>');
+  var divAzul = $('<div class="helper"></div>');
   var logoDiv = $('<div class="logo-div"></div>');
   var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
   var h21 = $('<h2 class=""> Conociendo su perfil</h2>');
