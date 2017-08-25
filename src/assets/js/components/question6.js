@@ -82,7 +82,7 @@ function Question6(update) {
 
 			if(pregunta6){
 				sumaY += parseInt(pregunta6);
-				console.log(sumaY);
+				
 			}
 		state.screenView = "question-7";
 		update();

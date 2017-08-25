@@ -92,7 +92,7 @@ function Question4(update) {
 		// option4 = option.slice(-1);
       if(pregunta4){
 				sumaX += parseInt(pregunta4);
-				console.log(sumaX);
+				
       }
 		state.screenView = "question-5";
 		update();

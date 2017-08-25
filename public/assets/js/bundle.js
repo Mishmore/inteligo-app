@@ -539,7 +539,7 @@ function SeleccionarCliente(update) {
 
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-    console.log(tipoDocumento);
+    
     update();
   });
 
@@ -560,25 +560,6 @@ function SeleccionarCliente(update) {
     }
   }
 
-  return container;
-}
-
-function Description(update) {
-  var container = $('<div class="container"></div>');
-  var h1= $('<h1>'+perfil+'</h1>')
-  var div1 = $('<div class="grafico"><img src="https://d500.epimg.net/cincodias/imagenes/2016/08/19/mercados/1471614030_865280_1471702913_noticia_normal.jpg"></img></div>');
-  var p1=$('<p>Puede tolerar el riesgo, pero valora su dinero, le gusta saber con certeza cuanto genera su inversion.</p>');
-  var btn = $('<button type="button" class="btn btn-primary">Hágase cliente nuestro</button>');
-
-  div1.append(p1);
-  div1.append(btn);
-  container.append(h1);
-  container.append(div1);
-
-  btn.on('click', function(e) {
-    state.screenView = "register";
-    update();
-  });
   return container;
 }
 
@@ -696,10 +677,10 @@ function Profile(update) {
            dataType: "json",
            success: function (msg) {
                if (msg) {
-                   console.log("Somebody" + name + " was added in list !");
+                   console.log("registro exitoso");
                    location.reload(true);
                } else {
-                   console.log("Cannot add to list !");
+                   console.log("no se pudo agregar a la bd");
                }
            },
            data: client
@@ -893,7 +874,7 @@ var matriz=new Array(matrizLength);
 
 function Question1(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -945,8 +926,6 @@ function Question1(update) {
 	form.append(h3);
 	
 	form.append(divA);
-	
-	console.log(inputA[0].id);
 
 	divA.append(inputA);
 	divA.append(labelA,collapseA);
@@ -996,7 +975,6 @@ function Question1(update) {
 
 			if(pregunta1){
 				sumaX += parseInt(pregunta1);
-				console.log(sumaX);
 			}
 			state.screenView = "question-2";
 			update();
@@ -1079,10 +1057,9 @@ function Question2(update) {
 		 pregunta2 = $("input[name='option-2']:checked").val();
 		 option2 = $("input[name='option-2']:checked").attr('data-option');
 		 idChecked2 = $("input[name='option-2']:checked").attr("id");
-		 //option2 = option.slice(-1);
+		 
 			if(pregunta2){
 				sumaX += parseInt(pregunta2);
-				console.log(sumaX);
 			}
 			state.screenView = "question-3";
 			update();
@@ -1176,7 +1153,7 @@ function Question3(update) {
 		// option3 = option.slice(-1);
       if(pregunta3){
 				sumaX += parseInt(pregunta3);
-				console.log(sumaX);
+				
       }
 		state.screenView = "question-4";
 		update();
@@ -1279,7 +1256,7 @@ function Question4(update) {
 		// option4 = option.slice(-1);
       if(pregunta4){
 				sumaX += parseInt(pregunta4);
-				console.log(sumaX);
+				
       }
 		state.screenView = "question-5";
 		update();
@@ -1384,7 +1361,7 @@ function Question5(update) {
 		// option5 = option.slice(-1);
       if(pregunta5){
 					sumaY += parseInt(pregunta5);
-					console.log(sumaY);
+					
       }
 		state.screenView = "question-6";
 		update();
@@ -1477,7 +1454,7 @@ function Question6(update) {
 
 			if(pregunta6){
 				sumaY += parseInt(pregunta6);
-				console.log(sumaY);
+				
 			}
 		state.screenView = "question-7";
 		update();
@@ -1579,7 +1556,7 @@ function Question7(update) {
 		// option7 = option.slice(-1);
 			if(pregunta7){
 				sumaY += parseInt(pregunta7);
-				console.log(sumaY);
+				
 			}
 		state.screenView = "question-8";
 		update();
@@ -1685,7 +1662,7 @@ function Question8(update) {
 		// option8 = option.slice(-1);
       if(pregunta8){
 					sumaY += parseInt(pregunta8);
-					console.log(sumaY);
+					
       }
 		state.screenView = "Loading";
 		update();

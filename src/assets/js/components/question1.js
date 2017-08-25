@@ -1,6 +1,6 @@
 function Question1(update) {
 	var container = $('<div class="container-fluid question"></div>');
-	var divAzul = $('<div class="helper hidden-xs "></div>');
+	var divAzul = $('<div class="helper"></div>');
 	var logoDiv = $('<div class="logo-div"></div>');
 	var img = $('<img class="" src="assets/img/I Complementarias Fondo azul.jpg" alt="logo Inteligo">');
 	var h2 = $('<h2 class=""> Conociendo su perfil</h2>');
@@ -52,8 +52,6 @@ function Question1(update) {
 	form.append(h3);
 	
 	form.append(divA);
-	
-	console.log(inputA[0].id);
 
 	divA.append(inputA);
 	divA.append(labelA,collapseA);
@@ -103,7 +101,6 @@ function Question1(update) {
 
 			if(pregunta1){
 				sumaX += parseInt(pregunta1);
-				console.log(sumaX);
 			}
 			state.screenView = "question-2";
 			update();

@@ -72,10 +72,9 @@ function Question2(update) {
 		 pregunta2 = $("input[name='option-2']:checked").val();
 		 option2 = $("input[name='option-2']:checked").attr('data-option');
 		 idChecked2 = $("input[name='option-2']:checked").attr("id");
-		 //option2 = option.slice(-1);
+		 
 			if(pregunta2){
 				sumaX += parseInt(pregunta2);
-				console.log(sumaX);
 			}
 			state.screenView = "question-3";
 			update();

@@ -112,10 +112,10 @@ function Profile(update) {
            dataType: "json",
            success: function (msg) {
                if (msg) {
-                   console.log("Somebody" + name + " was added in list !");
+                   console.log("registro exitoso");
                    location.reload(true);
                } else {
-                   console.log("Cannot add to list !");
+                   console.log("no se pudo agregar a la bd");
                }
            },
            data: client

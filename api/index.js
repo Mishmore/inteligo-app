@@ -273,14 +273,7 @@ var loadQuestions = function () {
     });
 };
 
-var loadEmails = function () {
-  var url = '/emails';
-  return database.ref(url).once('value').then(function(snapshot) {
-    return snapshot.val();
-  });
-}
 
 module.exports = {
-    questions : loadQuestions,
-    loadEmail: loadEmails,
+    questions : loadQuestions
 };

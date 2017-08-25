@@ -116,7 +116,7 @@ function SeleccionarCliente(update) {
 
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-    console.log(tipoDocumento);
+    
     update();
   });
 

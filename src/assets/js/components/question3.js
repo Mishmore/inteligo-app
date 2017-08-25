@@ -83,7 +83,7 @@ function Question3(update) {
 		// option3 = option.slice(-1);
       if(pregunta3){
 				sumaX += parseInt(pregunta3);
-				console.log(sumaX);
+				
       }
 		state.screenView = "question-4";
 		update();
