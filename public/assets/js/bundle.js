@@ -1012,8 +1012,7 @@ function Question2(update) {
 	var btn = $('<button type="button" class="btn btn-primary btn-lg">Siguiente</button>');
 
 	btn.prop('disabled', true);
-	console.log(option1);
-	console.log(idChecked1);
+
 	container.append(divAzul);
 	divAzul.append(logoDiv);
 
