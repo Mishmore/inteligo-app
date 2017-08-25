@@ -1,4 +1,6 @@
 const express = require('express');
+var api = require("./api");
+
 const app = express();
 
 app.set('port', (process.env.PORT || 6351));
@@ -7,8 +9,6 @@ app.listen(app.get('port'), function() {
 });
 
 app.use('/', express.static('public'));
-
-var api = require("./api");
 
 app.get('/api/preguntas', function(req, res) {
     var questions = api.questions();
