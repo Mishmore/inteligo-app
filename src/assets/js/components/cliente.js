@@ -1,5 +1,5 @@
 function SeleccionarCliente(update) {
-
+  Modal();
   var container = $('<div class="vertical-center" id="form"></div>');
   var row = $('<div class="row"></div>');
   var h1 = $('<h1 class="col-xs-12 text-center">Vas a empezar a perfilar a:</h1>');
@@ -20,7 +20,7 @@ function SeleccionarCliente(update) {
   var opCe = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="CE">CE</label>');
   var opPasaporte = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="Pasaporte">Pasaporte</label>');
   var opRuc = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="RUC">RUC</label>');
-//input debe aceptar letras
+
   container.append(row);
   row.append(h1);
   row.append(containerCards);
@@ -114,9 +114,9 @@ function SeleccionarCliente(update) {
       tipoDoc();
     }
 
+    $('.modal-backdrop').remove();
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-
     update();
   });
 
