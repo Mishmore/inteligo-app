@@ -46,22 +46,17 @@ h3{
 //Home
 #home {
   h1 {
-    margin-top: 0.5em;
+    margin-top: 2em;
     margin-bottom: 1em;
-    font-size: 4em;
-  }
-
-  img.img-inicio {
-    padding: 70px;
-    padding-top: 0;
+    font-size: 4rem;
   }
 
   .div-input {
     border: 2px solid $brand-color;
     border-radius: 3em;
-    width: 50%;
+    width: 45%;
     margin: auto;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.5em;
     padding-top: 2px;
     padding-bottom: 2px;
     position: relative;
@@ -71,80 +66,8 @@ h3{
     border: 0;
     outline: none;
     border-radius: 1em;
-    font-size: 2.18em;
-    padding: 0.2em 0;
-    padding-left: 0;
-    width: 63%;
-    position: relative;
-    left: 0;
-  }
-
-  a {
-    outline: none;
-    position: absolute;
-    right: -1px;
-    top: 0px;
-  }
-
-  span {
-    height: 2em;
-    font-size: 1.5em;
-    padding: 0.3em;
-    color: $third-color;
-  }
-}
-//Pantalla 1
-#form {
-  h1 {
-    font-size: 3em;
-    color: $blue;
-    font-weight: bold;
-    margin: 0 auto !important;
-  }
-
-  .items-container {
-    margin-top: 4em;
-    margin-bottom: 4em;
-    display: flex;
-    justify-content: space-between;
-    .card {
-      padding-top: 2.5em;
-      padding-bottom: 1.5em;
-      padding-left: 2em;
-      padding-right: 2em;
-      margin: 0 10%;
-      border: 2px solid $brand-color;
-      border-radius: 1em;
-      min-width: 30%;
-      .card-img-top {
-        width: 100%;
-      }
-
-      h3 {
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
-      }
-    }
-  }
-
-  .div-input {
-    border: 2px solid $brand-color;
-    border-radius: 3em;
-    width: 77%;
-    margin: auto;
-    margin-bottom: 0.8em;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    position: relative;
-  }
-
-  input#documento {
-    border: 0;
-    outline: none;
-    border-radius: 1em;
-    font-size: 2.18em;
-    padding: 0.2em 0;
-    padding-left: 1.5em;
+    font-size: 2.1em;
+    padding: 0.08em 0;
     width: 85%;
     position: relative;
     left: 0;
@@ -155,6 +78,91 @@ h3{
     position: absolute;
     right: -1px;
     top: -1px;
+
+    .icon-svg {
+      height: 52px;
+    }
+  }
+
+  span {
+    height: 2em;
+    font-size: 1.4em;
+    padding: 0.3em;
+    color: $third-color;
+  }
+}
+//Pantalla 1
+#form {
+  h1 {
+    font-size: 3em;
+    color: $brand-color;
+    font-weight: bold;
+    margin: 0 auto !important;
+  }
+
+  .items-container {
+    margin-top: 4.5em;
+    margin-bottom: 4em;
+    display: flex;
+    justify-content: space-between;
+    .card {
+      margin: 0 5%;
+      padding-top: 1.3em;
+      padding-bottom: 1.2em;
+      padding-left: 1em;
+      padding-right: 1.3em;
+      border: 2px solid $brand-color;
+      border-radius: 1em;
+      min-width: 10%;
+      width: 30%;
+
+      img.card-img-top {
+        margin-left: 0.2em;
+        width: 100%;
+      }
+
+      h4 {
+        margin-top: 0.5rem;
+        margin-bottom: 0rem;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .div-input {
+    border: 2px solid $brand-color;
+    border-radius: 3em;
+    width: 56%;
+    margin: auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    position: relative;
+  }
+
+  input#documento {
+    border: 0;
+    outline: none;
+    border-radius: 1em;
+    font-size: 2.1em;
+    padding: 0.08em 0;
+    padding-left: 1.6rem;
+    width: 85%;
+    position: relative;
+    left: 0;
+  }
+
+  input#documento::-webkit-input-placeholder {
+    font-size: 22px;
+  }
+
+  a {
+    outline: none;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    .icon-svg {
+      height: 52px;
+    }
   }
 
   .div-radio {
@@ -162,14 +170,9 @@ h3{
     padding-left: 5rem;
   }
 
-  img.card-img-top {
-    margin-bottom: 0.5em;
-    margin-left: 0.2em;
-  }
-
   span {
-    height: 3em;
-    font-size: 1.5em;
+    height: 2.5em;
+    font-size: 1.4em;
     padding: 0.3em;
     color: $third-color;
   }
@@ -178,9 +181,9 @@ h3{
     margin: auto 5rem;
     display: inline-block;
     max-width: 100%;
-    margin-bottom: 5px;
+    padding-bottom: 1em;
     font-weight: 400;
-    font-size: 1.4em;
+    font-size: 1.2em;
     position: relative;
 
     .doc-radio-scss {
@@ -204,12 +207,12 @@ h3{
   .modal-content {
     padding: 0;
     padding-top: 5em;
-    padding-bottom: 5em;
-    width: 55%;
+    padding-bottom: 4em;
+
     h3 {
       font-size: 4rem !important;
       margin: 0;
-      margin-bottom: 1.5em;
+      margin-bottom: 1em;
       &.blue {
         color: $brand-color;
       }
@@ -220,9 +223,9 @@ h3{
         font-size: 2.3em;
         margin-left: 4%;
         margin-right: 4%;
-        height: 2.5em;
+        height: 2em;
         width: 40%;
-        border-radius: 0.5em;
+        border-radius: 0.3em;
         color: white;
         text-align: center;
         padding-left: 0;
@@ -244,7 +247,12 @@ h3{
   }
 
   button {
-    font-size: 3rem;
+    border-radius: 0.4em;
+    font-size: 2.7rem;
+    margin-top: 0.5em;
+    text-align: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
     &:hover {
       color: #ffffff;
       background-color: rgb(35,62,153);

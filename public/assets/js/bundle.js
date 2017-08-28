@@ -426,17 +426,17 @@ function SeleccionarCliente(update) {
   var container = $('<div class="vertical-center" id="form"></div>');
   var row = $('<div class="row"></div>');
   var h1 = $('<h1 class="col-xs-12 text-center">Vas a empezar a perfilar a:</h1>');
-  var containerCards = $('<div class="col-xs-6 col-xs-offset-3 items-container text-center"></div>');
+  var containerCards = $('<div class="col-xs-4 col-xs-offset-4 items-container text-center"></div>');
   var cliente = $('<div class="card"></div>')
   var imgCliente = $('<img class="card-img-top" src="assets/img/Vector.svg">');
-  var titleCliente = $('<div class="card-block"><h3 class="card-title">Cliente</h3></div>');
+  var titleCliente = $('<div class="card-block"><h4 class="card-title text-center">Cliente</h4></div>');
   var prospecto = $('<div class="card"></div>');
   var imgProspecto = $('<img class="card-img-top" src="assets/img/Vector1.svg">');
-  var titleProspecto = $('<div class="card-block"><h3 class="card-title">Prospecto</h3></div>');
+  var titleProspecto = $('<div class="card-block"><h4 class="card-title text-center">Prospecto</h4></div>');
   var inputGroup = $('<div class="col-xs-6 col-xs-offset-3 hidden-on input-group"></div>');
   var divInput =$('<div class="div-input"></div>');
-  var input = $('<input id="documento" type="text" class="" maxlength="11">');
-  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg"></a>');
+  var input = $('<input id="documento" type="text" maxlength="11">');
+  var linkSubmit = $('<a href="#" class=""><img src="assets/img/circle-arrow.svg" class="icon-svg"></a>');
   var spanError = $('<span class="col-xs-12 hidden-on text-center">Completar todos los campos</span>');
   var divOptions =$('<form class="text-center hidden-on div-radio"></form>');
   var opDni = $('<label><input type="radio" class="doc-radio-scss" name="opt-radio" value="DNI">DNI</label>');
@@ -539,7 +539,7 @@ function SeleccionarCliente(update) {
 
     tipoUsuario = state.cliente;
     state.screenView = "Iniciar formulario";
-    
+
     update();
   });
 
@@ -712,7 +712,7 @@ function Home(update) {
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-8 col-xs-offset-2 hidden-on input-group"></div>');
 	var divInput =$('<div class="div-input"></div>');
-  var input = $('<input id="sector" type="text" class="" placeholder="Ingresa tu sector">');
+  var input = $('<input id="sector" type="text" placeholder="Ingresa tu sector" maxlength="14">');
   var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg text-center"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
@@ -765,9 +765,9 @@ function Home(update) {
 function InicioForm(update) {
 	var container = $('<div class="text-center vertical-center" id="inicio-form"></div>');
   var row = $('<div class="row"></div>');
-  var img = $('<img src="assets/img/Group.png" class="col-xs-10 col-sm-6 col-sm-offset-3 col-xs-offset-1">');
-	var h3 = $('<h3 class="col-xs-12 col-sm-6 col-sm-offset-3">Es momento de compartir el dispositivo con tu cliente</h3>');
-	var btnIniciar = $('<div class="col-xs-12"><button type="button" class="btn col-md-2 col-md-offset-5 btn-lg btn-blue">Iniciar</button></div>');
+  var img = $('<img src="assets/img/Group.png" class="col-xs-10 col-sm-4 col-sm-offset-4 col-xs-offset-1">');
+	var h3 = $('<h3 class="col-xs-12 col-sm-4 col-sm-offset-4">Es momento de compartir el dispositivo con tu cliente</h3>');
+	var btnIniciar = $('<div class="col-xs-12"><button type="button" class="btn btn-blue">Iniciar</button></div>');
 
   container.append(row);
   row.append(img);

@@ -6,7 +6,7 @@ function Home(update) {
 	var h1 = $('<h1 class="col-xs-12">Perfila a tu cliente</h1>');
 	var inputGroup = $('<div class="col-xs-8 col-xs-offset-2 hidden-on input-group"></div>');
 	var divInput =$('<div class="div-input"></div>');
-  var input = $('<input id="sector" type="text" class="" placeholder="Ingresa tu sector">');
+  var input = $('<input id="sector" type="text" placeholder="Ingresa tu sector" maxlength="14">');
   var linkSubmit = $('<a href="#"><img src="assets/img/circle-arrow.svg" class="icon-svg text-center"></a>');
 	var spanError = $('<span class="col-xs-12 hidden-on text-center">Este campo es obligatorio</span>');
 
