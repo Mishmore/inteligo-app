@@ -107,7 +107,7 @@ function Profile(update) {
         }
 
     $.ajax({
-          type: "POST",
+           type: "POST",
            url: "/registrarCliente",
            dataType: "json",
            success: function (msg) {
